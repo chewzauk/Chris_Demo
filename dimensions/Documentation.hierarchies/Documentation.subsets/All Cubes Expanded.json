@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"All Cubes Expanded",
+	"Expression":"{DRILLDOWNMEMBER({[Documentation].[Documentation].[2. All Cubes]} ,             {[Documentation].[Documentation].[2. All Cubes]} , RECURSIVE)}"
+}

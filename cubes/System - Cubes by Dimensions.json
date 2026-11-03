@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"System - Cubes by Dimensions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('System - Cubes Mirror')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')"
+		},
+		{
+			"@id":"Dimensions('Measures - System - Cubes by Dimensions')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"System - Cubes by Dimensions.views/Default.json"
+	]
+}

@@ -1,0 +1,127 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime =Now() ;
+nRecords = 0;
+sStatus = '';
+nError = 0;
+sProcess = GetProcessName();
+sErrorFile = GetProcessErrorFilename();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sParameters = 'pConfirm='|pConfirm|'pMessage='|pMessage;   
+#######################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+if (1=0); 
+    sDescription = 'Send a message via teams using Graph API'; 
+    sDeveloper = 'Sempre: Shane James';    
+    sSource = 'Source'; 
+    sSourceType = 'Source Type'; 
+    sTarget = 'Target'; 
+    sTargetType = 'Target Type'; 
+
+    RunProcess( 'System - Documentation - Populate Process Documentation',
+               'pConfirm', 'Y',
+               'pProcess', GetProcessName(),
+               'pDescription', sDescription,
+               'pDeveloper', sDeveloper,
+               'pSource', sSource,
+               'pSourceType', sSourceType,
+               'pTarget', sTarget,
+               'pTargetType', sTargetType );
+endif;
+
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    LogOutput( 'INFO', sStatus );
+    nError=1;
+    ProcessQuit; 
+endif;
+
+### Check first if the current token is still valid otherwise retrieve a new one
+nTokenRetrievalTime = CellGetN( 'System - Parameters', 'Email Access Token Retrieval Time', 'Value' );
+sToken = CellGetS('System - Parameters', 'Email Access Token', 'String' );
+nCurrentTime = Now();
+sCurrentTime = TIMST(nCurrentTime,  '\Y-\m-\d \h:\i:\s');
+nTimeDifference = nCurrentTime-nTokenRetrievalTime;
+LogOutput( 'INFO', NumberToString( nTimeDifference ) );
+### Serial for 55 minutes is 0.038194444
+### If the token is older than 55 minutes old, then retieve a new token
+### token should last 60 minutes, so using a 5 minute buffer
+if (nTimeDifference > 0.038194444); 
+    #### Replace placeholders with your values
+    ## please note that the From email address must be a valid address on the Azure AD
+    ## and must have the send email permissions in graph
+    ## TenantID, ClientID and Client Secret stored in model, but must be provided by client
+
+    sTenantId = CellGetS( 'System - Parameters', 'TenantID', 'String' );
+    sClientId = CellGetS( 'System - Parameters', 'ClientID', 'String' );
+    sClientSecret = CellGetS( 'System - Parameters', 'Client Secret', 'String' );
+    sScope = 'https://graph.microsoft.com/.default';
+
+    #### 1st step Acquire OAuth token #######
+    sTokenUrl   = 'https://login.microsoftonline.com/' | sTenantId | '/oauth2/v2.0/token';
+    sTokenBody  = '-d grant_type=client_credentials'
+              | '&client_id='     | UrlEncode(sClientId)
+              | '&client_secret=' | UrlEncode(sClientSecret)
+              | '&scope='         | UrlEncode(sScope);
+
+    sHeaders = '-h Content-Type: application/x-www-form-urlencoded';
+    
+    sTokenResp  = ExecuteHttpRequest( 'POST',  sTokenUrl,  sHeaders,   sTokenBody, '-k'  );
+    
+    sTokenJson = HttpResponseGetBody();
+    sAccessToken = TRIM(JsonGet(sTokenJson, '/access_token'));
+    #### remove the "" from start and end of token
+    sToken = SUBST(sAccessToken,2, LONG(sAccessToken)-2);
+
+    CellPutN(nCurrentTime, 'System - Parameters', 'Email Access Token Retrieval Time', 'Value' );
+    CellPutS( sCurrentTime,  'System - Parameters', 'Email Access Token Retrieval Time', 'String' );
+
+    CellPutS(sToken, 'System - Parameters', 'Email Access Token', 'String' );
+    LogOutput( 'INFO', sTokenUrl );
+    LogOutput( 'INFO', sTokenbody );
+    LogOutput( 'INFO', sHeaders );
+    LogOutput( 'INFO', sAccessToken );
+    ###################################
+endif;
+
+#### 2nd Step Create the email content and send #######
+sChatID = CellGetS( 'System - Parameters', 'Teams Chat ID', 'String' );
+sUrl     = 'https://graph.microsoft.com/v1.0/chats/' | Urlencode(sChatID) | '/messages';
+sHeader2 = '-h Authorization: Bearer ' | sToken;
+sHeader1 = '-h Content-Type: application/json';
+
+#### Email Json to send
+sMessageJson = '-d {"body": {"contentType": "html", "content": "'|pMessage|'"}} ';
+
+LogOutput( 'INFO', sURL );
+LogOutput( 'INFO', sMessageJson );
+
+#### Request to send email, response should always be 202 if successful
+### a response of 400 generally means an issue with the email body
+### try to avoid "" in any html script
+sSendResp = ExecuteHttpRequest( 'POST', sUrl, sHeader1, sHeader2, sMessageJson);
+LogOutput( 'INFO', 'Graph Response code: '|NumberToString( sSendResp ) );
+if (sSendResp <> 201); 
+    ItemReject( 'The message was not sent. The error code from the server is: '|NumberToString( sSendResp ) ); 
+endif;
+#####################################
+
+
+#endregion
+#region Epilog
+
+
+
+
+
+
+#endregion

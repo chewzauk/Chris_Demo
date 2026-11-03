@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Sys Leaf",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL({DISTINCT({DESCENDANTS([Date].[Date].[TOTAL YEARS])})}, 0)}"
+}

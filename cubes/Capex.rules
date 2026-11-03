@@ -1,0 +1,34 @@
+SKIPCHECK;
+
+#### Actuals from reporting cube
+['Actual', 'Depreciation', 'No Project'] = N: DB('Reporting', !PeriodYear, !Version, 'Base', !Company, ATTRS('Asset', !Asset, 'PLDep Code'), !Currency - Reporting, 'Movement' );
+['Actual', 'Accumulated Depreciation', 'No Project'] = N: DB('Reporting', !PeriodYear, !Version, 'Base', !Company, ATTRS('Asset', !Asset, 'BSDep Code'), !Currency - Reporting, 'Closing Balance' );
+['Actual', 'Initial Cost', 'No Project'] = N: DB('Reporting', !PeriodYear, !Version, 'Base', !Company, ATTRS('Asset', !Asset, 'BSAsset Code'), !Currency - Reporting, 'Movement' );
+
+### Live Plan Rules
+['Live Plan', {'Depreciation', 'Accumulated Depreciation', 'Initial Cost'}] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< DB('System - Parameters - Model', 'Forecast Month YYYYMM', 'String' ), ['Actual'], CONTINUE);
+
+
+['Version':'Version':'Live Plan', 'Measures - Capex':'Measures - Capex':'Depreciation'] = N: DB('Capex', ATTRS('PeriodYear', !PeriodYear, 'Previous'), !Version, !Company, !Project, !Asset, !Currency - Reporting, !Measures - Capex ) +
+                                                                                                                              (['Measures - Capex':'Measures - Capex':'Initial Cost'] \ ATTRN('Asset', !Asset, 'LifeCycle') * -1);
+
+['Version':'Version':'Live Plan', 'Measures - Capex':'Measures - Capex':'Accumulated Depreciation'] = N: If(NUMBR(ATTRS('PeriodYear', !PeriodYear, 'Index')) < NUMBR(ATTRS('PeriodYear', '01 2025', 'Index')), STET, CONTINUE);
+['Version':'Version':'Live Plan', 'Measures - Capex':'Measures - Capex':'Accumulated Depreciation'] = N: ['Measures - Capex':'Measures - Capex':'Depreciation'] 
+                                                                                      + DB('Capex', ATTRS('PeriodYear', !PeriodYear, 'Previous'), !Version, !Company, !Project, !Asset, !Currency - Reporting, !Measures - Capex )
+                                                                                      ;
+
+
+
+FEEDERS;
+
+['Actual'] => ['Live Plan'];
+
+['Measures - Capex':'Measures - Capex':'Initial Cost'] => ['Measures - Capex':'Measures - Capex':'Depreciation'], ['Measures - Capex':'Measures - Capex':'Accumulated Depreciation'];
+
+['Live Plan', 'Accumulated Depreciation'] => DB('Capex', ATTRS('PeriodYear', !PeriodYear, 'Next'), !Version, !Company, !Project, !Asset, !Currency - Reporting, !Measures - Capex ),
+                                                                DB('Balance Sheet', !PeriodYear, !Version, 'Base', !Currency - Reporting, !Company, ATTRS('Asset', !Asset, 'BSDep Code'), 'Closing Balance' );
+
+['Live Plan', 'Initial Cost'] => DB('Balance Sheet', !PeriodYear, !Version, 'Base', !Currency - Reporting, !Company, ATTRS('Asset', !Asset, 'BSAsset Code'), 'Closing Balance' );
+
+['Live Plan', 'Depreciation'] => DB('Reporting', !PeriodYear, !Version, 'Base', !Company, ATTRS('Asset', !Asset, 'PLDep Code'), !Currency - Reporting, 'Movement' ),
+                                              DB('Capex', ATTRS('PeriodYear', !PeriodYear, 'Next'), !Version, !Company, !Project, !Asset, !Currency - Reporting, !Measures - Capex );

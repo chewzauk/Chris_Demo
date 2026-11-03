@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - General Expenses Drivers",
+	"Hierarchies@Code.links":
+	[
+		"Measures - General Expenses Drivers.hierarchies/Measures - General Expenses Drivers.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - General Expenses Drivers')/Hierarchies('Measures - General Expenses Drivers')"
+	}
+}

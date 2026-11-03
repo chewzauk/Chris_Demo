@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Intercompany",
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER(DRILLUPMEMBER({[Accounts - Balance Sheet].[Accounts - Balance Sheet].[Intercompany]} , {[Accounts - Balance Sheet].[Accounts - Balance Sheet].[Net Assets / (Liabilities)^Intercompany]}), {[Accounts - Balance Sheet].[Accounts - Balance Sheet].[Net Assets / (Liabilities)^Intercompany]}, RECURSIVE)}, 0)}"
+}

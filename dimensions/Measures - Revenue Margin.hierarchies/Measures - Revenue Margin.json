@@ -1,0 +1,37 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Revenue Margin",
+	"Elements":
+	[
+		{
+			"Name":"Revenue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Margin %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cost of Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Margin",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Margin",
+			"ComponentName":"Revenue",
+			"Weight":1
+		},
+		{
+			"ParentName":"Margin",
+			"ComponentName":"Cost of Sales",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

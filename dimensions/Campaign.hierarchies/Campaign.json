@@ -1,0 +1,67 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Campaign",
+	"Elements":
+	[
+		{
+			"Name":"Radio ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TV ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TV sponsor",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Public transport",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Billboard",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cinema ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Social Media ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SM influencer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Email",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Affiliate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Newspaper print ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Magazine print ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Newspaper PPC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Event",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Campaign.subsets/Leaf Campaigns.json"
+	]
+}

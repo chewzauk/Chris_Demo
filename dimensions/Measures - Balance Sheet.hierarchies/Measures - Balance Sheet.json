@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Balance Sheet",
+	"Elements":
+	[
+		{
+			"Name":"Closing Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Movement",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closing Balance Override",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

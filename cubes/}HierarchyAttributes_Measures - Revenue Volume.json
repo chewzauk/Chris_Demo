@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"}HierarchyAttributes_Measures - Revenue Volume",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Hierarchies_Measures - Revenue Volume')"
+		},
+		{
+			"@id":"Dimensions('}HierarchyAttributes_Measures - Revenue Volume')"
+		}
+	],
+	"Views@Code.links":[]
+}

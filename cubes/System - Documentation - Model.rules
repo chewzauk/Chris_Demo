@@ -1,0 +1,8 @@
+['EditFlag'] = S: IF(SCAN('Dimension:', !Documentation) > 0, 'N' , CONTINUE);
+['EditFlag'] = S: IF(SCAN('Attributes:', !Documentation) > 0, 'N' , CONTINUE);
+['1. All Dimensions', 'EditFlag'] = S: 'N';
+['2. All Cubes', 'EditFlag'] = S: 'N';
+['1. All Dimensions'] = C: 0;
+['2. All Cubes'] = C: 0;
+[] = S: IF(SCAN('Dimension:', !Documentation) > 0, DB('System - Documentation - Model','Hierarchy: '|SUBST(!Documentation, 12, 50), !'Measures - Documentation' ), CONTINUE );
+[] = C: IF(SCAN('Dimension:', !Documentation) > 0, DB('System - Documentation - Model','Hierarchy: '|SUBST(!Documentation, 12, 50), !'Measures - Documentation' ), CONTINUE );

@@ -1,0 +1,190 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Task",
+	"Elements":
+	[
+		{
+			"Name":"Month End Prep",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Submit Month End Pass 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SLT Month End Review",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Submit Month End Pass 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Close Month in GL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Initialise 3+9 Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3+9 Forecast Contributions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3+9 Forecast Review",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3+9 Forecast Submission",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3+9 Forecast Close",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prepare Investor Pack",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Complete Investor Pack",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year End Prep",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year End Review",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year End Initial Submission",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year End Final Submission",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Finance Calendar",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Demand Planning",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Promo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Marketing",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Demand",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Month End Prep",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Submit Month End Pass 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"SLT Month End Review",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Submit Month End Pass 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Close Month in GL",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Initialise 3+9 Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"3+9 Forecast Contributions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"3+9 Forecast Review",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"3+9 Forecast Submission",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"3+9 Forecast Close",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Prepare Investor Pack",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Complete Investor Pack",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Year End Prep",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Year End Review",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Year End Initial Submission",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Calendar",
+			"ComponentName":"Year End Final Submission",
+			"Weight":1
+		},
+		{
+			"ParentName":"Demand Planning",
+			"ComponentName":"Promo",
+			"Weight":1
+		},
+		{
+			"ParentName":"Demand Planning",
+			"ComponentName":"Marketing",
+			"Weight":1
+		},
+		{
+			"ParentName":"Demand Planning",
+			"ComponentName":"Demand",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

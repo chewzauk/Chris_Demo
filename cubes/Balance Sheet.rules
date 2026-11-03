@@ -1,0 +1,42 @@
+SKIPCHECK;
+
+# ['Closing Balance'] = C: If(ElementLevel( 'PeriodYear', 'PeriodYear', !PeriodYear ) > 0 & 
+#                                     ElementIsAncestor( 'PeriodYear', 'PeriodYear', 'TOTAL YEARS', !PeriodYear ) > 0, DB('Balance Sheet', '12 '|!PeriodYear, !Version, !Scenario Layer, !Currency - Reporting, !Company, !Accounts - Balance Sheet, !Measures - Balance Sheet ), CONTINUE);
+
+### Bring Actuals in
+['Live Plan', 'Base'] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< DB('System - Parameters - Model', 'Forecast Month YYYYMM', 'String' ), ['Actual'], CONTINUE);
+
+### Bank balncing number
+['Accounts - Balance Sheet':'Accounts - Balance Sheet':'Profit Attributable to Equity','Closing Balance'] = N: DB('Reporting', !PeriodYear|' YTD', !Version, !Scenario Layer, !Company, !Accounts - Balance Sheet, !Currency - Reporting, 'Movement' );
+
+#### Custom cube logic
+['Live Plan', {'10045', '10035', '10025', '10015', '11035', '11025', '11015'}, 'Closing Balance'] = N: DB('Balance Sheet', ATTRS('PeriodYear', !PeriodYear, 'Previous'), !Version, !Scenario Layer, !Currency - Reporting, !Company, !Accounts - Balance Sheet, !Measures - Balance Sheet ) +
+                                                                                                                                      DB('Capex', !PeriodYear, !Version, !Company, 'TOTAL PROJECTS', !Accounts - Balance Sheet, !Currency - Reporting, 'Accumulated Depreciation' );
+['Live Plan', {'10040', '10030', '10020', '10010', '11030', '11020', '11010'}, 'Closing Balance'] = N: DB('Balance Sheet', ATTRS('PeriodYear', !PeriodYear, 'Previous'), !Version, !Scenario Layer, !Currency - Reporting, !Company, !Accounts - Balance Sheet, !Measures - Balance Sheet ) +
+                                                                                                                                      DB('Capex', !PeriodYear, !Version, !Company, 'TOTAL PROJECTS', !Accounts - Balance Sheet, !Currency - Reporting, 'Initial Cost' );
+
+### Take Override if not zero
+['Live Plan',  'Closing Balance'] = N: If(['Measures - Balance Sheet':'Measures - Balance Sheet':'Closing Balance Override'] <>0 , ['Measures - Balance Sheet':'Measures - Balance Sheet':'Closing Balance Override'], CONTINUE);
+  
+### Bank balncing number
+['Live Plan', '18010', 'Closing Balance'] = N: DB('Balance Sheet', !PeriodYear, !Version, !Scenario Layer, !Currency - Reporting, !Company, 'Accounts - Balance Sheet':'Net Assets/Liabilities less Cash', !Measures - Balance Sheet ) *-1 ;
+
+### Temp Cal to keep all other balances static
+['Live Plan',  'Closing Balance'] = N: DB('Balance Sheet', ATTRS('PeriodYear', !PeriodYear, 'Previous'), !Version, !Scenario Layer, !Currency - Reporting, !Company, !Accounts - Balance Sheet, !Measures - Balance Sheet );
+
+#### Movement Calc (final calc)
+['Live Plan', 'Movement'] =N: ['Closing Balance'] - DB('Balance Sheet', ATTRS('PeriodYear', !PeriodYear, 'Previous'), !Version, !Scenario Layer, !Currency - Reporting, !Company, !Accounts - Balance Sheet, 'Closing Balance' );
+
+FEEDERS;
+
+['Actual'] => ['Live Plan'];
+
+['Live Plan', 'Closing Balance'] => DB('Balance Sheet', ATTRS('PeriodYear', !PeriodYear, 'Next'), !Version, !Scenario Layer, !Currency - Reporting, !Company, !Accounts - Balance Sheet, !Measures - Balance Sheet ), 
+                                                ['Movement'], 
+                                                DB('Balance Sheet', ATTRS('PeriodYear', !PeriodYear, 'Next'), !Version, !Scenario Layer, !Currency - Reporting, !Company, !Accounts - Balance Sheet, 'Movement' ),
+                                                DB('Reporting', !PeriodYear, !Version, !Scenario Layer, !Company, !Accounts - Balance Sheet, !Currency - Reporting, 'Closing Balance' ),
+                                                DB('Reporting', !PeriodYear, !Version, !Scenario Layer, !Company, !Accounts - Balance Sheet, !Currency - Reporting, 'Movement' );
+['Live Plan', 'Measures - Balance Sheet':'Measures - Balance Sheet':'Closing Balance Override'] => ['Measures - Balance Sheet':'Measures - Balance Sheet':'Closing Balance'];
+['Live Plan', 'Movement'] => DB('Reporting', !PeriodYear, !Version, !Scenario Layer, !Company, !Accounts - Balance Sheet, !Currency - Reporting, 'Movement' );
+  
+['Live Plan', 'Closing Balance'] => ['Accounts - Balance Sheet':'Accounts - Balance Sheet':'18010'];

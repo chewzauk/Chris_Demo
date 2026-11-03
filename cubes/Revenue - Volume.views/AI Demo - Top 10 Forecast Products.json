@@ -1,0 +1,100 @@
+{
+	"@type":"NativeView",
+	"Name":"AI Demo - Top 10 Forecast Products",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Customer')/Hierarchies('Customer')"
+				},
+				"Expression":"{DRILLUPMEMBER({[Customer].[Customer].MEMBERS}, {[Customer].[Customer].[TOTAL CUSTOMERS]})}"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Product')/Hierarchies('Product')"
+				},
+				"Alias":"Description",
+				"Expression":"{TOPCOUNT({DISTINCT({EXCEPT({ {TM1FILTERBYLEVEL(TM1SUBSETALL([Product].[Product]) , 0)}}, {GENERATE({EXCEPT({ {TM1FILTERBYLEVEL(TM1SUBSETALL([Product].[Product]) , 0)}}, {[Product].[Product].Levels(0).MEMBERS}, ALL)}, {[Product].[Product].CURRENTMEMBER.ANCESTORS})}, ALL)})}, 10.0, [Revenue - Volume].([Customer].[Customer].[TOTAL CUSTOMERS]))}"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Measures - Revenue Volume')/Hierarchies('Measures - Revenue Volume')"
+				},
+				"Expression":"{[Measures - Revenue Volume].[Measures - Revenue Volume].MEMBERS}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Measures - Revenue Volume')/Hierarchies('Measures - Revenue Volume')/Elements('Quantity')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Version')/Hierarchies('Version')"
+				},
+				"Expression":"{[Version].[Version].MEMBERS}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Live Plan')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')"
+				},
+				"Expression":"{[Scenario Layer].[Scenario Layer].MEMBERS}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')/Elements('Base - Manual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')"
+				},
+				"Alias":"Short Name",
+				"Expression":"{[PeriodYear].[PeriodYear].[2025],[PeriodYear].[PeriodYear].[2026]}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('2026')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"",
+	"ViewExtractSkipRuleValues": false,
+	"ViewExtractSkipConsolidatedValues": true,
+	"ViewExtractSkipZeroes": true,
+	"IsSuppressComputeOnOpen": false,
+	"IsAutocalculate": true,
+	"IsDeferComputeOnLeafDataEntry": false
+}

@@ -1,0 +1,35 @@
+{
+	"@type":"Subset",
+	"Name":"Post Stationery and Telephone",
+	"Alias":"CodeDescription",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('72010')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('72020')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('72030')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('72040')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('72110')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('72120')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('72210')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('72310')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('72410')"
+		}
+	]
+}

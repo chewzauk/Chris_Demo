@@ -1,0 +1,4615 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Category",
+	"ElementsSortType":"ByHierarchy",
+	"Elements":
+	[
+		{
+			"Name":"Total Category",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Executive & Corporate",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R100",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R101",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R102",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R103",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R104",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R105",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R106",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R107",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R108",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R109",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R111",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R112",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R113",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R114",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Finance & Accounting",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R115",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R116",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R117",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R118",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R119",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R121",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R122",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R123",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R124",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R125",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R126",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R127",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R128",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R129",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R131",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R132",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R133",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R134",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Merchandising & Buying",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R135",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R136",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R137",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R138",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R139",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R140",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R141",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R142",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R143",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R144",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R145",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R146",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R147",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R148",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R149",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R150",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R151",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R152",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R153",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R154",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Supply Chain, Logistics & Operations",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R155",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R156",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R157",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R158",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R159",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R160",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R161",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R162",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R163",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R164",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R165",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R166",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R167",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R168",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R169",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R170",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R171",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R172",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R173",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R174",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R175",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R176",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R177",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R178",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R179",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R180",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R181",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R182",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R183",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R184",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R185",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R186",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R187",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R188",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R189",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R190",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R411",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R412",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R413",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R414",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R415",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R416",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R417",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R418",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R419",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R420",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R421",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R422",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R423",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R424",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R425",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R426",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R427",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R428",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R429",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R430",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R431",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R432",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R433",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R434",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R435",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R436",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R437",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R438",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R439",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R440",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R441",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R442",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R443",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R444",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R445",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R446",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R447",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R448",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R449",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R450",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R451",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R452",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R453",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R454",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R455",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R456",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R457",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R458",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R459",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R460",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R461",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Product, Design & Creative",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R191",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R192",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R193",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R194",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R195",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R196",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R197",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R198",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R199",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R200",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R203",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R204",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R205",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R206",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R207",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R208",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R209",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Marketing, Brand & Customer",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R211",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R212",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R213",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R214",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R215",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R216",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R217",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R218",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R219",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R220",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R221",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R222",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R223",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R224",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R225",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R226",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R227",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R228",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R229",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R230",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R231",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R232",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R233",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R234",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R235",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R236",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R237",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R238",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R239",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R240",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R241",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R242",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R243",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R244",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R245",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R246",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R247",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales & E-Commerce",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R248",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R249",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R250",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R251",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R252",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R253",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R254",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R255",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R256",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R257",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R258",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R259",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R260",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R261",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R262",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R263",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R264",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R265",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R266",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R267",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R268",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R269",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R270",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R271",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R272",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R273",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R274",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R275",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R276",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R277",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R278",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R279",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R280",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R281",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R282",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R283",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R284",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R285",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R286",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R287",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R288",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R289",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R462",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R463",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R464",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R465",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R466",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R467",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R468",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R469",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R470",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R471",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R472",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R473",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R474",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R475",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R476",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R477",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R478",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R479",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R480",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R481",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R482",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R483",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R484",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R485",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R486",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R487",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R488",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R489",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R490",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R491",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R492",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R493",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R494",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R495",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R496",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R497",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R498",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R499",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R500",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R503",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R504",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R505",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R506",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R507",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R508",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R509",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R510",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R511",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R512",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R513",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R514",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R515",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R516",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R517",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R518",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R519",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R520",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R521",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R522",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R523",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R524",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R525",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R526",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R527",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R528",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R529",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R530",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R531",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R532",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R533",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R534",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R535",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R536",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R537",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R538",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R539",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R540",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R541",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R542",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R543",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R544",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R545",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R546",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R547",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R548",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R549",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R550",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R551",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R552",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R553",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R554",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R555",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R556",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R557",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R558",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R559",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R560",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R561",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R562",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R563",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R564",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R565",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R566",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R567",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R568",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R569",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R570",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R571",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R572",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R573",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R574",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R575",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R576",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R577",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R578",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R579",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R580",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R581",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R582",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R583",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R584",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R585",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R586",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R587",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R588",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R589",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R590",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R591",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R592",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R593",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R594",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R595",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R596",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R597",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R598",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R599",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Technology & Data",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R290",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R291",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R292",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R293",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R294",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R295",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R296",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R297",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R298",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R299",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R300",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R301",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R302",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R303",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R304",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R305",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R306",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R307",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R308",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R309",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R310",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R311",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R312",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R313",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R314",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R315",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R316",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R317",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R318",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R319",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R320",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R321",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R322",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R323",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R324",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R325",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R326",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R327",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R328",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R329",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R330",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R331",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R332",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R333",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R334",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R335",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R336",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R337",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R338",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R339",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R340",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R341",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R342",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R343",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R344",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R345",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R346",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R347",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R348",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R349",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"People, Culture & HR",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R350",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R351",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R352",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R353",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R354",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R355",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R356",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R357",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R358",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R359",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R360",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R361",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R362",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R363",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R364",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R365",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R366",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R367",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R368",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R369",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R370",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R371",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R372",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R373",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R374",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Legal, Compliance & Corporate Services",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R375",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R376",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R377",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R378",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R379",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R380",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R381",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R382",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R383",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R384",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R385",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R386",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R387",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R388",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R389",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Strategy, Analytics & Innovation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R390",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R391",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R392",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R393",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R394",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R395",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R396",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R397",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R398",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R399",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R400",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R402",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R403",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R404",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R405",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R406",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R407",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R408",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R409",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"Executive & Corporate",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"Finance & Accounting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"Merchandising & Buying",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"Supply Chain, Logistics & Operations",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"Product, Design & Creative",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"Marketing, Brand & Customer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"Sales & E-Commerce",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"Technology & Data",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"People, Culture & HR",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"Legal, Compliance & Corporate Services",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"Strategy, Analytics & Innovation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R100",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R101",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R102",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R103",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R104",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R105",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R106",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R107",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R108",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R109",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R111",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R112",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R113",
+			"Weight":1
+		},
+		{
+			"ParentName":"Executive & Corporate",
+			"ComponentName":"R114",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R115",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R116",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R117",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R118",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R119",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R121",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R122",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R123",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R124",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R125",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R126",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R127",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R128",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R129",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R130",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R131",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R132",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R133",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance & Accounting",
+			"ComponentName":"R134",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R135",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R136",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R137",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R138",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R139",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R140",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R141",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R142",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R143",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R144",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R145",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R146",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R147",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R148",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R149",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R150",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R151",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R152",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R153",
+			"Weight":1
+		},
+		{
+			"ParentName":"Merchandising & Buying",
+			"ComponentName":"R154",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R155",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R156",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R157",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R158",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R159",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R160",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R161",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R162",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R163",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R164",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R165",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R166",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R167",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R168",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R169",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R170",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R171",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R172",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R173",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R174",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R175",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R176",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R177",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R178",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R179",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R180",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R181",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R182",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R183",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R184",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R185",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R186",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R187",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R188",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R189",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R190",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R410",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R411",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R412",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R413",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R414",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R415",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R416",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R417",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R418",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R419",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R420",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R421",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R422",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R423",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R424",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R425",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R426",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R427",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R428",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R429",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R430",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R431",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R432",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R433",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R434",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R435",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R436",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R437",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R438",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R439",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R440",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R441",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R442",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R443",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R444",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R445",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R446",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R447",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R448",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R449",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R450",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R451",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R452",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R453",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R454",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R455",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R456",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R457",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R458",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R459",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R460",
+			"Weight":1
+		},
+		{
+			"ParentName":"Supply Chain, Logistics & Operations",
+			"ComponentName":"R461",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R191",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R192",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R193",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R194",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R195",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R196",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R197",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R198",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R199",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R200",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R201",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R202",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R203",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R204",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R205",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R206",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R207",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R208",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R209",
+			"Weight":1
+		},
+		{
+			"ParentName":"Product, Design & Creative",
+			"ComponentName":"R210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R211",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R212",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R213",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R214",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R215",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R216",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R217",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R218",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R219",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R220",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R221",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R222",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R223",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R224",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R225",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R226",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R227",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R228",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R229",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R230",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R231",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R232",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R233",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R234",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R235",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R236",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R237",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R238",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R239",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R240",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R241",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R242",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R243",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R244",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R245",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R246",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing, Brand & Customer",
+			"ComponentName":"R247",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R248",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R249",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R250",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R251",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R252",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R253",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R254",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R255",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R256",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R257",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R258",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R259",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R260",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R261",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R262",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R263",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R264",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R265",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R266",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R267",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R268",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R269",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R270",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R271",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R272",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R273",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R274",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R275",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R276",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R277",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R278",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R279",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R280",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R281",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R282",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R283",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R284",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R285",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R286",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R287",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R288",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R289",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R462",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R463",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R464",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R465",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R466",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R467",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R468",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R469",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R470",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R471",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R472",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R473",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R474",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R475",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R476",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R477",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R478",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R479",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R480",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R481",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R482",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R483",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R484",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R485",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R486",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R487",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R488",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R489",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R490",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R491",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R492",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R493",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R494",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R495",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R496",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R497",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R498",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R499",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R500",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R501",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R502",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R503",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R504",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R505",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R506",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R507",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R508",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R509",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R510",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R511",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R512",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R513",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R514",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R515",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R516",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R517",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R518",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R519",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R520",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R521",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R522",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R523",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R524",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R525",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R526",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R527",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R528",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R529",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R530",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R531",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R532",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R533",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R534",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R535",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R536",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R537",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R538",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R539",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R540",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R541",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R542",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R543",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R544",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R545",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R546",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R547",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R548",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R549",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R550",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R551",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R552",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R553",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R554",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R555",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R556",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R557",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R558",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R559",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R560",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R561",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R562",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R563",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R564",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R565",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R566",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R567",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R568",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R569",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R570",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R571",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R572",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R573",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R574",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R575",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R576",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R577",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R578",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R579",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R580",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R581",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R582",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R583",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R584",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R585",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R586",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R587",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R588",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R589",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R590",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R591",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R592",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R593",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R594",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R595",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R596",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R597",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R598",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales & E-Commerce",
+			"ComponentName":"R599",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R290",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R291",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R292",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R293",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R294",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R295",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R296",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R297",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R298",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R299",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R300",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R301",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R302",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R303",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R304",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R305",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R306",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R307",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R308",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R309",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R310",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R311",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R312",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R313",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R314",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R315",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R316",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R317",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R318",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R319",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R320",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R321",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R322",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R323",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R324",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R325",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R326",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R327",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R328",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R329",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R330",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R331",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R332",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R333",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R334",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R335",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R336",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R337",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R338",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R339",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R340",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R341",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R342",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R343",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R344",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R345",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R346",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R347",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R348",
+			"Weight":1
+		},
+		{
+			"ParentName":"Technology & Data",
+			"ComponentName":"R349",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R350",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R351",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R352",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R353",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R354",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R355",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R356",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R357",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R358",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R359",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R360",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R361",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R362",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R363",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R364",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R365",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R366",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R367",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R368",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R369",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R370",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R371",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R372",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R373",
+			"Weight":1
+		},
+		{
+			"ParentName":"People, Culture & HR",
+			"ComponentName":"R374",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R375",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R376",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R377",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R378",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R379",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R380",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R381",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R382",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R383",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R384",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R385",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R386",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R387",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R388",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal, Compliance & Corporate Services",
+			"ComponentName":"R389",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R390",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R391",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R392",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R393",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R394",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R395",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R396",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R397",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R398",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R399",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R400",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R401",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R402",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R403",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R404",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R405",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R406",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R407",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R408",
+			"Weight":1
+		},
+		{
+			"ParentName":"Strategy, Analytics & Innovation",
+			"ComponentName":"R409",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

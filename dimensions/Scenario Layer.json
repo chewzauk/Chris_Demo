@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Scenario Layer",
+	"Hierarchies@Code.links":
+	[
+		"Scenario Layer.hierarchies/Scenario Layer.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')"
+	}
+}

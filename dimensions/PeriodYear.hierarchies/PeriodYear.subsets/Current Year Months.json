@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Current Year Months",
+	"ExpandAbove":true,
+	"Alias":"Short Name",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL(DRILLDOWNMEMBER({[PeriodYear].[PeriodYear].[2026]} , {[PeriodYear].[PeriodYear].[2026]} , RECURSIVE) , 0)}"
+}

@@ -1,0 +1,47 @@
+{
+	"@type":"Process",
+	"Name":"}Plans_CopyTask",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"}Plans_CopyTask.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pPlan",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pNewPlan",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pTask",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pNewTask",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pPrefix",
+			"Prompt":"",
+			"Value":"}Plans",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "17791073530005",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Revenue - Services",
+	"Elements":
+	[
+		{
+			"Name":"Hours",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rate Per Hour",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Max Hours",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

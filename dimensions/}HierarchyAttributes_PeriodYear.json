@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"}HierarchyAttributes_PeriodYear",
+	"Hierarchies@Code.links":
+	[
+		"}HierarchyAttributes_PeriodYear.hierarchies/}HierarchyAttributes_PeriodYear.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('}HierarchyAttributes_PeriodYear')/Hierarchies('}HierarchyAttributes_PeriodYear')"
+	}
+}

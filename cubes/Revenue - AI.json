@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Revenue - AI",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Customer')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Measures - Revenue Volume')"
+		}
+	],
+	"Rules@Code.link":"Revenue - AI.rules",
+	"Views@Code.links":[]
+}

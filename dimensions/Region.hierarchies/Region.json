@@ -1,0 +1,19 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Region",
+	"Elements":
+	[
+		{
+			"Name":"UK",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Europe",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Region.subsets/All Members.json"
+	]
+}

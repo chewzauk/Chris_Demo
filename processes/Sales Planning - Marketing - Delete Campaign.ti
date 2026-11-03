@@ -1,0 +1,18 @@
+#region Prolog
+
+# Designed only to be run from a demo PAW screen where Promos are added/edited, allowing the user to delete a line in one click rather than manually erasing a number of cells.
+# As a demo, we don't ask for Are You Sure? But in real life you would add that as a parameter and default to No.
+
+# Also as this is for use in a demo we don't validate anything and we don't email results to the user, log this running or any other such normal admin/housekeeping.
+sTargetCube = 'Sales Planning - Marketing';
+
+CellPutS ( '', sTargetCube , pCampaign, pProduct, pRegion, 'Campaign Type');
+CellPutN ( 0, sTargetCube , pCampaign, pProduct, pRegion, 'Override');
+CellPutS ( '', sTargetCube , pCampaign, pProduct, pRegion, 'Start Period');
+CellPutS ( '', sTargetCube , pCampaign, pProduct, pRegion, 'End Period');
+CellPutS ( '', sTargetCube , pCampaign, pProduct, pRegion, 'Description');
+CellPutS ( '', sTargetCube , pCampaign, pProduct, pRegion, 'Active');
+
+
+
+#endregion

@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Stock Drivers",
+	"Elements":
+	[
+		{
+			"Name":"Product Wastage %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Safety Stock Limit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Default Shipping Method",
+			"Type":"String"
+		},
+		{
+			"Name":"Product Lead Time",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

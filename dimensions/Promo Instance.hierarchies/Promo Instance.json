@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Promo Instance",
+	"Elements":
+	[
+		{
+			"Name":"Promo 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Promo 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Promo 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Promo 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Promo 5",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Promo Instance.subsets/All Invalid Instances.json",
+		"Promo Instance.subsets/All Leaf Instances.json",
+		"Promo Instance.subsets/All Used Instances.json",
+		"Promo Instance.subsets/All Used Instances + First Empty Row.json",
+		"Promo Instance.subsets/All Valid Instances.json",
+		"Promo Instance.subsets/First Empty Instance.json"
+	]
+}

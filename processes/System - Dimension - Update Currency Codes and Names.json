@@ -1,0 +1,64 @@
+{
+	"@type":"Process",
+	"Name":"System - Dimension - Update Currency Codes and Names",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Dimension - Update Currency Codes and Names.ti",
+	"DataSource":
+	{
+		"Type":"ASCII",
+		"dataSourceNameForServer":"model_upload/Currency Info.csv",
+		"dataSourceNameForClient":"model_upload/Currency Info.csv",
+		"asciiHeaderRecords":0,
+		"asciiQuoteCharacter":"\"",
+		"asciiDecimalSeparator":".",
+		"asciiThousandSeparator":",",
+		"asciiDelimiterType":"Character",
+		"asciiDelimiterChar":","
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pDim",
+			"Prompt":"Currency dimension",
+			"Value":"0",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vName",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vCurrencyCode",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vSymbol",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000051"
+}

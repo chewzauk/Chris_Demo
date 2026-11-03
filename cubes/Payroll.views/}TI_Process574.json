@@ -1,0 +1,94 @@
+{
+	"@type":"NativeView",
+	"Name":"}TI_Process574",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Measures - Payroll')/Hierarchies('Measures - Payroll')/Subsets('}TI_Process65')"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Role')/Hierarchies('Role')"
+				},
+				"Expression":"TM1SubsetAll([Role])"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')"
+				},
+				"Expression":"TM1SubsetAll([PeriodYear])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('TOTAL YEARS')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Subsets('}TI_Process65')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Live Plan')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')"
+				},
+				"Expression":"TM1SubsetAll([Scenario Layer])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')/Elements('TOTAL LAYERS')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Company')/Hierarchies('Company')"
+				},
+				"Expression":"TM1SubsetAll([Company])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('ALL COMPANIES')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Employee')/Hierarchies('Employee')/Subsets('}TI_Process65')"
+			},
+			"Selected":null
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"",
+	"ViewExtractSkipConsolidatedValues": true,
+	"ViewExtractSkipZeroes": true,
+	"ViewExtractSkipRuleValues": false
+}

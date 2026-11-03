@@ -1,0 +1,345 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+sDescription = 'This process dynamically creates a Windows command line batch file (.bat) to backup a TM1 data directory.
+ It uses the third-party program 7-Zip to compress all the server files into a single time-stamped archive file.
+So you will first need 7-Zip ready to use. The location of this can vary so the folder location for 7za.exe needs to be edited below.
+ On https://www.7-zip.org/download.html there should be a "Z-Zip Extra: standalone console version" package option to download.
+ Extract that and you will just need the 3 files (in the x64 folder if you are using a 64-bit version of Windows, which is likely): 
+    7za.exe, 7za.dll, 7zxa.dll.
+ You can put those anywhere you like, and then put that location in the s7ZipFolder variable below.
+ Note: if it is run more than once in a day the latest will overwrite - not add to - the previous archive file.
+ A typical example command line would be:
+ "D:\Program Files\7-Zip\7za.exe" a "D:\TM1 Production Model\Backups\TM1Backup_%date:~6,4%-%date:~3,2%-%date:~0,2%.7z" "D:\TM1 Production Model\CXMD\*" '; 
+sDeveloper = 'Sempre: Philip Bichard';    
+sSource = 'Source'; 
+sSourceType = 'Source Type'; 
+sTarget = 'Target'; 
+sTargetType = 'Target Type'; 
+
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+
+
+sValidationErrorMessage = '';
+sResultMessage = '';
+
+# ###############################################
+# YOU CAN CHANGE THIS IF NEEDED.
+
+s7ZipFolder = '.\';
+
+# ###############################################
+# YOU CAN CHANGE THESE IF NEEDED.
+# You can either store the source and target folders in a lookup cube or just hardcode them here.
+
+
+sBatchFileFolder =CellGetS( 'System - Parameters', 'Root Path on Server', 'String' );
+
+sSourceBackupFolder = CellGetS( 'System - Parameters', 'Root Path on Server', 'String' );
+
+sTargetBackupFolder = CellGetS( 'System - Parameters', 'Backup Path on Server', 'String' );
+
+sSourceImportFolder = CellGetS( 'System - Parameters', 'Import Path on Server', 'String' );
+
+# ###############################################
+# Ensure folders have a backslash at the end
+
+if( subst( s7ZipFolder, LONG( s7ZipFolder), 1) @<> '\' );		s7ZipFolder = s7ZipFolder | '\';			endif;
+if( subst( sBatchFileFolder, LONG( sBatchFileFolder), 1) @<> '\' );		sBatchFileFolder = sBatchFileFolder | '\';		endif;
+if( subst( sSourceBackupFolder, LONG( sSourceBackupFolder), 1) @<> '\' );	sSourceBackupFolder = sSourceBackupFolder | '\';	endif;
+if( subst( sTargetBackupFolder, LONG( sTargetBackupFolder), 1) @<> '\' );	sTargetBackupFolder = sTargetBackupFolder | '\';	endif;
+
+# ###############################################
+# Variable that controls whether the backup command is actually issued at the end.
+
+iPerformBackup = 1;
+
+# ###############################################
+# Perform validations
+
+if( upper( subst( pConfirm, 1, 1 ) ) @<> 'Y' );
+	iPerformBackup = 0;
+	sStatus = 'Backup aborted because you did not enter Y into the Are You Sure? parameter.';
+	ProcessBreak;
+endif;
+
+if (FileExists( s7ZipFolder | '7za.exe' ) = 0);
+	iPerformBackup = 0;
+	sStatus = 'Backup aborted because archive utility 7za.exe does not exist in specified folder [' | s7ZipFolder | '].';
+	ProcessBreak;
+endif;
+
+if (sSourceBackupFolder @= '\' );
+	iPerformBackup = 0;
+	sStatus = 'Backup aborted because folder to backup was not found in System - Parameters cube.';
+	ProcessBreak;
+endif;
+
+if (sTargetBackupFolder @= '\' );
+	iPerformBackup = 0;
+	sStatus = 'Backup aborted because destination folder to write to was not found in System - Parameters cube.';
+	ProcessBreak;
+endif;
+
+# IBM Clound installations likely have a Region setting of English (United States) which means the date is in mm/dd/yyyy
+if ( pDateFormat @<> 'US' & pDateFormat @<> 'UK' );
+	iPerformBackup = 0;
+	sStatus = 'Backup aborted because Date Format parameter is [' | pDateFormat | '] and only US or UK are currently supported.';
+	ProcessBreak;
+endif;
+sDateFormat = trim(upper(pDateFormat)) ;
+
+# ###############################################
+# Optional. When run by a chore, see if we need to backup at weekends.
+# Assume this will run in a chore after midnight so Saturday's run would back up Friday's work.
+# Therefore choosing to skip weekends means skipping runs on Sunday and Monday.
+
+if( subst( trim( upper( pRunAtWeekends ) ), 1, 1) @= 'Y' );
+	sRunAtWeekends = 'Y';
+else;
+	sRunAtWeekends = 'N';
+endif;
+
+iCalledByChore = if( subst( TM1User(), 1, 2 ) @= 'R*', 1, 0 );
+
+iWeekend = 0;
+iDayOfWeek = mod( DayNo( TODAY) + 21915, 7 );
+if (iDayOfWeek = 0 % iDayOfWeek = 6);
+	iWeekend = 1;
+endif;
+
+if( iCalledByChore = 1 & iWeekend = 1 & sRunAtWeekends @= 'N' );
+	iPerformBackup = 0;
+#asciioutput('test.txt', 'here')
+	sStatus = 'Backup aborted because it is the weekend and the RunAtWeekend paremeter was N.';
+    ProcessBreak;
+endif;
+
+# ###############################################
+# Construct the command line to make a dynamic batch file.
+# If there are any problemd with the folder structure created it will likely be that the %date% command is returning an unexpected format result.
+# For example, some Wndow systems will return e.g. 23/12/2020 while others will return e.g. Thu 12/23/2020.
+# With so many possiblities, this version will just deal with two common options - the US locale used by IBM cloud servers and the UK version.
+# As well as reversing the day and month parts of the returned string, US also returns the day name, e.g. Thu 12/23/2021, which is annoying.
+
+if ( sDateFormat @= 'US' );
+#	sCommandLineData = 'cmd /c " "' | s7ZipFolder | '7za.exe" a "' | sTargetBackupFolder | 'TM1Backup_%date:~10,4%-%date:~4,2%-%date:~7,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%.7z" "' | sSourceBackupFolder | '*" > output_from_backup_process.txt 2>&1 " '; 
+	sCommandLineData = 'cmd /c " "' | s7ZipFolder | '7za.exe" a "' | sTargetBackupFolder | 'TM1Backup_%date:~10,4%-%date:~4,2%-%date:~7,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%.7z" "' | sSourceBackupFolder | '*" -x!model_upload -x!}async > output_from_backup_process.txt 2>&1 " '; 
+else;
+#	sCommandLineData = 'cmd /c " "' | s7ZipFolder | '7za.exe" a "' | sTargetBackupFolder | 'TM1Backup_%date:~6,4%-%date:~3,2%-%date:~0,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%.7z" "' | sSourceBackupFolder | '*" > output_from_backup_process.txt 2>&1 " '; 
+	sCommandLineData = 'cmd /c " "' | s7ZipFolder | '7za.exe" a "' | sTargetBackupFolder | 'TM1Backup_%date:~6,4%-%date:~3,2%-%date:~0,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%.7z" "' | sSourceBackupFolder | '*" -x!model_upload -x!}async > output_from_backup_process.txt 2>&1 " '; 
+
+endif;
+
+# This works, but if wanting to call an existing batch file instead in which you can use more sophisticated code to cope with more scenarios.
+# sCommandLine = 'cmd /c " "' | sBatchFileFolder | 'TM1_Backup.bat" "' | sTargetBackupFolder | '" "' | sSourceBackupFolder | '" > output_from_backup_command.txt 2>&1 " ';
+
+# ###############################################
+# 2024-04-09. Add seperate backup file for  \import folder or any other folders if desired.
+
+
+if ( sDateFormat @= 'US' );
+	sCommandLineImport = 'cmd /c " "' | s7ZipFolder | '7za.exe" a "' | sTargetBackupFolder | 'TM1BackupImportFolder_%date:~10,4%-%date:~4,2%-%date:~7,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%.7z" "' | sSourceImportFolder | '*"  > output_from_backup_process2.txt 2>&1 " '; 
+	LogOutput('INFO', 'Files folder: ' | sCommandLineImport);
+else;
+	sCommandLineImport = 'cmd /c " "' | s7ZipFolder | '7za.exe" a "' | sTargetBackupFolder | 'TM1BackupImportFolder_%date:~6,4%-%date:~3,2%-%date:~0,2%_%TIME:~0,2%.%TIME:~3,2%.%TIME:~6,2%.7z" "' | sSourceImportFolder | '*"  > output_from_backup_import_process2.txt 2>&1 " '; 
+endif;
+
+# ###############################################
+
+#endregion
+#region Epilog
+
+# ###############################################
+#LogOutput('INFO', 'Here');
+LogOutput('INFO', 'Status: ' | sStatus);
+
+if (iPerformBackup = 1);
+	# Save the server to disk so the latest information can be backed up.
+	# Note: if this process is being run at the end of a long chore then IBM recommend the SaveDataAll command
+	# is run in its own dedicated Chore in case earlier processes in a chore cause objects to still be locked.
+	# Good practice is to create a Chore (set to Multiple Commit Mode) with the first process performing just a SaveDataAll and then this backup process as #2.
+
+	if( upper( subst(pSaveToDisk, 1, 1)) @= 'Y' );
+		SaveDataAll;
+	endif;
+
+	# Optionally, output the exact command line which will be executed. Helpful for debugging.
+	DatasourceASCIIQuoteCharacter = '';
+	asciioutput( 'Results from ' | GetProcessName | '.txt', sCommandLineData );
+	asciioutput( 'Results from ' | GetProcessName | '.txt', sCommandLineImport );
+	DatasourceASCIIQuoteCharacter = '"';
+
+   	# Execute the batch file for the Data folder and do not wait for it to finish.
+	ExecuteCommand( sCommandLineData, 0 ); 
+	asciioutput( 'Results from ' | GetProcessName | '.txt', 'Backup executed to backup from [' | sSourceBackupFolder | '] to destination folder [' | sTargetBackupFolder | '].' );
+
+#	# Have to wait for the small quick one to finish as the same shell session can't run two 7zip commands simultaneously and the second will fail..
+#	ExecuteCommand( sCommandLineImport, 1 ); 
+#	asciioutput( 'Results from ' | GetProcessName | '.txt', 'Backup of CSV files import folder executed from [' | sSourceImportFolder | '] to destination folder [' | sTargetBackupFolder | '].' );
+
+else;
+	# Can not perform a backup because of the "do not run at weekends" featurem but if it was caused by a validation error, report it.
+	if ( sValidationErrorMessage @<> '' );
+		asciioutput( 'Error from ' | GetProcessName | '.txt', sValidationErrorMessage );
+	endif;
+endif;
+
+# ############################################
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+#### Edit This
+sParameters = 'pConfirm='|pConfirm|', pEmail='|pEmail;   
+
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    iSendEmail = 0;
+
+    if (iCalledByChore = 0);
+        iSendEmail = 1;
+    elseif (nError > 0);
+        iSendEmail = 1;
+    endif;
+
+    if (iSendEmail = 1);
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        if (DimensionExists('}ElementAttributes_}Clients') = 1);
+            if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+                sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+                if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+            endif;
+        endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+            IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+            else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+        sCC = 'X';
+        sBCC = 'X';
+
+        if (nError = 0); 
+            sSubject = 'Process Success - '|sProcess; 
+            sMessageStatus = '<font color="green">successfully</font>';
+        Else;
+            sSubject = 'Process Error - '|sProcess;
+            sMessageStatus = '<font color="red">with errors</font> ';
+        Endif; 
+
+        if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+        elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+        else;
+            sUsernameToDisplay = trim(CellGetS('System - Parameters - User', Tm1User(), 'Full Name', 'String' ));
+            if ( sUsernameToDisplay @= '' ); sUsernameToDisplay = sTM1User;  endif;
+        endif;
+
+        sEmailMessage = '<p>Dear '|sUsernameToDisplay|'</p><p>PROCESS: '|sProcess|' has completed '|sMessageStatus|'</p><p>The following parameters were used - '|sParameters|'</p>';
+        sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+        sEmailMessage = sEmailMessage | '<p>   </p>';
+
+        sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+        sAttachment = 'X';
+
+        # Now call the process that sends the email.
+        if (iCalledByChore = 1);
+            if (sAdmin1Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+            endif;
+            if (sAdmin2Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+            if (sAdmin3Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+        Else;
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+    endif;
+endif;
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"LEAF",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL({DRILLDOWNMEMBER({[Currency].[Currency].[TOTAL CURRENCIES]} , {[Currency].[Currency].[TOTAL CURRENCIES]} , RECURSIVE)}, 0)}"
+}

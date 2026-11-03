@@ -1,0 +1,118 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+sDescription = 'Process to send email to all users or just active users'; 
+sDeveloper = 'Sempre: Shane James';    
+sSource = 'Dimension'; 
+sSourceType = '}Clients'; 
+sTarget = 'Users'; 
+sTargetType = ''; 
+
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sCC = 'X';
+sBCC = 'X';
+sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+sAttachment = 'X';
+#endregion
+#region Data
+
+sUsernameToDisplay = trim(CellGetS('System - Parameters - User', vClient, 'Full Name', 'String' ));
+sRecipient = CellGetS( 'System - Parameters - User', vClient, 'Email', 'String' );
+
+sEmailMessage = '<p>Dear '|sUsernameToDisplay|'</p>';
+sEmailMessage = sEmailMessage|'<p>'|pBody|'</p>';
+sEmailMessage = sEmailMessage|'<p>Thank you for your understanding</p>';
+sEmailMessage = sEmailMessage|'<p>Kind regards Planning Analytics Admin</p>';
+
+sActive = CellGetS( 'System - Parameters - User', vClient, 'Active Status', 'String' );
+
+If(pActiveOnly @= '');
+  vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', pSubject, 
+                             'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+    nRecords = nRecords+1;
+Endif;
+
+If(pActiveOnly @= 'Y' & sActive @= 'Online');
+    vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', pSubject, 
+                             'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+    nRecords = nRecords+1;
+Else;
+    ItemSkip;
+Endif;
+
+
+#endregion
+#region Epilog
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+#### Edit This
+sParameters = 'pConfirm='|pConfirm;   
+
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

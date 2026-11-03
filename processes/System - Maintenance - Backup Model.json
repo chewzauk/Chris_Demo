@@ -1,0 +1,45 @@
+{
+	"@type":"Process",
+	"Name":"System - Maintenance - Backup Model",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Maintenance - Backup Model.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pRunAtWeekends",
+			"Prompt":"Run early mornings on Sunday and Monday?",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pSaveToDisk",
+			"Prompt":"Perform a SaveDataAll first?",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pDateFormat",
+			"Prompt":"Is server set to US (mm/dd/yyyy) or UK (dd/mm/yyyy) date settings?",
+			"Value":"US",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000064"
+}

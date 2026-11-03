@@ -1,0 +1,39 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Date].[Date]": "MEMBER_NAME",
+			"[Customer].[Customer]": "Description",
+			"[Product].[Product]": "Description"
+		},
+		"ExpandAboves": {
+			"[Date].[Date]": false,
+			"[}Clients].[}Clients]": false,
+			"[Demand Task].[Demand Task]": false,
+			"[Customer].[Customer]": false,
+			"[Measures - Demand Tasks].[Measures - Demand Tasks]": false,
+			"[Product].[Product]": false
+		},
+		"ContextSets": {
+			"[}Clients].[}Clients]": {
+				"Expression": "{[}Clients].[}Clients].MEMBERS}"
+			},
+			"[Customer].[Customer]": {
+				"SubsetName": "Sys Leaf Desc",
+				"IsPublic": true
+			},
+			"[Product].[Product]": {
+				"SubsetName": "Sys Leaf With Desc",
+				"IsPublic": true
+			}
+		}
+	},
+	"ViewExtractSkipRuleValues": false,
+	"ViewExtractSkipConsolidatedValues": true,
+	"ViewExtractSkipZeroes": true,
+	"IsSuppressComputeOnOpen": false,
+	"IsAutocalculate": true,
+	"IsDeferComputeOnLeafDataEntry": false
+}

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Share Capital & Reserves",
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER(DRILLUPMEMBER({[Accounts - Balance Sheet].[Accounts - Balance Sheet].[Shares Capital & Reserves]} , {[Accounts - Balance Sheet].[Accounts - Balance Sheet].[TB Check^Total Equity^Shares Capital & Reserves]}), {[Accounts - Balance Sheet].[Accounts - Balance Sheet].[TB Check^Total Equity^Shares Capital & Reserves]}, RECURSIVE)}, 0)}"
+}

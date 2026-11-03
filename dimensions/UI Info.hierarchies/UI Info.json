@@ -1,0 +1,91 @@
+{
+	"@type":"Hierarchy",
+	"Name":"UI Info",
+	"Elements":
+	[
+		{
+			"Name":"Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PY End Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Current Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Var",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Var %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Var",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Var %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Year Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Year Var",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Year Var %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Version 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Version 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Version 1 & 2 Var",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Version 1 & 2 Var %",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"UI Info.subsets/LEAF.json"
+	]
+}

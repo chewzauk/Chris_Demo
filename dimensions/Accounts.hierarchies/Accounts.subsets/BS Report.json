@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"BS Report",
+	"ExpandAbove":true,
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {DRILLDOWNMEMBER({[Accounts].[Accounts].[TB Check]} , {[Accounts].[Accounts].[TB Check],[Accounts].[Accounts].[Total Equity],[Accounts].[Accounts].[Net Assets / (Liabilities)],[Accounts].[Accounts].[Net Assets / (Liabilities) (Excl. Intercompany)],[Accounts].[Accounts].[Net Assets / (Liabilities) (Excl. Intercompany)^Fixed Assets],[Accounts].[Accounts].[Net Current Assets / (Liabilities) (Excl. Intercompany)]} , RECURSIVE)}"
+}

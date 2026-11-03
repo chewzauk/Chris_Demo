@@ -1,0 +1,315 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESESS DESCRIPTION #####
+sDescription = 'Imports the process logs from the tm1server.log file and posts to System - Process Information Cube';
+sDeveloper = 'Sempre Analytics: Shane James';
+sSource = 'tm1Server.log';
+sSourceType = 'Text File';
+sTarget = 'System - Process Information';
+sTargetType = 'Cube';
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError = 1;
+    ProcessBreak; 
+endif;
+
+sDim1 = 'Time Processes';
+sDim2 = '}Processes';
+sDim3 = 'Measures - Process Info';
+
+sCube = 'System - Process Information';
+sProcess = GetProcessName();
+
+sUseNextFlag = 0;
+
+sFilePath = GetProcessErrorFileDirectory();
+sFileName = 'tm1server.log';
+sFile = sFilePath|sFileName;
+pTitleRows = 0;
+pDelimiter = char(09);
+pQuote = '';
+
+
+### Assign Datasource ###
+DataSourceType                  = 'CHARACTERDELIMITED';
+DatasourceNameForServer         = sFile;
+DatasourceNameForClient         = sFile;
+If( FileExists( sFile ) = 0 );
+    ProcessBreak;
+Endif;
+DatasourceASCIIHeaderRecords    = pTitleRows;
+DatasourceASCIIDelimiter        = pDelimiter;
+DatasourceASCIIQuoteCharacter   = pQuote;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+sInsertionPoint = '';
+sElType = 'N';
+
+sProcessLine = If(SCAN('TM1.Process', vLine ) > 0, 1, 0);
+
+If(sProcessLine = 1);
+    nInfoMessage = SCAN('TM1.Process', vLine );
+    nStartMessage = SCAN( 'executed by', vLine );
+    If (nInfoMessage > 0 & nStartMessage > 0);
+        sDate = SUBST(vLine, nInfoMessage -18, 2)|'-'|SUBST(vLine, nInfoMessage -21, 2)|'-'|SUBST(vLine, nInfoMessage -26, 4);
+        sStartDate = TIMST( Now() , '\d-\m-\Y');
+        sDateValue = StringToNumber(ATTRS('Date', DimensionElementPrincipalName( 'Date', sDate ) , 'Index'));
+        sStartDateValue = StringToNumber(ATTRS('Date', DimensionElementPrincipalName( 'Date', sStartDate ), 'Index'));
+        sDaysDiff = sStartDateValue - sDateValue;
+        If(pDaysData < sDaysDiff);
+            ItemSkip;
+        Endif;
+        sTime = SUBST(vLine, nInfoMessage -15, 8);
+        DimensionElementInsertDirect( sDim1, '', sDate|' '|sTime, 'N' );
+    Endif;
+Endif;
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+sProcessLine = If(SCAN( 'TM1.Process', vLine ) > 0, 1, 0);
+
+If(sProcessLine = 1);
+    nProcessNameStart = SCAN(Char(34), vLine );
+    nProcessNameEnd = SCAN(Char(34), SUBST(vLine, nProcessNameStart + 1, 100));
+    sProcess = SUBST(vLine, nProcessNameStart + 1, nProcessNameEnd-1);
+    nInfoMessage = SCAN('TM1.Process', vLine );
+    nErrorMessage = SCAN( 'Error', Subst(vLine,1, 20) );
+    If (DIMIX( sDim2, sProcess ) > 0);
+        ### Get the date and time of the process
+        sJustDate = Trim(SUBST(vLine, nInfoMessage -26, 11));
+        sTime = trim(SUBST(vLine, nInfoMessage -15, 8));
+        sDate = SUBST(vLine, nInfoMessage -18, 2)|'-'|SUBST(vLine, nInfoMessage -21, 2)|'-'|SUBST(vLine, nInfoMessage -26, 4);
+        sStartDate = TIMST( Now() , '\d-\m-\Y');
+        sDateValue = StringToNumber(ATTRS('Date', DimensionElementPrincipalName( 'Date', sDate ) , 'Index'));
+        sStartDateValue = StringToNumber(ATTRS('Date', DimensionElementPrincipalName( 'Date', sStartDate ), 'Index'));
+        sDaysDiff = sStartDateValue - sDateValue;
+        If(pDaysData < sDaysDiff);
+            ItemSkip;
+        Endif;
+
+        #### Get user name
+        nStartMessage = SCAN( 'executed by', vLine );
+        If(nStartMessage > 0);
+            nUserNameStart = SCAN(Char(34), SUBST(vLine, nStartMessage + 13, 100) );
+            nUserNameEnd = SCAN(Char(34), SUBST(vLine, nStartMessage + nUserNameStart + 1, 150));
+            sUserType = SUBST(vLine, nStartMessage + 12, nUserNameStart);
+            sUser = SUBST(vLine, nStartMessage + 12 + nUserNameStart, 150);
+            ItemSkip;
+        Endif;
+
+        nStartMessage = SCAN( 'run from process', vLine );
+        If(nStartMessage > 0);
+            nUserNameStart = SCAN(Char(34), SUBST(vLine, nStartMessage + 18, 100) );
+            nUserNameEnd = SCAN(Char(34), SUBST(vLine, nStartMessage + nUserNameStart + 1, 100));
+            sUserType = SUBST(vLine, nStartMessage + 9, nUserNameStart);
+            sUser = SUBST(vLine, nStartMessage + 12 + nUserNameStart, 150);
+            ItemSkip;
+        Endif;
+
+        ###Get status 
+        nExecuteMessage = SCAN( 'finished executing', vLine );
+        If(nExecuteMessage > 0);
+            ### Get the date and time of the process
+            sJustDate = Trim(SUBST(vLine, nInfoMessage -26, 11));
+            sTime = trim(SUBST(vLine, nInfoMessage -15, 8));
+            sDate = SUBST(vLine, nInfoMessage -18, 2)|'-'|SUBST(vLine, nInfoMessage -21, 2)|'-'|SUBST(vLine, nInfoMessage -26, 4);
+            sStartDate = TIMST( Now() , '\d-\m-\Y');
+            sDateValue = StringToNumber(ATTRS('Date', DimensionElementPrincipalName( 'Date', sDate ) , 'Index'));
+            sStartDateValue = StringToNumber(ATTRS('Date', DimensionElementPrincipalName( 'Date', sStartDate ), 'Index'));
+            sDaysDiff = sStartDateValue - sDateValue;
+            nExecuteStart = nExecuteMessage;
+            nExecuteEndStop = SCAN('.', SUBST(vLine, nExecuteStart, 35));
+            nExecuteEndComma = SCAN(',', SUBST(vLine, nExecuteStart, 35));
+            sExecuteStatus = SUBST(vLine, nExecuteStart, nExecuteEndStop + nExecuteEndComma -1);
+            sExecuteError = IF(nExecuteEndStop > 0, SUBST(vLine, nExecuteStart + nExecuteEndStop, 500), '');
+            sExecuteTime = IF(nExecuteEndComma > 0, SUBST(vLine, nExecuteStart + nExecuteEndComma + 13, 20), '');
+            sExecuteTime = IF(nExecuteEndStop > 0, 'Check Error Message', '');
+        Endif;
+
+
+        ### Put into cube
+        sCompletionTime = CellGetS(sCube, sJustDate|' '|sTime, sProcess, 'Completion Time');
+        If(sCompletionTime @= '');
+            CellPutS(sExecuteTime, sCube, sJustDate|' '|sTime, sProcess, 'Completion Time' );
+        Endif;
+        CellPutS( sExecuteStatus, sCube, sJustDate|' '|sTime, sProcess, 'Execution Status' );
+        CellPutS( sExecuteError, sCube, sJustDate|' '|sTime, sProcess, 'Server Log Error' );
+        CellPutS( sJustDate|' '|sTime, sCube, sJustDate|' '|sTime, sProcess, 'End Time' );
+        CellPutS( sUserType|' '|sUser, sCube, sJustDate|' '|sTime, sProcess, 'Executed By' );
+        sUpdate = CellGetS(sCube, sJustDate|' '|sTime, sProcess, 'Updated From');
+        If( sUpdate @<> '' & SCAN('Log', sUpdate) = 0);
+            CellPutS(sUpdate| ' + Log', sCube, sJustDate|' '|sTime, sProcess, 'Updated From' );
+        elseif( sUpdate @= '' );
+            CellPutS('Log', sCube, sJustDate|' '|sTime, sProcess, 'Updated From' );
+        Endif;
+    Endif;
+Endif;
+
+nRecords=nRecords+1;
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+
+if (nError = 0); 
+    sStatus = 'Success'; 
+endif;
+
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+sParameters = 'pConfirm='|pConfirm|', pEmail='|pEmail|', pStartDate = '|pStartDate;
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS(sParameters , sCube, sEndTime, sProcess, 'Parameters Used' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    iSendEmail = 0;
+
+    if (iCalledByChore = 0);
+        iSendEmail = 1;
+    elseif (nError > 0);
+        iSendEmail = 1;
+    endif;
+
+    if (iSendEmail = 1);
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        if (DimensionExists('}ElementAttributes_}Clients') = 1);
+            if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+                sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+                if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+            endif;
+        endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+            IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+            else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+        sCC = 'X';
+        sBCC = 'X';
+
+        if (nError = 0); 
+            sSubject = 'Process Success - '|sProcess; 
+            sMessageStatus = '<font color="green">successfully</font>';
+        Else;
+            sSubject = 'Process Error - '|sProcess;
+            sMessageStatus = '<font color="red">with errors</font> ';
+        Endif; 
+
+        if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+        elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+        else;
+            sUsernameToDisplay = trim(CellGetS('System - Parameters - User', Tm1User(), 'Full Name', 'String' ));
+            if ( sUsernameToDisplay @= '' ); sUsernameToDisplay = sTM1User;  endif;
+        endif;
+
+        sEmailMessage = '<p>Dear '|sUsernameToDisplay|'</p><p>PROCESS: '|sProcess|' has completed '|sMessageStatus|'</p><p>The following parameters were used - '|sParameters|'</p>';
+        sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+        sEmailMessage = sEmailMessage | '<p>   </p>';
+
+        sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+        sAttachment = 'X';
+
+        # Now call the process that sends the email.
+        if (iCalledByChore = 1);
+            if (sAdmin1Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+            endif;
+            if (sAdmin2Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+            if (sAdmin3Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+        Else;
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+    endif;
+endif;
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+
+#endregion

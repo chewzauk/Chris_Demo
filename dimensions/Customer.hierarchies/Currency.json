@@ -1,0 +1,13 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Currency",
+	"ElementsSortType":"ByHierarchy",
+	"Elements":
+	[
+		{
+			"Name":"Total Currency",
+			"Type":"Consolidated"
+		}
+	],
+	"Subsets@Code.links":[]
+}

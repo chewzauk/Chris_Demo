@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"z_Parameter",
+	"Elements":
+	[
+		{
+			"Name":"Latest Date",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

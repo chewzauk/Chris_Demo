@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Bill of Materials",
+	"Elements":
+	[
+		{
+			"Name":"Units",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Quantity",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

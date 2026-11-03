@@ -1,0 +1,25 @@
+{
+	"@type":"Subset",
+	"Name":"Process Measures",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('Description')"
+		},
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('Developer')"
+		},
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('DataOwner')"
+		},
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('Process Source Type')"
+		},
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('Process Source')"
+		},
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('EditFlag')"
+		}
+	]
+}

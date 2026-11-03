@@ -1,0 +1,75 @@
+{
+	"@type":"Process",
+	"Name":"System - Workflow - Setup Monthend Data",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Workflow - Setup Monthend Data.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"Workflow Item:Workflow Item",
+		"dataSourceNameForClient":"Workflow Item:Workflow Item",
+		"subset":"Month-End Items"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pPeriod",
+			"Prompt":"",
+			"Value":"06 2024",
+			"Type":"String"
+		},
+		{
+			"Name":"pStartDate",
+			"Prompt":"",
+			"Value":"01/06/2024",
+			"Type":"String"
+		},
+		{
+			"Name":"pDeadline",
+			"Prompt":"",
+			"Value":"07/06/2024",
+			"Type":"String"
+		},
+		{
+			"Name":"pApprovalDeadline",
+			"Prompt":"Only if required",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pWorkflowItem",
+			"Prompt":"Select leaf item of consolidation for all items in that group",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pReset",
+			"Prompt":"Will clear all completion data as well",
+			"Value":"Y",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vWorkflowItem",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000083"
+}

@@ -1,0 +1,235 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Demand Task",
+	"Elements":
+	[
+		{
+			"Name":"Promo",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Marketing",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Demand",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Demand Tasks",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Pct Discount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Qty Discount - B1GOF",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Qty Discount - B2GOF",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Free Shipping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gift With Purchase",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prize Competition",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Loyalty Bonus",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Radio ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TV ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TV sponsor",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Public transport",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Billboard",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cinema ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Social Media ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SM influencer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Email",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Affiliate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Newspaper print ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Magazine print ad",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Newspaper PPC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Event",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Promo",
+			"ComponentName":"Pct Discount",
+			"Weight":1
+		},
+		{
+			"ParentName":"Promo",
+			"ComponentName":"Qty Discount - B1GOF",
+			"Weight":1
+		},
+		{
+			"ParentName":"Promo",
+			"ComponentName":"Qty Discount - B2GOF",
+			"Weight":1
+		},
+		{
+			"ParentName":"Promo",
+			"ComponentName":"Free Shipping",
+			"Weight":1
+		},
+		{
+			"ParentName":"Promo",
+			"ComponentName":"Gift With Purchase",
+			"Weight":1
+		},
+		{
+			"ParentName":"Promo",
+			"ComponentName":"Prize Competition",
+			"Weight":1
+		},
+		{
+			"ParentName":"Promo",
+			"ComponentName":"Loyalty Bonus",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Radio ad",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"TV ad",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"TV sponsor",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Public transport",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Billboard",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Cinema ad",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Social Media ad",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"SM influencer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Email",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Affiliate",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Newspaper print ad",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Magazine print ad",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Newspaper PPC",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing",
+			"ComponentName":"Event",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Demand Tasks",
+			"ComponentName":"Promo",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Demand Tasks",
+			"ComponentName":"Marketing",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Demand Tasks",
+			"ComponentName":"Demand",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Demand Task.subsets/All Members.json",
+		"Demand Task.subsets/Leaf Members.json"
+	]
+}

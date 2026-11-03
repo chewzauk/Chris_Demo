@@ -1,0 +1,29 @@
+{
+	"@type":"MDXView",
+	"Name":"Prior Month Rule View",
+	"MDX@Code.link":"Prior Month Rule View.mdx",
+	"Meta": {
+		"Aliases": {},
+		"ExpandAboves": {
+			"[Measures - Revenue Volume].[Measures - Revenue Volume]": false,
+			"[Customer].[Customer]": false,
+			"[PeriodYear].[PeriodYear]": false,
+			"[Version].[Version]": false,
+			"[Product].[Product]": false
+		},
+		"ContextSets": {
+			"[Customer].[Customer]": {
+				"Expression": "{[Customer].[Customer].MEMBERS}"
+			},
+			"[Version].[Version]": {
+				"Expression": "{[Version].[Version].[Actual]}"
+			}
+		}
+	},
+	"ViewExtractSkipRuleValues": false,
+	"ViewExtractSkipConsolidatedValues": true,
+	"ViewExtractSkipZeroes": true,
+	"IsSuppressComputeOnOpen": false,
+	"IsAutocalculate": true,
+	"IsDeferComputeOnLeafDataEntry": false
+}

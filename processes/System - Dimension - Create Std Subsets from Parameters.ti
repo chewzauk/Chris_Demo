@@ -1,0 +1,286 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESESS DESCRIPTION #####
+sDescription = 'Sets up subsets in the time/Date dimensions and others that realte to information in the model parameters cube';
+sDeveloper = 'Sempre: Shane James';
+sSource = 'System - Parameters - Model';
+sSourceType = 'Cube';
+sTarget = 'Date Dimensions';
+sTargetType = 'Dimension';
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError = 1;
+    ProcessBreak; 
+endif;
+
+
+
+sDim1 = 'System - Parameters - Model';
+
+###Create Current Year Budget year and prior year subsets ###################################
+sDim = 'Date Period';
+sHierarchy = 'Date Period';
+sSub = 'PriorCurrBud Year Leaf';
+sMDX = 'STRTOSET("TM1FILTERBYLEVEL({DRILLDOWNMEMBER({['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Prior Year],[Measures - Parameters].[String])") + "]} , {['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Prior Year],[Measures - Parameters].[String])") + "]} , RECURSIVE)}, 0)"),
+STRTOSET("TM1FILTERBYLEVEL({DRILLDOWNMEMBER({['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]} , {['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]} , RECURSIVE)}, 0)"),
+STRTOSET("TM1FILTERBYLEVEL({DRILLDOWNMEMBER({['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Budget Year],[Measures - Parameters].[String])") + "]} , {['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Budget Year],[Measures - Parameters].[String])") + "]} , RECURSIVE)}, 0)")';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+sSub = 'PriorCurrBud Year';
+sMDX = 'STRTOSET("DRILLDOWNMEMBER({['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Prior Year],[Measures - Parameters].[String])") + "]} , {['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Prior Year],[Measures - Parameters].[String])") + "]} , RECURSIVE)"),
+STRTOSET("DRILLDOWNMEMBER({['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]} , {['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]} , RECURSIVE)"),
+STRTOSET("DRILLDOWNMEMBER({['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Budget Year],[Measures - Parameters].[String])") + "]} , {['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Budget Year],[Measures - Parameters].[String])") + "]} , RECURSIVE)")';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+sSub = 'Current Year Leaf';
+sMDX = '{STRTOSET("TM1FILTERBYLEVEL({DRILLDOWNMEMBER({['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]} , {['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]} , RECURSIVE)}, 0)")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+sSub = 'Current Year';
+sMDX = '{STRTOSET("DRILLDOWNMEMBER({['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]} , {['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]} , RECURSIVE)")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+sSub = 'Budget Year Leaf';
+sMDX = '{STRTOSET("TM1FILTERBYLEVEL({DRILLDOWNMEMBER({['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]} , {['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]} , RECURSIVE)}, 0)")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+sSub = 'Budget Year';
+sMDX = 'STRTOSET("TM1FILTERBYLEVEL({DRILLDOWNMEMBER({['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Budget Year],[Measures - Parameters].[String])") + "]} , {['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Budget Year],[Measures - Parameters].[String])") + "]} , RECURSIVE)}, 0)")';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+sSub = 'Current Period';
+sMDX = '{STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Closed Month],[Measures - Parameters].[String])") + "]} ")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+sSub = 'PriorYCurr Period';
+sMDX = '{STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[PY Closed Month],[Measures - Parameters].[String])") + "]} "),
+STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Closed Month],[Measures - Parameters].[String])") + "]} ")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+sSub = 'PriorYCurr Period and YTD';
+sMDX = '{STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[PY Closed Month],[Measures - Parameters].[String])") + "]} "),
+STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[PY Closed Month],[Measures - Parameters].[String])") + " YTD]} "),
+STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Closed Month],[Measures - Parameters].[String])") + "]} "),
+STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Closed Month],[Measures - Parameters].[String])") + " YTD]} ")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+sSub = 'PriorCurr Period';
+sMDX = '{STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Prior Month],[Measures - Parameters].[String])") + "]} "),
+STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Closed Month],[Measures - Parameters].[String])") + "]} ")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+
+
+############################
+sDim = 'Year';
+sHierarchy = 'Year';
+sSub = 'PriorCurrBud Year';
+sMDX = '{STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Prior Year],[Measures - Parameters].[String])") + "]}"),
+STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]}"),
+STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Budget Year],[Measures - Parameters].[String])") + "]}")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+
+sSub = 'Current Year';
+sMDX = '{STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Current Year],[Measures - Parameters].[String])") + "]}")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+HierarchySubsetAliasSet( sDim, sHierarchy, sSub, 'ShortName');
+SubsetExpandAboveSet( sDim, sSub, 1 );
+
+sSub = 'Budget Year';
+sMDX = '{STRTOSET("{['|sDim|'].['|sHierarchy|'].[" + LOOKUPCUBE("System - Parameters - Model" , "([Parameters - Model].[Budget Year],[Measures - Parameters].[String])") + "]}")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+
+##############################################################################################
+
+######## Create Subset with current user
+sDim = '}Clients';
+sHierarchy = '}Clients';
+sSub = 'Current User';
+sMDX = '{STRTOMEMBER("[}Clients].[" + USERNAME + "]")}';
+If (HierarchySubsetExists(sDim, sHierarchy, sSub) = 0, HierarchySubsetCreate(sDim, sHierarchy, sSub), 0);
+HierarchySubsetMDXSet( sDim, sHierarchy, sSub, sMDX);
+#################################
+
+nRecords = nRecords + 1;
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+if (nError = 0); 
+    sStatus = 'Success'; 
+endif;
+
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+sParameters = 'None';
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS(sParameters , sCube, sEndTime, sProcess, 'Parameters Used' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    iSendEmail = 0;
+
+    if (iCalledByChore = 0);
+        iSendEmail = 1;
+    elseif (nError > 0);
+        iSendEmail = 1;
+    endif;
+
+    if (iSendEmail = 1);
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        if (DimensionExists('}ElementAttributes_}Clients') = 1);
+            if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+                sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+                if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+            endif;
+        endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+            IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+            else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+        sCC = 'X';
+        sBCC = 'X';
+
+    if (nError = 0); 
+        sSubject = 'Process Success - '|sProcess; 
+        sMessageStatus = '<font color="green">successfully</font>';
+    Else;
+        sSubject = 'Process Error - '|sProcess;
+        sMessageStatus = '<font color="red">with errors</font> ';
+    Endif; 
+
+        if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+        elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+        else;
+            sUsernameToDisplay = trim(CellGetS('System - Parameters - User', Tm1User(), 'Full Name', 'String' ));
+            if ( sUsernameToDisplay @= '' ); sUsernameToDisplay = sTM1User;  endif;
+        endif;
+
+ sEmailMessage = '<p>Dear '|sUsernameToDisplay|'</p><p>PROCESS: '|sProcess|' has completed '|sMessageStatus|'</p><p>The following parameters were used - '|sParameters|'</p>';
+        sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+        sEmailMessage = sEmailMessage | '<p>   </p>';
+
+        sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+        sAttachment = 'X';
+
+        # Now call the process that sends the email.
+        if (iCalledByChore = 1);
+            if (sAdmin1Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+            endif;
+            if (sAdmin2Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+            if (sAdmin3Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+        Else;
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+    endif;
+endif;
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

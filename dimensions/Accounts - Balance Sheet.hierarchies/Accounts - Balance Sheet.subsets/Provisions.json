@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Provisions",
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER(DRILLUPMEMBER({[Accounts - Balance Sheet].[Accounts - Balance Sheet].[Provisions]} , {[Accounts - Balance Sheet].[Accounts - Balance Sheet].[Net Current Assets / (Liabilities) (Excl. Intercompany)^Provisions]}), {[Accounts - Balance Sheet].[Accounts - Balance Sheet].[Net Current Assets / (Liabilities) (Excl. Intercompany)^Provisions]}, RECURSIVE)}, 0)}"
+}

@@ -1,0 +1,45 @@
+{
+	"@type":"Process",
+	"Name":"System - Dimension - Create Hierarchy from Attribute",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Dimension - Create Hierarchy from Attribute.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pDim",
+			"Prompt":"Dimension to add altrenate hierarchy to",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pHierarchy",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAttr",
+			"Prompt":"Attribute to use to create the hiearchy",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000042"
+}

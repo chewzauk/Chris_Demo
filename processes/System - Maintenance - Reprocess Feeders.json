@@ -1,0 +1,33 @@
+{
+	"@type":"Process",
+	"Name":"System - Maintenance - Reprocess Feeders",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Maintenance - Reprocess Feeders.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pCube",
+			"Prompt":"Cube to process or ALL.",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000067"
+}

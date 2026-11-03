@@ -1,0 +1,56 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Grade Lookup",
+	"Elements":
+	[
+		{
+			"Name":"Apprentice",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Core",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Core - Model Office",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ed",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Guide",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Implement",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Implement - Model Office",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Lead",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Management Committee",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Management Committee - S",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ned (Inactive)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Translate",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

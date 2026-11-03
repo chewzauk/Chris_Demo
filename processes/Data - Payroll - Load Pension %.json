@@ -1,0 +1,51 @@
+{
+	"@type":"Process",
+	"Name":"Data - Payroll - Load Pension %",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Data - Payroll - Load Pension %25.ti",
+	"DataSource":
+	{
+		"Type":"ASCII",
+		"dataSourceNameForServer":"Source Files/Cube Loads/Pension contribution.csv",
+		"dataSourceNameForClient":"Source Files/Cube Loads/Pension contribution.csv",
+		"asciiHeaderRecords":1,
+		"asciiQuoteCharacter":"\"",
+		"asciiDecimalSeparator":".",
+		"asciiThousandSeparator":",",
+		"asciiDelimiterType":"Character",
+		"asciiDelimiterChar":","
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pYear",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersion",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vEmployee_IDJob_Ref",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vRate",
+			"Type":"Numeric",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "176735826500011"
+}

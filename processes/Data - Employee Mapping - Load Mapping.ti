@@ -1,0 +1,94 @@
+#region Prolog
+
+sPeriod=TRIM(SUBST( pPeriod, 1,3));
+
+
+# DataSourceType = 'CHARACTERDELIMITED';
+# DatasourceNameForClient = 'ASOS/Source Files/Cube Loads/Staff Costs Actuals/'|sPeriod|' Staff Cost Actuals.csv';
+# DatasourceNameForServer =  'ASOS/Source Files/Cube Loads/Staff Costs Actuals/'|sPeriod|' Staff Cost Actuals.csv';
+# DatasourceASCIIDelimiter = ',';
+
+#DatasourceASCIIHeaderRecords = 1;
+
+
+
+MinorErrorLogMax =-1;
+
+#Declare Variables
+
+sCubeName='Employee - Mapping';
+sSrcDim1='PeriodYear';
+sSrcDim2='Employee';
+sSrcDim3='Measures - Employee Mapping';
+
+#Recreate Views and Subsets
+
+sSrcView=GetProcessName();
+
+if(ViewExists( sCubeName, sSrcView )=1);
+    ViewDestroy( sCubeName, sSrcView );
+endif;
+
+if(SubsetExists( sSrcDim1, sSrcView )=1);
+    SubsetDestroy( sSrcDim1, sSrcView );
+endif;
+
+if(SubsetExists( sSrcDim2, sSrcView )=1);
+    SubsetDestroy( sSrcDim2, sSrcView );
+endif;
+
+
+ViewCreate( sCubeName, sSrcView, pTemp);
+
+
+sMdx='{[PeriodYear].[PeriodYear].['|pPeriod|']}';
+SubsetCreatebyMDX( sSrcView, sMdx, pTemp);
+ViewSubsetAssign( sCubeName, sSrcView, sSrcDim1, sSrcView );
+
+#ZeroOut Period
+
+ViewZeroOut( sCubeName, sSrcView );
+
+
+#endregion
+#region Data
+
+sCostCentre = SUBST( vCost_Center, 1,4);
+if (DIMIX( 'Location Lookup', vLocation ) >0); 
+  sLocation = ATTRS('Location Lookup', vLocation, 'Map To');
+else;
+    sLocation = vLocation;
+endif;
+
+sGrade = ATTRS('Grade Lookup', vWorker__Career_Level, 'Map To');
+
+###String Values
+CellPutS( vPosition_ID, sCubeName, pPeriod, vEmployee_ID, 'Position' );
+CellPutS(vTeam, sCubeName, pPeriod, vEmployee_ID, 'Team' );
+CellPutS( vManager, sCubeName, pPeriod, vEmployee_ID, 'Manager' );
+CellPutS( sCostCentre, sCubeName, pPeriod, vEmployee_ID, 'Cost Centre' );
+CellPutS( sLocation, sCubeName, pPeriod, vEmployee_ID, 'Location' );
+CellPutS( vCompany, sCubeName, pPeriod, vEmployee_ID, 'Company' );
+CellPutS( vWorker_Type, sCubeName, pPeriod, vEmployee_ID, 'Worker Type' );
+CellPutS( vWorker__Currency, sCubeName, pPeriod, vEmployee_ID, 'Currency' );
+CellPutS( sGrade, sCubeName, pPeriod, vEmployee_ID, 'Grade' );
+CellPutS( vWorker__Start_Date_in_Position, sCubeName, pPeriod, vEmployee_ID, 'Position Start Date' );
+CellPutS( vWorker__Continuous_Service_Date, sCubeName, pPeriod, vEmployee_ID, 'Employ Start Date' );
+CellPutS( vEE_Termination_Date, sCubeName, pPeriod, vEmployee_ID, 'Termination Date' );
+
+###Numeric Values
+CellPutN( vWorker__Base_Pay_Amount, sCubeName, pPeriod, vEmployee_ID, 'Base Pay' );
+CellPutN( vWorker__Flex_Allowance, sCubeName, pPeriod, vEmployee_ID, 'Flex Allowance' );
+CellPutN( vWorker__Target_Bonus_, sCubeName, pPeriod, vEmployee_ID, 'Target Bonus %' );
+CellPutN( vFTE_, sCubeName, pPeriod, vEmployee_ID, 'FTE %' );
+
+
+AttrPutS(vWorker__Currency, 'Position', vPosition_ID, 'Currency');
+AttrPutS(sGrade, 'Position', vPosition_ID, 'Grade');
+
+
+
+
+
+
+#endregion

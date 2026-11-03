@@ -1,0 +1,413 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESESS DESCRIPTION #####
+sDescription = 'Creates the documentation dimension';
+sDeveloper = 'Sempre Analytics: Shane James';
+sSource = '}Cubes, }Dimensions, }Processes';
+sSourceType = 'Dimension';
+sTarget = 'Documentation';
+sTargetType = 'Dimension';
+sCube = 'System - Documentation - Model';
+# If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+#     ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+# endif;
+# If(CubeExists( sCube ) > 0);
+#     CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+#     CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+#     CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+#     CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+#     CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+#     CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+# Endif;
+#########################################
+
+####### CREATE DOCUMENTION DIMENSION####################
+sDocumentsDim = 'Documentation';
+
+If (DimensionExists( sDocumentsDim ) = 0, DimensionCreate( sDocumentsDim), 0);
+DimensionDeleteAllElements(sDocumentsDim);
+sParent ='Model Overview';
+sModelEl = 'Entire Model';
+
+###########################
+#ADD IN BASE CONSOLIDATIONS
+###########################
+DimensionElementInsertDirect(sDocumentsDim, '', 'Model Overview','N');   
+DimensionElementInsertDirect(sDocumentsDim, '', '1. All Dimensions','N'); DimensionElementComponentAdd(sDocumentsDim, sParent,'1. All Dimensions', 1);
+DimensionElementInsertDirect(sDocumentsDim, '', '2. All Cubes','N'); DimensionElementComponentAdd(sDocumentsDim, sParent,'2. All Cubes', 1);
+DimensionElementInsertDirect(sDocumentsDim, '', '3. All Processes','N'); DimensionElementComponentAdd(sDocumentsDim, sParent,'3. All Processes', 1);
+DimensionElementInsertDirect(sDocumentsDim, '', '4. All Chores','N'); DimensionElementComponentAdd(sDocumentsDim, sParent,'4. All Chores', 1);
+DimensionElementInsertDirect(sDocumentsDim, '', '5. All Groups','N'); DimensionElementComponentAdd(sDocumentsDim, sParent,'5. All Groups', 1);
+DimensionElementInsertDirect(sDocumentsDim, '', '6. All Users','N'); DimensionElementComponentAdd(sDocumentsDim, sParent,'6. All Users', 1);
+
+
+nAddControlObjects = pIncludeControlObjects;
+
+###########################
+#ADD DIMENSIONS
+###########################
+
+sDim = '}Dimensions'; 
+
+i=1;
+WHILE(i<=DIMSIZ(sDim));
+    sElement = DIMNM(sDim,i);
+    sIsAltHierarchy = SCAN(':', sElement);
+    sElementUID = 'Dimension: ' | sElement;
+
+    IF(SUBST(sElement,1,1) @<> '}' & nAddControlObjects @= 'N');
+        nNewElement = 0;
+        IF(DIMIX(sDocumentsDim,sElementUID) = 0);
+            nNewElement = 1;
+        ENDIF;
+
+        If (sIsAltHierarchy > 0);
+            sElementAltHier = 'Hierarchy: '| SUBST(sElement ,1, LONG(sElement));
+            sElement = SUBST(sElement ,1, sIsAltHierarchy-1);
+            sParent = 'Dimension: ' | sElement;
+            DimensionElementInsertDirect(sDocumentsDim, '', sElementAltHier,'N');
+            DimensionElementComponentAdd(sDocumentsDim, sParent,sElementAltHier, 1);
+        Endif;
+
+        If (sIsAltHierarchy = 0);
+            sParent ='1. All Dimensions';
+            sElementAltHier = 'Hierarchy: '| sElement;
+            DimensionElementInsertDirect(sDocumentsDim, '', sElementUID,'N');
+            DimensionElementComponentAdd(sDocumentsDim, sParent,sElementUID, 1);
+            sParent = 'Dimension: ' | sElement;
+            DimensionElementInsertDirect(sDocumentsDim, '', sElementAltHier,'N');
+            DimensionElementComponentAdd(sDocumentsDim, sParent,sElementAltHier, 1);
+        Endif;
+    ENDIF;
+
+    IF(pDocumentElements @= 'Y');
+        ###########################
+        #ADD DIMENSION ELEMENTS
+        ###########################
+
+        k=1;
+        WHILE(k<=DIMSIZ(sDim));
+            sElementUIDATS = 'Elements:' | sElement;
+            sElementk = sElement | '->' | DIMNM(sElement,k);
+            IF(ATTRN(sDim, sElement, 'DocumentationDetail')=1 );
+                IF(DIMNM(sElement,k) @<> '');
+                    DimensionElementInsertDirect(sDocumentsDim, '', sElementUIDATS,'N');
+                    DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sElementUID,sElementUIDATS, 1);
+                    DimensionElementInsertDirect(sDocumentsDim, '', sElementk,'N');
+                    DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sElementUIDATS,sElementk, 1);
+                ENDIF;
+            ENDIF;
+            k=k+1;
+        END;
+    ENDIF;
+    i=i+1;
+END;
+
+###########################
+#ADD DIMENSION ATTRIBUTES
+###########################
+
+i=1;
+WHILE(i<=DIMSIZ(sDim));
+    sElement = DIMNM(sDim,i);
+    sIsAltHierarchy = SCAN(':', sElement);
+    # Type may be AS, AN or AA for string, numeric or alias
+   
+    sElementUID = 'Dimension: ' | sElement;  
+    If (sIsAltHierarchy = 0 & SUBST(sElement,1,1) @<> '}');
+        k=1;
+        WHILE(k<=DIMSIZ('}ElementAttributes_' | sElement));
+            sElementUIDATS = 'Attributes: ' | sElement;
+            sElementUIDAT = 'Dim-Attributes: ' | sElement;
+            IF(SUBST(DIMNM('}ElementAttributes_' | sElement,k),1,1) @<> '}' & nAddControlObjects @= 'N' );
+                sAttrType = DTYPE('}ElementAttributes_' |sElement, DIMNM('}ElementAttributes_' | sElement,k));
+           
+                sElementk = sElement | ' > ' | DIMNM('}ElementAttributes_' | sElement,k)| ' ('|SUBST(sAttrType,2,1)|')';
+                DimensionElementInsertDirect(sDocumentsDim, '', sElementUIDATS,'N');
+                DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sElementUID,sElementUIDATS, 1);
+                DimensionElementInsertDirect(sDocumentsDim, '', sElementk,'N');
+                DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sElementUIDATS,sElementk, 1);
+            ENDIF;
+            k=k+1;
+        END;
+    Endif;
+    i=i+1;
+End;
+
+
+###########################
+#ADD CUBES
+###########################
+sDim = '}Cubes'; 
+sDim1 = '}Dimensions'; 
+sParent ='2. All Cubes';
+i=1;
+nAddControlObjects = pIncludeControlObjects;
+WHILE(i<=DIMSIZ(sDim));
+    sElement = DIMNM(sDim,i);
+    sElementUID = 'Cube: ' | sElement;
+    IF(SUBST(sElement,1,1) @<> '}' & nAddControlObjects @= 'N');
+        DimensionElementInsertDirect(sDocumentsDim, '',   sElementUID,'N');
+        DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sParent, sElementUID, 1);
+        j = 1;
+        While(j < DIMSIZ( sDim1));
+            sDimensionOfCube = 'Dimension: ' |TabDim( sElement, j );
+            sAltHierarchy = ' Hierarchy: '|TabDim( sElement, j );
+            If(sDimensionOfCube @<> 'Dimension: ');
+                DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sElementUID, sDimensionOfCube, 1);
+                DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sDimensionOfCube, sAltHierarchy, 1);
+            Endif;
+            j=j+1;
+        End;
+    ENDIF;
+    i=i+1;
+END;
+
+
+###########################
+#ADD PROCESSES
+###########################
+
+sDim = '}Processes'; sParent ='3. All Processes';
+i=1;
+WHILE(i<=DIMSIZ(sDim));
+    sElement = DIMNM(sDim,i);
+    sElementUID = 'Process: ' | sElement;
+    IF(SUBST(sElement,1,1) @<> '}' & nAddControlObjects@= 'N');
+        DimensionElementInsertDirect(sDocumentsDim, '', sElementUID,'N');
+        DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sParent,sElementUID, 1);
+
+    ENDIF;
+    i=i+1;
+END;
+
+###########################
+#ADD CHORES
+###########################
+
+sDim = '}Chores'; sParent ='4. All Chores';
+i=1;
+WHILE(i<=DIMSIZ(sDim));
+    sElement = DIMNM(sDim,i);
+    sElementUID = 'Chores: ' | sElement;
+    IF(SUBST(sElement,1,1) @<> '}' % nAddControlObjects@= 'N');
+        DimensionElementInsertDirect(sDocumentsDim, '', sElementUID,'N');
+        DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sParent,sElementUID, 1);
+    ENDIF;
+    i=i+1;
+END;
+
+
+###########################
+#ADD GROUPS
+###########################
+
+sDim = '}Groups'; sParent ='5. All Groups'; sAttr = '}TM1_DefaultDisplayValue';
+i=1;
+WHILE(i<=DIMSIZ(sDim));
+    sElement = DIMNM(sDim,i);
+
+    IF(DIMIX('}ElementAttributes_' | sDim,sAttr) <>0);
+        sElementDV = ATTRS(sDim,sElement,sAttr);
+        sElement = IF(sElementDV @<> '',sElementDV,sElement);
+    ENDIF;
+
+    sElementUID = 'Group: ' | sElement;
+    # IF(SUBST(sElement,1,1) @<> '}');
+    DimensionElementInsertDirect(sDocumentsDim, '', sElementUID,'N');
+    DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sParent,sElementUID, 1);
+    # ENDIF;
+    i=i+1;
+END;
+
+###########################
+#ADD USERS
+###########################
+
+sDim = '}Clients'; sParent ='6. All Users'; sAttr = '}TM1_DefaultDisplayValue';
+i=1;
+WHILE(i<=DIMSIZ(sDim));
+    sElement = DIMNM(sDim,i);
+
+    IF(DIMIX('}ElementAttributes_' | sDim,sAttr) <>0);
+        sElementDV = ATTRS(sDim,sElement,sAttr);
+        sElement = IF(sElementDV @<> '',sElementDV,sElement);
+    ENDIF;
+
+    sElementUID = 'User: ' | sElement;
+    # IF(SUBST(sElement,1,1) @<> '}');
+    DimensionElementInsertDirect(sDocumentsDim, '', sElementUID,'N');
+    DIMENSIONELEMENTCOMPONENTADD(sDocumentsDim, sParent,sElementUID, 1);
+    # ENDIF;
+    i=i+1;
+END;
+
+DimensionSortOrder ( sDocumentsDim, 'ByInput', 'Ascending', 'ByHierarchy', '' );
+
+######################################################################################
+
+############# CREATE DOCUMENTATION - RULES ###########################################
+
+sDim = 'Documentation - Rules';
+If (DimensionExists( sDim ) = 0, DimensionCreate( sDim), 0);
+DimensionDeleteAllElements(sDim);
+
+DimensionElementInsertDirect( sDim, '', 'Rule', 'n' );
+DimensionElementInsertDirect( sDim, '', 'Feeder', 'n' );
+
+######################################################################################
+
+############# CREATE MEASURES - DOCUMENTATION ###########################################
+
+sDim = 'Measures - Documentation';
+If (DimensionExists( sDim ) = 0, DimensionCreate( sDim), 0);
+DimensionDeleteAllElements(sDim);
+
+DimensionElementInsertDirect( sDim, '', 'Flag', 'n' );
+DimensionElementInsertDirect( sDim, '', 'EditFlag', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Description', 'S' );
+DimensionElementInsertDirect( sDim, '', 'DataOwner', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Developer', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Rule Value', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Rule Calculation', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Number of Dimensions', 'n' );
+DimensionElementInsertDirect( sDim, '', 'Number of Rules', 'n' );
+DimensionElementInsertDirect( sDim, '', 'Number of Feeders', 'n' );
+DimensionElementInsertDirect( sDim, '', 'Number of Elements', 'n' );
+DimensionElementInsertDirect( sDim, '', 'Number of Leaf Elements', 'n' );
+DimensionElementInsertDirect( sDim, '', 'Process Source', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Process Target', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Process Source Type', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Process Target Type', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Process Last Run Time', 'S' );
+DimensionElementInsertDirect( sDim, '', 'Process Last Run', 'S' );
+
+AttrInsert( sDim, '', 'Picklist', 'S' );
+AttrInsert( sDim, '', 'Format', 'S' );
+AttrPutS( 'c:# ### ##0;(# ### ##0);;', sDim, 'Number of Dimensions', 'Format');
+AttrPutS( 'c:# ### ##0;(# ### ##0);;', sDim, 'Number of Rules', 'Format');
+AttrPutS( 'c:# ### ##0;(# ### ##0);;', sDim, 'Number of Feeders', 'Format');
+AttrPutS( 'c:# ### ##0;(# ### ##0);;', sDim, 'Number of Elements', 'Format');
+AttrPutS( 'c:# ### ##0;(# ### ##0);;', sDim, 'Number of Leaf Elements', 'Format');
+
+AttrPutS( 'Static:ODBC:Cube:Dimension:TextFile:JSON', sDim, 'Process Source Type', 'PickList');
+AttrPutS( 'Static:ODBC:Cube:Dimension:TextFile:JSON', sDim, 'Process Target Type', 'PickList');
+
+######################################################################################
+
+
+############# CREATE DOCUMENTATION RULES LIST ###########################################
+
+sDim = 'Documentation - Rule List';
+If (DimensionExists( sDim ) = 0, DimensionCreate( sDim), 0);
+DimensionDeleteAllElements(sDim);
+
+DimensionElementInsertDirect( sDim, '', '1', 'n' );
+
+######################################################################################
+
+nRecords=nRecords+1;
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+#### Create Subsets
+sSub = 'All Dimensions Expanded';
+sMDX  = '{TM1DRILLDOWNMEMBER(DRILLUPMEMBER({[Documentation].[Documentation].[1. All Dimensions]} , 
+                {[Documentation].[Documentation].[1. All Dimensions]}), 
+                {[Documentation].[Documentation].[1. All Dimensions]}, RECURSIVE)}';
+If(SubsetExists( sDocumentsDim, sSub ) = 0, SubsetCreateByMDX( sSub, sMDX ),SubsetMDXSet(sDocumentsDim, sSub, sMDX));
+
+sSub = 'All Dimensions 1st Expand';
+sMDX  = '{DRILLDOWNMEMBER({[Documentation].[Documentation].[1. All Dimensions]} , 
+            {[Documentation].[Documentation].[1. All Dimensions]} , RECURSIVE)}';
+If(SubsetExists( sDocumentsDim, sSub ) = 0, SubsetCreateByMDX( sSub, sMDX ),SubsetMDXSet(sDocumentsDim, sSub, sMDX));
+
+sSub = 'All Cubes Expanded';
+sMDX  = '{DRILLDOWNMEMBER({[Documentation].[Documentation].[2. All Cubes]} , 
+            {[Documentation].[Documentation].[2. All Cubes]} , RECURSIVE)}';
+If(SubsetExists( sDocumentsDim, sSub ) = 0, SubsetCreateByMDX( sSub, sMDX ),SubsetMDXSet(sDocumentsDim, sSub, sMDX));
+
+sSub = 'All Processes Expanded';
+sMDX  = '{DRILLDOWNMEMBER({[Documentation].[Documentation].[3. All Processes]} , 
+            {[Documentation].[Documentation].[3. All Processes]} , RECURSIVE)}';
+If(SubsetExists( sDocumentsDim, sSub ) = 0, SubsetCreateByMDX( sSub, sMDX ),SubsetMDXSet(sDocumentsDim, sSub, sMDX));
+
+sDim = 'Measures - Documentation';
+sSub = 'Dimension Measures';
+If(SubsetExists( sDim, sSub )=0, SubsetCreate( sDim, sSub  ), 0);
+SubsetDeleteAllElements( sDim, sSub);
+SubsetElementInsert( sDim, sSub, 'Description', 1 );
+SubsetElementInsert( sDim, sSub, 'Developer', 2 );
+SubsetElementInsert( sDim, sSub, 'Number of Elements', 3 );
+SubsetElementInsert( sDim, sSub, 'Number of Leaf Elements', 4 );
+SubsetElementInsert( sDim, sSub, 'EditFlag', 5 );
+
+sSub = 'Process Measures';
+If(SubsetExists( sDim, sSub )=0, SubsetCreate( sDim, sSub  ), 0);
+SubsetDeleteAllElements( sDim, sSub);
+SubsetElementInsert( sDim, sSub, 'Description', 1 );
+SubsetElementInsert( sDim, sSub, 'Developer', 2 );
+SubsetElementInsert( sDim, sSub, 'DataOwner', 3 );
+SubsetElementInsert( sDim, sSub, 'Process Source Type', 4 );
+SubsetElementInsert( sDim, sSub, 'Process Source', 5 );
+SubsetElementInsert( sDim, sSub, 'EditFlag', 6 );
+
+
+sSub = 'Cube Measures';
+If(SubsetExists( sDim, sSub )=0, SubsetCreate( sDim, sSub  ), 0);
+SubsetDeleteAllElements( sDim, sSub);
+SubsetElementInsert( sDim, sSub, 'Description', 1 );
+SubsetElementInsert( sDim, sSub, 'Developer', 2 );
+SubsetElementInsert( sDim, sSub, 'DataOwner', 3 );
+SubsetElementInsert( sDim, sSub, 'Number of Dimensions', 4 );
+SubsetElementInsert( sDim, sSub, 'Number of Rules', 5 );
+SubsetElementInsert( sDim, sSub, 'EditFlag', 6 );
+
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+sParameters =  'pIncludeControlObjects = '|pIncludeControlObjects|', pDocumentElements = '|pDocumentElements;
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+If(DimensionExists( sDim )=0, DimensionCreate( sDim ),0);
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS(sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+sCube = 'System - Documentation - Model';
+########################################
+
+
+
+
+
+#endregion

@@ -1,0 +1,23 @@
+{
+	"@type":"Dimension",
+	"Name":"Position",
+	"Hierarchies@Code.links":
+	[
+		"Position.hierarchies/Position.json",
+		"Position.hierarchies/By Career Level.json",
+		"Position.hierarchies/By Company.json",
+		"Position.hierarchies/By Cost Centre.json",
+		"Position.hierarchies/By Gender.json",
+		"Position.hierarchies/By Grade.json",
+		"Position.hierarchies/By Location.json",
+		"Position.hierarchies/By Manager.json",
+		"Position.hierarchies/By Position Status.json",
+		"Position.hierarchies/By Position Worker Type.json",
+		"Position.hierarchies/By Team.json",
+		"Position.hierarchies/By Worker Type.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Position')/Hierarchies('Position')"
+	}
+}

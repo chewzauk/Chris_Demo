@@ -1,0 +1,100 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Location Lookup",
+	"Elements":
+	[
+		{
+			"Name":"Barnsley - 37",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Barnsley - 37.5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Belfast Office",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Belfast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Berlin - Office",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Berlin - Warehouse",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Birmingham",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Doncaster",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GLH - 37",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GLH - CC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GLH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hong Kong - Rep Office",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Leavesden - 37",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Leavesden - Day",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"New York",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Remote",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Remote (Australia)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Remote (International)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Remote (Netherlands)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Remote (UK)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sydney",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Turkey - Rep Office",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Atlanta",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

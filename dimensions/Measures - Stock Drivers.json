@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Stock Drivers",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Stock Drivers.hierarchies/Measures - Stock Drivers.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Stock Drivers')/Hierarchies('Measures - Stock Drivers')"
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Demand Tasks",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Demand Tasks.hierarchies/Measures - Demand Tasks.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Demand Tasks')/Hierarchies('Measures - Demand Tasks')"
+	}
+}

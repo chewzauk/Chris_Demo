@@ -1,0 +1,39 @@
+{
+	"@type":"Process",
+	"Name":"System - Dimension - Delete Element from Dimension",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Dimension - Delete Element from Dimension.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pElement",
+			"Prompt":"Element to Delete",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pDimension",
+			"Prompt":"Dimension to delete from",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000048"
+}

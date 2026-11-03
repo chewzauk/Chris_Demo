@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Sales Planning - Demand",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Sales Planning - Demand.hierarchies/Measures - Sales Planning - Demand.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Sales Planning - Demand')/Hierarchies('Measures - Sales Planning - Demand')"
+	}
+}

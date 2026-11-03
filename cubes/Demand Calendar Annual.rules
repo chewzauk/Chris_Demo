@@ -1,0 +1,54 @@
+# This cube just links to Demand Calendar cube to get all its data and hold it in a way to make it easy to have one PAW Exploration for the whole year - 12 months in rows and 31 days in columns.
+# All the measures basically replicate what Demand Calendar holds, just by Day Number, Month and Year, not Day of Week, Week of Month, Month and Year.
+skipcheck;
+
+# Form the YYYY-MM-DD lookup reference from a combination of which 3 date dimensions the current cell is at.    !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') 
+
+['Day of Week Number'] = NUMBR ( DB('}ElementAttributes_Date', !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') , 'Day # of Week' ) );
+
+['Day Name'] = S: DB('}ElementAttributes_Date', !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') , 'Day Name' );
+
+['Day of Month Number'] = NUMBR(SUBST( !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') , 9, 2));
+
+
+['Day Status'] = 
+	if ( dimix ('Date', !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') ) = 0,
+		-2,
+		if ( DB('}ElementAttributes_Date', !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') , 'Working Day' ) @= 'Y',
+    			DB('Demand Tasks',!}Clients, !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') ,!Demand Task, !Product, !Customer, 'Task Importance') +
+    			DB('Demand Tasks',!}Clients, !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') ,!Demand Task, !Product, !Customer, 'Monthly Task Importance') 
+			, -1
+		)
+	)
+;
+
+
+['Num Tasks'] = N: 
+  DB('Demand Tasks', !}Clients, !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') , !Demand Task, !Product, !Customer, 'Task Importance') +
+  DB('Demand Tasks', !}Clients, !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') , !Demand Task, !Product, !Customer, 'Monthly Task Importance');
+
+
+
+['Task Name'] = S:
+	if ( dimix ('Date', !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD') ) = 0,
+		'',
+		if ( DB('Demand Tasks',!}Clients, !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD')  ,!Demand Task, !Product, !Customer, 'Task Importance') > 0 
+  			% DB('Demand Tasks',!}Clients, !Year | '-' | ATTRS('Month of Year', !Month of Year, '2Chars') | '-' | ATTRS('Day Number of Month', !Day Number of Month, 'DD')  ,!Demand Task, !Product, !Customer, 'Monthly Task Importance') > 0,
+  			!Demand Task,
+			CONTINUE
+  		)
+  	)
+;
+
+
+FEEDERS;
+
+['Num Tasks'] =>  ['Day of Week Number'];
+['Num Tasks'] =>  ['Day Name'];
+['Num Tasks'] =>  ['Day of Month Number'];
+['Num Tasks'] =>  ['Day Status'];
+['Num Tasks'] =>  ['Task Name'];
+
+
+
+

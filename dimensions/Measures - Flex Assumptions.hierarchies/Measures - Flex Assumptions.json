@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Flex Assumptions",
+	"Elements":
+	[
+		{
+			"Name":"Flex Allowance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Increase %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Increase Month",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

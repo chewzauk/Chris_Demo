@@ -1,0 +1,39 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Promo",
+	"Elements":
+	[
+		{
+			"Name":"Pct Discount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Qty Discount - B1GOF",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Qty Discount - B2GOF",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Free Shipping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gift With Purchase",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prize Competition",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Loyalty Bonus",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Promo.subsets/Leaf Promos.json"
+	]
+}

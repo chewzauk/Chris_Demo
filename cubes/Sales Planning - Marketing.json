@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Sales Planning - Marketing",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Campaign Instance')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Region')"
+		},
+		{
+			"@id":"Dimensions('Measures - Sales Planning - Marketing')"
+		}
+	],
+	"Rules@Code.link":"Sales Planning - Marketing.rules",
+	"Views@Code.links":
+	[
+		"Sales Planning - Marketing.views/Default.json"
+	]
+}

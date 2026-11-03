@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"EBIT Report",
+	"ExpandAbove":true,
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {DRILLDOWNMEMBER({[Accounts].[Accounts].[EBIT]} , {[Accounts].[Accounts].[EBIT],[Accounts].[Accounts].[EBIT^EBITDA],[Accounts].[Accounts].[EBIT^EBITDA^Total Expenses],[Accounts].[Accounts].[EBIT^EBITDA^Operating Income]} , RECURSIVE)}"
+}

@@ -1,0 +1,87 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Scenario Layer",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL LAYERS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Growth",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Inflation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Final Result",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Promo",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Demand",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Marketing",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Base",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Base - Manual",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL LAYERS",
+			"ComponentName":"Base - Manual",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL LAYERS",
+			"ComponentName":"Base",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL LAYERS",
+			"ComponentName":"Growth",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL LAYERS",
+			"ComponentName":"Inflation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final Result",
+			"ComponentName":"Base",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final Result",
+			"ComponentName":"Promo",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final Result",
+			"ComponentName":"Demand",
+			"Weight":1
+		},
+		{
+			"ParentName":"Final Result",
+			"ComponentName":"Marketing",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

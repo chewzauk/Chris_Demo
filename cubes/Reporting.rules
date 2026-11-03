@@ -1,0 +1,52 @@
+SKIPCHECK;
+
+
+### Live Plan Rules
+### Bring Actuals in
+[{'Live Plan', 'AI Forecast', 'AI Lower', 'AI Upper'}, 'Base'] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< DB('System - Parameters - Model', 'Forecast Month YYYYMM', 'String' ), ['Actual'], CONTINUE);
+[{'Version':'Version':'3+9 2025'}, 'Base'] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< '202504', ['Actual'], CONTINUE);
+[{'Version':'Version':'6+6 2025'}, 'Base'] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< '202507', ['Actual'], CONTINUE);
+[{'Version':'Version':'3+9 2026'}, 'Base'] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< '202604', ['Actual'], CONTINUE);
+[{'Version':'Version':'6+6 2026'}, 'Base'] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< '202607', ['Actual'], CONTINUE);
+
+### Balance Sheet Planning
+['Live Plan', 'Base', 'LC'] = N: If(ATTRS( 'Accounts', !Accounts, 'AccountType' ) @= 'BS', DB('Balance Sheet', !PeriodYear, !Version, !Scenario Layer, !Currency - Reporting, !Company, !Accounts, !Measures - Reporting ), CONTINUE);
+
+### Depreciation for P&L from Capex
+['Live Plan', {'79110', '79120', '79130', '79140', '79310', '79320', '79330', '79340'}, 'Movement'] = N: DB('Capex', !PeriodYear, !Version, !Company, 'TOTAL PROJECTS', !Accounts, !Currency - Reporting, 'Depreciation' );
+
+
+### Revenue Plan
+['Live Plan', {'50000'}, 'Company':'Company':'102','Movement'] = N: DB('Revenue - Volume', !PeriodYear, !Version, !Scenario Layer, 'Customer':'TOTAL CUSTOMERS', 'Product':'TOTAL PRODUCTS', 'Revenue' );
+
+### Payroll
+['Live Plan', {'60010'}, 'Movement'] = N: DB('Payroll', !PeriodYear, !Version, !Scenario Layer, !Company, 'Employee':'TOTAL EMPLOYEES', 'Role':'TOTAL ROLES', 'Salary' ) * -1;
+['Live Plan', {'61010'}, 'Movement'] = N: DB('Payroll', !PeriodYear, !Version, !Scenario Layer, !Company, 'Employee':'TOTAL EMPLOYEES', 'Role':'TOTAL ROLES', 'Bonus' ) * -1;
+['Live Plan', {'63030'}, 'Movement'] = N: DB('Payroll', !PeriodYear, !Version, !Scenario Layer, !Company, 'Employee':'TOTAL EMPLOYEES', 'Role':'TOTAL ROLES', 'Pension' ) * -1;
+
+### general Expenses
+['Version':'Version':'Live Plan', 'Measures - Reporting':'Measures - Reporting':'Movement'] = N: IF(ATTRS('Accounts - Profit and Loss', !Accounts, 'Is GeneralExpense') @= 'Y', DB('General Expenses', !PeriodYear, !Version, !Scenario Layer, !Company, 'List':'TOTAL LIST', !Accounts, 'Amount' ) * -1, CONTINUE);
+
+### Cashflow
+['Version':'Version':'Live Plan', 'Measures - Reporting':'Measures - Reporting':'Movement', 'Opening Cash Balance', '202401'] =N: STET;
+['Version':'Version':'Live Plan', 'Measures - Reporting':'Measures - Reporting':'Movement', 'Opening Cash Balance'] =N: DB('Reporting', ATTRS('PeriodYear', !PeriodYear, 'Previous'), !Version, !Scenario Layer, !Company, 'Accounts':'Closing Cash Balance', !Currency - Reporting, !Measures - Reporting );
+
+### Catch All for all other lines
+['Version':'Version':'Live Plan', 'Measures - Reporting':'Measures - Reporting':'Movement'] = N: IF(DIMIX( 'Accounts - Profit and Loss', !Accounts ) > 0 , DB('Reporting', ATTRS('PeriodYear', !PeriodYear, 'Previous'), !Version, !Scenario Layer, !Company, !Accounts, !Currency - Reporting, !Measures - Reporting ), CONTINUE);
+
+['Version':'Version':'Live Plan', 'Measures - Reporting':'Measures - Reporting':'Closing Balance'] = N: DB('Reporting', !PeriodYear|' YTD', !Version, !Scenario Layer, !Company, !Accounts, !Currency - Reporting, 'Movement' );
+
+FEEDERS;
+
+['Actual'] => ['Live Plan'], ['AI Forecast'], ['AI Lower'], ['AI Upper'], ['3+9 2025'], ['6+6 2025'], ['3+9 2026'], ['6+6 2026'];
+
+['Actual', {'79110', '79120', '79130', '79140', '79310', '79320', '79330', '79340'}, 'Movement'] => DB('Capex', !PeriodYear, !Version, !Company, 'No Project', !Accounts, !Currency - Reporting, 'Depreciation' );
+['Actual', {'10045', '10035', '10025', '10015', '11035', '11025', '11015'}, 'Closing Balance'] => DB('Capex', !PeriodYear, !Version, !Company, 'No Project', !Accounts, !Currency - Reporting, 'Accumulated Depreciation' );
+['Actual', {'10040', '10030', '10020', '10010', '11030', '11020', '11010'}, 'Closing Balance'] => DB('Capex', !PeriodYear, !Version, !Company, 'No Project', !Accounts, !Currency - Reporting, 'Initial Cost' );
+
+['Version':'Version':'Live Plan', 'Measures - Reporting':'Measures - Reporting':'Movement'] => DB('Reporting', ATTRS('PeriodYear', !PeriodYear, 'Next'), !Version, !Scenario Layer, !Company, !Accounts, !Currency - Reporting, !Measures - Reporting );
+
+['Movement'] => DB('Balance Sheet', !PeriodYear, !Version, !Scenario Layer, !Currency - Reporting, !Company, 'Profit Attributable to Equity', 'Closing Balance' ), 
+                          ['Closing Balance'];
+
+['Version':'Version':'Live Plan', 'Measures - Reporting':'Measures - Reporting':'Movement', 'Closing Cash Balance'] => DB('Reporting', ATTRS('PeriodYear', !PeriodYear, 'Next'), !Version, !Scenario Layer, !Company, 'Accounts':'Opening Cash Balance', !Currency - Reporting, !Measures - Reporting );

@@ -1,0 +1,73 @@
+{
+	"@type":"Process",
+	"Name":"System - Dimension - Create Std Subsets from Level",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Dimension - Create Std Subsets from Level.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"}Dimensions",
+		"dataSourceNameForClient":"}Dimensions",
+		"subset":"All"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pControlobjects",
+			"Prompt":"Create subsets on Control dims (1 for control dims or 0 for model dims only)",
+			"Value":1,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pLevel",
+			"Prompt":"Create subsets at specific level",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pDim",
+			"Prompt":"Enter dim to create on (blank if all dimensions)",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pHierarchy",
+			"Prompt":"Create subsets in named hierarchy (blank for all)",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAlias",
+			"Prompt":"Assign an Alias to the set",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vDim",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000046",
+	"VariablesUIData": [
+		"VarType=32\fColType=827\f"
+	],
+	"UIData": "_ParameterConstraints=e30=\f"
+}

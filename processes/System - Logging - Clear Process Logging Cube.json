@@ -1,0 +1,39 @@
+{
+	"@type":"Process",
+	"Name":"System - Logging - Clear Process Logging Cube",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Logging - Clear Process Logging Cube.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Are you sure you wish to clear logging information",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pProcess",
+			"Prompt":"Enter process to clear data for or leave blank for whole cube",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pKeepLast30Days",
+			"Prompt":"This is flagged for maintenance. To clear all data, set to N (only used when running for all processes",
+			"Value":"Y",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000060"
+}

@@ -1,0 +1,29 @@
+{
+	"@type":"Cube",
+	"Name":"Revenue - Services",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Customer')"
+		},
+		{
+			"@id":"Dimensions('Role')"
+		},
+		{
+			"@id":"Dimensions('Measures - Revenue - Services')"
+		}
+	],
+	"Views@Code.links":[]
+}

@@ -1,0 +1,51 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Customer].[Customer]": "Description",
+			"[Product].[Product]": "Description"
+		},
+		"ExpandAboves": {
+			"[Day of Week].[Day of Week]": false,
+			"[Year].[Year]": false,
+			"[}Clients].[}Clients]": false,
+			"[Measures - Demand Calendar].[Measures - Demand Calendar]": false,
+			"[Month of Year].[Month of Year]": false,
+			"[Week of Month].[Week of Month]": false,
+			"[Demand Task].[Demand Task]": false,
+			"[Customer].[Customer]": false,
+			"[Product].[Product]": false
+		},
+		"ContextSets": {
+			"[Year].[Year]": {
+				"Expression": "{[Year].[Year].MEMBERS}"
+			},
+			"[}Clients].[}Clients]": {
+				"Expression": "{[}Clients].[}Clients].MEMBERS}"
+			},
+			"[Measures - Demand Calendar].[Measures - Demand Calendar]": {
+				"Expression": "{[Measures - Demand Calendar].[Measures - Demand Calendar].MEMBERS}"
+			},
+			"[Month of Year].[Month of Year]": {
+				"Expression": "{[Month of Year].[Month of Year].MEMBERS}"
+			},
+			"[Week of Month].[Week of Month]": {
+				"Expression": "{[Week of Month].[Week of Month].MEMBERS}"
+			},
+			"[Customer].[Customer]": {
+				"Expression": "{[Customer].[Customer].MEMBERS}"
+			},
+			"[Product].[Product]": {
+				"Expression": "{[Product].[Product].MEMBERS}"
+			}
+		}
+	},
+	"ViewExtractSkipRuleValues": false,
+	"ViewExtractSkipConsolidatedValues": true,
+	"ViewExtractSkipZeroes": true,
+	"IsSuppressComputeOnOpen": false,
+	"IsAutocalculate": true,
+	"IsDeferComputeOnLeafDataEntry": false
+}

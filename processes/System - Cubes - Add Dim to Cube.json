@@ -1,0 +1,57 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Add Dim to Cube",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Cubes - Add Dim to Cube.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pCube",
+			"Prompt":"Cube to add dimension to",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pDim",
+			"Prompt":"Dimension to be added",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pDimIndex",
+			"Prompt":"Dimension number in cube",
+			"Value":6,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pIncludeData",
+			"Prompt":"1 to keep, 0 to leave",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pElement",
+			"Prompt":"Element for data to go to",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000026"
+}

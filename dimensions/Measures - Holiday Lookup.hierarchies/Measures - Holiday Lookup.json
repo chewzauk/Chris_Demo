@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Holiday Lookup",
+	"Elements":
+	[
+		{
+			"Name":"Date",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

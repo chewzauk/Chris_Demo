@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Demand Calendar",
+	"Elements":
+	[
+		{
+			"Name":"Day Status",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Task Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Date",
+			"Type":"String"
+		},
+		{
+			"Name":"Day of Month Number",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Day of Week Number",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Day Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Num Tasks",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

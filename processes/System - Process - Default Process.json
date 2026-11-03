@@ -1,0 +1,29 @@
+{
+	"@type":"Process",
+	"Name":"System - Process - Default Process",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Process - Default Process.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000074",
+	"VariablesUIData": [],
+	"UIData": "_ParameterConstraints=e30=\f"
+}

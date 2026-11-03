@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"Sales Planning - Demand",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Measures - Sales Planning - Demand')"
+		}
+	],
+	"Views@Code.links":[]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Career Level",
+	"Hierarchies@Code.links":
+	[
+		"Career Level.hierarchies/Career Level.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Career Level')/Hierarchies('Career Level')"
+	}
+}

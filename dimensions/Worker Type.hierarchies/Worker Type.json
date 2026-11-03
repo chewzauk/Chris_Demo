@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Worker Type",
+	"Elements":
+	[
+		{
+			"Name":"Employee",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,47 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Users",
+	"Elements":
+	[
+		{
+			"Name":"Business Analytics/Emily O'Neill",
+			"Type":"String"
+		},
+		{
+			"Name":"Business Analytics/Neil Livingston",
+			"Type":"String"
+		},
+		{
+			"Name":"Business Analytics/Nick Moore",
+			"Type":"String"
+		},
+		{
+			"Name":"Business Analytics/Cillian Martin",
+			"Type":"String"
+		},
+		{
+			"Name":"Business Analytics/Alison McGuire",
+			"Type":"String"
+		},
+		{
+			"Name":"Business Analytics/James Richings",
+			"Type":"String"
+		},
+		{
+			"Name":"Business Analytics/Parit Vibhakar",
+			"Type":"String"
+		},
+		{
+			"Name":"Business Analytics/Shane James",
+			"Type":"String"
+		},
+		{
+			"Name":"Business Analytics/Jane Webb",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Users.subsets/LEAF.json"
+	]
+}

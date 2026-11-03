@@ -1,0 +1,123 @@
+#region Prolog
+
+sSrcCube = 'Employee - Mapping';
+sStartMonth = ATTRS('Version', pVersion, 'End Period');
+
+
+
+#endregion
+#region Metadata
+
+sLeaveMonth = ATTRS('Date', CellGetS('Future Leavers', vList, 'Termination Date'), 'Calendar Month' );
+sPosition = CellGetS( sSrcCube, sStartMonth, vValue, 'Position' );
+
+sNewBackFill = sPosition|'Backfill';
+
+DimensionElementInsert( 'Employee', '', sNewBackFill, 'N' );
+DimensionElementComponentAdd( 'Employee', 'All Employees', sNewBackFill, 1 );
+
+
+
+
+
+#endregion
+#region Data
+
+AttrPutS( CellGetS('Future Leavers', vList, 'Termination Date'), 'Employee', vValue, 'Termination Date' );
+
+
+sLeaveMonth = ATTRS('Date', CellGetS('Future Leavers', vList, 'Termination Date'), 'yyyymm' );
+sPosition = CellGetS( sSrcCube, sStartMonth, vValue, 'Position' );
+sCompany = CellGetS( sSrcCube, sStartMonth, vValue, 'Company' );
+sRespCentre = CellGetS( sSrcCube, sStartMonth, vValue, 'Cost Centre' );
+sCurrency = CellGetS( sSrcCube, sStartMonth, vValue, 'Position' );
+sBackFillStartMonth = ATTRS('PeriodYear', sLeaveMonth, 'Next');
+sYear = ATTRS('PeriodYear', sBackFillStartMonth, 'Financial Year');
+nSalary = CellGetN( 'Payroll Plan - Annual', sYear, pVersion, vValue, 'Base Pay' );
+nFlex = CellGetN( 'Payroll Plan - Annual', sYear, pVersion, vValue, 'Flex Allowance' );
+nPension = CellGetN( 'Payroll Plan - Annual', sYear, pVersion, vValue, 'Pension %' );
+nFTE = CellGetN( 'Future Leavers', vList, 'Pro Rata Portion of Month' );
+
+sNewBackFill = sPosition|'Backfill';
+
+
+
+CellPutN(nSalary , 'Payroll Plan - Annual', sYear, pVersion, sNewBackFill, 'Base Pay' );
+CellPutN(nFlex , 'Payroll Plan - Annual', sYear, pVersion, sNewBackFill, 'Flex Allowance' );
+CellPutN(nPension , 'Payroll Plan - Annual', sYear, pVersion, sNewBackFill, 'Pension %' );
+
+CellPutN(nFTE, 'Payroll', sLeaveMonth, pVersion, sCompany, sRespCentre, vValue, sPosition, 'LC', 'FTE');
+
+### Put new Employee Data
+sLastPeriod = ATTRS('Periodyear', ATTRS('Version', pVersion, 'End Period'), 'Next');
+sPeriod = sLeaveMonth;
+sCubeName = 'Payroll';
+newFTE = 1-nFTE;
+if (newFTE <> 0); 
+    CellPutN( 1, sCubeName, sPeriod, pVersion, sCompany, sRespCentre, sNewBackFill, sPosition, 'LC', 'Headcount' );
+endif;
+CellPutN( nFTE, sCubeName, sPeriod, pVersion, sCompany, sRespCentre, sNewBackFill, sPosition, 'LC', 'FTE' );
+
+
+sPeriod = ATTRS('PeriodYear', sPeriod, 'Next');
+while (sPeriod @<> sLastPeriod); 
+    CellPutN( 1, sCubeName, sPeriod, pVersion, sCompany, sRespCentre, sNewBackFill, sPosition, 'LC', 'FTE' );
+    CellPutN( 1, sCubeName, sPeriod, pVersion, sCompany, sRespCentre, sNewBackFill, sPosition, 'LC', 'Headcount' );
+    sPeriod = ATTRS('PeriodYear', sPeriod, 'Next');
+end;
+
+sProcessTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+
+CellPutS( 'Processed into '| pVersion|' at '|sProcessTime, 'Future Leavers', vList, 'Status' );
+
+
+
+
+
+
+
+
+#endregion
+#region Epilog
+
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+sProcess = GetProcessName();
+sParameters = 'pVersion='|pVersion;  
+sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+
+# if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+if (DimensionExists('}ElementAttributes_}Clients') = 1);
+    if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+        sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+        if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+    endif;
+endif;
+
+sSubject = 'Process Success - '|sProcess; 
+sMessageStatus =  '<font color=green>successfully</font>';
+
+
+sUsernameToDisplay = trim(CellGetS('System - Parameters - User', Tm1User(), 'Full Name', 'String' ));
+if ( sUsernameToDisplay @= '' ); sUsernameToDisplay = sTM1User;  endif;
+
+
+sEmailMessage = '<p>Dear '|sUsernameToDisplay|'</p><p>PROCESS: '|sProcess|' has completed '|sMessageStatus|'</p><p>The following parameters were used - '|sParameters|'</p>';
+sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+
+# sEmailMessage = 'Dear '|sUsernameToDisplay|char(10)|'
+# PROCESS: '|sProcess|' has completed '|sMessageStatus|char(10)|'The following parameters were used - '|sParameters;
+# sEmailMessage = sEmailMessage  |char(10)|GetProcessName() | ' was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay;
+
+# Now call the process that sends the email.
+LogOutput( 'INFO', sRecipient );
+LogOutput( 'INFO', sSubject );
+LogOutput( 'INFO', sEmailMessage );
+
+
+ExecuteProcess(sEmailProcess, 'pConfirm', 'Y', 'pToEmail', sRecipient, 'pSubject', sSubject, 'pBody', sEmailMessage);
+
+
+#endregion

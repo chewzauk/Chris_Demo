@@ -1,0 +1,39 @@
+{
+	"@type":"Process",
+	"Name":"Data - Snapshot Version",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Data - Snapshot Version.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pSrcVersion",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pTgtVersion",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pIsStatic",
+			"Prompt":"",
+			"Value":"Y",
+			"Type":"String"
+		},
+		{
+			"Name":"pAssumptionsOnly",
+			"Prompt":"",
+			"Value":"Y",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000020"
+}

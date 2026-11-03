@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Create WorkFlow Cube",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Cubes - Create WorkFlow Cube.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000035"
+}

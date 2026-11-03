@@ -1,0 +1,67 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - General Expenses Drivers",
+	"Elements":
+	[
+		{
+			"Name":"No Driver",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"HeadCount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Salary",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Volume",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Revenue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accommodation Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Subsistance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pence per Mile",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Run Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Run Rate Phased",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Year + Inflation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Last Plan",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Override",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - General Expenses Drivers.subsets/Sys List.json"
+	]
+}

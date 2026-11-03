@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Employee Type",
+	"Elements":
+	[
+		{
+			"Name":"Permanent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fixed Term",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

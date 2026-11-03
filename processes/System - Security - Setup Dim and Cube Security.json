@@ -1,0 +1,39 @@
+{
+	"@type":"Process",
+	"Name":"System - Security - Setup Dim and Cube Security",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Security - Setup Dim and Cube Security.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"}Groups:}Groups",
+		"dataSourceNameForClient":"}Groups:}Groups",
+		"subset":"All"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vGroup",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000079"
+}

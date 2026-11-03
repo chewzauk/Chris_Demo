@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"All Leaves",
+	"Alias":"Caption",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL(TM1SUBSETALL([Position].[Position]) , 0)}"
+}

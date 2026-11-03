@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Day of Week",
+	"Hierarchies@Code.links":
+	[
+		"Day of Week.hierarchies/Day of Week.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Day of Week')/Hierarchies('Day of Week')"
+	}
+}

@@ -1,0 +1,87 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Asset",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL ASSETS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Computer Hardware",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fixtures and Fittings",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Motor Vehicles",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Office Premises Leasehold",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Plant and Machinery",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Computer Software",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intangibles",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Goodwill",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL ASSETS",
+			"ComponentName":"Computer Hardware",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL ASSETS",
+			"ComponentName":"Fixtures and Fittings",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL ASSETS",
+			"ComponentName":"Motor Vehicles",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL ASSETS",
+			"ComponentName":"Office Premises Leasehold",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL ASSETS",
+			"ComponentName":"Plant and Machinery",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL ASSETS",
+			"ComponentName":"Computer Software",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL ASSETS",
+			"ComponentName":"Intangibles",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL ASSETS",
+			"ComponentName":"Goodwill",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

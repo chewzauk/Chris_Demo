@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Material Stock",
+	"Elements":
+	[
+		{
+			"Name":"Opening Stock",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Purchases",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Losses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closing Stock",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

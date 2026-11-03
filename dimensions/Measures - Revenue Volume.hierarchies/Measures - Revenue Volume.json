@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Revenue Volume",
+	"Elements":
+	[
+		{
+			"Name":"Quantity",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Price Per Unit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Revenue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Month Quantity",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

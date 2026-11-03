@@ -1,0 +1,73 @@
+{
+	"@type":"Process",
+	"Name":"Data - Payroll - Add New Employees",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Data - Payroll - Add New Employees.ti",
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForServer":"Payroll - New Employees",
+		"dataSourceNameForClient":"Payroll - New Employees",
+		"view":"}TI_Process731"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pClient",
+			"Prompt":"",
+			"Value":"shane.james@sempreanalytics.com",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vClient",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vList",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vMeasure",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "1758550040000",
+	"VariablesUIData": [
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=33\fColType=827\f"
+	],
+	"UIData": "_ParameterConstraints=e30=\f"
+}

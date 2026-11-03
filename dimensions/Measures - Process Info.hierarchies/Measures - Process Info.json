@@ -1,0 +1,59 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Process Info",
+	"Elements":
+	[
+		{
+			"Name":"Records Processed",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Start Time",
+			"Type":"String"
+		},
+		{
+			"Name":"End Time",
+			"Type":"String"
+		},
+		{
+			"Name":"Completion Time",
+			"Type":"String"
+		},
+		{
+			"Name":"Executed By",
+			"Type":"String"
+		},
+		{
+			"Name":"Parameters Used",
+			"Type":"String"
+		},
+		{
+			"Name":"Execution Status",
+			"Type":"String"
+		},
+		{
+			"Name":"Updated From",
+			"Type":"String"
+		},
+		{
+			"Name":"Process Error",
+			"Type":"String"
+		},
+		{
+			"Name":"Server Log Error",
+			"Type":"String"
+		},
+		{
+			"Name":"Server Log File",
+			"Type":"String"
+		},
+		{
+			"Name":"Process Message",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - Process Info.subsets/LEAF.json"
+	]
+}

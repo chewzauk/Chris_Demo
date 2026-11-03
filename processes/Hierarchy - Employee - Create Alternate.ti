@@ -1,0 +1,75 @@
+#region Prolog
+
+sDim='Employee';
+sSrcView=GetProcessName();
+
+#Create Subset
+
+
+H1='Gender';
+H2='Career Level';
+
+
+HierarchyDestroy(sDim, 'By '|H1);
+HierarchyDestroy(sDim, 'By '|H2);
+
+
+#Check if Hierarchy Exists, create if not
+
+if(HierarchyExists( sDim, 'By '|H1 )=0);
+    HierarchyCreate( sDim, 'By '|H1 );
+endif;
+
+if(HierarchyExists( sDim, 'By '|H2 )=0);
+    HierarchyCreate( sDim, 'By '|H2 );
+endif;
+
+
+
+#Unwind hierarchy to recreate
+
+
+ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H1 );
+ ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H2 );
+
+
+
+
+
+#endregion
+#region Metadata
+
+
+#H1
+
+sHParent=ATTRS( sDim, vEL, H1 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H1;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H1, '', 'Total by '|H1, 'C' );
+HierarchyElementInsert( sDim, 'By '|H1, '', sHParent, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H1, 'Total by '|H1, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H1, sHParent,  vEl, 1 );
+
+
+#H2
+
+sHParent=ATTRS( sDim, vEL, H2 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H2;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H2, '', 'Total by '|H2, 'C' );
+HierarchyElementInsert( sDim, 'By '|H2, '', sHParent, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H2, 'Total by '|H2, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H2, sHParent,  vEl, 1 );
+
+
+#endregion

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"}HierarchyAttributes_Measures - Parameters",
+	"Hierarchies@Code.links":
+	[
+		"}HierarchyAttributes_Measures - Parameters.hierarchies/}HierarchyAttributes_Measures - Parameters.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('}HierarchyAttributes_Measures - Parameters')/Hierarchies('}HierarchyAttributes_Measures - Parameters')"
+	}
+}

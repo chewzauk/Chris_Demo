@@ -1,0 +1,99 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Parameters - Model",
+	"Elements":
+	[
+		{
+			"Name":"FEEDER SOURCE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Current Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Next Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closed Month",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closed Month Principal Name",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Current Month",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Current Month Principal Name",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Current Month YYYYMM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Month",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PY Closed Month",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Month",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Month Principal Name",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Month YYYYMM",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Last Version Snapshot",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Current Month YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Current Forecast Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Current Budget Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Previous Forecast Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cashflow Start Week",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cashflow Prior Version",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Parameters - Model.subsets/LEAF.json"
+	]
+}

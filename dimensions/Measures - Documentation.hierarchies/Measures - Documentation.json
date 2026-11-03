@@ -1,0 +1,86 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Documentation",
+	"Elements":
+	[
+		{
+			"Name":"Flag",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EditFlag",
+			"Type":"String"
+		},
+		{
+			"Name":"Description",
+			"Type":"String"
+		},
+		{
+			"Name":"DataOwner",
+			"Type":"String"
+		},
+		{
+			"Name":"Developer",
+			"Type":"String"
+		},
+		{
+			"Name":"Rule Value",
+			"Type":"String"
+		},
+		{
+			"Name":"Rule Calculation",
+			"Type":"String"
+		},
+		{
+			"Name":"Number of Dimensions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Number of Rules",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Number of Feeders",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Number of Elements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Number of Leaf Elements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process Source",
+			"Type":"String"
+		},
+		{
+			"Name":"Process Target",
+			"Type":"String"
+		},
+		{
+			"Name":"Process Source Type",
+			"Type":"String"
+		},
+		{
+			"Name":"Process Target Type",
+			"Type":"String"
+		},
+		{
+			"Name":"Process Last Run Time",
+			"Type":"String"
+		},
+		{
+			"Name":"Process Last Run",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - Documentation.subsets/Cube Measures.json",
+		"Measures - Documentation.subsets/Dimension Measures.json",
+		"Measures - Documentation.subsets/LEAF.json",
+		"Measures - Documentation.subsets/Process Measures.json"
+	]
+}

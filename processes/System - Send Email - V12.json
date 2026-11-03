@@ -1,0 +1,41 @@
+{
+	"@type":"Process",
+	"Name":"System - Send Email - V12",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Send Email - V12.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pToEmail",
+			"Prompt":"",
+			"Value":"shane.james@sempreanalytics.com",
+			"Type":"String"
+		},
+		{
+			"Name":"pSubject",
+			"Prompt":"",
+			"Value":"test email",
+			"Type":"String"
+		},
+		{
+			"Name":"pBody",
+			"Prompt":"",
+			"Value":"test email content",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "1753986239000",
+	"VariablesUIData": [],
+	"UIData": "_ParameterConstraints=e30=\f"
+}

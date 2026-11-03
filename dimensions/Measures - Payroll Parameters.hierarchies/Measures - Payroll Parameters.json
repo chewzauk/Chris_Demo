@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Payroll Parameters",
+	"Elements":
+	[
+		{
+			"Name":"Increase %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pension %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Commission %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NI Employer %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Increase Date",
+			"Type":"String"
+		},
+		{
+			"Name":"Bonus %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bonus Payment Date",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

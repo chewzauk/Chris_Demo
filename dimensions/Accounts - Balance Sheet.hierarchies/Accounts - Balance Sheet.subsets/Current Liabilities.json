@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Current Liabilities",
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL({TM1DRILLDOWNMEMBER(DRILLUPMEMBER({[Accounts - Balance Sheet].[Accounts - Balance Sheet].[Current Liabilities]} , {[Accounts - Balance Sheet].[Accounts - Balance Sheet].[Net Current Assets / (Liabilities) (Excl. Intercompany)^Current Liabilities]}) , {[Accounts - Balance Sheet].[Accounts - Balance Sheet].[Net Current Assets / (Liabilities) (Excl. Intercompany)^Current Liabilities]} , RECURSIVE)}, 0)}"
+}

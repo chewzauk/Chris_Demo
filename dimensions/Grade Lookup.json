@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Grade Lookup",
+	"Hierarchies@Code.links":
+	[
+		"Grade Lookup.hierarchies/Grade Lookup.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Grade Lookup')/Hierarchies('Grade Lookup')"
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"Stock - Materials",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Material')"
+		},
+		{
+			"@id":"Dimensions('Measures - Material Stock')"
+		}
+	],
+	"Views@Code.links":[]
+}

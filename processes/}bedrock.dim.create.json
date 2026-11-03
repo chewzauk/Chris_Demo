@@ -1,0 +1,39 @@
+{
+	"@type":"Process",
+	"Name":"}bedrock.dim.create",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"}bedrock.dim.create.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pLogOutput",
+			"Prompt":"OPTIONAL: Write parameters and action summary to server message log (Boolean True = 1)",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pStrictErrorHandling",
+			"Prompt":"OPTIONAL: On encountering any error, exit with major error status by ProcessQuit after writing to the server message log (Boolean True = 1)",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pDim",
+			"Prompt":"REQUIRED: Dimension, accepts delimted list",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pDelim",
+			"Prompt":"OPTIONAL: delimiter character for element list. (default value if blank = '&')",
+			"Value":"&",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "17673524140001"
+}

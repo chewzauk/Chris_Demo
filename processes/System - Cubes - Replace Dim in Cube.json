@@ -1,0 +1,57 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Replace Dim in Cube",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Cubes - Replace Dim in Cube.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pCube",
+			"Prompt":"Cube to add dimension to",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pSrcDim",
+			"Prompt":"Dimension to be replaced",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pIncludeData",
+			"Prompt":"1 to keep, 0 to leave",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pTgtDim",
+			"Prompt":"Dimension to add",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pElement",
+			"Prompt":"Element for data to be copied to",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000038"
+}

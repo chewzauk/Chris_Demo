@@ -1,0 +1,41 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+
+
+['Live Plan', {'Base', 'Base - Manual'}, 
+ 'Measures - Stock':'Measures - Stock':'Forecast Demand']=N:DB('Revenue - Volume', !PeriodYear, !Version, !Scenario Layer, 'Customer':'TOTAL CUSTOMERS', !Product, 'Quantity' );
+
+
+['Live Plan', {'Base', 'Base - Manual'}, 
+ 'Measures - Stock':'Wastage']=N: ROUND( ['Measures - Stock':'Forecast Demand']*DB('Stock - Drivers', ELPAR( 'PeriodYear', !PeriodYear, 1 ), !Version, !Scenario Layer, !Product, 'Product Wastage %' ));
+
+['Version':'Live Plan', {'Base', 'Base - Manual'},
+ {'Measures - Stock':'Opening Stock', 'Measures - Stock':'New Stock Required'},'PeriodYear':'PeriodYear':'01 2020']=N:STET;
+
+['Version':'Live Plan', {'Base', 'Base - Manual'},
+'Measures - Stock':'Opening Stock']=N:DB('Stock', ATTRS( 'PeriodYear', !PeriodYear, 'Previous' ), !Version, !Scenario Layer, !Product, 'Measures - Stock':'Closing Stock');
+
+
+['Version':'Live Plan', {'Base'},
+  'Measures - Stock':'New Stock Required']=N:IF(DB('Stock', ATTRS( 'PeriodYear', !PeriodYear, 'Previous' ), !Version, !Scenario Layer, !Product, 'Measures - Stock':'Closing Stock' )                                                           
+                                                                        <
+                                                                        DB('Stock - Drivers', ELPAR( 'PeriodYear', !PeriodYear, 1 ), !Version, !Scenario Layer, !Product, 'Safety Stock Limit' ),
+                                                                        DB('Stock - Drivers', ELPAR( 'PeriodYear', !PeriodYear, 1 ), !Version, !Scenario Layer, !Product, 'Safety Stock Limit' )+ ABS(DB('Stock', ATTRS( 'PeriodYear', !PeriodYear, 'Previous' ), !Version, !Scenario Layer, !Product, 'Measures - Stock':'Closing Stock' )),
+                                                                    
+                                                                        0);
+
+
+['Version':'Live Plan', {'Base'},
+  'Measures - Stock':'Stock Received']=N:DB('Stock', TRIM(STR(ATTRN('PeriodYear',!PeriodYear,'SeqNum')-DB('Stock - Drivers', ELPAR( 'PeriodYear', !PeriodYear, 1 ), !Version, !Scenario Layer, !Product, 'Product Lead Time' )+1,2,0)), !Version, !Scenario Layer, !Product, 'Measures - Stock':'New Stock Required' );
+
+ #DB('Stock', TRIM(STR(ATTRN('PeriodYear',!PeriodYear,'SeqNum')-DB('Stock - Drivers', ELPAR( 'PeriodYear', !PeriodYear, 1 ), !Version, !Scenario Layer, !Product, 'Product Lead Time' ),2,0)), !Version, !Scenario Layer, !Product, 'Measures - Stock':'Closing Stock' )
+                                                                        
+ 
+ FEEDERS;
+
+['Version':'Live Plan', {'Base', 'Base - Manual'},
+'Measures - Stock':'Closing Stock']=>DB('Stock', ATTRS( 'PeriodYear', !PeriodYear, 'Next' ), !Version, !Scenario Layer, !Product, 'Opening Stock' );
+
+['Version':'Live Plan', {'Base', 'Base - Manual'},
+'Measures - Stock':'Closing Stock']=>['Measures - Stock':'Measures - Stock':'New Stock Required'],['Measures - Stock':'Measures - Stock':'Stock Received'],['Measures - Stock':'Wastage'];

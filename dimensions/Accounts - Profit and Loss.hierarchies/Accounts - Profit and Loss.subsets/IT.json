@@ -1,0 +1,44 @@
+{
+	"@type":"Subset",
+	"Name":"IT",
+	"Alias":"CodeDescription",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71010')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71020')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71030')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71040')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71050')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71060')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71070')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71110')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71120')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71130')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71140')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('71210')"
+		}
+	]
+}

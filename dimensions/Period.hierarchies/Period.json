@@ -1,0 +1,124 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Period",
+	"ElementsSortType":"ByHierarchy",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL PERIODS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"02",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"03",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"04",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"05",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"06",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"07",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"08",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"09",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"12",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"01",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"02",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"03",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"04",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"05",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"06",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"07",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"08",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"09",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"10",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"11",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PERIODS",
+			"ComponentName":"12",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

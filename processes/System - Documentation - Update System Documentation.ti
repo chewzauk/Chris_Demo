@@ -1,0 +1,203 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESESS DESCRIPTION #####
+sDescription = 'Creates the documentation cubes and rules';
+sDeveloper = 'Sempre Analytics: Shane James';
+sSource = '}Cubes & }Dimensions';
+sSourceType = 'Dimensions';
+sTarget = 'System - Documentation - Model';
+sTargetType = 'Cube';
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError = 1;
+    ProcessBreak; 
+endif;
+
+ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+
+nRecords=nRecords+1;
+#endregion
+#region Epilog
+
+sDim = '}Cubes';
+
+j=1;
+
+While(j <= DIMSIZ(sDim ));
+    sCube =ElementName( sDim, sDim, j );
+    If(SCAN( '}', sCube ) = 0);
+        CellPutS(pAddDeveloperInfo, 'System - Documentation - Model',  'Cube: '|sCube, 'Developer');
+        If(sCube @= 'System - Documentation - Model');
+            sDescription = 'Contains documentation data related to the model, can be edited to reflect latest changes to development';
+            CellPutS(sDescription, 'System - Documentation - Model',  'Cube: '|sCube, 'Description');
+        Endif;
+        If(sCube @= 'System - Documentation - Rules');
+            sDescription = 'Contains documentation data related to the cube rules, can be edited to reflect latest changes to development. 
+                            The rules are updated via the process and only a description needs to be added';
+            CellPutS(sDescription, 'System - Documentation - Model',  'Cube: '|sCube, 'Description');
+        Endif;
+        If(sCube @= 'System - Parameters');
+            sDescription = 'Parameters and information related to the system (whole model) are stored in this cube. ';
+            CellPutS(sDescription, 'System - Documentation - Model',  'Cube: '|sCube, 'Description');
+        Endif;
+        If(sCube @= 'System - Parameters - User');
+            sDescription = 'Parameters and information related to the user parameters, like user selections, MDX for user subsets, email addresses ';
+            CellPutS(sDescription, 'System - Documentation - Model',  'Cube: '|sCube, 'Description');
+        Endif;
+        If(sCube @= 'System - Process Information');
+            sDescription = 'This stores the process logs and errors. used to monitor and track who has exectuted processes and with which parameters';
+            CellPutS(sDescription, 'System - Documentation - Model',  'Cube: '|sCube, 'Description');
+        Endif;
+        If(sCube @= 'Model - Parameters');
+            sDescription = 'Data related to model specific parameters, like current year, closed period etc are updated here';
+            CellPutS(sDescription, 'System - Documentation - Model',  'Cube: '|sCube, 'Description');
+        Endif;
+    Endif;
+    # Check that the dimension is in the cube
+    i = 1;
+    iMax = DIMSIZ( '}Dimensions' );
+    While( i <= iMax & SCAN( '}', sCube ) = 0);
+        sDimensionOfCube = TabDim( sCube, i );
+        If(sDimensionOfCube @<> '');
+            sDimSize = DIMSIZ( sDimensionOfCube);
+            CellPutN(sDimSize, 'System - Documentation - Model',  'Hierarchy: '|sDimensionOfCube, 'Number of Elements');
+            CellPutN(1, 'System - Documentation - Model',  'Hierarchy: '|sDimensionOfCube, 'Number of Dimensions');
+            If(pAddDeveloperInfo @<> '');
+                if (CellGetS('System - Documentation - Model',  'Hierarchy: '|sDimensionOfCube, 'Developer')@=''); 
+                   CellPutS(pAddDeveloperInfo, 'System - Documentation - Model',  'Hierarchy: '|sDimensionOfCube, 'Developer'); 
+                endif;
+                
+                IF(DIMIX( sDimensionOfCube, '}ElementAttributes_'|sDimensionOfCube ) <> 0);
+                    if (CellGetS( 'System - Documentation - Model',  'Attributes: '|sDimensionOfCube, 'Developer')@=''); 
+                       CellPutS(pAddDeveloperInfo, 'System - Documentation - Model',  'Attributes: '|sDimensionOfCube, 'Developer'); 
+                    endif;
+                
+                endif;
+
+            Endif;
+            #CellPutN(i, 'System - Documentation - Model',  'Hierarchy: '|sDimensionOfCube, 'Dimension Order');
+            If(sDimSize > 1);
+                sSub = 'LEAF';
+                sMDX  = '{TM1SORT( {TM1FILTERBYLEVEL( {TM1SUBSETALL( ['|sDimensionOfCube|'] )}, 0)}, ASC)}';
+                If(SubsetExists( sDimensionOfCube, sSub )=0);
+                    SubsetCreateByMDX( sSub, sMDX );
+                Endif;
+                SubsetMDXSet(sDimensionOfCube, sSub, sMDX);
+                sSubSize = SubsetGetSize( sDimensionOfCube, sSub); 
+                CellPutN(sSubSize, 'System - Documentation - Model',  'Hierarchy: '|sDimensionOfCube, 'Number of Leaf Elements');
+            Endif;
+        EndIf;
+        i = i + 1;
+    End;
+    j=j+1;
+End;
+
+
+i = 1;
+iMax = DIMSIZ( '}Dimensions' );
+While( i <= iMax);
+    sDim = ElementName( '}Dimensions', '}Dimensions', i);
+    If(SCAN('}', sDim) = 0);
+        sDimSize = DIMSIZ( sDim);
+        CellPutN(sDimSize, 'System - Documentation - Model',  'Hierarchy: '|sDim, 'Number of Elements');
+        If(pAddDeveloperInfo @<> '' );
+            if (CellGetS( 'System - Documentation - Model',  'Hierarchy: '|sDim, 'Developer')@=''); 
+                CellPutS(pAddDeveloperInfo, 'System - Documentation - Model',  'Hierarchy: '|sDim, 'Developer');
+            endif;
+            
+            IF(DIMIX( sDim, '}ElementAttributes_'|sDim ) <> 0);
+                if (CellGetS('System - Documentation - Model',  'Attributes: '|sDim, 'Developer') @= ''); 
+                    CellPutS(pAddDeveloperInfo, 'System - Documentation - Model',  'Attributes: '|sDim, 'Developer');
+                endif;
+               
+            Endif;
+            j= 1;
+            jMax = DIMSIZ('}ElementAttributes_'|sDim);
+            While (j <= jMax);
+                sAttrType = DTYPE('}ElementAttributes_' |sDim, DIMNM('}ElementAttributes_' | sDim,j));
+                sAttr = DIMNM('}ElementAttributes_'|sDim , j )| ' ('|SUBST(sAttrType,2,1)|')';
+                If(Subst(sAttr,1,1) @<> '}');
+                    if (CellGetS('System - Documentation - Model',  sDim|' > '|sAttr, 'Developer')@= ''); 
+                        CellPutS(pAddDeveloperInfo, 'System - Documentation - Model',  sDim|' > '|sAttr, 'Developer');
+                    endif;                   
+                Endif;
+                j=j+1;
+            end;
+        Endif;
+        If(sDimSize > 1);
+            sSub = 'LEAF';
+            sMDX  = '{TM1SORT( {TM1FILTERBYLEVEL( {TM1SUBSETALL( ['|sDim|'] )}, 0)}, ASC)}';
+            If(SubsetExists( sDim, sSub )=0);
+                SubsetCreateByMDX( sSub, sMDX );
+            Endif;
+            SubsetMDXSet(sDim, sSub, sMDX);
+            sSubSize = SubsetGetSize( sDim, sSub); 
+            CellPutN(sSubSize, 'System - Documentation - Model',  'Hierarchy: '|sDim, 'Number of Leaf Elements');
+        Endif;
+    Endif;
+    i = i + 1;
+End;
+
+
+if (nError > 0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+sParameters = 'pConfirm='|pConfirm|', pAddDeveloperInfo = '|pAddDeveloperInfo;
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

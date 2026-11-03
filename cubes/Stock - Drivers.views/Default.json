@@ -1,0 +1,32 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta": {
+		"Aliases": {},
+		"ExpandAboves": {
+			"[Year].[Year]": false,
+			"[Scenario Layer].[Scenario Layer]": false,
+			"[Version].[Version]": false,
+			"[Measures - Stock Drivers].[Measures - Stock Drivers]": false,
+			"[Product].[Product]": false
+		},
+		"ContextSets": {
+			"[Scenario Layer].[Scenario Layer]": {
+				"Expression": "{[Scenario Layer].[Scenario Layer].MEMBERS}"
+			},
+			"[Version].[Version]": {
+				"Expression": "{[Version].[Version].MEMBERS}"
+			},
+			"[Product].[Product]": {
+				"Expression": "{[Product].[Product].MEMBERS}"
+			}
+		}
+	},
+	"ViewExtractSkipRuleValues": false,
+	"ViewExtractSkipConsolidatedValues": true,
+	"ViewExtractSkipZeroes": true,
+	"IsSuppressComputeOnOpen": false,
+	"IsAutocalculate": true,
+	"IsDeferComputeOnLeafDataEntry": false
+}

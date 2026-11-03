@@ -1,0 +1,63 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Worker Movements",
+	"Elements":
+	[
+		{
+			"Name":"EmployeeID",
+			"Type":"String"
+		},
+		{
+			"Name":"Current Position",
+			"Type":"String"
+		},
+		{
+			"Name":"Current Responsibility Centre",
+			"Type":"String"
+		},
+		{
+			"Name":"Current Grade",
+			"Type":"String"
+		},
+		{
+			"Name":"Current Company",
+			"Type":"String"
+		},
+		{
+			"Name":"Current Salary",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"New Position",
+			"Type":"String"
+		},
+		{
+			"Name":"New Responsibility Centre",
+			"Type":"String"
+		},
+		{
+			"Name":"New Grade",
+			"Type":"String"
+		},
+		{
+			"Name":"New Company",
+			"Type":"String"
+		},
+		{
+			"Name":"New Salary",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Movement Date",
+			"Type":"String"
+		},
+		{
+			"Name":"Status",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - Worker Movements.subsets/SysEmployee.json"
+	]
+}

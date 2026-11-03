@@ -1,0 +1,264 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# This process checks the free disk space on up to 3 disk drives on the server machine and, 
+# sends an email Alert if defined thresholds are  breached.
+
+# It is scheduled to be run multiple times per day and can also be run ad-hoc at any time.
+
+# This a fairly 'quick and dirty' method for obtaining the information - run a DOS
+# command that includes the required information in its result and then load
+# the resulting file and pick through it to find what we need. Using a specific
+# third-party utility or Powershell would undoubtedly provide a more streamlined 
+# process but this method has proven to work in all environments for years.
+
+# ##############################################
+# Variables you can change 
+
+# How much free disk space in Mb is the minimum considered ok. e.g. 20 = 20Gb free.
+# To not check a drive at all, set it to 0.
+
+iDrive1ThresholdGb = 50;
+iDrive2ThresholdGb = 0;
+iDrive3ThresholdGb = 0;
+
+sDrive1Name = 'S';
+sDrive2Name = 'Z';
+sDrive3Name = 'Z';
+
+# ##############################################
+
+iPrologErrors = 0;
+iDataErrors = 0;
+iRowNum = 0;
+
+iNumberOfDrive1GbFree = 0;
+iNumberOfDrive2GbFree = 0;
+iNumberOfDrive3GbFree = 0;
+
+sServerName = CellGetS('zTD_Info', 'Any', 'Server');
+sServerMachine = CellGetS('zTD_Info', 'Any', 'Server Machine Name');
+
+sPrologMessage = '';
+sDataMessage = '';
+
+# ##############################################
+# Can also use Powershell: 
+# ExecuteCommand ('powershell.exe Get-Volume S | Export-CSV -Path .\DiskSpace.txt ', 1);
+
+sCommandLine = 'cmd /c CheckFreeDisk.bat';
+
+# This is the command being used. Note that the /-c part removes the region-specific seperator (e.g. comma) from within the disk free bytes value.
+# And the > clears the contents of any existing file while >> appends to it.
+# You can also create the batch file dynamically each time if preferred but easier just to tweak the BAT file.
+# dir /-c c:\ | find "bytes free" > FreeDiskSpace.txt
+# dir /-c e:\ | find "bytes free" >> FreeDiskSpace.txt
+
+# Another possible command: 'wmic logicaldisk where name="E:" get freespace > FreeDiskSpace.txt';
+
+# Execute the batch file which contains the command which writes the free disk space to the TXT file and do not wait for it to finish..
+ExecuteCommand(sCommandLine, 1);
+
+# Wait 3 seconds for the command to finish running,
+sleep(3000);
+
+# ##############################################
+# Set the source txt file correctly depending on which server this is (live, tst, dev, etc)
+
+sServerDataDirectory = CellGetS('zTD_Info', 'Any', 'Root Path on Server');
+
+if (FileExists(sServerDataDirectory | 'FreeDiskSpace.txt') = 0);
+	iPrologErrors = 1;
+	sPrologMessage = sPrologMessage | '<br><b>Error: unable to locate text file containing disk information [' | sServerDataDirectory | 'FreeDiskSpace.txt].';
+	ProcessBreak;
+endif;
+
+DatasourceNameForServer = sServerDataDirectory | 'FreeDiskSpace.txt';
+
+# ##############################################
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# Parse source file to get to the interesting information.
+
+iRowNum = iRowNum + 1;
+
+iStartOfBytes = scan('bytes', V2);
+
+if (iStartOfBytes = 0);
+	iDataErrors = iDataErrors + 1;
+	sDataMessage = sDataMessage | '<br>Error: unable to determine number of bytes of free disk space from source file.<br>';
+endif;
+
+
+if (iDataErrors = 0);
+	iNumberOfDiskBytesFree = stringtonumber(trim(subst(V2, 1, iStartOfBytes - 1)));
+
+	if (iRowNum = 1);
+		iNumberOfDrive1GbFree = iNumberOfDiskBytesFree / 1024 / 1024 / 1024;
+	elseif (iRowNum = 2);
+		iNumberOfDrive2GbFree = iNumberOfDiskBytesFree / 1024 / 1024 / 1024;
+	elseif (iRowNum = 3);
+		iNumberOfDrive3GbFree = iNumberOfDiskBytesFree / 1024 / 1024 / 1024;
+	endif;
+endif;
+
+# ################################################
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# ##############################################
+# PXB. 29th March 2017. Optional. Store in log cube for long-term monitoring.
+
+sLogCube = 'Server Resource Log';
+if (CubeExists(sLogCube) = 1);
+	sMeasuresDim = sLogCube | ' Measures';
+	sDay = TODAY(1);
+	sMeasureToWriteTo = sDrive1Name | ': drive space (Gb)';
+	if (dimix(sMeasureToWriteTo, sMeasuresDim) = 0); 	DimensionElementInsertDirect(sMeasuresDim, '', sMeasureToWriteTo,  'N');	endif;
+	CellPutN(roundp(iNumberOfDrive1GbFree, 1), sLogCube, sDay, sMeasureToWriteTo);
+
+	sMeasureToWriteTo = sDrive2Name | ': drive space (Gb)';
+	if (dimix(sMeasureToWriteTo, sMeasuresDim) = 0); 	DimensionElementInsertDirect(sMeasuresDim, '', sMeasureToWriteTo,  'N');	endif;
+	CellPutN(roundp(iNumberOfDrive2GbFree, 1), sLogCube, sDay, sMeasureToWriteTo);
+
+	sMeasureToWriteTo = sDrive3Name | ': drive space (Gb)';
+	if (dimix(sMeasureToWriteTo, sMeasuresDim) = 0); 	DimensionElementInsertDirect(sMeasuresDim, '', sMeasureToWriteTo,  'N');	endif;
+	CellPutN(roundp(iNumberOfDrive3GbFree, 1), sLogCube, sDay, sMeasureToWriteTo);
+endif;
+
+# ##############################################
+# Now we've prepared the message, send the actual alert email if needed.
+# In the event of no email being needed, still churn out a text file with a summary of what we found.
+
+iNumProblems = 0;
+if (iNumberOfDrive1GbFree < iDrive1ThresholdGb % iNumberOfDrive2GbFree < iDrive2ThresholdGb % iNumberOfDrive3GbFree < iDrive3ThresholdGb);
+	iNumProblems = 1;
+elseif (iDataErrors > 0);
+	iNumProblems = 1;
+endif;
+
+# Send email alert at all times if run by hand. When a chore runs it, only email if there's a problem.
+
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+
+iSendEmail = 0;
+if (iCalledByChore = 0);
+	iSendEmail = 1;
+elseif (iPrologErrors > 0 % iNumProblems > 0);
+	iSendEmail = 1;
+endif;
+
+if (iSendEmail = 1);
+	# if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+	if (DimensionExists('}ElementAttributes_}Clients') = 1);
+		if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+			sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+			if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+		endif;
+	endif;
+
+	# The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+	sAdminEmail = trim(CellGetS('zUser Info', 'admin', 'Email'));
+	if (iCalledByChore = 1);
+		sRecipient = sAdminEmail;
+	else;
+		# In the event of an invalid user email use the admin email address (which should be regularly checked for validity).
+		if (CellGetN('zUser Info', sTM1User, 'Email Is Valid') = 1);
+			sRecipient = trim(CellGetS('zUser Info', sTM1User, 'Email'));
+		else;
+			sRecipient = sAdminEmail;
+		endif;
+	endif;
+
+	sCC = 'X';
+	sBCC = 'X';
+
+	if (iPrologErrors > 0 % iDataErrors > 0);
+		sSubject = 'TM1 Error: Unexpected error encountered when checking server disk space';
+	elseif (iNumProblems > 0);
+		sSubject = 'TM1 Alert: Server disk space is below safe thresholds';
+	else;
+		sSubject = 'TM1 Report: Server disk space is above the safe thresholds';
+	endif;
+
+	if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+	elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+    else;			sUsernameToDisplay = sTM1User | ' (' | CellGetS('zUser Info', sTM1User, 'Full Name') | ')';
+	endif;
+
+	sEmailMessage = '';
+	sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+	sEmailMessage = sEmailMessage | 'The free disk space on the <b>' | sServerName | '</b> server machine <b>' | sServerMachine | '</b> was checked.<br><br>';
+
+	if (iNumProblems = 0 & iPrologErrors = 0 & iDataErrors = 0);
+		sEmailMessage = sEmailMessage | '<font color="green">There are no problems.</font><br><br>';
+	endif;
+
+	if (iPrologErrors > 0);
+		sEmailMessage = sEmailMessage | '<font color="red">' | sPrologMessage | '</font><br>';
+	endif;
+
+
+	if (iDataErrors > 0);
+		sEmailMessage = sEmailMessage | '<font color="red">A serious problem was encountered on the Data tab when trying to check the disk space.</font><br>';
+	else;
+		if (iNumberOfDrive1GbFree < iDrive1ThresholdGb );
+			sEmailMessage = sEmailMessage | '<font color="red">The ' | sDrive1Name | ': drive space of ' | numbertostringEx(iNumberOfDrive1GbFree, '#,0', '.', ',') | 'Gb is below the safe threshold of ' | numbertostringEx(iDrive1ThresholdGb, '#,0', '.', ',') | 'Gb.</font><br>';
+		else;
+			sEmailMessage = sEmailMessage | 'The ' | sDrive1Name | ': drive space of ' | numbertostringEx(iNumberOfDrive1GbFree, '#,0', '.', ',') | 'Gb is above the safe threshold of ' | numbertostringEx(iDrive1ThresholdGb, '#,0', '.', ',') | 'Gb.<br>';
+		endif;
+
+#		if (iRowNum >= 2);
+#			if (iNumberOfDrive2GbFree < iDrive2ThresholdGb);
+#				sEmailMessage = sEmailMessage | '<font color="red">The ' | sDrive2Name | ': drive space of ' | numbertostringEx(iNumberOfDrive2GbFree, '#,0', '.', ',') | 'Gb is below the safe threshold of ' | numbertostringEx(iDrive2ThresholdGb, '#,0', '.', ',') | 'Gb.</font><br>';
+#			else;
+#				sEmailMessage = sEmailMessage | 'The ' | sDrive2Name | ': drive space of ' | numbertostringEx(iNumberOfDrive2GbFree, '#,0', '.', ',') | 'Gb is above the safe threshold of ' | numbertostringEx(iDrive2ThresholdGb, '#,0', '.', ',') | 'Gb.<br>';
+#			endif;
+#		endif;
+#
+#		if (iRowNum >= 3);
+#			if (iNumberOfDrive3GbFree < iDrive3ThresholdGb);
+#				sEmailMessage = sEmailMessage | '<font color="red">The ' | sDrive3Name | ': drive space of ' | numbertostringEx(iNumberOfDrive3GbFree, '#,0', '.', ',') | 'Gb is below the safe threshold of ' | numbertostringEx(iDrive3ThresholdGb, '#,0', '.', ',') | 'Gb.</font><br>';
+#			else;
+#				sEmailMessage = sEmailMessage | 'The ' | sDrive3Name | ': drive space of ' | numbertostringEx(iNumberOfDrive3GbFree, '#,0', '.', ',') | 'Gb is above the safe threshold of ' | numbertostringEx(iDrive3ThresholdGb, '#,0', '.', ',') | 'Gb.<br>';
+#			endif;
+#		endif;
+	endif;
+
+
+	if (iDataErrors > 0 % iPrologErrors > 0 % iNumProblems > 0);
+		sEmailMessage = sEmailMessage | '<br><br>This problem MUST be fixed. Running out of disk space will crash all the TM1 servers on this machine.<br><br>';
+	endif;
+
+
+	sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+	sAttachment = 'X';
+
+	# Now call the process that sends the email.
+	vResult = ExecuteProcess('Send Email', 
+		'pRecipient', sRecipient,
+		'pCC', sCC,
+		'pBCC', sBCC,
+		'pSubject', sSubject,
+		'pBody', sEmailMessage,
+		'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 
+		'pAttachment', sAttachment);
+endif;
+
+# ######################################
+#endregion

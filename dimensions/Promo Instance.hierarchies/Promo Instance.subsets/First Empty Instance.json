@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"First Empty Instance",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {HEAD(FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Promo Instance].[Promo Instance]) , 0) , [Sales Planning].([Product].CURRENTMEMBER,[Customer].CURRENTMEMBER,[Measures - Sales Planning].[Promo Type]) = \"\"))}"
+}

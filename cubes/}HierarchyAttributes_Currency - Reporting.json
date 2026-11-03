@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"}HierarchyAttributes_Currency - Reporting",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Hierarchies_Currency - Reporting')"
+		},
+		{
+			"@id":"Dimensions('}HierarchyAttributes_Currency - Reporting')"
+		}
+	],
+	"Views@Code.links":[]
+}

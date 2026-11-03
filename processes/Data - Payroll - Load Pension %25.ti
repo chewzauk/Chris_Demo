@@ -1,0 +1,7 @@
+#region Data
+
+if (DIMIX( 'Employee', vEmployee_IDJob_Ref ) <> 0); 
+    CellPutN( vRate, 'Payroll Plan - Annual', pYear, pVersion, vEmployee_IDJob_Ref, 'Pension %' ); 
+endif;
+
+#endregion

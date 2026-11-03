@@ -1,0 +1,32 @@
+{
+	"@type":"Subset",
+	"Name":"LEAF measurements",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')/Elements('Max Temperature')"
+		},
+		{
+			"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')/Elements('Min Temperature')"
+		},
+		{
+			"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')/Elements('Avg Temperature')"
+		},
+		{
+			"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')/Elements('Max Wind')"
+		},
+		{
+			"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')/Elements('Total Precipitation')"
+		},
+		{
+			"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')/Elements('Total Snow')"
+		},
+		{
+			"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')/Elements('Avg Visibility')"
+		},
+		{
+			"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')/Elements('Avg Humidity')"
+		}
+	]
+}

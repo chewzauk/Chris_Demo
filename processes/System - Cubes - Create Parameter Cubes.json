@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Create Parameter Cubes",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Cubes - Create Parameter Cubes.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Are you sure you want to Create all of the parameter cubes (data may be lost)",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000031"
+}

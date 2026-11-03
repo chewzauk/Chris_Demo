@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Professional",
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL({DISTINCT({DESCENDANTS([Accounts - Profit and Loss].[Accounts - Profit and Loss].[Professional])})}, 0)}"
+}

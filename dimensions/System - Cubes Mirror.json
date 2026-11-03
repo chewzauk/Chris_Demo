@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"System - Cubes Mirror",
+	"Hierarchies@Code.links":
+	[
+		"System - Cubes Mirror.hierarchies/System - Cubes Mirror.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')"
+	}
+}

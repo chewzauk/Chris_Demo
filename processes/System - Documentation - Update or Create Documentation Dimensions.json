@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"System - Documentation - Update or Create Documentation Dimensions",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Documentation - Update or Create Documentation Dimensions.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pIncludeControlObjects",
+			"Prompt":"Y or N",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pDocumentElements",
+			"Prompt":"Y or N",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000056"
+}

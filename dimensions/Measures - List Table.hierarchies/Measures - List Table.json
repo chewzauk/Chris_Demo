@@ -1,0 +1,51 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - List Table",
+	"Elements":
+	[
+		{
+			"Name":"String 5",
+			"Type":"String"
+		},
+		{
+			"Name":"String 4",
+			"Type":"String"
+		},
+		{
+			"Name":"String 3",
+			"Type":"String"
+		},
+		{
+			"Name":"String 2",
+			"Type":"String"
+		},
+		{
+			"Name":"String 1",
+			"Type":"String"
+		},
+		{
+			"Name":"Value 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Value 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Value 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Value 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Value 1",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - List Table.subsets/LEAF.json"
+	]
+}

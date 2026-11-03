@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"Payroll - Parameters",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Measures - Payroll Parameters')"
+		}
+	],
+	"Views@Code.links":[]
+}

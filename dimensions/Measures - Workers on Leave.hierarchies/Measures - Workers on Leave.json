@@ -1,0 +1,43 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Workers on Leave",
+	"Elements":
+	[
+		{
+			"Name":"Employee ID",
+			"Type":"String"
+		},
+		{
+			"Name":"Leave Type",
+			"Type":"String"
+		},
+		{
+			"Name":"First Day",
+			"Type":"String"
+		},
+		{
+			"Name":"Estimated Last Day",
+			"Type":"String"
+		},
+		{
+			"Name":"Total Leave Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Backfill Required",
+			"Type":"String"
+		},
+		{
+			"Name":"Full Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Status",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - Workers on Leave.subsets/SysEmployee.json"
+	]
+}

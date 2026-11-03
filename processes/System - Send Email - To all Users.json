@@ -1,0 +1,51 @@
+{
+	"@type":"Process",
+	"Name":"System - Send Email - To all Users",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Send Email - To all Users.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"}Clients:}Clients",
+		"dataSourceNameForClient":"}Clients:}Clients",
+		"subset":"LEAF"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pActiveOnly",
+			"Prompt":"Send to active only (Y) or all (Blank)",
+			"Value":"Y",
+			"Type":"String"
+		},
+		{
+			"Name":"pSubject",
+			"Prompt":"Subject of email",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pBody",
+			"Prompt":"Body of email",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vClient",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000080"
+}

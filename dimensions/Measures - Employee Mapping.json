@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Employee Mapping",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Employee Mapping.hierarchies/Measures - Employee Mapping.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Employee Mapping')/Hierarchies('Measures - Employee Mapping')"
+	}
+}

@@ -1,0 +1,206 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime =Now() ;
+nRecords = 0;
+sStatus = '';
+nError = 0;
+sProcess = GetProcessName;
+sErrorFile = GetProcessErrorFilename();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sParameters = 'pConfirm='|pConfirm|', pEmail='|pEmail;   
+#######################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+if (1=0); 
+    sDescription = 'The process is a default process to be used as the base for all other processes developed'; 
+    sDeveloper = 'Sempre: Shane James';    
+    sSource = 'Source'; 
+    sSourceType = 'Source Type'; 
+    sTarget = 'Target'; 
+    sTargetType = 'Target Type'; 
+
+    RunProcess( 'System - Documentation - Populate Process Documentation',
+               'pConfirm', 'Y',
+               'pProcess', GetProcessName(),
+               'pDescription', sDescription,
+               'pDeveloper', sDeveloper,
+               'pSource', sSource,
+               'pSourceType', sSourceType,
+               'pTarget', sTarget,
+               'pTargetType', sTargetType );
+endif;
+
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+sDim1 = 'Measures - New Employees';
+sDim2 = 'List';
+sDim3 = '}Clients';
+
+sInsertionPoint = '';
+sType = 'n';
+nWeight = 1;
+sCompSortType = 'ByName';
+sCompSortOrder = 'Ascending';
+sElSortType = 'ByHierarchy';
+sElSortOrder = 'Ascending';
+
+sCube = 'Payroll - New Employees';
+
+sView = '}TI_Process'|NumberToString(ROUND(RAND() * 1000));
+sVZOView = 'VZOLoad';
+sSub = '}TI_Process'|NumberToString(ROUND(RAND() * 1000)) ;
+nDims = 3;
+
+while (nDims>0); 
+    #### Create Subsets
+    If(SubsetExists(Expand('%sDim'|NumbertoString(nDims)|'%'), sSub) = 0);
+        SubsetCreate(Expand('%sDim'|NumbertoString(nDims)|'%'),sSub  );
+    Endif;
+    ### Delete existing elements
+    SubsetDeleteAllElements(Expand('%sDim'|NumbertoString(nDims)|'%'), sSub);
+    nDims=nDims-1;
+end;
+
+### Load data into new subset
+SubsetElementInsert(sDim1, sSub, 'Salary', 1);
+SubsetElementInsert(sDim3, sSub, pClient, 1);
+
+### Create View
+If(Viewexists(sCube, sView) = 0, ViewCreate(sCube, sView), 0);
+ViewSubsetAssign(sCube, sView, sDim1, sSub);
+ViewSubsetAssign(sCube, sView, sDim2, 'Sys Leaf');
+ViewSubsetAssign(sCube, sView, sDim3, sSub);
+
+### 1 to exclude consols, 0 to include consol
+ViewExtractSkipCalcsSet( sCube, sView, 1 );
+### 1 to skip zeros, 0 to include zeros
+ViewExtractSkipZeroesSet( sCube, sView, 1 );
+### 1 to exclude calcs, 0 to include calc values
+ViewExtractSkipRuleValuesSet( sCube, sView, 0 );
+
+DataSourceNameForServer = sCube;
+DataSourceType = 'View';
+DataSourceCubeView = sView;
+
+### Create View
+If(Viewexists(sCube, sVZOView) = 0, ViewCreate(sCube, sVZOView), 0);
+ViewSubsetAssign(sCube, sVZOView, sDim1, 'LEAF');
+ViewSubsetAssign(sCube, sVZOView, sDim2, 'Sys Leaf');
+ViewSubsetAssign(sCube, sVZOView, sDim3, sSub);
+
+
+
+#endregion
+#region Metadata
+
+
+
+#endregion
+#region Data
+
+sCube = 'Payroll - New Employees';
+sNewRole = CellGetS( sCube, pClient, vList, 'NewRole' );
+sRole = CellGetS( sCube, pClient, vList, 'Role' );
+sCostCentre = CellGetS( sCube, pClient, vList, 'Cost Centre' );
+sStartPeriod = CellGetS( sCube, pClient, vList, 'Start Date' );
+sScenario = CellGetS( sCube, pClient, vList, 'Scenario' );
+
+sDim = 'Employee';
+sEmpl = 'New'|NumbertoString(DIMSIZ( sDim ));
+If(DimensionElementExists( sDim, sEmpl ) = 0);
+    DimensionElementInsertDirect( sDim, sInsertionPoint, sEmpl, sType );
+    DimensionElementComponentAddDirect( sDim, 'NEW EMPLOYEES', sEmpl, 1 );
+Endif;
+
+
+sDim1 = 'Role';
+
+If(sNewRole @= 'Y');
+    sRoleCode = 'NewR'|NumbertoString(DIMSIZ( sDim1 ));
+Else;
+    sRoleCode = sRole;
+Endif;
+
+If(DimensionElementExists( sDim1, sRoleCode ) = 0);
+    DimensionElementInsertDirect( sDim1, sInsertionPoint, sRoleCode, sType );
+    DimensionElementComponentAddDirect( sDim1, 'TOTAL ROLES', sRoleCode, 1 );
+    AttrPutS(sRoleCode|' - '|sRole , sDim1, sRoleCode, 'Description');
+    AttrPutS(sRole , sDim1, sRoleCode, 'Role Name');
+Endif;
+
+sCube = 'Payroll - Annual';
+sVersion = 'Live Plan';
+sYear = ATTRS('PeriodYear', sStartPeriod, 'Year');
+
+AttrPutS(sStartPeriod, sDim, sEmpl, 'JoinDate');
+AttrPutS(sEmpl|' - New', sDim, sEmpl, 'Description');
+CellPutN( Value, 'Payroll - Annual', sYear, sVersion, sEmpl, sRoleCode, 'Salary' );
+if (sYear @= '2025'); 
+    CellPutN( Value, 'Payroll - Annual', '2026', sVersion, sEmpl, sRoleCode, 'Salary' );
+endif;
+
+
+
+n=12;
+sDate = ATTRS('PeriodYear', sStartPeriod, 'yyyymm');
+While(DIMIX( 'PeriodYear', sDate )>0);
+    CellPutN( 1, 'Payroll', sDate, 'Live Plan', sScenario, sCostCentre, sEmpl, sRoleCode, 'Headcount' );
+    nDate = StringToNumber( sDate) + 1;
+    sDate = NumberToString( nDate );
+    n=n-1;
+end;
+
+n=12;
+sDate = '202601';
+if(sYear @= '2025');
+    While(DIMIX( 'PeriodYear', sDate )>0);
+        CellPutN( 1, 'Payroll', sDate, 'Live Plan', sScenario, sCostCentre, sEmpl, sRoleCode, 'Headcount' );
+        nDate = StringToNumber( sDate) + 1;
+        sDate = NumberToString( nDate );
+        n=n-1;
+    end;
+endif;
+
+#endregion
+#region Epilog
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+ViewZeroOut( 'Payroll - New Employees', sVZOView );
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = Now();
+sMessage = '';
+
+RunProcess( 'System - Logging - Populate Process Info',
+           'pConfirm', 'Y',
+           'pProcess', sProcess,
+           'pRecordsProcessed', nRecords,
+           'pStartTime', sStartTime,
+           'pEndTime', sEndTime,
+           'pExecutedBy', sUser,
+           'pParametersUsed', sParameters,
+           'pExecutionStatus', sStatus,
+           'pUpdatedFrom', 'Process',
+           'pProcessMessage', sMessage,
+           'pServerLogFile', sErrorFile );
+
+####################################
+
+
+
+#endregion

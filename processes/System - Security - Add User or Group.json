@@ -1,0 +1,69 @@
+{
+	"@type":"Process",
+	"Name":"System - Security - Add User or Group",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Security - Add User or Group.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pClientEmail",
+			"Prompt":"Email address",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pFirstName",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pSurname",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pGroup1",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pGroup2",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pGroup3",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pCloudLocal",
+			"Prompt":"Cloud or tm1 security",
+			"Value":"Cloud",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000076"
+}

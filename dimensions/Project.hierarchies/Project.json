@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Project",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL PROJECTS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"No Project",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL PROJECTS",
+			"ComponentName":"No Project",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

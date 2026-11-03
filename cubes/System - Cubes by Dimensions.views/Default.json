@@ -1,0 +1,36 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Measures - System - Cubes by Dimensions')/Hierarchies('Measures - System - Cubes by Dimensions')"
+				},
+				"Expression":"{[Measures - System - Cubes by Dimensions].[Measures - System - Cubes by Dimensions].MEMBERS}"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Subsets('Summary Cubes')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Subsets('Summary Dimensions')"
+			}
+		}
+	],
+	"Titles":[],
+	"SuppressEmptyColumns":true,
+	"SuppressEmptyRows":true,
+	"FormatString":"0.00"
+}

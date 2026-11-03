@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Position Worker Type",
+	"Hierarchies@Code.links":
+	[
+		"Position Worker Type.hierarchies/Position Worker Type.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Position Worker Type')/Hierarchies('Position Worker Type')"
+	}
+}

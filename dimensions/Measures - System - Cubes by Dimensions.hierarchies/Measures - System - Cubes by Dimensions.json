@@ -1,0 +1,27 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - System - Cubes by Dimensions",
+	"Elements":
+	[
+		{
+			"Name":"Dim is in cube",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Number of elements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Number of orphans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dim is in cube and has orphans",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - System - Cubes by Dimensions.subsets/LEAF.json"
+	]
+}

@@ -1,0 +1,53 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Weather",
+	"Elements":
+	[
+		{
+			"Name":"Max Temperature",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Min Temperature",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Temperature",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Max Wind",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Precipitation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Snow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Visibility",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Avg Humidity",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Weather text",
+			"Type":"String"
+		},
+		{
+			"Name":"Weather Icon Link",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - Weather.subsets/LEAF.json",
+		"Measures - Weather.subsets/LEAF measurements.json",
+		"Measures - Weather.subsets/LEAF text.json"
+	]
+}

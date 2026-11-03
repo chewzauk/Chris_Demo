@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Stock Cover",
+	"Elements":
+	[
+		{
+			"Name":"Days Cover",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

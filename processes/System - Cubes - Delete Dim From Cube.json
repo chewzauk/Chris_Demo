@@ -1,0 +1,39 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Delete Dim From Cube",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Cubes - Delete Dim From Cube.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pCube",
+			"Prompt":"Cube to delete from",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pDim",
+			"Prompt":"Dimension to remove",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000036"
+}

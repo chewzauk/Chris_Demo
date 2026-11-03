@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"General Expenses - Drivers",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Measures - General Expenses Drivers')"
+		}
+	],
+	"Rules@Code.link":"General Expenses - Drivers.rules",
+	"Views@Code.links":[]
+}

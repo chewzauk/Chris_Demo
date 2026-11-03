@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Documentation - Rule List",
+	"Elements":
+	[
+		{
+			"Name":"1",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

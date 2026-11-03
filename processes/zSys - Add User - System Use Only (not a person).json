@@ -1,0 +1,14 @@
+{
+	"@type":"Process",
+	"Name":"zSys - Add User - System Use Only (not a person)",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zSys - Add User - System Use Only (not a person).ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[],
+	"UID": "1773325014000",
+	"VariablesUIData": []
+}

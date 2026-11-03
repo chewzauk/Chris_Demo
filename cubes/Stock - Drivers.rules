@@ -1,0 +1,12 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+
+[{'Product Wastage %','Product Lead Time'}]=C:0;
+['Default Shipping Method']=S:IF(IsLeaf=1,CONTINUE,'');
+
+
+
+
+
+FEEDERS;

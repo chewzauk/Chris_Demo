@@ -1,0 +1,39 @@
+{
+	"@type":"Process",
+	"Name":"Dimension - Time - Build TTD - YTD - YTG",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Dimension - Time - Build TTD - YTD - YTG.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"PeriodYear:PeriodYear",
+		"dataSourceNameForClient":"PeriodYear:PeriodYear",
+		"subset":"Leaves"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vPeriod",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000022"
+}

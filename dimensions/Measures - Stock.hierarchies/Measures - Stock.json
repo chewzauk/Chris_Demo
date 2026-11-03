@@ -1,0 +1,55 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Stock",
+	"Elements":
+	[
+		{
+			"Name":"Opening Stock",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast Demand",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Wastage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"New Stock Required",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closing Stock",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Stock Received",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Closing Stock",
+			"ComponentName":"Opening Stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Stock",
+			"ComponentName":"Forecast Demand",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Closing Stock",
+			"ComponentName":"Wastage",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Closing Stock",
+			"ComponentName":"Stock Received",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,36 @@
+{
+	"@type":"Cube",
+	"Name":"Demand Calendar Annual",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Clients')"
+		},
+		{
+			"@id":"Dimensions('Day Number of Month')"
+		},
+		{
+			"@id":"Dimensions('Month of Year')"
+		},
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Customer')"
+		},
+		{
+			"@id":"Dimensions('Demand Task')"
+		},
+		{
+			"@id":"Dimensions('Measures - Demand Calendar Annual')"
+		}
+	],
+	"Rules@Code.link":"Demand Calendar Annual.rules",
+	"Views@Code.links":
+	[
+		"Demand Calendar Annual.views/Default.json"
+	]
+}

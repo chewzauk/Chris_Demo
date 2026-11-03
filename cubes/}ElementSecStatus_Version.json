@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"}ElementSecStatus_Version",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('}ElementSecStatus')"
+		}
+	],
+	"Views@Code.links":[]
+}

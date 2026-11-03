@@ -1,0 +1,33 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Create Documentation Cubes",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Cubes - Create Documentation Cubes.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pAddDeveloperInfo",
+			"Prompt":"",
+			"Value":"Sempre: Shane James",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000028"
+}

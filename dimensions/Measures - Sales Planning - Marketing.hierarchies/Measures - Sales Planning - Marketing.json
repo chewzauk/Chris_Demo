@@ -1,0 +1,48 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Sales Planning - Marketing",
+	"Elements":
+	[
+		{
+			"Name":"Active",
+			"Type":"String"
+		},
+		{
+			"Name":"Campaign Type",
+			"Type":"String"
+		},
+		{
+			"Name":"Region",
+			"Type":"String"
+		},
+		{
+			"Name":"Default Boost %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Override Boost %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Boost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Start Period",
+			"Type":"String"
+		},
+		{
+			"Name":"End Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Description",
+			"Type":"String"
+		},
+		{
+			"Name":"Valid Entry",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

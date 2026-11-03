@@ -1,0 +1,44 @@
+{
+	"@type":"Process",
+	"Name":"Dimension - Responsibility Centre - Import Elements",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Dimension - Responsibility Centre - Import Elements.ti",
+	"DataSource":
+	{
+		"Type":"ASCII",
+		"dataSourceNameForServer":"Source Files/Dimensions/D_Responsibility Centre.csv",
+		"dataSourceNameForClient":"Source Files/Dimensions/D_Responsibility Centre.csv",
+		"asciiHeaderRecords":1,
+		"asciiQuoteCharacter":"\"",
+		"asciiDecimalSeparator":".",
+		"asciiThousandSeparator":",",
+		"asciiDelimiterType":"Character",
+		"asciiDelimiterChar":","
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vRC",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vRName",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vExec_Area",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "176735826500020"
+}

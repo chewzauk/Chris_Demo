@@ -1,0 +1,49 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+
+['Parameters - Model':'Forecast Month Principal Name', 'String'] = S: dimnm('PeriodYear', dimix('PeriodYear', DB('System - Parameters - Model', 'Forecast Month', 'String' )));
+['Parameters - Model':'Current Month Principal Name', 'String'] = S: dimnm('PeriodYear', dimix('PeriodYear', DB('System - Parameters - Model', 'Current Month', 'String' )));
+['Parameters - Model':'Closed Month Principal Name', 'String'] = S: dimnm('PeriodYear', dimix('PeriodYear', DB('System - Parameters - Model', 'Closed Month', 'String' )));
+
+
+# Store the YYYYMM of the Forecast Month so it can be used in comparisons.
+['Parameters - Model':'Parameters - Model':'Forecast Month YYYYMM','String'] = S: 
+    DB('}ElementAttributes_PeriodYear', DB('System - Parameters - Model', 'Forecast Month Principal Name', 'String' ), 'yyyymm' );
+# Note: cannot use Index attribute as it is a String type and TM1 will consider '101' to be less than '95'.
+
+['Parameters - Model':'Parameters - Model':'Current Month YYYYMM','String'] = S: 
+    DB('}ElementAttributes_PeriodYear', DB('System - Parameters - Model', 'Current Month Principal Name', 'String' ), 'yyyymm' );
+
+['Parameters - Model':'Parameters - Model':'Prior Month', 'Measures - Parameters':'String'] = S: ATTRS('Periodyear', ATTRS('PeriodYear', DB('System - Parameters - Model', 'Current Month', 'String' )  , 'Previous'), 'Short Name');
+['Parameters - Model':'Parameters - Model':'PY Closed Month', 'Measures - Parameters':'String'] = S: 'Dec '| DB('System - Parameters - Model', 'Prior Year', 'String' ); 
+['Parameters - Model':'Current Month YTD', 'Measures - Parameters':'String'] = S: DB('System - Parameters - Model', 'Current Month', 'String') | ' YTD';
+
+['Parameters - Model':'Prior Year', 'Measures - Parameters':'String'] = S: ATTRS('PeriodYear', DB('System - Parameters - Model', 'Current Year', 'String'), 'Previous');
+['Parameters - Model':'Next Year', 'Measures - Parameters':'String'] = S: ATTRS('PeriodYear', DB('System - Parameters - Model', 'Current Year', 'String'), 'Next');
+
+['Parameters - Model':'Previous Forecast Version', 'Measures - Parameters':'String'] = S: ATTRS('Version', DB('System - Parameters - Model', 'Current Forecast Version', 'String'), 'Previous Version');
+
+
+# Curent Month currently held as MMM YYYY alias so hard to control or work off.
+#['Parameters - Model':'Prior Month', 'Measures - Parameters':'String'] = S: ATTRS('PeriodYear', DB('System - Parameters - Model', 'Current Month', 'String'), 'Previous');
+#['Parameters - Model':'Closed Month', 'Measures - Parameters':'String'] = S: ATTRS('PeriodYear', DB('System - Parameters - Model', 'Current Month', 'String'), 'Previous');
+
+FEEDERS;
+['FEEDER SOURCE'] => ['Forecast Month Principal Name'];
+['FEEDER SOURCE'] => ['Current Month Principal Name'];
+['FEEDER SOURCE'] => ['Closed Month Principal Name'];
+['FEEDER SOURCE'] => ['Forecast Month YYYYMM'];
+['FEEDER SOURCE'] => ['Current Month YYYYMM'];
+['FEEDER SOURCE'] => ['Prior Month'];
+['FEEDER SOURCE'] => ['PY Closed Month'];
+['FEEDER SOURCE'] => ['Current Month YTD'];
+['FEEDER SOURCE'] => ['Prior Year'];
+['FEEDER SOURCE'] => ['Next Year'];
+['FEEDER SOURCE'] => ['Previous Forecast Version'];
+
+
+
+
+
+

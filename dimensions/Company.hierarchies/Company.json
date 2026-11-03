@@ -1,0 +1,1625 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Company",
+	"Elements":
+	[
+		{
+			"Name":"ALL COMPANIES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ALL REGIONS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ALL COUNTRIES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ALL CURRENCIES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ALL DIVISIONS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"102",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VCCP London",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Communications",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CGL",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CGHL",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"EMEA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"GBP",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"UK",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CGHL Divisions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"103",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Girl&Bear",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"104",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VCCP Health",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"105",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Watermelon",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"APAC",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AUD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Australia",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"108",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cowry Consulting",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"106",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Someone",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"107",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"112",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Good Relations",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"113",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"North America",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"USD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"USA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"301",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Teamspirit",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"302",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"542",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"303",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Harvard",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"306",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"InEvidence",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"543",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"400",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VCCP Madrid",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"EUR",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Spain",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VCCP Prague",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CZK",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Czechia",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"600",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VCCP Singapore",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"SGD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Singapore",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VCCP North America",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"540",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Method",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"541",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sling & Stone",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"641",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NZD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"New Zealand",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"643",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"307",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Simon Jones",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"544",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Outleap",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"570",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VCCP North America Holdings",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"109",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Chime 360",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"100",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VCCP Holdings",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"101",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VCCP Overseas",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Incentive",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"571",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VCCP Business LLC",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"359",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"102",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"103",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"104",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"105",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"601",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"108",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"106",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"107",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"112",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"113",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"501",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"301",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"302",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"542",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"303",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"306",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"543",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"400",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"401",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"600",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"502",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"540",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"541",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"641",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"642",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"643",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"307",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"544",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"570",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"109",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"100",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"101",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"110",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"571",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COMPANIES",
+			"ComponentName":"359",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL REGIONS",
+			"ComponentName":"EMEA",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL REGIONS",
+			"ComponentName":"APAC",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL REGIONS",
+			"ComponentName":"North America",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COUNTRIES",
+			"ComponentName":"UK",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COUNTRIES",
+			"ComponentName":"Australia",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COUNTRIES",
+			"ComponentName":"USA",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COUNTRIES",
+			"ComponentName":"Spain",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COUNTRIES",
+			"ComponentName":"Czechia",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COUNTRIES",
+			"ComponentName":"Singapore",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL COUNTRIES",
+			"ComponentName":"New Zealand",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"GBP",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"AUD",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"USD",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"EUR",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"CZK",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"SGD",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"NZD",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL DIVISIONS",
+			"ComponentName":"CGHL Divisions",
+			"Weight":1
+		},
+		{
+			"ParentName":"VCCP London",
+			"ComponentName":"102",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"VCCP London",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Girl&Bear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"VCCP Health",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Watermelon",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Cowry Consulting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Someone",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Good Relations",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Teamspirit",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Harvard",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"InEvidence",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"VCCP Madrid",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"VCCP Prague",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"VCCP Singapore",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"VCCP North America",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Method",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Sling & Stone",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Simon Jones",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Outleap",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"VCCP North America Holdings",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Chime 360",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"VCCP Holdings",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"VCCP Overseas",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"Incentive",
+			"Weight":1
+		},
+		{
+			"ParentName":"Communications",
+			"ComponentName":"VCCP Business LLC",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGL",
+			"ComponentName":"Communications",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL",
+			"ComponentName":"CGL",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"102",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"103",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"104",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"105",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"108",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"106",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"107",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"112",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"113",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"301",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"302",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"303",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"306",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"400",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"401",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"307",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"109",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"100",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"101",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"110",
+			"Weight":1
+		},
+		{
+			"ParentName":"EMEA",
+			"ComponentName":"359",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"102",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"103",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"104",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"105",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"108",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"106",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"107",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"112",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"113",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"301",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"302",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"303",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"306",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"307",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"109",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"100",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"101",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"110",
+			"Weight":1
+		},
+		{
+			"ParentName":"GBP",
+			"ComponentName":"359",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"102",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"103",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"104",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"105",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"108",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"106",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"107",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"112",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"113",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"301",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"302",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"303",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"306",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"307",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"109",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"100",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"101",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"110",
+			"Weight":1
+		},
+		{
+			"ParentName":"UK",
+			"ComponentName":"359",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"102",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"103",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"104",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"105",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"601",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"108",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"106",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"107",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"112",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"113",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"501",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"301",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"302",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"542",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"303",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"306",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"543",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"400",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"401",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"600",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"502",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"540",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"541",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"641",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"642",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"643",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"307",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"544",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"570",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"109",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"100",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"101",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"110",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"571",
+			"Weight":1
+		},
+		{
+			"ParentName":"CGHL Divisions",
+			"ComponentName":"359",
+			"Weight":1
+		},
+		{
+			"ParentName":"Girl&Bear",
+			"ComponentName":"103",
+			"Weight":1
+		},
+		{
+			"ParentName":"VCCP Health",
+			"ComponentName":"104",
+			"Weight":1
+		},
+		{
+			"ParentName":"Watermelon",
+			"ComponentName":"105",
+			"Weight":1
+		},
+		{
+			"ParentName":"Watermelon",
+			"ComponentName":"601",
+			"Weight":1
+		},
+		{
+			"ParentName":"APAC",
+			"ComponentName":"601",
+			"Weight":1
+		},
+		{
+			"ParentName":"APAC",
+			"ComponentName":"600",
+			"Weight":1
+		},
+		{
+			"ParentName":"APAC",
+			"ComponentName":"641",
+			"Weight":1
+		},
+		{
+			"ParentName":"APAC",
+			"ComponentName":"642",
+			"Weight":1
+		},
+		{
+			"ParentName":"APAC",
+			"ComponentName":"643",
+			"Weight":1
+		},
+		{
+			"ParentName":"AUD",
+			"ComponentName":"601",
+			"Weight":1
+		},
+		{
+			"ParentName":"AUD",
+			"ComponentName":"641",
+			"Weight":1
+		},
+		{
+			"ParentName":"Australia",
+			"ComponentName":"601",
+			"Weight":1
+		},
+		{
+			"ParentName":"Australia",
+			"ComponentName":"641",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cowry Consulting",
+			"ComponentName":"108",
+			"Weight":1
+		},
+		{
+			"ParentName":"Someone",
+			"ComponentName":"106",
+			"Weight":1
+		},
+		{
+			"ParentName":"Someone",
+			"ComponentName":"107",
+			"Weight":1
+		},
+		{
+			"ParentName":"Good Relations",
+			"ComponentName":"112",
+			"Weight":1
+		},
+		{
+			"ParentName":"Good Relations",
+			"ComponentName":"113",
+			"Weight":1
+		},
+		{
+			"ParentName":"Good Relations",
+			"ComponentName":"501",
+			"Weight":1
+		},
+		{
+			"ParentName":"North America",
+			"ComponentName":"501",
+			"Weight":1
+		},
+		{
+			"ParentName":"North America",
+			"ComponentName":"542",
+			"Weight":1
+		},
+		{
+			"ParentName":"North America",
+			"ComponentName":"543",
+			"Weight":1
+		},
+		{
+			"ParentName":"North America",
+			"ComponentName":"502",
+			"Weight":1
+		},
+		{
+			"ParentName":"North America",
+			"ComponentName":"540",
+			"Weight":1
+		},
+		{
+			"ParentName":"North America",
+			"ComponentName":"541",
+			"Weight":1
+		},
+		{
+			"ParentName":"North America",
+			"ComponentName":"544",
+			"Weight":1
+		},
+		{
+			"ParentName":"North America",
+			"ComponentName":"570",
+			"Weight":1
+		},
+		{
+			"ParentName":"North America",
+			"ComponentName":"571",
+			"Weight":1
+		},
+		{
+			"ParentName":"USD",
+			"ComponentName":"501",
+			"Weight":1
+		},
+		{
+			"ParentName":"USD",
+			"ComponentName":"542",
+			"Weight":1
+		},
+		{
+			"ParentName":"USD",
+			"ComponentName":"543",
+			"Weight":1
+		},
+		{
+			"ParentName":"USD",
+			"ComponentName":"502",
+			"Weight":1
+		},
+		{
+			"ParentName":"USD",
+			"ComponentName":"540",
+			"Weight":1
+		},
+		{
+			"ParentName":"USD",
+			"ComponentName":"541",
+			"Weight":1
+		},
+		{
+			"ParentName":"USD",
+			"ComponentName":"544",
+			"Weight":1
+		},
+		{
+			"ParentName":"USD",
+			"ComponentName":"570",
+			"Weight":1
+		},
+		{
+			"ParentName":"USD",
+			"ComponentName":"571",
+			"Weight":1
+		},
+		{
+			"ParentName":"USA",
+			"ComponentName":"501",
+			"Weight":1
+		},
+		{
+			"ParentName":"USA",
+			"ComponentName":"542",
+			"Weight":1
+		},
+		{
+			"ParentName":"USA",
+			"ComponentName":"543",
+			"Weight":1
+		},
+		{
+			"ParentName":"USA",
+			"ComponentName":"502",
+			"Weight":1
+		},
+		{
+			"ParentName":"USA",
+			"ComponentName":"540",
+			"Weight":1
+		},
+		{
+			"ParentName":"USA",
+			"ComponentName":"541",
+			"Weight":1
+		},
+		{
+			"ParentName":"USA",
+			"ComponentName":"544",
+			"Weight":1
+		},
+		{
+			"ParentName":"USA",
+			"ComponentName":"570",
+			"Weight":1
+		},
+		{
+			"ParentName":"USA",
+			"ComponentName":"571",
+			"Weight":1
+		},
+		{
+			"ParentName":"Teamspirit",
+			"ComponentName":"301",
+			"Weight":1
+		},
+		{
+			"ParentName":"Teamspirit",
+			"ComponentName":"302",
+			"Weight":1
+		},
+		{
+			"ParentName":"Teamspirit",
+			"ComponentName":"542",
+			"Weight":1
+		},
+		{
+			"ParentName":"Harvard",
+			"ComponentName":"303",
+			"Weight":1
+		},
+		{
+			"ParentName":"Harvard",
+			"ComponentName":"359",
+			"Weight":1
+		},
+		{
+			"ParentName":"InEvidence",
+			"ComponentName":"306",
+			"Weight":1
+		},
+		{
+			"ParentName":"InEvidence",
+			"ComponentName":"543",
+			"Weight":1
+		},
+		{
+			"ParentName":"VCCP Madrid",
+			"ComponentName":"400",
+			"Weight":1
+		},
+		{
+			"ParentName":"EUR",
+			"ComponentName":"400",
+			"Weight":1
+		},
+		{
+			"ParentName":"Spain",
+			"ComponentName":"400",
+			"Weight":1
+		},
+		{
+			"ParentName":"VCCP Prague",
+			"ComponentName":"401",
+			"Weight":1
+		},
+		{
+			"ParentName":"CZK",
+			"ComponentName":"401",
+			"Weight":1
+		},
+		{
+			"ParentName":"Czechia",
+			"ComponentName":"401",
+			"Weight":1
+		},
+		{
+			"ParentName":"VCCP Singapore",
+			"ComponentName":"600",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGD",
+			"ComponentName":"600",
+			"Weight":1
+		},
+		{
+			"ParentName":"SGD",
+			"ComponentName":"643",
+			"Weight":1
+		},
+		{
+			"ParentName":"Singapore",
+			"ComponentName":"600",
+			"Weight":1
+		},
+		{
+			"ParentName":"Singapore",
+			"ComponentName":"643",
+			"Weight":1
+		},
+		{
+			"ParentName":"VCCP North America",
+			"ComponentName":"502",
+			"Weight":1
+		},
+		{
+			"ParentName":"Method",
+			"ComponentName":"540",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sling & Stone",
+			"ComponentName":"541",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sling & Stone",
+			"ComponentName":"641",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sling & Stone",
+			"ComponentName":"642",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sling & Stone",
+			"ComponentName":"643",
+			"Weight":1
+		},
+		{
+			"ParentName":"NZD",
+			"ComponentName":"642",
+			"Weight":1
+		},
+		{
+			"ParentName":"New Zealand",
+			"ComponentName":"642",
+			"Weight":1
+		},
+		{
+			"ParentName":"Simon Jones",
+			"ComponentName":"307",
+			"Weight":1
+		},
+		{
+			"ParentName":"Outleap",
+			"ComponentName":"544",
+			"Weight":1
+		},
+		{
+			"ParentName":"VCCP North America Holdings",
+			"ComponentName":"570",
+			"Weight":1
+		},
+		{
+			"ParentName":"Chime 360",
+			"ComponentName":"109",
+			"Weight":1
+		},
+		{
+			"ParentName":"VCCP Holdings",
+			"ComponentName":"100",
+			"Weight":1
+		},
+		{
+			"ParentName":"VCCP Overseas",
+			"ComponentName":"101",
+			"Weight":1
+		},
+		{
+			"ParentName":"Incentive",
+			"ComponentName":"110",
+			"Weight":1
+		},
+		{
+			"ParentName":"VCCP Business LLC",
+			"ComponentName":"571",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Company.subsets/ALL Companies Expanded.json",
+		"Company.subsets/Sys Leaf.json"
+	]
+}

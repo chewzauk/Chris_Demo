@@ -1,0 +1,24 @@
+SKIPCHECK;
+
+['Quantity'] = N: DB('Revenue - Volume', !PeriodYear, !Version, 'Base - Manual', !Customer, !Product, !Measures - Revenue Volume );
+
+### Fetch Price Per Unit from the Price and Margin Cube. Bring in PPU any time there is a Quantity, not when Quantity = 0 as that stops you suppressing zeroes.
+# While you could want to flex Prices in the Promo layer, right now we just link to Base and use those.
+
+['Price Per Unit'] = N: If ( ['Quantity'] = 0, 0, DB('Revenue - Product Price and Margin', !PeriodYear, !Version, 'Base', !Product, 'Price' ) );
+
+
+# For consolidations, back-calculate as Revenue / Qty. No dedicated feeder needed, naturally fed by physical Quantity values at leaf level. 
+['Price Per Unit'] = C: ['Measures - Revenue Volume':'Revenue'] \ ['Measures - Revenue Volume':'Quantity'];
+  
+
+# ---------------------------------------------------------
+### Revenue Calculation
+
+[{'Live Plan', 'Actual'}, 'Revenue'] = N: ['Quantity'] * ['Price Per Unit'];
+
+
+FEEDERS;
+
+
+['Quantity'] => ['Revenue'], ['Price per Unit'];

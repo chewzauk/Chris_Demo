@@ -1,0 +1,19 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Documentation - Rules",
+	"Elements":
+	[
+		{
+			"Name":"Rule",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Feeder",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Documentation - Rules.subsets/LEAF.json"
+	]
+}

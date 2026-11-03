@@ -1,0 +1,286 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Category",
+	"ElementsSortType":"ByHierarchy",
+	"Elements":
+	[
+		{
+			"Name":"Total Category",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"🍼 Feeding – Bottles & Sets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Prod01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod02",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod03",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod04",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod05",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod06",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod07",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod08",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod09",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"🍽️ Weaning & Toddler Feeding",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Prod10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod13",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod14",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod15",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod16",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"✨ Sterilising & Preparation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Prod17",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod19",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"😴 Soothing & Comfort",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Prod20",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod21",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod22",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"👶 Accessories & Clothing",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Prod23",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod24",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prod25",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"🍼 Feeding – Bottles & Sets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"🍽️ Weaning & Toddler Feeding",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"✨ Sterilising & Preparation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"😴 Soothing & Comfort",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Category",
+			"ComponentName":"👶 Accessories & Clothing",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍼 Feeding – Bottles & Sets",
+			"ComponentName":"Prod01",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍼 Feeding – Bottles & Sets",
+			"ComponentName":"Prod02",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍼 Feeding – Bottles & Sets",
+			"ComponentName":"Prod03",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍼 Feeding – Bottles & Sets",
+			"ComponentName":"Prod04",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍼 Feeding – Bottles & Sets",
+			"ComponentName":"Prod05",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍼 Feeding – Bottles & Sets",
+			"ComponentName":"Prod06",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍼 Feeding – Bottles & Sets",
+			"ComponentName":"Prod07",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍼 Feeding – Bottles & Sets",
+			"ComponentName":"Prod08",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍼 Feeding – Bottles & Sets",
+			"ComponentName":"Prod09",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍽️ Weaning & Toddler Feeding",
+			"ComponentName":"Prod10",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍽️ Weaning & Toddler Feeding",
+			"ComponentName":"Prod11",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍽️ Weaning & Toddler Feeding",
+			"ComponentName":"Prod12",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍽️ Weaning & Toddler Feeding",
+			"ComponentName":"Prod13",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍽️ Weaning & Toddler Feeding",
+			"ComponentName":"Prod14",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍽️ Weaning & Toddler Feeding",
+			"ComponentName":"Prod15",
+			"Weight":1
+		},
+		{
+			"ParentName":"🍽️ Weaning & Toddler Feeding",
+			"ComponentName":"Prod16",
+			"Weight":1
+		},
+		{
+			"ParentName":"✨ Sterilising & Preparation",
+			"ComponentName":"Prod17",
+			"Weight":1
+		},
+		{
+			"ParentName":"✨ Sterilising & Preparation",
+			"ComponentName":"Prod18",
+			"Weight":1
+		},
+		{
+			"ParentName":"✨ Sterilising & Preparation",
+			"ComponentName":"Prod19",
+			"Weight":1
+		},
+		{
+			"ParentName":"😴 Soothing & Comfort",
+			"ComponentName":"Prod20",
+			"Weight":1
+		},
+		{
+			"ParentName":"😴 Soothing & Comfort",
+			"ComponentName":"Prod21",
+			"Weight":1
+		},
+		{
+			"ParentName":"😴 Soothing & Comfort",
+			"ComponentName":"Prod22",
+			"Weight":1
+		},
+		{
+			"ParentName":"👶 Accessories & Clothing",
+			"ComponentName":"Prod23",
+			"Weight":1
+		},
+		{
+			"ParentName":"👶 Accessories & Clothing",
+			"ComponentName":"Prod24",
+			"Weight":1
+		},
+		{
+			"ParentName":"👶 Accessories & Clothing",
+			"ComponentName":"Prod25",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

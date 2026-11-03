@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"All Dimensions 1st Expand",
+	"Expression":"{DRILLDOWNMEMBER({[Documentation].[Documentation].[1. All Dimensions]} ,             {[Documentation].[Documentation].[1. All Dimensions]} , RECURSIVE)}"
+}

@@ -1,0 +1,1090 @@
+{
+	"@type":"Subset",
+	"Name":"Leaf System Dimensions",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ApplicationEntries')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}CAMAssociatedGroups')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Chores')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ClientProperties')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Clients')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ClientSettings')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ConnectionProperties')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Connections')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Cube Functions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}CubeProperties')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Cubes')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}CubeSecurityProperties')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Cultures')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}DimensionFormatAttributes')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}DimensionFormatItems')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}DimensionProperties')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Dimensions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Account Legacy')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Account Mapping File')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - Balance Sheet Movements')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - Capex')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - Gains & Losses')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - IC Loans')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - Intercompany')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - Medium Term Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - Monthly Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - Uncommitted Costs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Accounts - Weekly Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Balance Sheet Movement List')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Company')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Currency')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Currency - Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Date')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Documentation')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_FX Rate Type')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_IC Company Counterparty')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_IC Company IN')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_IC Company OUT')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_IC Debtors Creditors')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_List')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_MappingCXMD Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_MappingCXMD Company')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_MappingCXMD Version')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Account Legacy Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Balance Sheet Movement')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Balance Sheet Movement Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - BS Movement')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Capex')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Currency - Daily')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Currency - Monthly')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Documentation')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Excel Import Monthly Balance Sheet Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Excel Import People Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Excel Import Profit and Loss Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Excel Import Uncommitted Costs Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Excel Import Weekly Cashflow Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Gains & Losses')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Group Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - IC Debtors Creditors')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - IC Loans')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - IC Mapping Matrix')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Medium Term Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Monthly Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Monthly Balance Sheet Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Parameters')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - People')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - People Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Profit and Loss Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Transaction Logs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Trial Balance')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Uncommitted Costs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Uncommitted Costs Import from Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Weekly Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Measures - Weekly Cashflow Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Monthly Balance Sheet Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Parameters - Model')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Parameters - System')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Parameters - User')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_People Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Period')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Profit and Loss Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Risk')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Role')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_System - Dimensions Allowed To Have Orphans')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_System - Dimensions Mirror')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_UI Info')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Uncommitted Costs Import from Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Version')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Weekly Cashflow Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_WeekYear')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_Year')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}CAMAssociatedGroups')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}Clients')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}Cubes')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}Cultures')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}ElementAttributes_Accounts - Medium Term Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}ElementAttributes_Accounts - Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}ElementAttributes_Company')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}ElementAttributes_Version')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}Groups')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}Hierarchies_Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}Hierarchies_Company')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}PickList')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}Processes')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}Subsets_Company')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}tp_applications')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}tp_config')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}tp_process_errors_localization')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementAttributes_}tp_system_config')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}ElementProperties')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Features')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Groups')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Account Legacy')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Account Mapping File')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - Balance Sheet Movements')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - Capex')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - Gains & Losses')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - IC Loans')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - Intercompany')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - Medium Term Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - Monthly Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - Uncommitted Costs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Accounts - Weekly Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Balance Sheet Movement List')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Client')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Company')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Currency')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Currency - Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Date')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Documentation')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Documentation - Rule List')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Documentation - Rules')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_FX Rate Type')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_IC Company Counterparty')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_IC Company IN')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_IC Company OUT')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_IC Debtors Creditors')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_List')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_List Logs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_MappingCXMD Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_MappingCXMD Company')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_MappingCXMD Version')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Account Legacy Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Balance Sheet Movement')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Balance Sheet Movement Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - BS Movement')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Capex')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Currency - Daily')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Currency - Monthly')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Documentation')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Excel Import Monthly Balance Sheet Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Excel Import People Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Excel Import Profit and Loss Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Excel Import Uncommitted Costs Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Excel Import Weekly Cashflow Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Gains & Losses')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Group Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - IC Debtors Creditors')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - IC Loans')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - IC Mapping Matrix')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - List Table')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Medium Term Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Monthly Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Monthly Balance Sheet Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Parameters')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - People')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - People Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Process Info')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Profit and Loss Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - System - Cubes by Dimensions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Transaction Logs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Trial Balance')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - UI')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Uncommitted Costs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Uncommitted Costs Import from Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Weekly Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures - Weekly Cashflow Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Measures Detailed Income')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Monthly Balance Sheet Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Parameters - Model')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Parameters - System')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Parameters - User')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_People Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Period')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Picklist Options')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Profit and Loss Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Risk')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Role')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_System - Cubes Mirror')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_System - Dimensions Allowed To Have Orphans')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_System - Dimensions Mirror')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Time Logs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Time Processes')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Type')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_UI Info')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Uncommitted Costs Import from Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Users')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Version')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Weekly Cashflow Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_WeekYear')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hierarchies_Year')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}HierarchyProperties')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Hold')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}LineNumber')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}PerfClients')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}PerfCubes')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Permissions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}PickList')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Processes')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}RuleStats')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}SecurityOverlay')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}StatsByProcess')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}StatsStatsByClient')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}StatsStatsByCube')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}StatsStatsByCubeByClient')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}StatsStatsForServer')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Account Legacy')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Account Mapping File')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - Balance Sheet Movements')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - Capex')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - Gains & Losses')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - IC Loans')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - Intercompany')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - Medium Term Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - Monthly Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - Uncommitted Costs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Accounts - Weekly Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Balance Sheet Movement List')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Client')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Company')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Currency')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Currency - Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Date')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Documentation')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Documentation - Rules')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_FX Rate Type')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_IC Company Counterparty')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_IC Company IN')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_IC Company OUT')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_IC Debtors Creditors')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_List')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_List Logs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_MappingCXMD Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_MappingCXMD Company')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_MappingCXMD Version')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Account Legacy Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Balance Sheet Movement')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Balance Sheet Movement Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - BS Movement')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Capex')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Currency - Monthly')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Documentation')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Excel Import Monthly Balance Sheet Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Excel Import People Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Excel Import Profit and Loss Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Excel Import Uncommitted Costs Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Excel Import Weekly Cashflow Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Gains & Losses')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Group Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - IC Debtors Creditors')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - IC Loans')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - IC Mapping Matrix')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - List Table')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Monthly Balance Sheet Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Parameters')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - People')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - People Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Process Info')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Profit and Loss Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - System - Cubes by Dimensions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Transaction Logs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Trial Balance')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - UI')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Uncommitted Costs Import from Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Weekly Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures - Weekly Cashflow Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Measures Detailed Income')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Monthly Balance Sheet Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Parameters - Model')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Parameters - System')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Parameters - User')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_People Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Period')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Profit and Loss Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Risk')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Role')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_System - Cubes Mirror')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_System - Dimensions Allowed To Have Orphans')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_System - Dimensions Mirror')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Time Processes')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Type')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_UI Info')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Uncommitted Costs Import from Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Users')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Version')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Weekly Cashflow Import From Excel Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_WeekYear')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_Year')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_}Clients')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_}Cubes')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_}Dimensions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_}Groups')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_}Processes')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_}tp_applications')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_}tp_permissions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Subsets_}tp_root_permissions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}TimeIntervals')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_applications')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_app_user_preference')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_config')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_intermediate_security_applications')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_intermediate_security_measures')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_jobs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_job_info')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_node_info')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_permissions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_process_errors_localization')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_process_error_measures')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_process_guids')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_root_permissions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_system_config')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_task_navigations')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_workflow_actions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}tp_workflow_action_TI_measures')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Account Legacy Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Balance Sheet Movements Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Capex')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Currency - Daily')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Gains & Losses')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Group Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Group Reporting (Fixed FX)')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Monthly Balance Sheet Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_People')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Staging - History')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_System - Cubes by Dimensions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_System - Parameters - User')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Trial Balance')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Uncommitted Costs')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Weekly Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_Weekly Cashflow Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('}Views_}ElementAttributes_MappingCXMD Accounts')"
+		}
+	]
+}

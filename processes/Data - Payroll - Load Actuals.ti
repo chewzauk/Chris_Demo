@@ -1,0 +1,14 @@
+#region Prolog
+
+ExecuteProcess( 'Data - Payroll - Load Actuals - UK',
+	'pTemp', 1,
+	'pPeriod', pPeriod,
+	'pClearMonth', 'Y' );
+
+
+ExecuteProcess( 'Data - Payroll - Load Actuals - US',
+	'pTemp', 1,
+	'pPeriod', pPeriod,
+	'pClearMonth', 'Y' );
+
+#endregion

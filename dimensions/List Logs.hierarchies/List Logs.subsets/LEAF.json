@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"LEAF",
+	"Expression":"{TM1SORT( {TM1FILTERBYLEVEL( {TM1SUBSETALL( [List Logs] )}, 0)}, ASC)}"
+}

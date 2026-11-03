@@ -1,0 +1,11 @@
+{
+	"@type":"Subset",
+	"Name":"ztest",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Date')/Hierarchies('Date')/Elements('2025-01-21')"
+		}
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"System - Transaction Logs",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Clients')"
+		},
+		{
+			"@id":"Dimensions('}Cubes')"
+		},
+		{
+			"@id":"Dimensions('Users')"
+		},
+		{
+			"@id":"Dimensions('List Logs')"
+		},
+		{
+			"@id":"Dimensions('Time Logs')"
+		},
+		{
+			"@id":"Dimensions('Measures - Transaction Logs')"
+		}
+	],
+	"Views@Code.links":[]
+}

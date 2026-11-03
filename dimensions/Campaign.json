@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Campaign",
+	"Hierarchies@Code.links":
+	[
+		"Campaign.hierarchies/Campaign.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Campaign')/Hierarchies('Campaign')"
+	}
+}

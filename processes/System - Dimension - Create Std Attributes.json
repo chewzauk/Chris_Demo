@@ -1,0 +1,63 @@
+{
+	"@type":"Process",
+	"Name":"System - Dimension - Create Std Attributes",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Dimension - Create Std Attributes.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"}Dimensions",
+		"dataSourceNameForClient":"}Dimensions",
+		"subset":"All"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pAttributeName1",
+			"Prompt":"Enter name of attribute for all dimensions (Alias attr Created)",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAttributeName2",
+			"Prompt":"Enter name of attribute for all dimensions (Alias attr Created)",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAttributeName3",
+			"Prompt":"Enter name of attribute for all dimensions (String attr Created)",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAttributeName4",
+			"Prompt":"Enter name of attribute for all dimensions (Numeric attr Created)",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vDim",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000043"
+}

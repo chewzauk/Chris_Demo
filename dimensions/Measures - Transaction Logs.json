@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Transaction Logs",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Transaction Logs.hierarchies/Measures - Transaction Logs.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Transaction Logs')/Hierarchies('Measures - Transaction Logs')"
+	}
+}

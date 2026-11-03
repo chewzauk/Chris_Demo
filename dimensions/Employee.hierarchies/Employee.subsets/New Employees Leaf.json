@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"New Employees Leaf",
+	"Alias":"Description",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL({DRILLDOWNMEMBER({[Employee].[Employee].[NEW EMPLOYEES]} , {[Employee].[Employee].[NEW EMPLOYEES]} , RECURSIVE)}, 0)}"
+}

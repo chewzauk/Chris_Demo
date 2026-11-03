@@ -1,0 +1,130 @@
+#region Prolog
+
+if (DimensionElementExists( 'Version', pTgtVersion ) = 0); 
+    DimensionElementInsert( 'Version', '', pTgtVersion, 'N' ) ; 
+endif;
+
+IF(pIsStatic @= 'Y');
+    DimensionElementComponentAdd( 'Version', 'ALL STATIC VERSIONS', pTgtVersion, 1 );
+else;
+    DimensionElementComponentAdd( 'Version', 'ALL CALC VERSIONS', pTgtVersion, 1 );
+endif;
+
+
+
+
+#endregion
+#region Epilog
+
+sStartMonth = ATTRS('Version', pSrcVersion, 'Start Period');
+sEndMonth = ATTRS('Version', pSrcVersion, 'End Period');
+sPriorVersion = ATTRS('Version', pSrcVersion, 'Prior Version');
+
+AttrPutS( sStartMonth, 'Version', pTgtVersion, 'Start Period' );
+AttrPutS( sEndMonth, 'Version', pTgtVersion, 'End Period' );
+AttrPutS( sPriorVersion, 'Version', pTgtVersion, 'Prior Version' );
+
+if (pIsStatic @= 'Y'); 
+    AttrPutS( pIsStatic, 'Version', pTgtVersion, 'IsStatic' ); 
+endif;
+
+sMapping = 'Version¦'| pSrcVersion|'->'| pTgtVersion;
+sRuleOn = If(pIsStatic @= 'Y', 0, 1);
+
+sCube = 'Payroll - Assumptions';
+ExecuteProcess( '}bedrock.cube.data.copy', 'pLogOutput', 0,
+               'pStrictErrorHandling', 0,
+               'pCube', sCube, 'pSrcView', '', 'pTgtView', '', 'pFilter', '',
+               'pFilterParallel', '', 'pParallelThreads', 0,
+               'pEleMapping', sMapping, 'pMappingDelim', '->',
+               'pDimDelim', '&', 'pEleStartDelim', '¦', 'pEleDelim', '+',
+               'pFactor', 1, 'pSuppressConsol', 1, 'pSuppressConsolStrings', 0, 'pSuppressRules', sRuleOn, 'pSuppressZero', 1, 'pIncludeDescendants',0, 'pCumulate', 0,
+               'pZeroTarget', 1, 'pZeroSource', 0,
+               'pTemp', 1, 'pCubeLogging', 0, 'pSandbox', '', 
+               'pFile', 0, 'pDelim', ',', 'pQuote', '"', 'pDecimalSeparator', '.', 'pThousandSeparator', ',', 'pSubN', 0
+              );
+
+sCube = 'Payroll - Flex Assumptions';
+ExecuteProcess( '}bedrock.cube.data.copy', 'pLogOutput', 0,
+               'pStrictErrorHandling', 0,
+               'pCube', sCube, 'pSrcView', '', 'pTgtView', '', 'pFilter', '',
+               'pFilterParallel', '', 'pParallelThreads', 0,
+               'pEleMapping', sMapping, 'pMappingDelim', '->',
+               'pDimDelim', '&', 'pEleStartDelim', '¦', 'pEleDelim', '+',
+               'pFactor', 1, 'pSuppressConsol', 1, 'pSuppressConsolStrings', 0, 'pSuppressRules', sRuleOn, 'pSuppressZero', 1, 'pIncludeDescendants',0, 'pCumulate', 0,
+               'pZeroTarget', 1, 'pZeroSource', 0,
+               'pTemp', 1, 'pCubeLogging', 0, 'pSandbox', '', 
+               'pFile', 0, 'pDelim', ',', 'pQuote', '"', 'pDecimalSeparator', '.', 'pThousandSeparator', ',', 'pSubN', 0
+              );
+
+sCube = 'Payroll Plan - Annual';
+ExecuteProcess( '}bedrock.cube.data.copy', 'pLogOutput', 0,
+               'pStrictErrorHandling', 0,
+               'pCube', sCube, 'pSrcView', '', 'pTgtView', '', 'pFilter', '',
+               'pFilterParallel', '', 'pParallelThreads', 0,
+               'pEleMapping', sMapping, 'pMappingDelim', '->',
+               'pDimDelim', '&', 'pEleStartDelim', '¦', 'pEleDelim', '+',
+               'pFactor', 1, 'pSuppressConsol', 1, 'pSuppressConsolStrings', 0, 'pSuppressRules', sRuleOn, 'pSuppressZero', 1, 'pIncludeDescendants',0, 'pCumulate', 0,
+               'pZeroTarget', 1, 'pZeroSource', 0,
+               'pTemp', 1, 'pCubeLogging', 0, 'pSandbox', '', 
+               'pFile', 0, 'pDelim', ',', 'pQuote', '"', 'pDecimalSeparator', '.', 'pThousandSeparator', ',', 'pSubN', 0
+              );
+
+sCube = 'Currency';
+ExecuteProcess( '}bedrock.cube.data.copy', 'pLogOutput', 0,
+               'pStrictErrorHandling', 0,
+               'pCube', sCube, 'pSrcView', '', 'pTgtView', '', 'pFilter', '',
+               'pFilterParallel', '', 'pParallelThreads', 0,
+               'pEleMapping', sMapping, 'pMappingDelim', '->',
+               'pDimDelim', '&', 'pEleStartDelim', '¦', 'pEleDelim', '+',
+               'pFactor', 1, 'pSuppressConsol', 1, 'pSuppressConsolStrings', 0, 'pSuppressRules', sRuleOn, 'pSuppressZero', 1, 'pIncludeDescendants',0, 'pCumulate', 0,
+               'pZeroTarget', 1, 'pZeroSource', 0,
+               'pTemp', 1, 'pCubeLogging', 0, 'pSandbox', '', 
+               'pFile', 0, 'pDelim', ',', 'pQuote', '"', 'pDecimalSeparator', '.', 'pThousandSeparator', ',', 'pSubN', 0
+              );
+
+if(pAssumptionsOnly@<>'Y');
+    sCube = 'Payroll';
+    ExecuteProcess( '}bedrock.cube.data.copy', 'pLogOutput', 0,
+                   'pStrictErrorHandling', 0,
+                   'pCube', sCube, 'pSrcView', '', 'pTgtView', '', 'pFilter', '',
+                   'pFilterParallel', '', 'pParallelThreads', 0,
+                   'pEleMapping', sMapping, 'pMappingDelim', '->',
+                   'pDimDelim', '&', 'pEleStartDelim', '¦', 'pEleDelim', '+',
+                   'pFactor', 1, 'pSuppressConsol', 1, 'pSuppressConsolStrings', 0, 'pSuppressRules', sRuleOn, 'pSuppressZero', 1, 'pIncludeDescendants',0, 'pCumulate', 0,
+                   'pZeroTarget', 1, 'pZeroSource', 0,
+                   'pTemp', 1, 'pCubeLogging', 0, 'pSandbox', '', 
+                   'pFile', 0, 'pDelim', ',', 'pQuote', '"', 'pDecimalSeparator', '.', 'pThousandSeparator', ',', 'pSubN', 0
+                  );
+
+    if (pIsStatic @= 'Y'); 
+        sCube = 'Reporting';
+        ExecuteProcess( '}bedrock.cube.data.copy', 'pLogOutput', 0,
+                       'pStrictErrorHandling', 0,
+                       'pCube', sCube, 'pSrcView', '', 'pTgtView', '', 'pFilter', '',
+                       'pFilterParallel', '', 'pParallelThreads', 0,
+                       'pEleMapping', sMapping, 'pMappingDelim', '->',
+                       'pDimDelim', '&', 'pEleStartDelim', '¦', 'pEleDelim', '+',
+                       'pFactor', 1, 'pSuppressConsol', 1, 'pSuppressConsolStrings', 0, 'pSuppressRules', sRuleOn, 'pSuppressZero', 1, 'pIncludeDescendants',0, 'pCumulate', 0,
+                       'pZeroTarget', 1, 'pZeroSource', 0,
+                       'pTemp', 1, 'pCubeLogging', 0, 'pSandbox', '', 
+                       'pFile', 0, 'pDelim', ',', 'pQuote', '"', 'pDecimalSeparator', '.', 'pThousandSeparator', ',', 'pSubN', 0
+                      );
+    endif;
+endif;
+
+if (pIsStatic @<> 'Y'); 
+
+    RunProcess( 'System - Maintenance - Reprocess Feeders',
+               'pConfirm', 'Y',
+               'pEmail', 'N',
+               'pCube', 'Payroll' );
+
+    RunProcess( 'System - Maintenance - Reprocess Feeders',
+               'pConfirm', 'Y',
+               'pEmail', 'N',
+               'pCube', 'Reporting' );
+
+endif;
+
+#endregion

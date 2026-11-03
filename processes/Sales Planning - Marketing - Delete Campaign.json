@@ -1,0 +1,34 @@
+{
+	"@type":"Process",
+	"Name":"Sales Planning - Marketing - Delete Campaign",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Sales Planning - Marketing - Delete Campaign.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pProduct",
+			"Prompt":"Product",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pRegion",
+			"Prompt":"Region",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pCampaign",
+			"Prompt":"Campaign",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "1764337869000",
+	"VariablesUIData": []
+}

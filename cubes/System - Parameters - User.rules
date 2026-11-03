@@ -1,0 +1,45 @@
+# ##################
+# Value is not currently in use so block it out to save confusion.
+
+['Measures - Parameters':'Measures - Parameters':'Value'] = N: 0;
+
+# ##################
+# Email is based on username unless LDAP.
+
+['}Clients':'System Use Only (not a person)', 'Parameters - User':'Email', 'String'] = S: STET;
+['Parameters - User':'Email', 'String'] = S: IF( SCAN( 'LDAP', !}Clients ) > 0, STET, CONTINUE);
+['Parameters - User':'Email', 'String'] = S: SUBST( !}Clients, 15, SCAN('"', SUBST( !}Clients, 16,100) ));
+
+# ##################
+# Check Email Address is valid.
+
+# Just write all the checks you want step by step resulting in 0 if they fail, else CONTINUE.
+
+['Email Is Valid', 'String'] = S: if (scan('@', DB('System - Parameters - User', !}Clients, 'Email', 'String' )) = 0, 'No', CONTINUE);
+['Email Is Valid', 'String'] = S: if (scan('.', DB('System - Parameters - User', !}Clients, 'Email', 'String' )) = 0, 'No', CONTINUE);
+['Email Is Valid', 'String'] = S: if (scan(' ', DB('System - Parameters - User', !}Clients, 'Email', 'String' )) > 0, 'No', CONTINUE);
+['Email Is Valid', 'String'] = S: 'Yes';
+['Email Is Valid', 'Value'] = N: IF(DB('System - Parameters - User', !}Clients, 'Email is Valid', 'String' ) @= 'Yes', 1, 0);
+
+# ##################
+
+['Full Name', 'String'] = S: DB('System - Parameters - User', !}Clients, 'First Name', 'String' ) | ' ' | DB('System - Parameters - User', !}Clients, 'Surname', 'String' );
+
+# ##################
+# 2022-10-20. Link in Active status from system cube so it can be seen in PAW.
+
+['Active Status', 'String'] = S:
+	if ( dimix ('}Clients', !}Clients ) > 0,
+		if ( DB('}ClientProperties',!}Clients,'STATUS') @= 'ACTIVE',
+			'Online',
+			'Offline'
+		)
+	, 'Invalid user'
+	)
+;
+
+# ##################
+
+['Administrator', 'String'] = S: IF ( DB('}ClientGroups', !}Clients, 'ADMIN' ) @= 'ADMIN', 'Yes', '') ;
+
+# ##################

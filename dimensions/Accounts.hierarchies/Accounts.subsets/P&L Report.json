@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"P&L Report",
+	"ExpandAbove":true,
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {DRILLDOWNMEMBER(DRILLDOWNMEMBER({[Accounts].[Accounts].[Profit Attributable to Equity]} , {[Accounts].[Accounts].[Profit Attributable to Equity],[Accounts].[Accounts].[Profit after tax],[Accounts].[Accounts].[Profit before tax],[Accounts].[Accounts].[Profit Before Interest & Tax],[Accounts].[Accounts].[EBIT],[Accounts].[Accounts].[EBITDA]} , RECURSIVE) , {[Accounts].[Accounts].[Total Expenses],[Accounts].[Accounts].[Operating Income]} , RECURSIVE)}"
+}

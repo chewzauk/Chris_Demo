@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"}HierarchyAttributes_Measures - Revenue Volume",
+	"Hierarchies@Code.links":
+	[
+		"}HierarchyAttributes_Measures - Revenue Volume.hierarchies/}HierarchyAttributes_Measures - Revenue Volume.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('}HierarchyAttributes_Measures - Revenue Volume')/Hierarchies('}HierarchyAttributes_Measures - Revenue Volume')"
+	}
+}

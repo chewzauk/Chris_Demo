@@ -1,0 +1,110 @@
+skipcheck;
+
+# ###############################
+# Block Weekends out - could also do the same for bank holidays if that information existed.
+# Obviously, if you need Tasks (eg. marketing campaigns) to also exist on weekend days then comment out this rule, this is just an example demo and this adds a nice little functionality.  
+
+['Task Name'] = S:
+  if ( ISLEAF () = 1, 
+  	CONTINUE,
+#  	IF ( DB ('}ElementAttributes_Date', !Date, 'Working Day' ) @= 'Y',
+# 		CONTINUE,
+ 		''
+#	) 	
+  )
+;
+
+# ###############################
+
+['Task Importance'] = N: DB ( '}ElementAttributes_Demand Task', DB('Demand Tasks',!}Clients,!Date,!Demand Task, !Product, !Customer, 'Task Name'), 'Importance');
+
+# ###############################
+['Monthly Task Name'] = S:
+  if ( ISLEAF () = 1, 
+  	CONTINUE,
+#  	IF ( DB ('}ElementAttributes_Date', !Date, 'Working Day' ) @= 'Y',
+# 		CONTINUE,
+ 		''
+#	) 	
+  )
+;
+
+# The monthly pair of measures gets all its values from the Sales Planning cubes which in turn are populated by manual entry into neat forms in PAW where tasks are given start and end months, so we have to jst 
+['Monthly Task Name'] = S:
+if ( elispar ( 'Demand Task', 'Promo', !Demand Task) = 1,
+  if ( !Demand Task @=  DB('Sales Planning - Promos', 'Promo 1', !Product, !Customer, 'Promo Type' ), 
+		if (  DB('}ElementAttributes_Date', !Date, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 1', !Product, !Customer, 'Start Period'), 'yyyymm') & DB('}ElementAttributes_Date', !Date, 'yyyymm') @<= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 1', !Product, !Customer, 'End Period'), 'yyyymm'),
+			DB('Sales Planning - Promos', 'Promo 1', !Product, !Customer, 'Promo Type' ), 
+			CONTINUE
+  		),
+	if ( !Demand Task @=  DB('Sales Planning - Promos', 'Promo 2', !Product, !Customer, 'Promo Type' ), 
+		if (  DB('}ElementAttributes_Date', !Date, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 2', !Product, !Customer, 'Start Period'), 'yyyymm') & DB('}ElementAttributes_Date', !Date, 'yyyymm') @<= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 2', !Product, !Customer, 'End Period'), 'yyyymm'),
+			DB('Sales Planning - Promos', 'Promo 2', !Product, !Customer, 'Promo Type' ), 
+			CONTINUE
+  		),
+	if ( !Demand Task @=  DB('Sales Planning - Promos', 'Promo 3', !Product, !Customer, 'Promo Type' ), 
+		if (  DB('}ElementAttributes_Date', !Date, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 3', !Product, !Customer, 'Start Period'), 'yyyymm') & DB('}ElementAttributes_Date', !Date, 'yyyymm') @<= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 3', !Product, !Customer, 'End Period'), 'yyyymm'),
+			DB('Sales Planning - Promos', 'Promo 3', !Product, !Customer, 'Promo Type' ), 
+			CONTINUE
+  		),
+	if ( !Demand Task @=  DB('Sales Planning - Promos', 'Promo 4', !Product, !Customer, 'Promo Type' ), 
+		if (  DB('}ElementAttributes_Date', !Date, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 4', !Product, !Customer, 'Start Period'), 'yyyymm') & DB('}ElementAttributes_Date', !Date, 'yyyymm') @<= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 4', !Product, !Customer, 'End Period'), 'yyyymm'),
+			DB('Sales Planning - Promos', 'Promo 4', !Product, !Customer, 'Promo Type' ), 
+			CONTINUE
+  		),
+	if ( !Demand Task @=  DB('Sales Planning - Promos', 'Promo 5', !Product, !Customer, 'Promo Type' ), 
+		if (  DB('}ElementAttributes_Date', !Date, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 5', !Product, !Customer, 'Start Period'), 'yyyymm') & DB('}ElementAttributes_Date', !Date, 'yyyymm') @<= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 5', !Product, !Customer, 'End Period'), 'yyyymm'),
+			DB('Sales Planning - Promos', 'Promo 5', !Product, !Customer, 'Promo Type' ), 
+			CONTINUE
+  		)
+  ,  CONTINUE 
+	)))))
+, CONTINUE)
+;
+
+['Monthly Task Name'] = S:
+if ( elispar ( 'Demand Task', 'Marketing', !Demand Task) = 1,
+  if ( !Demand Task @=  DB('Sales Planning - Marketing', 'Campaign 1', !Product, ATTRS('Customer', !Customer, 'Region'), 'Campaign Type' ), 
+		if (  DB('}ElementAttributes_Date', !Date, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 1', !Product, ATTRS('Customer', !Customer, 'Region'), 'Start Period'), 'yyyymm') & DB('}ElementAttributes_Date', !Date, 'yyyymm') @<= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 1', !Product, ATTRS('Customer', !Customer, 'Region'), 'End Period'), 'yyyymm'),
+			DB('Sales Planning - Marketing', 'Campaign 1', !Product, ATTRS('Customer', !Customer, 'Region'), 'Campaign Type' ), 
+			CONTINUE
+  		),
+  if ( !Demand Task @=  DB('Sales Planning - Marketing', 'Campaign 2', !Product, ATTRS('Customer', !Customer, 'Region'), 'Campaign Type' ), 
+		if (  DB('}ElementAttributes_Date', !Date, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 2', !Product, ATTRS('Customer', !Customer, 'Region'), 'Start Period'), 'yyyymm') & DB('}ElementAttributes_Date', !Date, 'yyyymm') @<= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 2', !Product, ATTRS('Customer', !Customer, 'Region'), 'End Period'), 'yyyymm'),
+			DB('Sales Planning - Marketing', 'Campaign 2', !Product, ATTRS('Customer', !Customer, 'Region'), 'Campaign Type' ), 
+			CONTINUE
+  		),
+  if ( !Demand Task @=  DB('Sales Planning - Marketing', 'Campaign 3', !Product, ATTRS('Customer', !Customer, 'Region'), 'Campaign Type' ), 
+		if (  DB('}ElementAttributes_Date', !Date, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 3', !Product, ATTRS('Customer', !Customer, 'Region'), 'Start Period'), 'yyyymm') & DB('}ElementAttributes_Date', !Date, 'yyyymm') @<= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 3', !Product, ATTRS('Customer', !Customer, 'Region'), 'End Period'), 'yyyymm'),
+			DB('Sales Planning - Marketing', 'Campaign 3', !Product, ATTRS('Customer', !Customer, 'Region'), 'Campaign Type' ), 
+			CONTINUE
+  		),
+  if ( !Demand Task @=  DB('Sales Planning - Marketing', 'Campaign 4', !Product, ATTRS('Customer', !Customer, 'Region'), 'Campaign Type' ), 
+		if (  DB('}ElementAttributes_Date', !Date, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 4', !Product, ATTRS('Customer', !Customer, 'Region'), 'Start Period'), 'yyyymm') & DB('}ElementAttributes_Date', !Date, 'yyyymm') @<= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 4', !Product, ATTRS('Customer', !Customer, 'Region'), 'End Period'), 'yyyymm'),
+			DB('Sales Planning - Marketing', 'Campaign 4', !Product, ATTRS('Customer', !Customer, 'Region'), 'Campaign Type' ), 
+			CONTINUE
+  		),
+  if ( !Demand Task @=  DB('Sales Planning - Marketing', 'Campaign 5', !Product, ATTRS('Customer', !Customer, 'Region'), 'Campaign Type' ), 
+		if (  DB('}ElementAttributes_Date', !Date, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 5', !Product, ATTRS('Customer', !Customer, 'Region'), 'Start Period'), 'yyyymm') & DB('}ElementAttributes_Date', !Date, 'yyyymm') @<= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 5', !Product, ATTRS('Customer', !Customer, 'Region'), 'End Period'), 'yyyymm'),
+			DB('Sales Planning - Marketing', 'Campaign 5', !Product, ATTRS('Customer', !Customer, 'Region'), 'Campaign Type' ), 
+			CONTINUE
+  		)
+   , CONTINUE 
+	)))))
+, CONTINUE
+)
+  ;
+
+# ###############################
+
+['Monthly Task Importance'] = N: 
+  DB ( '}ElementAttributes_Demand Task', DB('Demand Tasks',!}Clients,!Date,!Demand Task, !Product, !Customer, 'Monthly Task Name'), 'Importance');
+
+# ###############################
+
+
+feeders;
+['Measures - Demand Tasks':'Task Name'] => ['Measures - Demand Tasks':'Task Importance'];
+['Measures - Demand Tasks':'Monthly Task Name'] => ['Measures - Demand Tasks':'Monthly Task Importance'];
+
+

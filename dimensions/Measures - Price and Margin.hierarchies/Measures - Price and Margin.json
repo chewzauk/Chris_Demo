@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Price and Margin",
+	"Elements":
+	[
+		{
+			"Name":"Price",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Margin %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Discount %",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

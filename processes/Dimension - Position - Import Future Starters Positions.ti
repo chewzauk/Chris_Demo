@@ -1,0 +1,62 @@
+#region Prolog
+
+sDimName='Position';
+sErrExportPath='Source Files/Exports/TI Exports';
+
+sTotal='All Positions';
+DimensionElementInsertDirect( sDimName, '', sTotal, 'C' );
+
+#endregion
+#region Metadata
+
+if(DIMIX( sDimName, vPosID )=0);
+    DimensionElementInsertDirect( sDimName, '', vPosID, 'N' );
+    ASCIIOutput( sErrExportPath|'/PositionIDStartersCSV',vPosID );
+
+endif;
+
+DimensionElementComponentAddDirect( sDimName, sTotal, vPosID, 1 );
+    
+#endregion
+#region Data
+
+#Handle Blank Names
+
+
+
+
+IF(TRIM(vCurrentWorkerTitle) @<>'');
+    AttrPutS( vPosID|' - '|vCurrentWorkerTitle, sDimName, vPosID, 'Caption');
+endif;
+
+IF(TRIM(vCurrentWorkerTitle) @<>'');
+    AttrPutS( vCurrentWorkerTitle,sDimName, vPosID, 'Current Worker Title');
+endif;
+
+IF(TRIM(vTeam) @<>'');
+    AttrPutS( vTeam, sDimName, vPosID, 'Team');
+endif;
+
+IF(TRIM(vManager) @<>'');
+    AttrPutS( vManager, sDimName, vPosID, 'Manager');
+endif;
+
+IF(TRIM(vWorkerType) @<>'');
+    AttrPutS( vWorkerType, sDimName, vPosID, 'Worker Type');
+endif;
+
+IF(TRIM(vCostCentre) @<>'');
+    AttrPutS( vCostCentre, sDimName, vPosID, 'Cost Centre');
+endif;
+
+IF(TRIM(vLocation) @<>'');
+    AttrPutS( vLocation, sDimName, vPosID, 'Location');
+endif;
+
+IF(TRIM(vWorkerType) @<>'');
+    AttrPutS( vWorkerType, sDimName, vPosID, 'Position Worker Type');
+endif;
+
+
+
+#endregion

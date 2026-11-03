@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Material",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL MATERIALS",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

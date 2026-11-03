@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Workers on Leave",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Workers on Leave.hierarchies/Measures - Workers on Leave.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Workers on Leave')/Hierarchies('Measures - Workers on Leave')"
+	}
+}

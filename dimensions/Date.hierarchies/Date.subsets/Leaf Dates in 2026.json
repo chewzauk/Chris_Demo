@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Leaf Dates in 2026",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYPATTERN(TM1SubsetAll([Date].[Date]),\"2026-*\")}"
+}

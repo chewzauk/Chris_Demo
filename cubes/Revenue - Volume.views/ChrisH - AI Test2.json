@@ -1,0 +1,100 @@
+{
+	"@type":"NativeView",
+	"Name":"ChrisH - AI Test2",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Measures - Revenue Volume')/Hierarchies('Measures - Revenue Volume')"
+				},
+				"Expression":"{[Measures - Revenue Volume].[Measures - Revenue Volume].MEMBERS}"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Product')/Hierarchies('Product')"
+				},
+				"Expression":"{[Product].[Product].MEMBERS}"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')"
+				},
+				"ExpandAbove":true,
+				"Alias":"Short Name",
+				"Expression":"{[PeriodYear].[PeriodYear].[2026]}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('2026')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Version')/Hierarchies('Version')"
+				},
+				"Expression":"{[Version].[Version].MEMBERS}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Live Plan')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')"
+				},
+				"Expression":"{[Scenario Layer].[Scenario Layer].MEMBERS}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')/Elements('Base - Manual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Customer')/Hierarchies('Customer')"
+				},
+				"Expression":"{[Customer].[Customer].MEMBERS}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Customer')/Hierarchies('Customer')/Elements('TOTAL CUSTOMERS')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":true,
+	"FormatString":"",
+	"ViewExtractSkipRuleValues": false,
+	"ViewExtractSkipConsolidatedValues": true,
+	"ViewExtractSkipZeroes": true,
+	"IsSuppressComputeOnOpen": false,
+	"IsAutocalculate": true,
+	"IsDeferComputeOnLeafDataEntry": false
+}

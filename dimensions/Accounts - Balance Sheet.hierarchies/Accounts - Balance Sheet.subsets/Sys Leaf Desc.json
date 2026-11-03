@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Sys Leaf Desc",
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL(TM1SUBSETALL([Accounts - Balance Sheet].[Accounts - Balance Sheet]), 0)}"
+}

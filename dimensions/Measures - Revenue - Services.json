@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Revenue - Services",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Revenue - Services.hierarchies/Measures - Revenue - Services.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Revenue - Services')/Hierarchies('Measures - Revenue - Services')"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Forecast Months",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([PeriodYear].[PeriodYear]) , 0) , [PeriodYear].[PeriodYear].CURRENTMEMBER.PROPERTIES(\"yyyymm\") > [System - Parameters - Model].([Parameters - Model].[Current Month YYYYMM],[Measures - Parameters].[String]))}"
+}

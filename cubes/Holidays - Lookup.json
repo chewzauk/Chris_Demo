@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"Holidays - Lookup",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('Holidays')"
+		},
+		{
+			"@id":"Dimensions('Measures - Holiday Lookup')"
+		}
+	],
+	"Views@Code.links":[]
+}

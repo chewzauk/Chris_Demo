@@ -1,0 +1,39 @@
+{
+	"@type":"Cube",
+	"Name":"Demand Calendar",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Clients')"
+		},
+		{
+			"@id":"Dimensions('Day of Week')"
+		},
+		{
+			"@id":"Dimensions('Week of Month')"
+		},
+		{
+			"@id":"Dimensions('Month of Year')"
+		},
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Customer')"
+		},
+		{
+			"@id":"Dimensions('Demand Task')"
+		},
+		{
+			"@id":"Dimensions('Measures - Demand Calendar')"
+		}
+	],
+	"Rules@Code.link":"Demand Calendar.rules",
+	"Views@Code.links":
+	[
+		"Demand Calendar.views/Default.json"
+	]
+}

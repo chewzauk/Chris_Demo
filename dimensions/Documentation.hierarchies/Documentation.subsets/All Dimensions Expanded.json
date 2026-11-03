@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"All Dimensions Expanded",
+	"Expression":"{TM1DRILLDOWNMEMBER(DRILLUPMEMBER({[Documentation].[Documentation].[1. All Dimensions]} ,                 {[Documentation].[Documentation].[1. All Dimensions]}),                 {[Documentation].[Documentation].[1. All Dimensions]}, RECURSIVE)}"
+}

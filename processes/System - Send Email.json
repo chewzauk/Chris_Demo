@@ -1,0 +1,63 @@
+{
+	"@type":"Process",
+	"Name":"System - Send Email",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Send Email.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pRecipient",
+			"Prompt":"",
+			"Value":"X",
+			"Type":"String"
+		},
+		{
+			"Name":"pCC",
+			"Prompt":"",
+			"Value":"X",
+			"Type":"String"
+		},
+		{
+			"Name":"pBCC",
+			"Prompt":"",
+			"Value":"X",
+			"Type":"String"
+		},
+		{
+			"Name":"pSubject",
+			"Prompt":"",
+			"Value":"X",
+			"Type":"String"
+		},
+		{
+			"Name":"pBody",
+			"Prompt":"",
+			"Value":"X",
+			"Type":"String"
+		},
+		{
+			"Name":"pLogFilenameWithoutExtension",
+			"Prompt":"",
+			"Value":"X",
+			"Type":"String"
+		},
+		{
+			"Name":"pAttachment",
+			"Prompt":"",
+			"Value":"X",
+			"Type":"String"
+		},
+		{
+			"Name":"pPriority",
+			"Prompt":"",
+			"Value":"X",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000081"
+}

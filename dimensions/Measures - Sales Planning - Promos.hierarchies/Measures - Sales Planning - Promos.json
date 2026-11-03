@@ -1,0 +1,44 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Sales Planning - Promos",
+	"Elements":
+	[
+		{
+			"Name":"Active",
+			"Type":"String"
+		},
+		{
+			"Name":"Promo Type",
+			"Type":"String"
+		},
+		{
+			"Name":"% Boost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Default Boost %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Override Boost %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Start Period",
+			"Type":"String"
+		},
+		{
+			"Name":"End Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Description",
+			"Type":"String"
+		},
+		{
+			"Name":"Valid Entry",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

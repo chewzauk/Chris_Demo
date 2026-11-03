@@ -1,0 +1,1623 @@
+{
+	"@type":"Hierarchy",
+	"Name":"System - Cubes Mirror",
+	"Elements":
+	[
+		{
+			"Name":"All Cubes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Business Cubes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"System Cubes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Account Legacy Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Balance Sheet Movements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Balance Sheet Movements Reporting",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Capex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Currency - Daily",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Currency - Monthly",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Detailed Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Excel Import Monthly Balance Sheet Account Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Excel Import People Account Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Excel Import Profit and Loss Account Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Excel Import Uncommitted Costs Account Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Excel Import Weekly Cashflow Account Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gains & Losses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group Reporting",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group Reporting (Fixed FX)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IC Debtors Creditors",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IC Loans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IC Mapping Matrix",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Medium Term Cashflow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Balance Sheet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Balance Sheet Import From Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"People",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"People Import From Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Profit and Loss",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Profit and Loss Import From Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Staging - History",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System - Cubes by Dimensions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System - Documentation - Model",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System - Documentation - Rules",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System - List Table",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System - Parameters",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System - Parameters - Model",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System - Parameters - User",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System - Process Information",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System - Transaction Logs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System - UI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Trial Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Uncommitted Costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Uncommitted Costs Import From Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Weekly Cashflow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Weekly Cashflow Import From Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}Capabilities",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}CellSecurity_}tp_application_root_permissions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ClientCAMAssociatedGroups",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ClientGroups",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ClientProperties",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ClientSettings",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}CubeProperties",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}CubeSecurity",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}CubeSecurityProperties",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}DimensionProperties",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}DimensionSecurity",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Account Legacy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Account Mapping File",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - Balance Sheet Movements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - Capex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - Gains & Losses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - IC Loans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - Intercompany",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - Medium Term Cashflow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - Monthly Balance Sheet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - Profit and Loss",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - Reporting",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - Uncommitted Costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Accounts - Weekly Cashflow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Balance Sheet Movement List",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Currency",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Currency - Reporting",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Date",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Documentation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_FX Rate Type",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_IC Company Counterparty",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_IC Company IN",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_IC Company OUT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_IC Debtors Creditors",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_List",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_MappingCXMD Accounts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_MappingCXMD Company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_MappingCXMD Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Account Legacy Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Balance Sheet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Balance Sheet Movement",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Balance Sheet Movement Reporting",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - BS Movement",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Capex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Currency - Daily",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Currency - Monthly",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Documentation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Excel Import Monthly Balance Sheet Account Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Excel Import People Account Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Excel Import Profit and Loss Account Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Excel Import Uncommitted Costs Account Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Excel Import Weekly Cashflow Account Mapping",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Gains & Losses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Group Reporting",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - IC Debtors Creditors",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - IC Loans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - IC Mapping Matrix",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Medium Term Cashflow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Monthly Balance Sheet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Monthly Balance Sheet Import From Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Parameters",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - People",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - People Import From Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Profit and Loss",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Profit and Loss Import From Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Transaction Logs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Trial Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Uncommitted Costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Uncommitted Costs Import from Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Weekly Cashflow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Measures - Weekly Cashflow Import From Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Monthly Balance Sheet Import From Excel Accounts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Parameters - Model",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Parameters - System",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Parameters - User",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_People Import From Excel Accounts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_PeriodYear",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Profit and Loss Import From Excel Accounts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Risk",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Role",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_System - Dimensions Allowed To Have Orphans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_System - Dimensions Mirror",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_UI Info",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Uncommitted Costs Import from Excel Accounts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Weekly Cashflow Import From Excel Accounts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_WeekYear",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}CAMAssociatedGroups",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}Clients",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}Cubes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}Cultures",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}ElementAttributes_Accounts - Medium Term Cashflow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}ElementAttributes_Accounts - Profit and Loss",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}ElementAttributes_Company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}ElementAttributes_Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}Groups",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}Hierarchies_Accounts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}Hierarchies_Company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}PickList",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}Processes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}Subsets_Company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}tp_applications",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}tp_config",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}tp_process_errors_localization",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementAttributes_}tp_system_config",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementSecurity_Company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ElementSecurity_}tp_applications",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}HierarchyProperties",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}PickList_System - Parameters - Model",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}PickList_}ElementAttributes_Accounts - Medium Term Cashflow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}PickList_}ElementAttributes_Accounts - Monthly Balance Sheet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}PickList_}ElementAttributes_Accounts - Profit and Loss",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}PickList_}ElementAttributes_Company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}PickList_}ElementAttributes_Measures - Profit and Loss Import From Excel Staging",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}PickList_}ElementAttributes_Profit and Loss Import From Excel Accounts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}PickList_}ElementAttributes_Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}ProcessSecurity",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}StatsByChore",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}StatsByClient",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}StatsByCube",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}StatsByCubeByClient",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}StatsByProcess",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}StatsByRule",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}StatsForServer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}tp_app_user_preferences",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}tp_application_cubes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}tp_application_jobs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}tp_application_root_permissions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}tp_central_application_state",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}tp_process_errors",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"}tp_workflow_action_TI",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Cubes",
+			"ComponentName":"Business Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Cubes",
+			"ComponentName":"System Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Account Legacy Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Balance Sheet Movements",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Balance Sheet Movements Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Capex",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Currency - Daily",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Currency - Monthly",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Detailed Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Excel Import Monthly Balance Sheet Account Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Excel Import People Account Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Excel Import Profit and Loss Account Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Excel Import Uncommitted Costs Account Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Excel Import Weekly Cashflow Account Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Gains & Losses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Group Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Group Reporting (Fixed FX)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"IC Debtors Creditors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"IC Loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"IC Mapping Matrix",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Medium Term Cashflow",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Monthly Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Monthly Balance Sheet Import From Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"People",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"People Import From Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Profit and Loss",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Profit and Loss Import From Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Staging - History",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"System - Cubes by Dimensions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"System - Documentation - Model",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"System - Documentation - Rules",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"System - List Table",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"System - Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"System - Parameters - Model",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"System - Parameters - User",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"System - Process Information",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"System - Transaction Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"System - UI",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Trial Balance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Uncommitted Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Uncommitted Costs Import From Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Weekly Cashflow",
+			"Weight":1
+		},
+		{
+			"ParentName":"Business Cubes",
+			"ComponentName":"Weekly Cashflow Import From Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}Capabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}CellSecurity_}tp_application_root_permissions",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ClientCAMAssociatedGroups",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ClientGroups",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ClientProperties",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ClientSettings",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}CubeProperties",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}CubeSecurity",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}CubeSecurityProperties",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}DimensionProperties",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}DimensionSecurity",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Account Legacy",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Account Mapping File",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - Balance Sheet Movements",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - Capex",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - Gains & Losses",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - IC Loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - Intercompany",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - Medium Term Cashflow",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - Monthly Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - Profit and Loss",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - Uncommitted Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Accounts - Weekly Cashflow",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Balance Sheet Movement List",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Currency",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Currency - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Date",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_FX Rate Type",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_IC Company Counterparty",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_IC Company IN",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_IC Company OUT",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_IC Debtors Creditors",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_List",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_MappingCXMD Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_MappingCXMD Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_MappingCXMD Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Account Legacy Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Balance Sheet Movement",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Balance Sheet Movement Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - BS Movement",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Capex",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Currency - Daily",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Currency - Monthly",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Excel Import Monthly Balance Sheet Account Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Excel Import People Account Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Excel Import Profit and Loss Account Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Excel Import Uncommitted Costs Account Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Excel Import Weekly Cashflow Account Mapping",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Gains & Losses",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Group Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - IC Debtors Creditors",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - IC Loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - IC Mapping Matrix",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Medium Term Cashflow",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Monthly Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Monthly Balance Sheet Import From Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - People",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - People Import From Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Profit and Loss",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Profit and Loss Import From Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Transaction Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Trial Balance",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Uncommitted Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Uncommitted Costs Import from Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Weekly Cashflow",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Measures - Weekly Cashflow Import From Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Monthly Balance Sheet Import From Excel Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Parameters - Model",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Parameters - System",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Parameters - User",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_People Import From Excel Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Period",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Profit and Loss Import From Excel Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Risk",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Role",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_System - Dimensions Allowed To Have Orphans",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_System - Dimensions Mirror",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_UI Info",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Uncommitted Costs Import from Excel Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Weekly Cashflow Import From Excel Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_WeekYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_Year",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}CAMAssociatedGroups",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}Clients",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}Cultures",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}ElementAttributes_Accounts - Medium Term Cashflow",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}ElementAttributes_Accounts - Profit and Loss",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}ElementAttributes_Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}ElementAttributes_Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}Groups",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}Hierarchies_Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}Hierarchies_Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}PickList",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}Processes",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}Subsets_Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}tp_applications",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}tp_config",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}tp_process_errors_localization",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementAttributes_}tp_system_config",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementSecurity_Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ElementSecurity_}tp_applications",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}HierarchyProperties",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}PickList_System - Parameters - Model",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}PickList_}ElementAttributes_Accounts - Medium Term Cashflow",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}PickList_}ElementAttributes_Accounts - Monthly Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}PickList_}ElementAttributes_Accounts - Profit and Loss",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}PickList_}ElementAttributes_Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}PickList_}ElementAttributes_Measures - Profit and Loss Import From Excel Staging",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}PickList_}ElementAttributes_Profit and Loss Import From Excel Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}PickList_}ElementAttributes_Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}ProcessSecurity",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}StatsByChore",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}StatsByClient",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}StatsByCube",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}StatsByCubeByClient",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}StatsByProcess",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}StatsByRule",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}StatsForServer",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}tp_app_user_preferences",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}tp_application_cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}tp_application_jobs",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}tp_application_root_permissions",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}tp_central_application_state",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}tp_process_errors",
+			"Weight":1
+		},
+		{
+			"ParentName":"System Cubes",
+			"ComponentName":"}tp_workflow_action_TI",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"System - Cubes Mirror.subsets/LEAF.json",
+		"System - Cubes Mirror.subsets/Leaf Business Cubes.json",
+		"System - Cubes Mirror.subsets/Leaf System Cubes.json",
+		"System - Cubes Mirror.subsets/Summary Cubes.json"
+	]
+}

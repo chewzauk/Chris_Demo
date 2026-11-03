@@ -1,0 +1,51 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Campaign Instance",
+	"Elements":
+	[
+		{
+			"Name":"Campaign 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Campaign 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Campaign 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Campaign 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Campaign 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Campaign 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Campaign 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Campaign 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Campaign 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Campaign 10",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Campaign Instance.subsets/All Leaf Instances.json"
+	]
+}

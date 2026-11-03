@@ -1,0 +1,81 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Payroll",
+	"Elements":
+	[
+		{
+			"Name":"Headcount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TOTAL PAYROLL",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Salary",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pension",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Commission",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bonus",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Split %",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL PAYROLL",
+			"ComponentName":"Salary",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PAYROLL",
+			"ComponentName":"Pension",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PAYROLL",
+			"ComponentName":"NI",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PAYROLL",
+			"ComponentName":"Commission",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL PAYROLL",
+			"ComponentName":"Bonus",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - Payroll.subsets/}TI_Process184.json",
+		"Measures - Payroll.subsets/}TI_Process332.json",
+		"Measures - Payroll.subsets/}TI_Process345.json",
+		"Measures - Payroll.subsets/}TI_Process398.json",
+		"Measures - Payroll.subsets/}TI_Process44.json",
+		"Measures - Payroll.subsets/}TI_Process519.json",
+		"Measures - Payroll.subsets/}TI_Process537.json",
+		"Measures - Payroll.subsets/}TI_Process65.json",
+		"Measures - Payroll.subsets/}TI_Process653.json",
+		"Measures - Payroll.subsets/}TI_Process739.json",
+		"Measures - Payroll.subsets/}TI_Process847.json"
+	]
+}

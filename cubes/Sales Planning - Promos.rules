@@ -1,0 +1,67 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+# -----------------------------------
+# Do not allow entry or totalling at the summary levels.
+
+[] = C: 0;
+
+[] = S: if (IsLeaf = 0, '', CONTINUE);
+
+# -----------------------------------
+# Boost % is suggested by the system according to the Type of Promo chosen. If a user then enters their own value into Input Boost % the result will take that value instead.
+
+['Measures - Sales Planning - Promos':'Default Boost %'] = N:
+	if ( DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Promo Type') @= '', 0, 
+	if ( DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Promo Type') @= 'Pct Discount', ATTRN('Product', !Product, 'Default Promo Boost'),
+  	if ( DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Promo Type') @= 'Qty Discount - B1GOF', 0.25,
+  	if ( DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Promo Type') @= 'Qty Discount - B2GOF', 0.15,
+  	if ( DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Promo Type') @= 'Free Shipping', 0.125,
+  	0.05
+  )))))
+;  
+
+# Final result measure is % Boost which is then used by other cubes and calculations. It is the Override in preference to Default.
+['Measures - Sales Planning - Promos':'% Boost'] = N: 
+  	if ( ['Measures - Sales Planning - Promos':'Override Boost %'] <> 0,
+  		['Measures - Sales Planning - Promos':'Override Boost %'],
+  		['Measures - Sales Planning - Promos':'Default Boost %']
+  );
+
+# -----------------------------------
+# Work out a single value showing whether the whole line is entered correctly. More specific help messages can be generated per field if desired.
+['Valid Entry'] = S: 
+  IF ( 
+	DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Active') @= '' & 
+	DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Promo Type') @= '' & 
+    DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Start Period') @= '' & 
+	DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'End Period') @= '' 
+	, '',
+      IF ( 
+      	( DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Active') @<> '' ) &
+      	( DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Promo Type') @<> '' ) &
+      	( ['% Boost'] <> 0 ) &
+  		( ATTRS('PeriodYear', DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Start Period'), 'yyyymm') @> DB('System - Parameters - Model', 'Current Month YYYYMM', 'String') ) &
+       	( ATTRS('PeriodYear', DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'End Period'), 'yyyymm') @> DB('System - Parameters - Model', 'Current Month YYYYMM', 'String') ) &
+   		( ATTRS('PeriodYear', DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Start Period'), 'yyyymm') @<> '' ) & 
+   		( ATTRS('PeriodYear', DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'End Period'), 'yyyymm') @<> '' ) & 
+   		( ATTRS('PeriodYear', DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'Start Period'), 'yyyymm') @<= ATTRS('PeriodYear', DB('Sales Planning - Promos', !Promo Instance, !Product, !Customer, 'End Period'), 'yyyymm') )  
+             
+  			,'Valid'
+			, 'Invalid'
+  ));
+
+# #########################################
+# #########################################
+FEEDERS;
+
+['Measures - Sales Planning - Promos':'Active'] => ['Measures - Sales Planning - Promos':'Valid Entry'];
+['Measures - Sales Planning - Promos':'Promo Type'] => ['Measures - Sales Planning - Promos':'Valid Entry'];
+['Measures - Sales Planning - Promos':'Start Period'] => ['Measures - Sales Planning - Promos':'Valid Entry'];
+['Measures - Sales Planning - Promos':'End Period'] => ['Measures - Sales Planning - Promos':'Valid Entry'];
+['Measures - Sales Planning - Promos':'Override Boost %'] => ['Measures - Sales Planning - Promos':'Valid Entry'];
+['Measures - Sales Planning - Promos':'Promo Type'] => ['Measures - Sales Planning - Promos':'Default Boost %'];
+['Measures - Sales Planning - Promos':'Promo Type'] => ['Measures - Sales Planning - Promos':'% Boost'];
+
+# #########################################
+# #########################################

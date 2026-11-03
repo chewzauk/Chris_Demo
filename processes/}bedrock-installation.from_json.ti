@@ -1,0 +1,72 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# List of Keys required for a Process to be created from HTTP Request
+sJsonKeyList = '[
+    "Name",
+    "PrologProcedure",
+    "MetadataProcedure",
+    "DataProcedure",
+    "EpilogProcedure",
+    "HasSecurityAccess",
+    "UIData",
+    "DataSource",
+    "Parameters",
+    "Variables",
+    "VariablesUIData"
+]';
+
+# Create the Variable Mapping based on List of Keys
+sVarMapping = '{}';
+nListSize = JsonSize( sJsonKeyList );
+i = 0;
+WHILE( i <  nListSize );
+    sKeyName = JsonToString( JsonGet(sJsonKeyList, i ) );
+    sVarMapping = JsonAdd( sVarMapping, 'v' | sKeyName, StringToJson ( '/' | sKeyName ) );
+
+    i = i + 1;
+END;
+
+# Datasource Variables
+DataSourceJsonVariableMapping = sVarMapping;
+DataSourceType = 'JSON';
+DataSourceJsonRootPointer     = '/data';
+DatasourceNameForServer       = 'bedrock.json';
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+sProcessJson = '{}';
+i = 0;
+WHILE( i <  nListSize );
+    sKeyName = JsonToString( JsonGet(sJsonKeyList, i ) );
+    sProcessJson = JsonAdd( sProcessJson, sKeyName, EXPAND( '%v' | sKeyName | '%' ) );
+
+    i = i + 1;
+END;
+
+
+sProcessName = JsonToString( JsonGet( sProcessJson, 'Name' ) );
+
+ExecuteHttpRequest( 'delete', url | '(''' | sProcessName | ''')', '-u apikey:' | api_key, '-h User-Agent:BedrockInstaller', '-h Content-Type:application/json; odata.streaming=true; charset=utf-8', '-h Accept:application/json;odata.metadata=none,text/plain', '-h TM1-SessionContext:BedrockInstaller', '-k' );
+sBody = HttpResponseGetBody(); nStatusCode = HttpResponseGetStatusCode();
+
+ExecuteHttpRequest( 'POST', url, '-u apikey:' | api_key, '-h User-Agent:BedrockInstaller', '-h Content-Type:application/json; odata.streaming=true; charset=utf-8', '-h Accept:application/json;odata.metadata=none,text/plain', '-h TM1-SessionContext:BedrockInstaller', '-d ' | sProcessJson, '-k' );
+sBody = HttpResponseGetBody(); nStatusCode = HttpResponseGetStatusCode();
+
+IF( INT( nStatusCode / 100 ) <> 2 );
+  LogOutput( 'ERROR', 'Failed to Create/Modify Process: "' | sProcessName | '". Status Code: ' | NumberToString( nStatusCode ) );
+    TextOutput('INFO.txt', sProcessJson );
+    TextOutput('INFO.txt', NumberToString( nStatusCode ), sBody );
+ENDIF;
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

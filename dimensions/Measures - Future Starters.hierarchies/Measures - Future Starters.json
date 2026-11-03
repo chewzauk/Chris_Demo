@@ -1,0 +1,75 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Future Starters",
+	"Elements":
+	[
+		{
+			"Name":"Employee ID",
+			"Type":"String"
+		},
+		{
+			"Name":"Position ID",
+			"Type":"String"
+		},
+		{
+			"Name":"First Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Last Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Job Title",
+			"Type":"String"
+		},
+		{
+			"Name":"Worker Type",
+			"Type":"String"
+		},
+		{
+			"Name":"Employee Type",
+			"Type":"String"
+		},
+		{
+			"Name":"Start Date",
+			"Type":"String"
+		},
+		{
+			"Name":"Contract End Date If Applicable",
+			"Type":"String"
+		},
+		{
+			"Name":"Location",
+			"Type":"String"
+		},
+		{
+			"Name":"Cost Centre",
+			"Type":"String"
+		},
+		{
+			"Name":"Team",
+			"Type":"String"
+		},
+		{
+			"Name":"Salary (Prorated)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Career Level",
+			"Type":"String"
+		},
+		{
+			"Name":"FTE %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Status",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - Future Starters.subsets/SysEmployee.json"
+	]
+}

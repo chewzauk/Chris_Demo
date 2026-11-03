@@ -1,0 +1,43 @@
+{
+	"@type":"MDXView",
+	"Name":"AI Demo - Sales - Scenario Revenue Trend",
+	"MDX@Code.link":"AI Demo - Sales - Scenario Revenue Trend.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Customer].[Customer]": "Description",
+			"[PeriodYear].[PeriodYear]": "Short Name",
+			"[Version].[Version]": "MEMBER_NAME",
+			"[Product].[Product]": "Description"
+		},
+		"ExpandAboves": {
+			"[Measures - Revenue Volume].[Measures - Revenue Volume]": false,
+			"[Sandboxes].[Sandboxes]": false,
+			"[Scenario Layer].[Scenario Layer]": true,
+			"[Customer].[Customer]": false,
+			"[PeriodYear].[PeriodYear]": false,
+			"[Version].[Version]": false,
+			"[Product].[Product]": false
+		},
+		"ContextSets": {
+			"[Sandboxes].[Sandboxes]": {
+				"Expression": "{[Sandboxes].[Sandboxes].MEMBERS}"
+			},
+			"[Customer].[Customer]": {
+				"Expression": "{[Customer].[Customer].MEMBERS}"
+			},
+			"[Version].[Version]": {
+				"SubsetName": "LEAF",
+				"IsPublic": true
+			},
+			"[Product].[Product]": {
+				"Expression": "{[Product].[Product].MEMBERS}"
+			}
+		}
+	},
+	"ViewExtractSkipRuleValues": false,
+	"ViewExtractSkipConsolidatedValues": true,
+	"ViewExtractSkipZeroes": true,
+	"IsSuppressComputeOnOpen": false,
+	"IsAutocalculate": true,
+	"IsDeferComputeOnLeafDataEntry": false
+}

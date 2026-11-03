@@ -1,0 +1,85 @@
+{
+	"@type":"Process",
+	"Name":"Data - Reporting - Load Actuals",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Data - Reporting - Load Actuals.ti",
+	"DataSource":
+	{
+		"Type":"ASCII",
+		"dataSourceNameForServer":"Source Files/Cube Loads/Staff Costs Actuals/P1 Staff Cost Actuals.csv",
+		"dataSourceNameForClient":"Source Files/Cube Loads/Staff Costs Actuals/P1 Staff Cost Actuals.csv",
+		"asciiHeaderRecords":1,
+		"asciiQuoteCharacter":"\"",
+		"asciiDecimalSeparator":".",
+		"asciiThousandSeparator":",",
+		"asciiDelimiterType":"Character",
+		"asciiDelimiterChar":","
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pTemp",
+			"Prompt":"1 Temp 0 Perm",
+			"Value":1,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pPeriod",
+			"Prompt":"Select Period to Load",
+			"Value":"P1 2025",
+			"Type":"String"
+		},
+		{
+			"Name":"pClearMonth",
+			"Prompt":"IF 'Y' then month is zeroed out. ",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vAccount",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vAccDesc",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vRC",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vRCName",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vPeriodNo",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vValue",
+			"Type":"Numeric",
+			"Position":6,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "176735826500013"
+}

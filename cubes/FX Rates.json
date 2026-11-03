@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"FX Rates",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('Currency - Reporting')"
+		},
+		{
+			"@id":"Dimensions('Measures - FX Rates')"
+		}
+	],
+	"Views@Code.links":[]
+}

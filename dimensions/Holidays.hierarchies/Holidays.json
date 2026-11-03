@@ -1,0 +1,56 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Holidays",
+	"Elements":
+	[
+		{
+			"Name":"Christmas Day",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"New Year’s Day",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Good Friday",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Easter Monday",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Early May bank holiday",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Spring bank holiday",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Summer bank holiday",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Boxing Day",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Early May bank holiday (VE day)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Platinum Jubilee bank holiday",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Holiday for the State Funeral of Queen Elizabeth II",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank holiday for the coronation of King Charles III",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

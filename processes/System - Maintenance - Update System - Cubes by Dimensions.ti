@@ -1,0 +1,302 @@
+#region Prolog
+
+# This process creates a cube from scratch which holds which dimensions are used by each cube.
+
+# #######################################################
+# Constants
+
+sTargetCube = 'System - Cubes by Dimensions';
+sDimensionsDim = 'System - Dimensions Mirror';
+sCubesDim = 'System - Cubes Mirror';
+sMeasuresDim = 'Measures - ' | sTargetCube;
+sExceptionsDim = 'System - Dimensions Allowed To Have Orphans';
+
+# #######################################################
+# Build mirror of }dimensions
+
+sSourceDim = '}Dimensions';
+sTotalDimsElement = 'All Dimensions';
+sBusinessDimsParent = 'Business Dimensions';
+sSystemDimsParent = 'System Dimensions';
+
+If (DimensionExists(sDimensionsDim) = 0);
+	DimensionCreate(sDimensionsDim);
+else;
+	DimensionDeleteAllElements(sDimensionsDim);
+endIf;
+
+DimensionElementInsert(sDimensionsDim,'', sTotalDimsElement, 'C');
+DimensionElementInsert(sDimensionsDim,'', sBusinessDimsParent,  'C');
+DimensionElementInsert(sDimensionsDim,'', sSystemDimsParent, 'C');
+DimensionElementComponentAdd(sDimensionsDim, sTotalDimsElement, sBusinessDimsParent, 1);
+DimensionElementComponentAdd(sDimensionsDim, sTotalDimsElement, sSystemDimsParent, 1); 
+
+iNumElements = dimsiz(sSourceDim);
+iCounter = 1;
+while (iCounter <= iNumElements);
+	sElement = dimnm(sSourceDim, iCounter);
+
+    if (scan(':', sElement) = 0);
+		# Skip hierarchies
+    
+	    DimensionElementInsert(sDimensionsDim,' ', sElement, 'N');
+
+		if(subst(sElement, 1, 1) @= '}'); 
+			sParent = sSystemDimsParent;
+	    else;
+			sParent = sBusinessDimsParent;
+		endif;
+
+		DimensionElementComponentAdd(sDimensionsDim, sParent, sElement, 1);
+
+	endif;
+
+    iCounter = iCounter + 1;
+end;
+
+# #######################################################
+# Build mirror of }cubes 
+
+sSourceDim = '}Cubes';
+sTotalCubesElement = 'All Cubes';
+sBusinessCubesParent = 'Business Cubes';
+sSystemCubesParent = 'System Cubes';
+
+If (DimensionExists(sCubesDim) = 0);
+	DimensionCreate(sCubesDim);
+else;
+	DimensionDeleteAllElements(sCubesDim);
+endIf;
+
+DimensionElementInsert(sCubesDim,'', sTotalCubesElement, 'C');
+DimensionElementInsert(sCubesDim,'', sBusinessCubesParent, 'C');
+DimensionElementInsert(sCubesDim,'', sSystemCubesParent, 'C');
+DimensionElementComponentAdd(sCubesDim, sTotalCubesElement, sBusinessCubesParent, 1);
+DimensionElementComponentAdd(sCubesDim, sTotalCubesElement, sSystemCubesParent, 1);
+
+iNumElements = dimsiz(sSourceDim);
+iCounter = 1;
+while (iCounter <= iNumElements);
+	sElement = dimnm(sSourceDim, iCounter);
+	DimensionElementInsert(sCubesDim,' ', sElement, 'N');
+
+	if(subst(sElement, 1, 1) @= '}'); 
+		sParent = sSystemCubesParent;
+	else;
+		sParent = sBusinessCubesParent;
+	endif;
+
+	DimensionElementComponentAdd(sCubesDim, sParent, sElement, 1);
+	iCounter = iCounter + 1;
+end;
+
+# #######################################################
+# Build Measures dimension
+
+sMeasureFlag = 'Dim is in cube';
+sMeasureSize = 'Number of elements';
+sMeasureOrphans = 'Number of orphans';
+sMeasureOrphans2 = 'Dim is in cube and has orphans';
+
+If (DimensionExists(sMeasuresDim) = 0);
+	DimensionCreate(sMeasuresDim);
+else;
+	DimensionDeleteAllElements(sMeasuresDim);
+endIf;
+
+DimensionElementInsert(sMeasuresDim, '', sMeasureFlag, 'N');
+DimensionElementInsert(sMeasuresDim, '', sMeasureSize, 'N');
+DimensionElementInsert(sMeasuresDim, '', sMeasureOrphans, 'N');
+DimensionElementInsert(sMeasuresDim, '', sMeasureOrphans2, 'N');
+
+# #######################################################
+# Create Cube
+
+If (CubeExists(sTargetCube) = 0);
+	CubeCreate(sTargetCube, sCubesDim, sDimensionsDim, sMeasuresDim);
+else;
+	CubeClearData ( sTargetCube );
+endif;
+
+# #######################################################
+
+#endregion
+#region Epilog
+
+# ################################################
+# Loop through all cubes. In each cube, loop through all dims. 
+# Record which dimensions are in each cube and how big each dimension is.
+
+iNumElements = dimsiz(sCubesDim);
+iCounter = 1;
+while (iCounter <= iNumElements);
+
+	sCurrentCube = dimnm(sCubesDim, iCounter);
+
+	iDimCounter = 1;
+	while (TABDIM(sCurrentCube, iDimCounter) @<> '');
+		sCurrentDim = TABDIM(sCurrentCube, iDimCounter);
+
+		CellPutN(1, sTargetCube, sCurrentCube, sCurrentDim, sMeasureFlag);
+		CellPutN(dimsiz(sCurrentDim), sTargetCube, sCurrentCube, sCurrentDim, sMeasureSize);
+
+		iDimCounter = iDimCounter + 1;
+	end;
+
+	iCounter = iCounter + 1;
+end;
+
+# ################################################
+# Store how many orphaned elements that each dimension has.
+# Since that number does not vary by cube, just store it against the }DimensionProperties cube.
+
+sSourceDim = '}Dimensions';
+sTargetMirrorCube = '}DimensionProperties';
+
+sOrphanMessage = '';
+iNumDimensionsWithOrphans = 0;
+iOrphanCountOverall = 0;
+
+sProcessKey = GetProcessName;
+
+iMaxLoop = dimsiz(sSourceDim);
+iLoopCounter = 0;
+while (iLoopCounter < iMaxLoop);
+	iLoopCounter = iLoopCounter + 1;
+
+	sCandidateDim = dimnm(sSourceDim, iLoopCounter);
+
+	# Add specific exeptions here that are allowed to have orphans. NEW ENTRIES NEED TO BE ADDED in "zSys - Record Orphaned Elements" and "Alerter - Check for orphaned elements".
+	# This exception section should be exactly duplicated in 'Alerter - Check for orphaned elements'.
+	if (
+        SUBST ( sCandidateDim, 1, 11) @<> 'Measures - ' &
+        SUBST ( sCandidateDim, 1, 16) @<> 'Documentation - ' &
+        SUBST ( sCandidateDim, 1, 13) @<> 'Parameters - ' &
+		sCandidateDim @<> sExceptionsDim & 
+        SUBST ( sCandidateDim, 1, 1 ) @<> '}' &
+        SCAN ( ':', sCandidateDim ) = 0 &
+        DIMIX ( sExceptionsDim, sCandidateDim ) = 0  
+	);
+
+		# Ignore control dimensions and any system and measure dimensions as they may well have legitimate orphans.
+		if ( scan ( 'Measure', sCandidateDim ) = 0 & subst ( sCandidateDim, 1, 1 ) @<> '}' & subst ( sCandidateDim, 1, 1 ) @<> 'z');
+
+			sSourceSubset = '}' | sProcessKey | '_' | sCandidateDim | '_Source';
+			if ( SubsetExists ( sCandidateDim, sSourceSubset ) = 1 ); 
+				SubsetDestroy ( sCandidateDim, sSourceSubset ); 
+			endif;
+			SubsetCreate ( sCandidateDim, sSourceSubset, 1 );
+
+			# Use an MDX query that will return leaf elements with no parents but then set the subset to static for speed.
+			sMDX = '{Filter ( TM1FilterByLevel( TM1SUBSETALL ( [' | sCandidateDim | '] ), 0), [ ' | sCandidateDim | '].CurrentMember.Parent.Name = "" )} ';
+			SubsetMDXSet( sCandidateDim, sSourceSubset, sMDX ); 
+			SubsetMDXSet( sCandidateDim, sSourceSubset, '' ); 
+
+			iNumOrphans = SubsetGetSize ( sCandidateDim, sSourceSubset );
+
+			if ( iNumOrphans > 0 );
+				CellPutN ( iNumOrphans, sTargetCube, sTargetMirrorCube, sCandidateDim, sMeasureOrphans );
+
+				iCubeLoopCounter = 0;
+				iCubeLoopMax = dimsiz ( sCubesDim );
+				while ( iCubeLoopCounter < iCubeLoopMax );
+					iCubeLoopCounter = iCubeLoopCounter + 1;
+
+					sCurrentCube = dimnm ( sCubesDim, iCubeLoopCounter );
+
+					if ( dtype ( sCubesDim, sCurrentCube ) @= 'N' );
+						iDimInThisCubeValue = CellGetN ( sTargetCube, sCurrentCube, sCandidateDim, sMeasureFlag );
+
+						if ( iDimInThisCubeValue = 1 );
+							CellPutN ( 1, sTargetCube, sCurrentCube, sCandidateDim, sMeasureOrphans2 );
+							CellPutN ( iNumOrphans, sTargetCube, sCurrentCube, sCandidateDim, sMeasureOrphans );
+						endif; 
+
+					endif;
+				end;
+			endif;
+		endif;
+	endif;
+end;
+
+# ##############################################
+# Create some basic subsets
+
+sSubset = 'Summary Cubes' ;
+if ( SubsetExists ( sCubesDim, sSubset ) = 1 );
+	SubsetDeleteAllElements ( sCubesDim, sSubset );
+else;
+	SubsetCreate ( sCubesDim, sSubset, 0 );
+endif;
+sMDX = '{DRILLDOWNMEMBER({[' | sCubesDim | '].[' | sCubesDim | '].[' | sTotalCubesElement | ']} , {[' | sCubesDim | '].[' | sCubesDim | '].[' | sTotalCubesElement | ']} , RECURSIVE)}';
+SubsetMDXSet( sCubesDim, sSubset, sMDX ); 
+SubsetMDXSet( sCubesDim, sSubset, '' ); 
+
+
+sSubset = 'Leaf Business Cubes' ;
+if ( SubsetExists ( sCubesDim, sSubset ) = 1 );
+	SubsetDeleteAllElements ( sCubesDim, sSubset );
+else;
+	SubsetCreate ( sCubesDim, sSubset, 0 );
+endif;
+sMDX = '{TM1SORT( {[' | sCubesDim | '].[' | sBusinessCubesParent | '].children}, ASC)}';
+SubsetMDXSet( sCubesDim, sSubset, sMDX ); 
+SubsetMDXSet( sCubesDim, sSubset, '' ); 
+
+
+sSubset = 'Leaf System Cubes' ;
+if ( SubsetExists ( sCubesDim, sSubset ) = 1 );
+	SubsetDeleteAllElements ( sCubesDim, sSubset );
+else;
+	SubsetCreate ( sCubesDim, sSubset, 0 );
+endif;
+sMDX = '{TM1SORT( {[' | sCubesDim | '].[' | sSystemCubesParent | '].children}, ASC)}';
+SubsetMDXSet( sCubesDim, sSubset, sMDX ); 
+SubsetMDXSet( sCubesDim, sSubset, '' ); 
+
+
+sSubset = 'Summary Dimensions' ;
+if ( SubsetExists ( sDimensionsDim, sSubset ) = 1 );
+	SubsetDeleteAllElements ( sDimensionsDim, sSubset );
+else;
+	SubsetCreate ( sDimensionsDim, sSubset, 0 );
+endif;
+sMDX = '{DRILLDOWNMEMBER({[' | sDimensionsDim | '].[' | sDimensionsDim | '].[' | sTotalDimsElement | ']} , {[' | sDimensionsDim | '].[' | sDimensionsDim | '].[' | sTotalDimsElement | ']} , RECURSIVE)}';
+SubsetMDXSet( sDimensionsDim, sSubset, sMDX ); 
+SubsetMDXSet( sDimensionsDim, sSubset, '' ); 
+
+
+sSubset = 'Leaf Business Dimensions' ;
+if ( SubsetExists ( sDimensionsDim, sSubset ) = 1 );
+	SubsetDeleteAllElements ( sDimensionsDim, sSubset );
+else;
+	SubsetCreate ( sDimensionsDim, sSubset, 0 );
+endif;
+sMDX = '{TM1SORT( {[' | sDimensionsDim | '].[' | sBusinessCubesParent | '].children}, ASC)}';
+SubsetMDXSet( sDimensionsDim, sSubset, sMDX ); 
+SubsetMDXSet( sDimensionsDim, sSubset, '' ); 
+
+
+sSubset = 'Leaf System Dimensions' ;
+if ( SubsetExists ( sDimensionsDim, sSubset ) = 1 );
+	SubsetDeleteAllElements ( sDimensionsDim, sSubset );
+else;
+	SubsetCreate ( sDimensionsDim, sSubset, 0 );
+endif;
+sMDX = '{TM1SORT( {[' | sDimensionsDim | '].[' | sSystemDimsParent | '].children}, ASC)}';
+SubsetMDXSet( sDimensionsDim, sSubset, sMDX ); 
+SubsetMDXSet( sDimensionsDim, sSubset, '' ); 
+
+
+sSubset = 'Business Dimensions with orphans' ;
+if ( SubsetExists ( sDimensionsDim, sSubset ) = 1 );
+	SubsetDeleteAllElements ( sDimensionsDim, sSubset );
+else;
+	SubsetCreate ( sDimensionsDim, sSubset, 0 );
+endif;
+sMDX = '{ FILTER ( {TM1SORT( {[' | sDimensionsDim | '].[' | sBusinessDimsParent | '].children}, ASC)}, [' | sTargetCube | '].([' | sCubesDim | '].[' | sTargetMirrorCube | '], [' | sDimensionsDim | '].CurrentMember, [' | sMeasuresDim | '].[' | sMeasureOrphans | ']) > 0 )}';
+SubsetMDXSet( sDimensionsDim, sSubset, sMDX ); 
+SubsetMDXSet( sDimensionsDim, sSubset, '' ); 
+
+# #######################################################
+#endregion

@@ -1,0 +1,33 @@
+{
+	"@type":"Process",
+	"Name":"Hierarchy - Position - Create Alternate",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Hierarchy - Position - Create Alternate.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"Position:Position",
+		"dataSourceNameForClient":"Position:Position",
+		"subset":"All Leaves"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pTemp",
+			"Prompt":"1 Temp 0 Perm",
+			"Value":1,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vEL",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "176735826500022"
+}

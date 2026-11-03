@@ -1,0 +1,247 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+sDescription = 'This setup up the monthend workflow by populating the start and deadline dates as well as the company constant for each company'; 
+sDeveloper = 'Sempre: Shane James';    
+sSource = 'Workflow Item'; 
+sSourceType = 'Dimension'; 
+sTarget = 'System - Workflow'; 
+sTargetType = 'Cube'; 
+
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+sCube = 'System - Workflow';
+sDim1 = 'Workflow Item';
+sDim2 = 'Company';
+sDim3 = 'Date Period';
+
+if (pWorkflowItem @= '' % DIMIX( sDim1, pWorkflowItem ) = 0); 
+    sStatus = 'A valid workflow item must be selected for the workflow to be set up';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+
+sCoSub = '}TI_Process'|NumberToString(ROUND(RAND() * 1000));
+sMDX = '[Company].[Company].MEMBERS';
+IF(SubsetExists(sDim2, sMDX) = 0);
+    SubsetCreateByMDX(sCoSub, sMDX);
+ELSE;
+    SubsetMDXSet(sDim2, sCoSub, sMDX);
+ENDIF;
+
+##### Set up Source #####
+
+sSrcSub = '}TI_Process'|NumberToString(ROUND(RAND() * 1000));
+sSrcMDX = 'TM1FILTERBYLEVEL(DRILLDOWNMEMBER({[Workflow Item].[Workflow Item].['|pWorkflowItem|']} , {[Workflow Item].[Workflow Item].['|pWorkflowItem|']} , RECURSIVE) , 0)';
+SubsetCreateByMDX(sSrcSub, sSrcMDX);
+
+
+DataSourceNameForServer = sDim1;
+DataSourceType = 'SUBSET';
+DatasourceDimensionSubset = sSrcSub;
+
+if (pWorkflowItem @= 'TOTAL BUDGET'); 
+    sPeriod = 'No Date';
+else;
+    sPeriod = pPeriod;
+endif;
+
+if (pReset @= 'Y'); 
+    SubsetCreate( sDim3, sSrcSub, 0 );
+    SubsetElementInsert( sDim3, sSrcSub, pPeriod, 0 );
+    sView = '}VZOProcess'|NumberToString(ROUND(RAND() * 1000)); 
+    ViewCreate( sCube, sView, 0 );
+    ViewSubsetAssign( sCube, sView, sDim1, sSrcSub );
+    ViewSubsetAssign( sCube, sView, sDim3, sSrcSub );
+    ViewZeroOut( sCube, sView );
+endif;
+
+
+#endregion
+#region Data
+
+nCompanySize = SubsetGetSize( sDim2, sCoSub );
+
+While (nCompanySize > 0);
+    sCompany = SubsetGetElementName( sDim2, sCoSub, nCompanySize );
+    if (ElementType( sDim2, sDim2, sCompany ) @= 'N'); 
+        if (ELLEV( 'Date Period', pPeriod ) > 0); 
+            CellPutProportionalSpread( 1, sCube, sPeriod, sCompany, vWorkflowItem, 'Company Constant' );
+        else;
+            CellPutN( 1, sCube, sPeriod, sCompany, vWorkflowItem, 'Company Constant' );
+        endif;
+
+    endif;
+
+    CellPutS( pStartDate, sCube, sPeriod, sCompany, vWorkflowItem, 'Start Date' );
+    if (pApprovalDeadline @<>''); 
+        CellPutS(pApprovalDeadline, sCube, sPeriod, sCompany, vWorkflowItem, 'Approval Deadline Date' );
+    endif;
+    CellPutS( pDeadline, sCube, sPeriod, sCompany, vWorkflowItem, 'Completion Deadline Date' );
+    nCompanySize = nCompanySize-1;
+End;
+
+#endregion
+#region Epilog
+
+ViewDestroy( sCube, sView );
+
+SubsetDestroy( sDim2, sCoSub );
+SubsetDestroy( sDim1, sSrcSub );
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+#### Edit This
+sParameters = 'pConfirm='|pConfirm|', pEmail='|pEmail|', pPeriod='|pPeriod|', pStartDate='|pStartDate|
+', pDeadline='|pDeadline|', pApprovalDeadline='|pApprovalDeadline|', pWorkflowItem='|pWorkflowItem|', pReset='|pReset;   
+
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    iSendEmail = 0;
+
+    if (iCalledByChore = 0);
+        iSendEmail = 1;
+    elseif (nError > 0);
+        iSendEmail = 1;
+    endif;
+
+    if (iSendEmail = 1);
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        if (DimensionExists('}ElementAttributes_}Clients') = 1);
+            if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+                sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+                if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+            endif;
+        endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+            IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+            else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+        sCC = 'X';
+        sBCC = 'X';
+
+        if (nError = 0);
+            sSubject = 'Workflow - Monthend setup';
+        else;
+            sSubject = '';
+        endif;
+
+        if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+        elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+        else;
+            sUsernameToDisplay = trim(CellGetS('System - Parameters - User', Tm1User(), 'Full Name', 'String' ));
+            if ( sUsernameToDisplay @= '' ); sUsernameToDisplay = sTM1User;  endif;
+        endif;
+
+        sEmailMessage = '';
+        sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+        sEmailMessage = sEmailMessage | '<p>It populated the start and deadline dates for the period monthend defined in the parameters below</p><br><br>';
+        sEmailMessage = sEmailMessage | '<p>Parameters defined in process: <b>'|sParameters|'</b></p><br><br>';
+
+        sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+        sAttachment = 'X';
+
+        # Now call the process that sends the email.
+        if (iCalledByChore = 1);
+            if (sAdmin1Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+            endif;
+            if (sAdmin2Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+            if (sAdmin3Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+        Else;
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+    endif;
+endif;
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

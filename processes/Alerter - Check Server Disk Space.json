@@ -1,0 +1,30 @@
+{
+	"@type":"Process",
+	"Name":"Alerter - Check Server Disk Space",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Alerter - Check Server Disk Space.ti",
+	"DataSource":
+	{
+		"Type":"ASCII",
+		"dataSourceNameForServer":"\\\\10.188.22.167\\s\\prod\\tm1_Credera\\Data\\FreeDiskSpace.txt",
+		"dataSourceNameForClient":"\\\\10.188.22.167\\s\\prod\\tm1_Credera\\Data\\FreeDiskSpace.txt",
+		"asciiHeaderRecords":0,
+		"asciiQuoteCharacter":"\"",
+		"asciiDecimalSeparator":".",
+		"asciiThousandSeparator":",",
+		"asciiDelimiterType":"Character",
+		"asciiDelimiterChar":")"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"V2",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000016"
+}

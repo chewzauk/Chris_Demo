@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"EBITDA Report",
+	"ExpandAbove":true,
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {DRILLDOWNMEMBER({[Accounts].[Accounts].[EBITDA]} , {[Accounts].[Accounts].[EBITDA],[Accounts].[Accounts].[Total Expenses],[Accounts].[Accounts].[Operating Income]} , RECURSIVE)}"
+}

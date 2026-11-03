@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Leaf Months",
+	"Alias":"Short Name",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL(TM1SUBSETALL([Month of Year].[Month of Year]) , 0)}"
+}
