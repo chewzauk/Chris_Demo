@@ -1,0 +1,83 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Replace Dim in Multiple Cubes",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Cubes - Replace Dim in Multiple Cubes.ti",
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForServer":"Control - Import Table",
+		"dataSourceNameForClient":"Control - Import Table",
+		"view":"TI Import"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pSrcDim",
+			"Prompt":"Dimension to be replaced",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pIncludeData",
+			"Prompt":"1 to keep, 0 to leave",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pElement",
+			"Prompt":"Element for data to go to",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pTgtDim",
+			"Prompt":"Dimension to be added",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pUseAllCubes",
+			"Prompt":"Do you want to use all cubes or just selected (1 for all, 0 for selected)",
+			"Value":0,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"List",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vMeasure",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vCube",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000039"
+}

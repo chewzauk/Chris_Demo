@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Sales Planning - Marketing",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Sales Planning - Marketing.hierarchies/Measures - Sales Planning - Marketing.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Sales Planning - Marketing')/Hierarchies('Measures - Sales Planning - Marketing')"
+	}
+}

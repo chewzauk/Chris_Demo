@@ -1,0 +1,32 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Week of Month",
+	"Elements":
+	[
+		{
+			"Name":"Week 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Week 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Week 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Week 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Week 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Week 6",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

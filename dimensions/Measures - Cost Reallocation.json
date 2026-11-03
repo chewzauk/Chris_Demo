@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Cost Reallocation",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Cost Reallocation.hierarchies/Measures - Cost Reallocation.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Cost Reallocation')/Hierarchies('Measures - Cost Reallocation')"
+	}
+}

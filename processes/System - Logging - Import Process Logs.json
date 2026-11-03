@@ -1,0 +1,56 @@
+{
+	"@type":"Process",
+	"Name":"System - Logging - Import Process Logs",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Logging - Import Process Logs.ti",
+	"DataSource":
+	{
+		"Type":"ASCII",
+		"dataSourceNameForServer":"model_upload/ServerLog.log",
+		"dataSourceNameForClient":"model_upload/ServerLog.log",
+		"asciiHeaderRecords":2,
+		"asciiQuoteCharacter":"\"",
+		"asciiDecimalSeparator":".",
+		"asciiThousandSeparator":",",
+		"asciiDelimiterType":"Character",
+		"asciiDelimiterChar":"\t"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pStartDate",
+			"Prompt":"What date do you want to load from",
+			"Value":"2024-05-01",
+			"Type":"String"
+		},
+		{
+			"Name":"pDaysData",
+			"Prompt":"How many days data do you wish to load (back from now)",
+			"Value":1,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vLine",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000062"
+}

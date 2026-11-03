@@ -1,0 +1,85 @@
+#region Prolog
+MinorErrorLogMax = -1;
+OnMinorErrorDoItemSkip = 1;
+SetInputCharacterSet('TM1CS_UTF8');
+lastAttr='';
+iAttr=DIMSIZ('}ElementAttributes_Product');
+i=iAttr;
+While(i > 0);
+attrName = DIMNM('}ElementAttributes_Product', i);
+If(SUBST(attrName,0,1)@<>'}');
+lastAttr=attrName;
+i=0;
+Else;
+i=i-1;
+EndIf;
+End;
+
+#endregion
+#region Metadata
+If(vType@='');
+vType='N';
+ElseIf(vType@='String' % vType@='S');
+vType='S';
+ElseIf(vType@='Numeric' % vType@='N');
+vType='N';
+ElseIf(vType@='Consolidated' % vType@='C');
+vType='C';
+Else;
+StringToNumber('IMPERROR_MT_'|vType);
+EndIf;
+If(vWeight@='');
+vWeight_num=1;
+Else;
+vWeight_num=StringToNumberEx(vWeight,'.',',');
+EndIf;
+vFirstConsolidation='';
+vLastConsolidation='';
+If(vLevel0@<>'');
+If(vLevel1@<>'');
+If(HierarchyElementExists('Product','Leaves',vLevel1)=1);
+StringToNumber('IMPERROR_CL_'|vLevel1);
+EndIf;
+HierarchyElementInsert('Product','Product','',vLevel1,'C');
+If(vFirstConsolidation@='');
+vFirstConsolidation=vLevel1;
+EndIf;
+vLastConsolidation=vLevel1;
+EndIf;
+HierarchyElementInsert('Product','Product','',vLevel0,vType);
+If(vFirstConsolidation@<>'');
+HierarchyElementComponentAdd('Product','Product',vFirstConsolidation,vLevel0,vWeight_num);
+EndIf;
+EndIf;
+
+#endregion
+#region Data
+If(vLevel0@<>'');
+ElementAttrPutS(vAttr6,'Product','Product',vLevel0,'Size');
+EndIf;
+If(vLevel0@<>'');
+ElementAttrPutS(vAttr7,'Product','Product',vLevel0,'Price Range');
+EndIf;
+If(vLevel0@<>'');
+ElementAttrPutS(vAttr8,'Product','Product',vLevel0,'Brand');
+EndIf;
+If(vLevel0@<>'');
+ElementAttrPutS(vAttr9,'Product','Product',vLevel0,'Type');
+EndIf;
+If(vLevel0@<>'');
+ElementAttrPutS(vAttr10,'Product','Product',vLevel0,'Alternate Name');
+EndIf;
+If(vLevel0@<>'');
+ElementAttrPutS(vAttr11,'Product','Product',vLevel0,'Description');
+EndIf;
+If(vLevel0@<>'');
+ElementAttrPutS(vAttr12,'Product','Product',vLevel0,'Category');
+EndIf;
+If(vLevel0@<>'');
+ElementAttrPutN(vAttr13,'Product','Product',vLevel0,'Default Promo Boost');
+EndIf;
+If(vLevel0@<>'');
+ElementAttrPutN(vAttr14,'Product','Product',vLevel0,'Default Campaign Boost');
+EndIf;
+
+#endregion

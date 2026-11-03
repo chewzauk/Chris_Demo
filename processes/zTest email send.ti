@@ -1,0 +1,17 @@
+#region Prolog
+
+sEmail = 'shane.james@sempreanalytics.com';
+sSubject = 'Email from PA Saas V12';
+
+sBody = '<p>Dear Shane </p>';
+sbody = sBody| '<p>This tests the    <font color=green><b> System - Send Email - V12 </font></b>process in the Saas environment.</p>' ;
+sbody = sbody|'<p>Kind Regards <font color=red><b> Shane</font></b></p>';
+
+#sbody = 'test message from another process';
+ExecuteProcess( 'System - Send Email - V12',
+	'pConfirm', 'Y',
+	'pToEmail', sEmail,
+	'pSubject', sSubject,
+	'pBody', sBody );
+
+#endregion

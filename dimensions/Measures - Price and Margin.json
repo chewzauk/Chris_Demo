@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Price and Margin",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Price and Margin.hierarchies/Measures - Price and Margin.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Price and Margin')/Hierarchies('Measures - Price and Margin')"
+	}
+}

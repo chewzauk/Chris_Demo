@@ -1,0 +1,38 @@
+{
+	"@type":"Process",
+	"Name":"System - Documentation - Populate Cube Rules",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Documentation - Populate Cube Rules.ti",
+	"DataSource":
+	{
+		"Type":"ASCII",
+		"dataSourceNameForServer":"C:\\TM1\\Integrated Forecasting\\Data\\P & L.RUX",
+		"dataSourceNameForClient":"C:\\TM1\\Integrated Forecasting\\Data\\P & L.RUX",
+		"asciiHeaderRecords":1,
+		"asciiQuoteCharacter":"\"",
+		"asciiDecimalSeparator":".",
+		"asciiThousandSeparator":",",
+		"asciiDelimiterType":"Character",
+		"asciiDelimiterChar":";"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pCube",
+			"Prompt":"Cube?",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vRule",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000054"
+}

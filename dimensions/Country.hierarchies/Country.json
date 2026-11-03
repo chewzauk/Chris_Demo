@@ -1,0 +1,162 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Country",
+	"Elements":
+	[
+		{
+			"Name":"Total Countries",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"England",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Scotland",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Wales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ireland",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"France",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Germany",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Austria",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Italy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Spain",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Netherlands",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Poland",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Portugal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Switzerland",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Denmark",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Norway",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Greece",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"England",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Scotland",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Wales",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Ireland",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"France",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Germany",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Austria",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Italy",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Spain",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Netherlands",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Poland",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Portugal",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Switzerland",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Denmark",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Norway",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Countries",
+			"ComponentName":"Greece",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Country.subsets/Leaf Members.json"
+	]
+}

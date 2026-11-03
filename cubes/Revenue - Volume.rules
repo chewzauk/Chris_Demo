@@ -1,0 +1,165 @@
+SKIPCHECK;
+
+[{'Live Plan', 'AI Forecast', 'AI Lower', 'AI Upper', 'Target'}, {'Base', 'Base - Manual'}] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< DB('System - Parameters - Model', 'Forecast Month YYYYMM', 'String' ), ['Actual'], CONTINUE);
+[{'Version':'Version':'3+9 2025'}, {'Base', 'Base - Manual'}] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< '202504', ['Actual'], CONTINUE);
+[{'Version':'Version':'6+6 2025'}, {'Base', 'Base - Manual'}] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< '202507', ['Actual'], CONTINUE);
+[{'Version':'Version':'3+9 2026'}, {'Base', 'Base - Manual'}] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< '202604', ['Actual'], CONTINUE);
+[{'Version':'Version':'6+6 2026'}, {'Base', 'Base - Manual'}] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< '202607', ['Actual'], CONTINUE);
+
+['Version':'Version':'Actual PY'] = N: DB('Revenue - Volume', ATTRS('PeriodYear', !PeriodYear, 'Previous Year'),'Actual', !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume );
+
+# ---------------------------------------------------------
+### Bring Actuals in to Live Plan for Base layer if period is before the system current month.
+
+['Live Plan', {'Base', 'Base - Manual'}, 'Quantity'] = N: 
+	IF(DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @< DB('System - Parameters - Model', 'Forecast Month YYYYMM', 'String' ), 
+  		['Actual'], 
+  		CONTINUE
+  	)
+;
+
+# ####################################################
+# 2025-11-20. PXB. Rules for Sales Demand Planning, i.e. defining the contents of Live Plan version for forecast periods using manually-entered Promos, Demand and Marketing inputs.
+
+# First, block out periods not within the foreasting timeframe of Live Plan.
+[Version:'Live Plan', {'Scenario Layer':'Promo', 'Base'}, 'Measures - Revenue Volume':'Quantity'] = N:
+	if ( 
+  		DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @> DB('}ElementAttributes_Version', !Version, 'Last Forecast Period ') %
+		DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @< DB('System - Parameters - Model', 'Forecast Month YYYYMM', 'String' )
+		, 0
+  		, CONTINUE
+	)
+;
+
+# Second thing is to fill in the Base layer in the forecast periods. Many ways to do this, but having lots of options isn't the point of this demo, just need Base to contain something sensible.
+# So we will go with a rolling average of the prior 6 months. If speed is an issue just do 3 months (we're only using Rules anyway to make the demo simpler to use and understand. In real life you'd most likely use a process.)
+[Version:'Live Plan', 'Scenario Layer':'Base', 'Measures - Revenue Volume':'Quantity'] = N:
+  	( 
+    DB('Revenue - Volume', DB('}ElementAttributes_PeriodYear', !PeriodYear, 'Previous'), !Version, !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume ) +
+  	DB('Revenue - Volume', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', !PeriodYear, 'Previous'), 'Previous'), !Version, !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume ) +
+  	DB('Revenue - Volume', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', !PeriodYear, 'Previous'), 'Previous'), 'Previous'), !Version, !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume ) +
+  	DB('Revenue - Volume', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', !PeriodYear, 'Previous'), 'Previous'), 'Previous'), 'Previous'), !Version, !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume ) +
+  	DB('Revenue - Volume', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', !PeriodYear, 'Previous'), 'Previous'), 'Previous'), 'Previous'), 'Previous'), !Version, !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume ) +
+  	DB('Revenue - Volume', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', DB('}ElementAttributes_PeriodYear', !PeriodYear, 'Previous'), 'Previous'), 'Previous'), 'Previous'), 'Previous'), 'Previous'), !Version, !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume )
+	) / 6
+;
+
+# PROMO LAYER
+# Calculate Quantity for Promo Layer using the Boost % entered by the user, only within the month time-range they have chosen.
+[Version:'Live Plan', 'Scenario Layer':'Promo', 'Measures - Revenue Volume':'Quantity'] = N:
+	if ( DB('Sales Planning - Promos', 'Promo 1', !Product, !Customer, 'Valid Entry' ) @= 'Valid',
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 1', !Product, !Customer, 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 1', !Product, !Customer, 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Promos', 'Promo 1', !Product, !Customer, '% Boost')  * ['Base'] 
+		, 0 ) + 
+   	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 2', !Product, !Customer, 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 2', !Product, !Customer, 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Promos', 'Promo 2', !Product, !Customer, '% Boost')  * ['Base'] 
+		, 0 ) + 
+   	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 3', !Product, !Customer, 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 3', !Product, !Customer, 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Promos', 'Promo 3', !Product, !Customer, '% Boost')  * ['Base'] 
+		, 0 ) + 
+   	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 4', !Product, !Customer, 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 4', !Product, !Customer, 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Promos', 'Promo 4', !Product, !Customer, '% Boost')  * ['Base'] 
+		, 0 ) + 
+   	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 5', !Product, !Customer, 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Promos', 'Promo 5', !Product, !Customer, 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Promos', 'Promo 5', !Product, !Customer, '% Boost')  * ['Base'] 
+		, 0 ) 
+   , 0
+  );
+
+
+# DEMAND LAYER
+# Demand is not by Customer, only Product. So, allocate to all leaf Customers per their share of the Base layer's Quantity for Total Customers. e.g. if Tesco have a Base / Quantity of 50 and Quantity for Base / Total Customers is 1000 then Tesco will get 2% of the Demand number. 
+
+[Version:'Live Plan', 'Scenario Layer':'Demand', 'Measures - Revenue Volume':'Quantity'] = N:
+  		DB('Sales Planning - Demand', !Product, !PeriodYear, '% Boost') * ['Base', 'TOTAL CUSTOMERS'] * (['Base'] \ ['Base', 'TOTAL CUSTOMERS']);
+
+
+# MARKETING LAYER
+# Calculate Quantity for Marketing Layer using the Boost % entered by the user, only within the month time-range they have chosen.
+[Version:'Live Plan', 'Scenario Layer':'Marketing', 'Measures - Revenue Volume':'Quantity'] = N:
+	if ( DB('Sales Planning - Marketing', 'Campaign 1', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Valid Entry' ) @= 'Valid',
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 1', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 1', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Marketing', 'Campaign 1', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), '% Boost')  * ['Base'] 
+		, 0 ) +
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 2', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 2', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Marketing', 'Campaign 2', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), '% Boost')  * ['Base'] 
+		, 0 ) +
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 3', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 3', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Marketing', 'Campaign 3', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), '% Boost')  * ['Base'] 
+		, 0 ) +
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 4', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 4', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Marketing', 'Campaign 4', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), '% Boost')  * ['Base'] 
+		, 0 ) +
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 5', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 5', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Marketing', 'Campaign 5', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), '% Boost')  * ['Base'] 
+		, 0 ) +
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 6', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 6', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Marketing', 'Campaign 6', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), '% Boost')  * ['Base'] 
+		, 0 ) +
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 7', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 7', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Marketing', 'Campaign 7', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), '% Boost')  * ['Base'] 
+		, 0 ) +
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 8', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 8', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Marketing', 'Campaign 8', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), '% Boost')  * ['Base'] 
+		, 0 ) +
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 9', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 9', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Marketing', 'Campaign 9', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), '% Boost')  * ['Base'] 
+		, 0 ) +
+	  if ( DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @>= DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 10', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'Start Period' ), 'yyyymm') & DB('}ElementAttributes_PeriodYear', !PeriodYear, 'yyyymm') @<=DB('}ElementAttributes_PeriodYear', DB('Sales Planning - Marketing', 'Campaign 10', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), 'End Period' ), 'yyyymm') ,
+  		DB('Sales Planning - Marketing', 'Campaign 10', !Product, DB('}ElementAttributes_Customer', !Customer, 'Region'), '% Boost')  * ['Base'] 
+		, 0 ) 
+	, 0  
+  )
+;
+
+# / End of Sales Demand Planning rules.
+# ####################################################
+
+# ---------------------------------------------------------
+### Fetch Price Per Unit from the Price and Margin Cube. Bring in PPU any time there is a Quantity, not when Quantity = 0 as that stops you suppressing zeroes.
+# While you could want to flex Prices in the Promo layer, right now we just link to Base and use those.
+
+['Price Per Unit'] = N: If ( ['Quantity'] = 0, 0, DB('Revenue - Product Price and Margin', !PeriodYear, !Version, 'Base', !Product, 'Price' ) );
+
+
+# For consolidations, back-calculate as Revenue / Qty. No dedicated feeder needed, naturally fed by physical Quantity values at leaf level. 
+['Price Per Unit'] = C: ['Measures - Revenue Volume':'Revenue'] \ ['Measures - Revenue Volume':'Quantity'];
+  
+
+# ---------------------------------------------------------
+### Revenue Calculation
+
+[{'Live Plan', 'Actual'}, 'Revenue'] = N: ['Quantity'] * ['Price Per Unit'];
+
+
+# #################################################
+# #################################################
+
+FEEDERS;
+['Actual'] => [ 'AI Forecast'], ['AI Lower'], ['AI Upper'], ['Target'], ['Live Plan'], ['3+9 2025'], ['6+6 2025'],  ['3+9 2026'], ['6+6 2026'];  
+['Actual'] => DB('Revenue - Volume', ATTRS('PeriodYear', !PeriodYear, 'Next Year'), 'Actual PY', !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume );
+[{'Live Plan', 'Actual'}, 'Quantity'] => ['Revenue'], ['Price per Unit'], ['3+9 2025'], ['6+6 2025'],  ['3+9 2026'], ['6+6 2026'];  
+
+  ###Feed AI Cube
+  ['Quantity', 'Base - Manual'] => DB('Revenue - AI', !PeriodYear, !Version, !Customer, !Product, !Measures - Revenue Volume );
+
+# --------------------------------------
+# Sales Demand Planning.
+# Every Actual / Base value that is in the current month should feed into Live Plan for the next period and the next 5 periods after that because it is a 6-month moving average (any performance issues, just reduce to 3).
+['Actual'] => DB('Revenue - Volume', if ( !PeriodYear @= DB('System - Parameters - Model', 'Current Month', 'String'), ATTRS('PeriodYear', !PeriodYear, 'Next'), ''), 'Live Plan', !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume );
+['Live Plan', 'Base'] => DB('Revenue - Volume', IF ( ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< ATTRS('Version', !Version, 'Last Forecast Period'), ATTRS('PeriodYear', !PeriodYear, 'Next'), ''), 'Live Plan', !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume );
+['Live Plan', 'Base'] => DB('Revenue - Volume', IF ( ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< ATTRS('Version', !Version, 'Last Forecast Period'), ATTRS('PeriodYear', ATTRS('PeriodYear', !PeriodYear, 'Next'), 'Next'), ''), 'Live Plan', !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume );
+['Live Plan', 'Base'] => DB('Revenue - Volume', IF ( ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< ATTRS('Version', !Version, 'Last Forecast Period'), ATTRS('PeriodYear', ATTRS('PeriodYear', ATTRS('PeriodYear', !PeriodYear, 'Next'), 'Next'), 'Next'), ''), 'Live Plan', !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume );
+['Live Plan', 'Base'] => DB('Revenue - Volume', IF ( ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< ATTRS('Version', !Version, 'Last Forecast Period'), ATTRS('PeriodYear', ATTRS('PeriodYear', ATTRS('PeriodYear', ATTRS('PeriodYear', !PeriodYear, 'Next'), 'Next'), 'Next'), 'Next'), ''), 'Live Plan', !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume );
+['Live Plan', 'Base'] => DB('Revenue - Volume', IF ( ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< ATTRS('Version', !Version, 'Last Forecast Period'), ATTRS('PeriodYear', ATTRS('PeriodYear', ATTRS('PeriodYear', ATTRS('PeriodYear', ATTRS('PeriodYear', !PeriodYear, 'Next'), 'Next'), 'Next'), 'Next'), 'Next'), ''), 'Live Plan', !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume );
+['Live Plan', 'Base'] => DB('Revenue - Volume', IF ( ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< ATTRS('Version', !Version, 'Last Forecast Period'), ATTRS('PeriodYear', ATTRS('PeriodYear', ATTRS('PeriodYear', ATTRS('PeriodYear', ATTRS('PeriodYear', ATTRS('PeriodYear', !PeriodYear, 'Next'), 'Next'), 'Next'), 'Next'), 'Next'), 'Next'), ''), 'Live Plan', !Scenario Layer, !Customer, !Product, !Measures - Revenue Volume );
+# Every Live Plan   
+['Scenario Layer':'Base'] => ['Scenario Layer':'Promo'];
+['Scenario Layer':'Base'] => ['Scenario Layer':'Demand'];
+['Scenario Layer':'Base'] => ['Scenario Layer':'Marketing'];
+# --------------------------------------
+
+['Scenario Layer':'Base','Quantity']=>DB('Stock', !PeriodYear, !Version, !Scenario Layer, !Product, 'Forecast Demand' );
+
+# #################################################
+# #################################################

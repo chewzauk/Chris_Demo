@@ -1,0 +1,188 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+##############################################
+
+####### SET PROCESESS DESCRIPTION #####
+sDescription = 'Load rules line by line for a specific cube';
+sCube = 'System - Documentation - Model';
+If(CubeExists( sCube ) > 0, CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' ),0);
+#########################################
+
+sRule = 'Rule';
+sList = 1;
+sUseNextFlag = 0;
+
+sFilePath = '..\Data\';
+sFileName = pCube|'.RUX';
+sFile = sFilePath|sFileName;
+pTitleRows = 0;
+pDelimiter = ';';
+pQuote = '"';
+
+
+vDim1 = '}Cubes';
+vDim2 = 'Measures - Documentation';
+sSub = '}TI_Process';
+
+
+CubeName = 'Documentation_Rules';
+ViewName = '}Vzo_CubeRules';
+
+
+#### Create TI Subsets ####
+If (SubsetExists(vDim1, sSub) = 0, SubsetCreate(vDim1, sSub), 0);
+If (SubsetExists(vDim2, sSub) = 0, SubsetCreate(vDim2, sSub), 0);
+
+#### Delete Exisiting Data ####
+SubsetDeleteAllElements(vDim1, sSub);
+SubsetDeleteAllElements(vDim2, sSub);
+
+#### Load new data into subset ####
+SubsetElementInsert(vDim1, sSub, pCube, 1);
+SubsetElementInsert(vDim2, sSub, 'Rule Value', 1);
+SubsetElementInsert(vDim2, sSub, 'Rule Calculation', 1);
+
+CubeName = 'Documentation_Rules';
+ViewName = '}Vzo_CubeRules';
+
+#### Create View ####
+If (ViewExists(CubeName, ViewName) = 0, ViewCreate(CubeName, ViewName), 0);
+ViewSubsetAssign(CubeName, ViewName, vDim1, sSub);
+ViewSubsetAssign(CubeName, ViewName, vDim2, sSub);
+
+#####
+
+ViewZeroOut(CubeName, ViewName);
+
+### Assign Datasource ###
+DataSourceType                  = 'CHARACTERDELIMITED';
+DatasourceNameForServer         = sFile;
+DatasourceNameForClient         = sFile;
+If( FileExists( sFile ) = 0 );
+   ProcessBreak;
+Endif;
+DatasourceASCIIHeaderRecords    = pTitleRows;
+DatasourceASCIIDelimiter        = pDelimiter;
+DatasourceASCIIQuoteCharacter   = pQuote;
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+sInsertionPoint = '';
+sElType = 'N';
+sDim = 'Documentation List';
+
+sRefCheck = SCAN('#?', vRule);
+
+#### Split left side of rule ####
+If(srefCheck = 0);
+	ItemSkip;
+Endif;
+
+sEl = SUBST(vRule, 3, LONG(vRule)-2);
+pParent = 'TOTAL LIST';
+
+If(DIMIX( sDim, sEl ) = 0);
+	DimensionElementInsert( sDim, sINsertionPoint, sEl, sElType );
+	DimensionElementComponentAdd( sDim, pParent, sEl,1 );
+Endif;
+
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+sSplit = SCAN('=', vRule);
+sFullRule = If(SCAN('N:',vRule) > 0 % SCAN('C:',vRule) > 0 % SCAN('S:',vRule) > 0 % SCAN('=>',vRule) > 0, 1, 
+			If( SCAN('=',vRule) > 0 & SCAN('If',vRule) < SCAN('=',vRule),1, 0));
+
+
+#### Split left side of rule ####
+sValue = SUBST(vRule, 1, sSplit-1);
+
+If(SCAN('Feeders',vRule) > 0);
+    sRule = 'Feeder';
+    sList = 1;
+Endif;
+
+If(vRule @= '' % vRule @= 'SkipCheck' % vRule @= 'Feeders' % vRule @= 'FORMAT==100' % vRule @= 'Feedstrings' % SubSt(vRule,1,1) @= '#');
+   ItemSkip;
+Endif;
+
+#### Split right side of rule ####
+sCalc = SUBST(vRule, sSplit + 1,  Long(vRule));
+
+#### Get the current vale in the rule calculation cell  ####
+If(sFullRule = 0 & sList > 1);
+   sPreCalc = CellGetS('Documentation_Rules', pCube, NumberToString(sList -1), sRule, 'Rule Calculation');
+Endif;
+
+If (sFullRule = 0);
+  sCalc = sPreCalc | ' ' | sCalc;
+Endif;
+
+
+If(sFullRule = 1);
+   CellPutS(sValue, 'Documentation_Rules', pCube, NumberToString(sList), sRule, 'Rule Value');
+Endif; 
+
+If(sFullRule = 1);
+   CellPutS(sCalc, 'Documentation_Rules', pCube, NumberToString(sList), sRule, 'Rule Calculation');
+Endif;
+
+If(sFullRule = 0 & sList > 1);
+   CellPutS(sCalc, 'Documentation_Rules', pCube, NumberToString(sList-1), sRule, 'Rule Calculation');
+Endif;
+
+#AsciiOutput('C:\TM1\Integrated Forecasting\Transfer Files\Rule Logic.txt', NumbertoString(sList), NumberToString(sFullRule), vRule, sValue, sCalc);
+
+
+If(sFullRule = 1);
+  sList = sList + 1;
+Endif;
+
+nRecords=nRecords+1;
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sStartValue - sEndValue, '\i mins \s seconds');
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( 'None', sCube, sEndTime, sProcess, 'Parameters Used' );
+CellPutS( 'Success', sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+########################################
+#endregion

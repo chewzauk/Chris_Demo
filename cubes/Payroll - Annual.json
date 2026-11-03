@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"Payroll - Annual",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Employee')"
+		},
+		{
+			"@id":"Dimensions('Role')"
+		},
+		{
+			"@id":"Dimensions('Measures - Payroll')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"Payroll - Annual.views/VZOLivePlan.json"
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Sales Planning - Promos",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Sales Planning - Promos.hierarchies/Measures - Sales Planning - Promos.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Sales Planning - Promos')/Hierarchies('Measures - Sales Planning - Promos')"
+	}
+}

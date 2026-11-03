@@ -1,0 +1,135 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Parameters - System",
+	"Elements":
+	[
+		{
+			"Name":"Model Name",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Environment Type",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Source Files Path",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Transfer Files Path",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Server",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Server Machine Name",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Server Friendly Name",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SMTP Server",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SMTP Server Port",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Email Logo URL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TM1ServerEmailFromAddress",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Root Path on Server",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Import Path on Server",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Backup Path on Server",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Log Path on Server",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Administrator 1 Email",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Administrator 2 Email",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Administrator 3 Email",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"System Developer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Email TI Process",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Email Script File",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SQL DataBase",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SQL Username",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SQL Password",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TenantID",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ClientID",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Client Secret",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Client Refresh Token",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Email Access Token",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Email Access Token Retrieval Time",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Teams Chat ID",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Parameters - System.subsets/LEAF.json"
+	]
+}

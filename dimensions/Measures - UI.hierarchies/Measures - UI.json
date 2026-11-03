@@ -1,0 +1,31 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - UI",
+	"Elements":
+	[
+		{
+			"Name":"String",
+			"Type":"String"
+		},
+		{
+			"Name":"Validated String",
+			"Type":"String"
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Comment",
+			"Type":"String"
+		},
+		{
+			"Name":"DimensionMDX",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - UI.subsets/LEAF.json"
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"}HierarchyAttributes_Currency - Reporting",
+	"Hierarchies@Code.links":
+	[
+		"}HierarchyAttributes_Currency - Reporting.hierarchies/}HierarchyAttributes_Currency - Reporting.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('}HierarchyAttributes_Currency - Reporting')/Hierarchies('}HierarchyAttributes_Currency - Reporting')"
+	}
+}

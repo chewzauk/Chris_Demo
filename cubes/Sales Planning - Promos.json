@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Sales Planning - Promos",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Promo Instance')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Customer')"
+		},
+		{
+			"@id":"Dimensions('Measures - Sales Planning - Promos')"
+		}
+	],
+	"Rules@Code.link":"Sales Planning - Promos.rules",
+	"Views@Code.links":[]
+}

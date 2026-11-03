@@ -1,0 +1,44 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Leave Type",
+	"Elements":
+	[
+		{
+			"Name":"Company > Career Break",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Company > Garden Leave",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Regulatory > DEU Parental Leave 2018",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Regulatory > Enhanced Paternity Leave - New Policy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Regulatory > Exceptional Leave",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Regulatory > Maternity Leave - New Policy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Regulatory > Parental Leave (Unpaid)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Regulatory > Paternity Leave",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Regulatory > Shared Parental Leave - New Policy",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

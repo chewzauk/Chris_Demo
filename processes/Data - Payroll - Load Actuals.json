@@ -1,0 +1,21 @@
+{
+	"@type":"Process",
+	"Name":"Data - Payroll - Load Actuals",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Data - Payroll - Load Actuals.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pPeriod",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "176735826500010"
+}

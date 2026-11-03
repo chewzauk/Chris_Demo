@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Holiday Lookup",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Holiday Lookup.hierarchies/Measures - Holiday Lookup.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Holiday Lookup')/Hierarchies('Measures - Holiday Lookup')"
+	}
+}

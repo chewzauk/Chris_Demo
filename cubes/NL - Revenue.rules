@@ -1,0 +1,77 @@
+SKIPCHECK;
+# Revenue = Quantity * Price
+# ! = What is similar to both sides and this will auto complete when another cube has been referenced. the other bits you will need to reference by use of ''.
+# : used after N or C
+# ; use as normal after every syntax
+
+# # # Prior Month Quantity Rule
+#  ['Version':'Version':'Actual', 'Customer':'Leaves':'Cust01', 'PeriodYear':'PeriodYear':'02 2025'] = N:
+#    if(ATTRS( 'PeriodYear', !PeriodYear, 'yyyymm' )@= '202501', ['Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity'], STET);
+
+### Prior Month Quantity Rule v2
+ ['Version':'Version':'Actual', 'Measures - Revenue Volume':'Measures - Revenue Volume':'Prior Month Quantity'] = N:
+   DB('NL - Revenue', ATTRS( 'PeriodYear', !PeriodYear, 'Previous' ), !Version, !Customer, !Product, 'Quantity' );
+
+# ### Populate PY,
+# ['Version':'Version':'Actual PY', 'Measures - Revenue Volume':'Measures - Revenue Volume':'Prior Month Quantity'] = N:
+#    DB('NL - Revenue', ATTRS('PeriodYear',ATTRS( 'PeriodYear', !PeriodYear, 'Previous' ), 'Previous Year'), 'Actual', !Customer, !Product, 'Quantity' );
+
+## Populate PY,
+['Version':'Version':'Actual PY', 'Measures - Revenue Volume':'Measures - Revenue Volume':'Prior Month Quantity'] = N:
+   DB('NL - Revenue', ATTRS('PeriodYear', !PeriodYear, 'Previous Year'), 'Actual', !Customer, !Product, !Measures - Revenue Volume );
+
+# Bring in Actuals up to a point and the following months to be open to be populated.
+# Rule for 6 + 6 2025 = 6 months of actuals and 6 months of forecast
+['Version':'Version':'6+6 2025' , 'Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity'] = N:
+  if(ATTRS( 'PeriodYear', !PeriodYear, 'yyyymm' )@<= '202506', ['Version':'Version':'Actual'], STET);
+
+# Using Live Plan - using ???????
+['Version':'Version':'Live Plan', 'Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity'] = N:
+  IF( ATTRS( 'PeriodYear', !PeriodYear, 'yyyymm' )@<  ATTRS( 'PeriodYear', DB( 'System - Parameters - Model', 'Forecast Month' , 'String'), 'yyyymm' ), ['Version':'Version':'Actual'], STET);
+
+# Using Live Plan
+['Version':'Version':'Live Plan', 'Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity'] = N:
+  IF( ATTRS( 'PeriodYear', !PeriodYear, 'yyyymm' )@< DB( 'System - Parameters - Model', 'Forecast Month YYYYMM' , 'String' ), ['Version':'Version':'Actual'], STET);
+
+# Shorthand reference or rule writing
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Revenue'] = N:
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity'] * DB('Revenue - Product Price and Margin', !PeriodYear, !Version, 'Base', !Product, 'Price' );
+
+# Long form of the rule above
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Revenue'] = N:
+DB('NL - Revenue', !PeriodYear, !Version, !Customer, !Product, 'Quantity' ) * DB('Revenue - Product Price and Margin', !PeriodYear, !Version, 'Base', !Product, 'Price' );
+
+# Rule to bring in the Price per unit
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Price Per Unit'] = N:
+DB( 'Revenue - Product Price and Margin', !PeriodYear, !Version, 'Base', !Product, 'Price' );
+
+
+FEEDERS;
+# Knowing what is best to feed. Revenue is only populated when something has been bought. So only feed Quantity, rather than Price as ther price will always be there. Quantity will only be there once something has been bought
+# This would be a good example of OVERFEEDING - Revenue will only be fed when there is an Quantity
+
+# Prior Year Quantity FEEDER
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity', 'Version':'Version':'Actual PY'] => DB( 'NL - Revenue', ATTRS( 'PeriodYear', !PeriodYear, 'Next' ), !Version, !Customer, !Product, 'Prior Month Quantity' );
+
+  
+# Prior Month Quantity FEEDER v2
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity', 'Version':'Version':'Actual'] => DB( 'NL - Revenue', ATTRS( 'PeriodYear', !PeriodYear, 'Next' ), !Version, !Customer, !Product, 'Prior Month Quantity' );
+
+  
+# Prior Month Quantity FEEDER
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity', 'Version':'Version':'Actual', 'Customer':'Leaves':'Cust01'] => ['Measures - Revenue Volume':'Measures - Revenue Volume':'Prior Month Quantity'];
+  
+# Rule for 6 + 6 2025 = 6 months of actuals and 6 months of forecast
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity', 'Version':'Version':'Actual'] => ['Version':'Version':'6+6 2025'];
+
+# Using Live Plan
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity' , 'Version':'Version':'Actual'] => ['Version':'Version':'Live Plan'];
+  
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity'] => ['Measures - Revenue Volume':'Measures - Revenue Volume':'Revenue'] ;
+
+
+# Rule to bring in the Price (section)
+['Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity'] => ['Measures - Revenue Volume':'Measures - Revenue Volume':'Price Per Unit'] ;
+
+# Instead, have this instead and reference the other feeders like this. Do this so it is neater and you can also see what is being fed and to avoid OVERFEEDING - This is the best route to use!!
+# ['Measures - Revenue Volume':'Measures - Revenue Volume':'Quantity'] => ['Measures - Revenue Volume':'Measures - Revenue Volume':'Revenue'] , ['Measures - Revenue Volume':'Measures - Revenue Volume':'Price Per Unit'] ;

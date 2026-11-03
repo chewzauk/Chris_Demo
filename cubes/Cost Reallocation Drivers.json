@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"Cost Reallocation Drivers",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Measures - Cost Reallocation Drivers')"
+		}
+	],
+	"Views@Code.links":[]
+}

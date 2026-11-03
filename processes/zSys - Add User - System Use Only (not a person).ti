@@ -1,0 +1,9 @@
+#region Prolog
+
+
+# System Use Only (not a person) is a user like "Not Applicable", so for when you are using the }Clients dimension in a cube but also need to hold data that isn't for a single human.
+# Used by the Demand Calendar cube.
+
+AddClient ( 'System Use Only (not a person)');
+
+#endregion

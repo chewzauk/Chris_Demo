@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"System - Parameters - User",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Clients')"
+		},
+		{
+			"@id":"Dimensions('Parameters - User')"
+		},
+		{
+			"@id":"Dimensions('Measures - Parameters')"
+		}
+	],
+	"Rules@Code.link":"System - Parameters - User.rules",
+	"Views@Code.links":
+	[
+		"System - Parameters - User.views/Default.json"
+	]
+}

@@ -1,0 +1,142 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime =Now() ;
+nRecords = 0;
+sStatus = '';
+nError = 0;
+sProcess = GetProcessName;
+sErrorFile = GetProcessErrorFilename();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sParameters = 'pConfirm='|pConfirm|', pEmail='|pEmail;   
+#######################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+if (1=0); 
+    sDescription = 'The process is a default process to be used as the base for all other processes developed'; 
+    sDeveloper = 'Sempre: Shane James';    
+    sSource = 'Source'; 
+    sSourceType = 'Source Type'; 
+    sTarget = 'Target'; 
+    sTargetType = 'Target Type'; 
+
+RunProcess( 'System - Documentation - Populate Process Documentation',
+	'pConfirm', 'Y',
+	'pProcess', GetProcessName(),
+	'pDescription', sDescription,
+	'pDeveloper', sDeveloper,
+	'pSource', sSource,
+	'pSourceType', sSourceType,
+	'pTarget', sTarget,
+	'pTargetType', sTargetType );
+endif;
+
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+sDim1 = 'Employee';
+sDim2 = 'Version';
+sDim3 = 'Measures - Payroll';
+
+
+sCube = 'Payroll';
+sView = '}TI_Process'|NumberToString(ROUND(RAND() * 1000));
+sSub = '}TI_Process'|NumberToString(ROUND(RAND() * 1000)) ;
+nDims = 3;
+
+while (nDims>0); 
+    #### Create Subsets
+    If(SubsetExists(Expand('%sDim'|NumbertoString(nDims)|'%'), sSub) = 0);
+        SubsetCreate(Expand('%sDim'|NumbertoString(nDims)|'%'),sSub  );
+    Endif;
+    ### Delete existing elements
+    SubsetDeleteAllElements(Expand('%sDim'|NumbertoString(nDims)|'%'), sSub);
+    nDims=nDims-1;
+end;
+
+### Load data into new subset
+SubsetElementInsert(sDim1, sSub, pEmployeeCode, 1);
+SubsetElementInsert(sDim2, sSub, 'Live Plan', 1);
+SubsetElementInsert(sDim3, sSub, 'Headcount', 1);
+
+### Create View
+If(Viewexists(sCube, sView) = 0, ViewCreate(sCube, sView), 0);
+ViewSubsetAssign(sCube, sView, sDim1, sSub);
+ViewSubsetAssign(sCube, sView, sDim2, sSub);
+ViewSubsetAssign(sCube, sView, sDim3, sSub);
+
+### 1 to exclude consols, 0 to include consol
+ViewExtractSkipCalcsSet( sCube, sView, 1 );
+### 1 to skip zeros, 0 to include zeros
+ViewExtractSkipZeroesSet( sCube, sView, 1 );
+### 1 to exclude calcs, 0 to include calc values
+ViewExtractSkipRuleValuesSet( sCube, sView, 0 );
+
+DataSourceNameForServer = sCube;
+DataSourceType = 'View';
+DataSourceCubeView = sView;
+
+
+
+#endregion
+#region Data
+
+if (ATTRS('PeriodYear', PeriodYear, 'yyyymm') @< ATTRS('PeriodYear', pMoveDate, 'yyyymm')); 
+    ItemSkip; 
+endif;
+
+sAnnual = CellGetN( 'Payroll - Annual', ATTRS('Periodyear', PeriodYear, 'Year'), Version, Employee, Role, 'Salary' );
+
+CellPutN( sAnnual, 'Payroll - Annual', ATTRS('Periodyear', PeriodYear, 'Year'), Version, Employee, pNewRoleCode, 'Salary' );
+
+
+
+CellPutN( 0, 'Payroll', PeriodYear, Version, vLayer, Company, Employee, Role, vMeasure );
+
+if (pNewCompany @= ''); 
+    CellPutN( 1, 'Payroll', PeriodYear, Version, vLayer, Company, Employee, pNewRoleCode, vMeasure );
+    Else;
+    CellPutN( 1, 'Payroll', PeriodYear, Version, vLayer, pNewCompany, Employee, pNewRoleCode, vMeasure );
+endif;
+
+
+
+#endregion
+#region Epilog
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = Now();
+sMessage = '';
+
+RunProcess( 'System - Logging - Populate Process Info',
+	'pConfirm', 'Y',
+	'pProcess', sProcess,
+	'pRecordsProcessed', nRecords,
+	'pStartTime', sStartTime,
+	'pEndTime', sEndTime,
+	'pExecutedBy', sUser,
+	'pParametersUsed', sParameters,
+	'pExecutionStatus', sStatus,
+	'pUpdatedFrom', 'Process',
+	'pProcessMessage', sMessage,
+	'pServerLogFile', sErrorFile );
+
+####################################
+
+
+
+#endregion

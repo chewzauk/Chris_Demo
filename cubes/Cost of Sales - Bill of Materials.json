@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"Cost of Sales - Bill of Materials",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Material')"
+		},
+		{
+			"@id":"Dimensions('Measures - Bill of Materials')"
+		}
+	],
+	"Views@Code.links":[]
+}

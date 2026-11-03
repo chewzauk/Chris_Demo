@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Promo Instance",
+	"Hierarchies@Code.links":
+	[
+		"Promo Instance.hierarchies/Promo Instance.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Promo Instance')/Hierarchies('Promo Instance')"
+	}
+}

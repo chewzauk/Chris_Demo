@@ -1,0 +1,193 @@
+#region Prolog
+
+# For each date, populate the Demand Calendar with the date into the cell that represents the related Day of Week, Week, Month and Year. Store this in a specific (e.g. Total or a NA member) member for any business dimensions (though you could duplicate the results into all of those members if you wanted; this will be fastest when reporting).
+
+# BEWARE: this took 30 minutes to run and used up an extra 6Gb of RAM last time this was run, because is populating every combination of the business dimensions Product, Customer and Demand Task at every level, with the date.
+# Another potential solution is to only populate one hardcoded leaf cell per date - e.g. Prod01, Cust01 and Pct Discount, and use rules for all other cells to draw date from that one cell, and feed from that one source to Total Products, Total Customers, Total Demand Tasks.
+
+# ############################################
+
+sTargetCube = ' Demand Calendar';
+
+# All the output from this process is written to a single hardcoded "}Clients" member, either Admin or a client already specifically created for this Calendar feature. 
+sTargetClient = 'System Use Only (not a person)'; 
+
+# Date is a string measure.
+sTargetMeasure = 'Date';
+
+sTargetProduct = 'Total Products';
+sTargetCustomer = 'Total Customers';
+sTargetTask = 'Total Demand Tasks';
+
+sDateDim = 'Date';
+sDayOfWeekDim = 'Day of Week';
+sWeekDim = 'Week of Month';
+sMonthDim = 'Month of Year';
+sYearDim = 'Year';
+sDemandTaskDim = 'Demand Task';
+sCustomerDim = 'Customer';
+sProductDim = 'Product';
+sMeasuresDim = 'Measures - ' | sTargetCube;
+
+sDayOfWeekName = '';
+
+# ###########################################################################
+# Clear down any previous Date data.
+
+sZeroView = '}' | sTargetCube | GetProcessName();
+
+sZeroSubset = '}' | sMeasuresDim;
+SubsetCreate ( sMeasuresDim, sZeroSubset, 1);
+SubsetElementInsert( sMeasuresDim, sZeroSubset, sTargetMeasure, 1 );
+
+ViewCreate ( sTargetCube, sZeroView, 1);
+ViewSubsetAssign( sTargetCube, sZeroView, sMeasuresDim, sZeroSubset );
+
+ViewExtractSkipCalcsSet( sTargetCube, sZeroView, 1 );
+ViewExtractSkipZeroesSet( sTargetCube, sZeroView, 1 );
+ViewExtractSkipRuleValuesSet( sTargetCube, sZeroView, 1 );
+
+ViewZeroOut ( sTargetCube, sZeroView );
+
+# ###########################################################################
+
+iDateLoopCounter = 0;
+iDateLoopMax = dimsiz ( sDateDim );
+while ( iDateLoopCounter < iDateLoopMax );
+	iDateLoopCounter  = iDateLoopCounter  + 1;
+
+	sCurrentDate = dimnm ( sDateDim, iDateLoopCounter );
+
+    # Only derive dates for valid days, like leaf members. 
+    if ( dtype ( sDateDim, sCurrentDate ) @= 'N' );
+    if ( ATTRS ( sDateDim, sCurrentDate, 'Day Name' ) @<> '' );
+
+    # ----------------------------------------------------------------
+	# Derive Day of Week
+
+	iDayOfWeekNumber = numbr( numbertostringEx( DAYNO( sCurrentDate) + 21915, 'w', '', '' ));
+
+	if ( 	iDayOfWeekNumber = 7 );	sDayOfWeekName = 'Sun';
+	elseif ( 	iDayOfWeekNumber = 1 );	sDayOfWeekName = 'Mon';
+	elseif ( 	iDayOfWeekNumber = 2 );	sDayOfWeekName = 'Tue';
+	elseif ( 	iDayOfWeekNumber = 3 );	sDayOfWeekName = 'Wed';
+	elseif ( 	iDayOfWeekNumber = 4 );	sDayOfWeekName = 'Thu';
+	elseif ( 	iDayOfWeekNumber = 5 );	sDayOfWeekName = 'Fri';
+	elseif ( 	iDayOfWeekNumber = 6 );	sDayOfWeekName = 'Sat';
+	else;
+		LogOutput ('ERROR', 'Invalid iDayOfWeekNumber [' | numbertostring(iDayOfWeekNumber) | '] derived for date [' | sCurrentDate | ']');
+		ProcessQuit;
+	endif;
+
+	# ----------------------------------------------------------------
+
+	iWeekOfYearNumber = numbr( numbertostringEx( DAYNO( sCurrentDate ) + 21915, 'ww', '', '' ));
+
+    # Force any day in the first 3 days of the year to be in Week 1, not Week 53. ISO 8601:1988 calls for the first week of a year to only begin on a Thursday or later.
+	# Just for simplicity, feel free to remove this if desired.
+	if ( iDayOfWeekNumber <= 3 & iWeekOfYearNumber = 53 & SUBST ( sCurrentDate, 6, 2) @= '01' );
+		iWeekOfYearNumber = 1;
+	endif;
+
+	# ----------------------------------------------------------------
+	# Derive Week of Month number - 1 to 6
+
+	iDayOfMonth = stringtonumber (SUBST(sCurrentDate, 9, 2 ));
+	iDayOfWeekOf1stOfMonth = stringtonumber ( numbertostringEx( DAYNO( SUBST(sCurrentDate, 1, 8) | '01' ) + 21915, 'w', '', '' ));
+
+	iWeekOfMonth =  
+		if ( int( ( iDayOfMonth + iDayOfWeekOf1stOfMonth - 1) / 7 ) = ( iDayOfMonth + iDayOfWeekOf1stOfMonth - 1) / 7, 
+			( iDayOfMonth + iDayOfWeekOf1stOfMonth - 1) / 7, 
+			int ( ( iDayOfMonth + iDayOfWeekOf1stOfMonth - 1) / 7 ) + 1
+		);
+
+	sWeekOfMonth = 'Week ' | numbertostring(iWeekOfMonth);
+
+	if ( dtype ( sWeekDim, sWeekOfMonth ) @<> 'N' );
+		LogOutput ('ERROR', 'Invalid sWeekOfMonth [' | sWeekOfMonth | '] element derived for date [' | sCurrentDate | ']');
+		ProcessQuit;
+	endif;
+
+
+	# ----------------------------------------------------------------
+	# Derive Month - 1 to 12
+
+	iMonthOfYear = stringtonumber (SUBST(sCurrentDate, 6, 2 ));
+	sMonthOfYear = numbertostring(iMonthOfYear);
+
+	if ( dtype ( sMonthDim, sMonthOfYear ) @<> 'N' );
+		LogOutput ('ERROR', 'Invalid sMonthOfYear [' | sMonthOfYear | '] element derived for date [' | sCurrentDate | ']');
+		ProcessQuit;
+	endif;
+
+	# ----------------------------------------------------------------
+	# Derive Year - YYYY
+
+	sYear = SUBST(sCurrentDate, 1, 4 );
+
+	if ( dtype ( sYearDim, sYear ) @<> 'N' );
+		LogOutput ('ERROR', 'Invalid sYear [' | sYear | '] element derived for date [' | sCurrentDate | ']');
+		ProcessQuit;
+	endif;
+
+
+        if ( sYear @>= '2025');
+	# ----------------------------------------------------------------
+
+#	asciioutput('test.txt', sCurrentDate, 'Day of Week: ' |  sDayOfWeekName, 'Week of Year Number: ' | numbertostring( iWeekOfYearNumber), 'iDayOfMonth: ' | numbertostring(iDayOfMonth), 'iDayOfWeekOf1stOfMonth: ' | numbertostring(iDayOfWeekOf1stOfMonth), 'Week of Month: ' | sWeekOfMonth, 'Month: ' | sMonthOfYear, 'Year: ' | sYear   );
+
+#  2025-03-16. Need to write to all leaf elements within the business dimensions - Customer, Product and Demand Task. This will then trigger feeders from the Date measure to the other measures. If you just write to consolidated string cells then you can't feed from them as they're consolidated.
+        iDemandTaskLoopCounter = 0;
+        iDemandTaskLoopMax = dimsiz ( sDemandTaskDim );
+        while ( iDemandTaskLoopCounter < iDemandTaskLoopMax) ;
+            iDemandTaskLoopCounter = iDemandTaskLoopCounter + 1;
+
+            sCandidateDemandTask = dimnm(sDemandTaskDim, iDemandTaskLoopCounter);
+#            if ( dtype ( sDemandTaskDim, sCandidateDemandTask ) @= 'N' );
+                iCustomerLoopCounter = 0;
+                iCustomerLoopMax = dimsiz ( sCustomerDim );
+#                iCustomerLoopMax = 10;
+                while ( iCustomerLoopCounter < iCustomerLoopMax) ;
+                    iCustomerLoopCounter = iCustomerLoopCounter + 1;
+        
+                    sCandidateCustomer = dimnm(sCustomerDim, iCustomerLoopCounter);
+  #                  if ( dtype ( sCustomerDim, sCandidateCustomer ) @= 'N' );
+                        iProductLoopCounter = 0;
+                        iProductLoopMax = dimsiz ( sProductDim );
+#                        iProductLoopMax = 10;
+                        while ( iProductLoopCounter < iProductLoopMax) ;
+                            iProductLoopCounter = iProductLoopCounter + 1;
+                
+                            sCandidateProduct = dimnm(sProductDim, iProductLoopCounter);
+  #                          if ( dtype ( sProductDim, sCandidateProduct ) @= 'N' );
+                                sTargetTask = sCandidateDemandTask;
+                                sTargetCustomer = sCandidateCustomer;
+                                sTargetProduct = sCandidateProduct;
+#	asciioutput('test.txt', '1', sCurrentDate, numbertostring(iDemandTaskLoopCounter) | ' / ' | numbertostring(iDemandTaskLoopMax) | ' - ' | sCandidateDemandTask);
+#	asciioutput('test.txt', '2', numbertostring(iCustomerLoopCounter) | ' / ' | numbertostring(iCustomerLoopMax) | ' - ' | sCandidateCustomer);
+#	asciioutput('test.txt', '3', numbertostring(iProductLoopCounter) | ' / ' | numbertostring(iProductLoopMax) | ' - ' | sCandidateProduct);
+
+# ----------------------------------------------------------------
+# Since the target measure is a string type, Date, we can write to consolidated cells which we will do for business dimensions Product and Demand Task as the date for a given day does not vary by these members. One could also create a XX Not Applicable member in these dimensions if preferred.  
+	if ( CellIsUpdateable ( sTargetCube, sTargetClient, sDayOfWeekName, sWeekOfMonth, sMonthOfYear, sYear, sTargetProduct, sTargetCustomer, sTargetTask, sTargetMeasure ) = 0 );
+		LogOutput('ERROR', 'ERROR writing to ' | sTargetCube | ', ' | sTargetClient | ', ' | sDayOfWeekName | ', ' | sWeekOfMonth | ', ' | sMonthOfYear | ', ' | sTargetProduct | ', ' | sTargetCustomer | ', ' | sTargetTask | ', ' | sYear | ', ' | sTargetMeasure );
+	else;
+		CellPutS ( sCurrentDate, sTargetCube, sTargetClient, sDayOfWeekName, sWeekOfMonth, sMonthOfYear, sYear, sTargetProduct, sTargetCustomer, sTargetTask, sTargetMeasure );
+#	asciioutput('test.txt', sCurrentDate, sTargetCube, sTargetClient, sDayOfWeekName, sWeekOfMonth, sMonthOfYear, sYear, sTargetProduct, sTargetTask, sTargetMeasure);
+    endif;
+
+ #                           endif; 
+                        end;
+#                    endif;
+                end;
+#           	endif;
+        end;  
+        endif;
+    endif;
+    endif;
+end;
+
+
+# ###########################################################################
+
+#endregion

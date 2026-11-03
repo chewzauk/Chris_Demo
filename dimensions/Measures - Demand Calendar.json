@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Demand Calendar",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Demand Calendar.hierarchies/Measures - Demand Calendar.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Demand Calendar')/Hierarchies('Measures - Demand Calendar')"
+	}
+}

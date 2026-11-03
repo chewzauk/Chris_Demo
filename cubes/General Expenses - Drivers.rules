@@ -1,0 +1,12 @@
+SKIPCHECK;
+
+['Sales Revenue'] = N: DB('Revenue - Volume', !PeriodYear, !Version, 'Scenario Layer':'TOTAL LAYERS', 'Customer':'TOTAL CUSTOMERS', 'Product':'TOTAL PRODUCTS', 'Revenue' );
+
+['Sales Volume'] = N: DB('Revenue - Volume', !PeriodYear, !Version, 'Scenario Layer':'TOTAL LAYERS', 'Customer':'TOTAL CUSTOMERS', 'Product':'TOTAL PRODUCTS', 'Quantity' );
+
+['HeadCount'] = N: DB('Payroll', !PeriodYear, !Version, 'Scenario Layer':'TOTAL LAYERS', !Company, 'Employee':'TOTAL EMPLOYEES', 'Role':'TOTAL ROLES', 'Headcount' );
+
+['Salary'] = N: DB('Payroll', !PeriodYear, !Version, 'Scenario Layer':'TOTAL LAYERS', !Company, 'Employee':'TOTAL EMPLOYEES', 'Role':'TOTAL ROLES', 'Salary' );
+
+
+FEEDERS;

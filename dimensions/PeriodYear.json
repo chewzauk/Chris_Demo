@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"PeriodYear",
+	"Hierarchies@Code.links":
+	[
+		"PeriodYear.hierarchies/PeriodYear.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')"
+	}
+}

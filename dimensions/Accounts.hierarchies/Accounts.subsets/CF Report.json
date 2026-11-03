@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"CF Report",
+	"ExpandAbove":true,
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {DRILLDOWNMEMBER({[Accounts].[Accounts].[Closing Cash Balance]} , {[Accounts].[Accounts].[Closing Cash Balance],[Accounts].[Accounts].[Change in Cash],[Accounts].[Accounts].[Adjusted Free Cash Flow]} , RECURSIVE)}"
+}

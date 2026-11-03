@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Time Processes",
+	"Hierarchies@Code.links":
+	[
+		"Time Processes.hierarchies/Time Processes.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Time Processes')/Hierarchies('Time Processes')"
+	}
+}

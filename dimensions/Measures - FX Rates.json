@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - FX Rates",
+	"Hierarchies@Code.links":
+	[
+		"Measures - FX Rates.hierarchies/Measures - FX Rates.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - FX Rates')/Hierarchies('Measures - FX Rates')"
+	}
+}

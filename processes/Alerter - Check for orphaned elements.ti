@@ -1,0 +1,194 @@
+#region Prolog
+# ##############################################
+# The purpose of this TI is alert us to any orphan elements that exist in any dimension. 
+# At VCCP, just find memebers with no parents in dimensions that have not been excluded from the check.
+#### It works out what the zOrphan element name is for a given dimension and then checks if there are any children or not.
+#### zOrphan consolidated elements are a standard element in all business (not system) dimensions which are 
+#### used to as a temporary bucket by a metadata update process, and/or a daily cleanup process, to hold any leaf elements that have no parents.
+# ##############################################
+
+sSourceDim = '}Dimensions';
+
+sExceptionsDim = 'System - Dimensions Allowed To Have Orphans';
+sOrphanMessage = '';
+iNumDimensionsWithOrphans = 0;
+iOrphanCountOverall = 0;
+iNumDimensionsChecked = 0;
+
+sProcessKey = GetProcessName;
+
+# ##############################################
+
+iMaxLoop = dimsiz(sSourceDim);
+iLoopCounter = 0;
+while (iLoopCounter < iMaxLoop);
+	iLoopCounter = iLoopCounter + 1;
+
+	sCandidateDim = dimnm(sSourceDim, iLoopCounter);
+
+	# Skip all "Measures - " dimensions, control dimensions, hierarchies and any exceptions added to "System - Allowed To Have Orphans" dimension. 
+	# This exception section should be exactly duplicated in 'System - Maintenance - Update System- Cubes by Dimensions'.
+    if ( 
+        SUBST ( sCandidateDim, 1, 11) @<> 'Measures - ' &
+        SUBST ( sCandidateDim, 1, 16) @<> 'Documentation - ' &
+        SUBST ( sCandidateDim, 1, 13) @<> 'Parameters - ' &
+		sCandidateDim @<> sExceptionsDim & 
+        SUBST ( sCandidateDim, 1, 1 ) @<> '}' &
+        SCAN ( ':', sCandidateDim ) = 0 &
+        DIMIX ( sExceptionsDim, sCandidateDim ) = 0  
+		);
+
+			iNumDimensionsChecked = iNumDimensionsChecked + 1;
+
+			# Run an MDX query that will return leaf elements with no parents.
+			sMDX = '{Filter ( TM1FilterByLevel( TM1SUBSETALL ( [' | sCandidateDim | '] ), 0), [ ' | sCandidateDim | '].CurrentMember.Parent.Name = "" )} ';
+
+			sSourceSubset = '}' | sProcessKey | '_' | sCandidateDim | '_Source';
+			if ( SubsetExists ( sCandidateDim, sSourceSubset ) = 1 ); 	SubsetDestroy ( sCandidateDim, sSourceSubset );  endif;
+
+			SubsetCreateByMDX ( sSourceSubset, sMDX, sCandidateDim, 1);
+
+			# Convert to static for speed while looping
+			iNumElements = SubsetGetSize ( sCandidateDim, sSourceSubset );
+			if ( iNumElements > 0 );
+				SubsetElementInsert ( sCandidateDim, sSourceSubset, dimnm ( sCandidateDim, 1), 1 );
+				SubsetElementDelete ( sCandidateDim, sSourceSubset, 1 );
+			endif;
+
+			iOrphanLoopCounter = 0;
+			iOrphanLoopMax = SubsetGetSize ( sCandidateDim, sSourceSubset );
+			while ( iOrphanLoopCounter < iOrphanLoopMax );
+				iOrphanLoopCounter = iOrphanLoopCounter + 1;
+
+				sCurrentOrphan = SubsetGetElementName ( sCandidateDim, sSourceSubset, iOrphanLoopCounter );
+
+				if ( iOrphanLoopCounter = 1 );
+					iNumDimensionsWithOrphans = iNumDimensionsWithOrphans + 1;
+					sOrphanMessage = sOrphanMessage | '<br><b>' | sCandidateDim | ' (' | numbertostringEx(iNumElements, '#,##0','.',',') | ')</b><br>';
+				endif; 
+
+				if ( LONG ( sOrphanMessage ) < 32000 );   sOrphanMessage = sOrphanMessage | '<font size=1>' | sCurrentOrphan | '</font><br>';  endif;
+
+				iOrphanCountOverall = iOrphanCountOverall + 1;
+			end;
+	endif;
+end;
+
+# ##############################################
+
+
+# ##########################################################################
+#endregion
+#region Epilog
+
+
+# Send email alert at all times if run by hand. When a chore runs it, only email if there's a problem.
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+
+iSendEmail = 0;
+if (iCalledByChore = 0);
+	iSendEmail = 1;
+elseif ( iOrphanCountOverall > 0);
+	iSendEmail = 1;
+endif;
+
+if (iSendEmail = 1);
+	# if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+	if (DimensionExists('}ElementAttributes_}Clients') = 1);
+		if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+			sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+			if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+		endif;
+	endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+                ASCIIOutput( 'test.txt', CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') );
+
+            IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+                ASCIIOutput( 'test.txt', 'here', sRecipient);
+            else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+ASCIIOutput( 'test.txt', sAdmin1Email, sAdmin2Email, sAdmin3Email );
+
+    
+	sCC = 'X';
+	sBCC = 'X';
+
+	if ( iOrphanCountOverall = 0);
+		sSubject = 'TM1 Report: There are no dimensions with orphaned elements';
+	else;
+		sSubject = 'TM1 Alert: Orphaned elements detected!';
+	endif;
+
+
+	if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+	elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+	else; 				sUsernameToDisplay = sTM1User | ' (' | CellGetS('System - Parameters - User', sTM1User, 'Full Name', 'String' ) | ')';
+	endif;
+
+	sEmailMessage = '';
+	sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+	sEmailMessage = sEmailMessage | 'It checks every dimension for orphaned elements, meaning leaf elements with no parents, and it excludes measures dimensions and a few other special exceptions. <br>';
+	sEmailMessage = sEmailMessage | 'Number of dimensions checked: ' | numbertostringEx(iNumDimensionsChecked, '#,##0','.',',') | '<br><br>';
+
+	if ( iNumDimensionsWithOrphans = 0 );
+		sEmailMessage = sEmailMessage | '<font color="green">No dimensions have any orphaned elements.</font><br><br>';
+	elseif ( iNumDimensionsWithOrphans = 1 );
+		sEmailMessage = sEmailMessage | '<font color="red">There is 1 dimension which has orphaned elements.</font><br>';
+	else;
+		sEmailMessage = sEmailMessage | '<font color="red">There are ' | numbertostring( iNumDimensionsWithOrphans) | ' dimensions which have orphaned elements.</font><br>';
+	endif;
+
+	if ( iOrphanCountOverall > 0);
+		sEmailMessage = sEmailMessage | 'Please check if these elements contain any useful data and decide whether to delete them, or else position them in the appropriate hierarchy.<br> ';
+		sEmailMessage = sEmailMessage | sOrphanMessage | '<br><br>';
+		sEmailMessage = sEmailMessage | '<font size=1>Tip: you can check which cubes use the dimension(s) mentioned above by looking in the <b>zCubes by Dimension</b> cube.</font><br>';
+	endif;
+
+
+	sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+	sAttachment = 'X';
+
+        # Now call the process that sends the email.
+        if (iCalledByChore = 1);
+            if (sAdmin1Email @<> ''); 
+                ASCIIOutput( 'test.txt', sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment );
+                
+
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+            endif;
+            if (sAdmin2Email @<> ''); 
+                ASCIIOutput( 'test.txt', sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment );
+
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+#            if (sAdmin3Email @<> ''); 
+ #               vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+  #                                       'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+   #         endif;
+        Else;
+                ASCIIOutput( 'test.txt', sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment );
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+endif; 
+#endregion

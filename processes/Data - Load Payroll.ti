@@ -1,0 +1,255 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime =Now() ;
+nRecords = 0;
+nMessageCount = 0;
+sStatus = '';
+nError = 0;
+sProcess = GetProcessName;
+sErrorFile = GetProcessErrorFilename();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sParameters = 'pConfirm='|pConfirm|', pEmail='|pEmail;   
+#######################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+if (1=0); 
+    sDescription = 'The process is a default process to be used as the base for all other processes developed'; 
+    sDeveloper = 'Sempre: Shane James';    
+    sSource = 'Source'; 
+    sSourceType = 'Source Type'; 
+    sTarget = 'Target'; 
+    sTargetType = 'Target Type'; 
+
+    RunProcess( 'System - Documentation - Populate Process Documentation',
+               'pConfirm', 'Y',
+               'pProcess', GetProcessName(),
+               'pDescription', sDescription,
+               'pDeveloper', sDeveloper,
+               'pSource', sSource,
+               'pSourceType', sSourceType,
+               'pTarget', sTarget,
+               'pTargetType', sTargetType );
+endif;
+
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sMessage = 'Data load has started';
+
+RunProcess( 'System - Logging - Populate Process Info',
+           'pConfirm', 'Y',
+           'pProcess', sProcess,
+           'pRecordsProcessed', nRecords,
+           'pStartTime', sStartTime,
+           'pEndTime', 0,
+           'pExecutedBy', sUser,
+           'pParametersUsed', sParameters,
+           'pExecutionStatus', sStatus,
+           'pUpdatedFrom', 'Process',
+           'pProcessMessage', sMessage,
+           'pServerLogFile', sErrorFile, 
+           'pProcessStage', 'Prolog' );
+####################################
+
+sCube = 'Payroll';
+sVZOView = 'VZOLivePlan';
+
+If(Viewexists(sCube, sVZOView) = 0, ViewCreate(sCube, sVZOView), 0);
+ViewSubsetAssign(sCube, sVZOView, 'Version', 'VZOLivePlan');
+ViewZeroOut(sCube, sVZOView);
+
+sCube = 'Payroll - Annual';
+sVZOView = 'VZOLivePlan';
+
+If(Viewexists(sCube, sVZOView) = 0, ViewCreate(sCube, sVZOView), 0);
+ViewSubsetAssign(sCube, sVZOView, 'Version', 'VZOLivePlan');
+ViewZeroOut(sCube, sVZOView);
+
+
+
+
+#endregion
+#region Data
+
+if (nMessageCount = 100000); 
+    sMessage = 'Data load is running. '|NumberToString(nRecords)|' records currently loaded';
+    RunProcess( 'System - Logging - Populate Process Info',
+               'pConfirm', 'Y',
+               'pProcess', sProcess,
+               'pRecordsProcessed', nRecords,
+               'pStartTime', sStartTime,
+               'pEndTime', 0,
+               'pExecutedBy', sUser,
+               'pParametersUsed', sParameters,
+               'pExecutionStatus', '',
+               'pUpdatedFrom', 'Process',
+               'pProcessMessage', sMessage,
+               'pServerLogFile', '', 
+               'pProcessStage', 'Data' ); 
+    nMessageCount = 0;
+endif;
+
+
+AttrPutS( First_Name, 'Employee', EmplCode, 'First Name' );
+AttrPutS( Last_Name, 'Employee', EmplCode, 'Surname' );
+AttrPutS( First_Name|' '|Last_Name, 'Employee', EmplCode, 'Full Name' );
+AttrPutS( EmplCode|' - '|First_Name|' '|Last_Name, 'Employee', EmplCode, 'Description' );
+AttrPutS( '20200101', 'Employee', EmplCode, 'Start Date' );
+
+CellPutN( Salary, 'Payroll - Annual', '2025', 'Live Plan', EmplCode, Role_Code, 'Salary' );
+CellPutN( Salary, 'Payroll - Annual', '2026', 'Live Plan', EmplCode, Role_Code, 'Salary' );
+
+n=12;
+sDate = '202500';
+While(n>0);
+    nDate = StringToNumber( sDate) + 1;
+    sDate = NumberToString( nDate );
+
+    CellPutN( 1, 'Payroll', sDate, 'Live Plan', 'Base', Company, EmplCode, Role_Code, 'Headcount' );
+    n=n-1;
+end;
+
+n=12;
+sDate = '202600';
+While(n>0);
+    nDate = StringToNumber( sDate) + 1;
+    sDate = NumberToString( nDate );
+
+    CellPutN( 1, 'Payroll', sDate, 'Live Plan', 'Base', Company, EmplCode, Role_Code, 'Headcount' );
+    n=n-1;
+end;
+
+
+
+
+
+
+
+
+#endregion
+#region Epilog
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = Now();
+sMessage = 'Completed';
+RunProcess( 'System - Logging - Populate Process Info',
+           'pConfirm', 'Y',
+           'pProcess', sProcess,
+           'pRecordsProcessed', nRecords,
+           'pStartTime', sStartTime,
+           'pEndTime', sEndTime,
+           'pExecutedBy', sUser,
+           'pParametersUsed', sParameters,
+           'pExecutionStatus', sStatus,
+           'pUpdatedFrom', 'Process',
+           'pProcessMessage', sMessage,
+           'pServerLogFile', sErrorFile, 
+           'pProcessStage', 'Epilog' );
+####################################
+
+
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    iSendEmail = 0;
+
+    if (iCalledByChore = 0);
+        iSendEmail = 1;
+    elseif (nError > 0);
+        iSendEmail = 1;
+    endif;
+
+    if (iSendEmail = 1);
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        if (DimensionExists('}ElementAttributes_}Clients') = 1);
+            if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+                sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+                if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+            endif;
+        endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+            IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+            else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+        sCC = 'X';
+        sBCC = 'X';
+
+        if (nError = 0); 
+            sSubject = 'Process Success - '|sProcess; 
+            sMessageStatus = '<font color="green">successfully</font>';
+        Else;
+            sSubject = 'Process Error - '|sProcess;
+            sMessageStatus = '<font color="red">with errors</font> ';
+        Endif; 
+
+        if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+        elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+        else;
+            sUsernameToDisplay = trim(CellGetS('System - Parameters - User', Tm1User(), 'Full Name', 'String' ));
+            if ( sUsernameToDisplay @= '' ); sUsernameToDisplay = sTM1User;  endif;
+        endif;
+
+        sEmailMessage = '<p>Dear '|sUsernameToDisplay|'</p><p>PROCESS: '|sProcess|' has completed '|sMessageStatus|'</p><p>The following parameters were used - '|sParameters|'</p>';
+        sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+        sEmailMessage = sEmailMessage | '<p>   </p>';
+
+        sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+        sAttachment = 'X';
+
+        # Now call the process that sends the email.
+        if (iCalledByChore = 1);
+            if (sAdmin1Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+            endif;
+            if (sAdmin2Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+            if (sAdmin3Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+        Else;
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+    endif;
+endif;
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

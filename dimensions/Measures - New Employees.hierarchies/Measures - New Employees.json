@@ -1,0 +1,49 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - New Employees",
+	"Elements":
+	[
+		{
+			"Name":"New Role",
+			"Type":"String"
+		},
+		{
+			"Name":"Role",
+			"Type":"String"
+		},
+		{
+			"Name":"Cost Centre",
+			"Type":"String"
+		},
+		{
+			"Name":"Start Date",
+			"Type":"String"
+		},
+		{
+			"Name":"Salary",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Scenario",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - New Employees.subsets/LEAF.json",
+		"Measures - New Employees.subsets/}TI_Process123.json",
+		"Measures - New Employees.subsets/}TI_Process185.json",
+		"Measures - New Employees.subsets/}TI_Process214.json",
+		"Measures - New Employees.subsets/}TI_Process265.json",
+		"Measures - New Employees.subsets/}TI_Process278.json",
+		"Measures - New Employees.subsets/}TI_Process371.json",
+		"Measures - New Employees.subsets/}TI_Process446.json",
+		"Measures - New Employees.subsets/}TI_Process466.json",
+		"Measures - New Employees.subsets/}TI_Process544.json",
+		"Measures - New Employees.subsets/}TI_Process690.json",
+		"Measures - New Employees.subsets/}TI_Process929.json",
+		"Measures - New Employees.subsets/}TI_Process936.json",
+		"Measures - New Employees.subsets/}TI_Process952.json",
+		"Measures - New Employees.subsets/}TI_Process987.json"
+	]
+}

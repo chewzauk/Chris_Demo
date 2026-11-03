@@ -1,0 +1,159 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+sDescription = 'The process is a default process to be used as the base for all other processes developed'; 
+sDeveloper = 'Sempre: Shane James';    
+sSource = 'Source'; 
+sSourceType = 'Source Type'; 
+sTarget = 'Target'; 
+sTargetType = 'Target Type'; 
+
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+
+
+sDim1 = 'Date';
+sToday = TIMST( Now() , '\Y-\m-\d');
+#ItemReject( sToday );
+
+sCube = 'FX Rates - Daily';
+sSub = '}TI_Process'|NumberToString(ROUND(RAND() * 1000)) ;
+sView = '}TI_Process'|NumberToString(ROUND(RAND() * 1000)) ;
+
+If(SubsetExists(sDim1, sSub) = 0);
+    SubsetCreate(sDim1,sSub,0  );
+Endif;
+SubsetDeleteAllElements(sDim1, sSub);
+
+
+### Load data into new subset
+if(pDate @= '');
+    sSub = 'Sys Leaf';
+elseif(pDate @= 'Today');
+
+    SubsetElementInsert(sDim1, sSub, sToday, 1);
+else;
+    SubsetElementInsert(sDim1, sSub, pDate, 1);
+endif;
+
+
+### Create View
+If(Viewexists(sCube, sView) = 0, ViewCreate(sCube, sView), 0);
+ViewSubsetAssign(sCube, sView, sDim1, sSub);
+ViewZeroOut( sCube, sView );
+
+DataSourceNameForServer = sDim1;
+DataSourceType = 'Subset';
+DatasourceDimensionSubset = sSub;
+
+
+#endregion
+#region Data
+
+If(StringToNumber(ATTRS('Date', sToday, 'yyyymmdd')) < StringToNumber(ATTRS('Date', vPeriod, 'yyyymmdd') ));
+    Itemskip;
+endif;
+
+sDay = NumberToString(StringToNumber(SUBST(ATTRS('Date', vPeriod, 'ddmmyyyy'),1,2)));
+sMonth = NumberToString(StringToNumber(SUBST(ATTRS('Date', vPeriod, 'ddmmyyyy'),3,2)));
+sYear = SUBST(ATTRS('Date', vPeriod, 'ddmmyyyy'),5,4);
+
+sCurrency = 'GBP';
+sURL = 'https://v6.exchangerate-api.com/v6/dad6ab0e617ddd3bff417a1c/history/'|sCurrency|'/'|sYear|'/'|sMonth|'/'|sDay;
+
+ExecuteHttpRequest( 'GET', sURL, '-k' );
+
+sJsonResponse = HttpResponseGetBody();
+sStatus = NumberToString( HttpResponseGetStatusCode() );
+
+
+### Parse the JSON response
+sRates = JsonGet( sJsonResponse, 'conversion_rates', 1, '' );
+
+#ItemReject( srates );
+
+nCurrencySize = SubsetGetSize( 'Currency', 'LEAF' );
+
+While(nCurrencySize > 0);
+    sToCurrency = SubsetGetElementName( 'Currency', 'LEAF', nCurrencySize );
+    nRates = JsonGet(sRates, sToCurrency );
+    CellPutN(StringToNumber(  nRates), 'FX Rates - Daily', vPeriod, 'Actual', sToCurrency, 'GBP', 'Closing Rate' );
+    nCurrencySize = nCurrencySize -1;
+end;
+
+
+
+#endregion
+#region Epilog
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+#### Edit This
+sParameters = 'pConfirm='|pConfirm;   
+
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

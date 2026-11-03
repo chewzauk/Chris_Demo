@@ -1,0 +1,854 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+sDescription = 'The process is a default process to be used as the base for all other processes developed'; 
+sDeveloper = 'Sempre: Shane James';    
+sSource = 'Source'; 
+sSourceType = 'Source Type'; 
+sTarget = 'Accounts'; 
+sTargetType = 'Target Type'; 
+
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+sDim = 'Accounts';
+sDim1 = 'Accounts - Profit and Loss';
+sDim2 = 'Accounts - Balance Sheet';
+
+if (1=0); 
+
+    ExecuteProcess( '}bedrock.hier.unwind', 'pLogOutput', 1,
+                   'pDim', sDim , 'pHier', sDim, 'pConsol', '*',
+                   'pRecursive', 1, 'pDelim', '&'
+                  );
+
+    ExecuteProcess( '}bedrock.hier.unwind', 'pLogOutput', 1,
+                   'pDim', sDim1 , 'pHier', sDim1, 'pConsol', '*',
+                   'pRecursive', 1, 'pDelim', '&'
+                  );
+
+    ExecuteProcess( '}bedrock.hier.unwind', 'pLogOutput', 1,
+                   'pDim', sDim2 , 'pHier', sDim2, 'pConsol', '*',
+                   'pRecursive', 1, 'pDelim', '&'
+                  );
+else; 
+    sDim = 'Accounts';
+    DimensionDeleteAllElements(sDim);
+    DimensionDeleteAllElements(sDim1);
+    DimensionDeleteAllElements(sDim2);
+endif;
+
+sOtherHierarchiesGrandTotal = 'Other Hierarchies';
+sMTCFGrandparent = 'MTCF Mappings';
+sFXOtherEquity = 'Other Equity for FX Calc';
+sAssetsLessCash = 'Net Assets/Liabilities less Cash';
+
+
+DimensionElementInsert( sDim, '', 'TB Check', 'C' );
+DimensionElementInsert( sDim, '', 'EBITDA %', 'N' );
+DimensionElementInsert( sDim, '', 'Personnel % OI', 'N' );
+DimensionElementInsert( sDim, '', 'Net Working Capital', 'C' );
+DimensionElementInsert( sDim, '', 'Net Working Capital (excl Intercompany)', 'C' );
+DimensionElementInsert( sDim, '', sOtherHierarchiesGrandTotal, 'C' );
+DimensionElementInsert( sDim, '', sFXOtherEquity, 'C' );
+DimensionElementInsert( sDim, '', sAssetsLessCash, 'C' );
+DimensionElementComponentAdd( sDim, sOtherHierarchiesGrandTotal, sFXOtherEquity, 0 );
+DimensionElementComponentAdd( sDim, sOtherHierarchiesGrandTotal, 'Net Working Capital', 0 );
+DimensionElementComponentAdd( sDim, sOtherHierarchiesGrandTotal, 'Net Working Capital (excl Intercompany)', 0 );
+DimensionElementComponentAdd( sDim, sOtherHierarchiesGrandTotal, sAssetsLessCash, 0 );
+
+DimensionElementInsert( sDim2, '', 'TB Check', 'C' );
+DimensionElementInsert( sDim2, '', 'Net Working Capital', 'C' );
+DimensionElementInsert( sDim2, '', 'Net Working Capital (excl Intercompany)', 'C' );
+DimensionElementInsert( sDim2, '', sOtherHierarchiesGrandTotal, 'C' );
+DimensionElementInsert( sDim2, '', sFXOtherEquity, 'C' );
+DimensionElementInsert( sDim2, '', sAssetsLessCash, 'C' );
+DimensionElementComponentAdd( sDim2, sOtherHierarchiesGrandTotal, sFXOtherEquity, 0 );
+DimensionElementComponentAdd( sDim2, sOtherHierarchiesGrandTotal, 'Net Working Capital', 0 );
+DimensionElementComponentAdd( sDim2, sOtherHierarchiesGrandTotal, 'Net Working Capital (excl Intercompany)', 0 );
+DimensionElementComponentAdd( sDim2, sOtherHierarchiesGrandTotal, sAssetsLessCash, 0 );
+
+AttrInsert( sDim, '', 'AccountType', 'S' );
+AttrInsert( sDim, '', 'Name', 'S' );
+AttrInsert( sDim, '', 'CodeDescription', 'A' );
+AttrInsert( sDim, '', 'Description', 'A' );
+
+AttrInsert( sDim1, '', 'AccountType', 'S' );
+AttrInsert( sDim1, '', 'Name', 'S' );
+AttrInsert( sDim1, '', 'CodeDescription', 'A' );
+AttrInsert( sDim1, '', 'Description', 'A' );
+
+AttrInsert( sDim2, '', 'AccountType', 'S' );
+AttrInsert( sDim2, '', 'Name', 'S' );
+AttrInsert( sDim2, '', 'CodeDescription', 'A' );
+AttrInsert( sDim2, '', 'Description', 'A' );
+
+#endregion
+#region Metadata
+
+### Standard Accounts dimension
+DimensionElementInsert( sDim, '', Maconomy_Global_COA_code_Number, 'N' );
+DimensionElementInsert( sDim, '', TM1_Rollup_1, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_2, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_3, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_4, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_5, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_6, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_7, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_8, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_9, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_10, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_11, 'C' );
+DimensionElementInsert( sDim, '', TM1_Rollup_12, 'C' );
+
+if (TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_1, Maconomy_Global_COA_code_Number, 1 );
+elseif(TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_2, Maconomy_Global_COA_code_Number, 1 );
+elseif(TM1_Rollup_3 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_3, Maconomy_Global_COA_code_Number, 1 );
+elseif(TM1_Rollup_4 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_4, Maconomy_Global_COA_code_Number, 1 );
+elseif(TM1_Rollup_5 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_5, Maconomy_Global_COA_code_Number, 1 );
+elseif(TM1_Rollup_6 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_6, Maconomy_Global_COA_code_Number, 1 );
+elseif(TM1_Rollup_7 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_7, Maconomy_Global_COA_code_Number, 1 );
+elseif(TM1_Rollup_8 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_8, Maconomy_Global_COA_code_Number, 1 );
+elseif(TM1_Rollup_9 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_9, Maconomy_Global_COA_code_Number, 1 );
+elseif(TM1_Rollup_10 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_10, Maconomy_Global_COA_code_Number, 1 );
+elseif(TM1_Rollup_11 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, Maconomy_Global_COA_code_Number, 1 ); 
+elseif(TM1_Rollup_12 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, Maconomy_Global_COA_code_Number, 1 ); 
+endif;
+
+if (TM1_Rollup_2 @<> '' & TM1_Rollup_1 @<> TM1_Rollup_2 & TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_2, TM1_Rollup_1, 1 );
+elseif(TM1_Rollup_3 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_3& TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_3, TM1_Rollup_1, 1 );
+elseif(TM1_Rollup_4 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_4& TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_4, TM1_Rollup_1, 1 );
+elseif(TM1_Rollup_5 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_5& TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_5, TM1_Rollup_1, 1 );
+elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_6& TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_6, TM1_Rollup_1, 1 );
+elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_7& TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_7, TM1_Rollup_1, 1 );
+elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_8& TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_8, TM1_Rollup_1, 1 );
+elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_9& TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_9, TM1_Rollup_1, 1 );
+elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_10& TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_10, TM1_Rollup_1, 1 );
+elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_11& TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, TM1_Rollup_1, 1 ); 
+elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_12 & TM1_Rollup_1 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_1, 1 ); 
+endif;
+
+
+if (TM1_Rollup_3 @<> '' & TM1_Rollup_2 @<> TM1_Rollup_3 & TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_3, TM1_Rollup_2, 1 );
+elseif(TM1_Rollup_4 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_4& TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_4, TM1_Rollup_2, 1 );
+elseif(TM1_Rollup_5 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_5& TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_5, TM1_Rollup_2, 1 );
+elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_6& TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_6, TM1_Rollup_2, 1 );
+elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_7& TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_7, TM1_Rollup_2, 1 );
+elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_8& TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_8, TM1_Rollup_2, 1 );
+elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_9& TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_9, TM1_Rollup_2, 1 );
+elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_10& TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_10, TM1_Rollup_2, 1 );
+elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_11& TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, TM1_Rollup_2, 1 ); 
+elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_12 & TM1_Rollup_2 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_2, 1 ); 
+endif;
+
+if (TM1_Rollup_4 @<> '' & TM1_Rollup_3 @<> TM1_Rollup_4 & TM1_Rollup_3 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_4, TM1_Rollup_3, 1 );
+elseif(TM1_Rollup_5 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_5& TM1_Rollup_3 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_5, TM1_Rollup_3, 1 );
+elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_6& TM1_Rollup_3 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_6, TM1_Rollup_3, 1 );
+elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_7& TM1_Rollup_3 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_7, TM1_Rollup_3, 1 );
+elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_8& TM1_Rollup_3 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_8, TM1_Rollup_3, 1 );
+elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_9& TM1_Rollup_3 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_9, TM1_Rollup_3, 1 );
+elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_10& TM1_Rollup_3 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_10, TM1_Rollup_3, 1 );
+elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_11& TM1_Rollup_3 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, TM1_Rollup_3, 1 ); 
+elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_12 & TM1_Rollup_3 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_3, 1 ); 
+endif;
+
+if (TM1_Rollup_5 @<> '' & TM1_Rollup_4 @<> TM1_Rollup_5 & TM1_Rollup_4 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_5, TM1_Rollup_4, 1 );
+elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_6& TM1_Rollup_4 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_6, TM1_Rollup_4, 1 );
+elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_7& TM1_Rollup_4 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_7, TM1_Rollup_4, 1 );
+elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_8& TM1_Rollup_4 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_8, TM1_Rollup_4, 1 );
+elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_9& TM1_Rollup_4 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_9, TM1_Rollup_4, 1 );
+elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_10& TM1_Rollup_4 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_10, TM1_Rollup_4, 1 );
+elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_11& TM1_Rollup_4 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, TM1_Rollup_4, 1 );
+elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_12 & TM1_Rollup_4 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_4, 1 ); 
+endif;
+
+if (TM1_Rollup_6 @<> '' & TM1_Rollup_5 @<> TM1_Rollup_6 & TM1_Rollup_5 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_6, TM1_Rollup_5, 1 );
+elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_7& TM1_Rollup_5 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_7, TM1_Rollup_5, 1 );
+elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_8& TM1_Rollup_5 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_8, TM1_Rollup_5, 1 );
+elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_9& TM1_Rollup_5 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_9, TM1_Rollup_5, 1 );
+elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_10& TM1_Rollup_5 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_10, TM1_Rollup_5, 1 );
+elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_11& TM1_Rollup_5 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, TM1_Rollup_5, 1 );
+elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_12 & TM1_Rollup_5 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_5, 1 ); 
+endif;
+
+if (TM1_Rollup_7 @<> '' & TM1_Rollup_6 @<> TM1_Rollup_7 & TM1_Rollup_6 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_7, TM1_Rollup_6, 1 );
+elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_8& TM1_Rollup_6 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_8, TM1_Rollup_6, 1 );
+elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_9& TM1_Rollup_6 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_9, TM1_Rollup_6, 1 );
+elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_10& TM1_Rollup_6 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_10, TM1_Rollup_6, 1 );
+elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_11& TM1_Rollup_6 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, TM1_Rollup_6, 1 ); 
+elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_12 & TM1_Rollup_6 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_6, 1 ); 
+endif;
+
+if (TM1_Rollup_8 @<> '' & TM1_Rollup_7 @<> TM1_Rollup_8 & TM1_Rollup_7 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_8, TM1_Rollup_7, 1 );
+elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_9& TM1_Rollup_7 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_9, TM1_Rollup_7, 1 );
+elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_10& TM1_Rollup_7 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_10, TM1_Rollup_7, 1 );
+elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_11& TM1_Rollup_7 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, TM1_Rollup_7, 1 ); 
+elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_12 & TM1_Rollup_7 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_7, 1 ); 
+endif;
+
+if (TM1_Rollup_9 @<> '' & TM1_Rollup_8 @<> TM1_Rollup_9 & TM1_Rollup_8 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_9, TM1_Rollup_8, 1 );
+elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_8 @<> TM1_Rollup_10& TM1_Rollup_8 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_10, TM1_Rollup_8, 1 );
+elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_8 @<> TM1_Rollup_11& TM1_Rollup_8 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, TM1_Rollup_8, 1 ); 
+elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_8 @<> TM1_Rollup_12 & TM1_Rollup_8 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_8, 1 ); 
+endif;
+
+if (TM1_Rollup_10 @<> '' & TM1_Rollup_9 @<> TM1_Rollup_10 & TM1_Rollup_9 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_10, TM1_Rollup_9, 1 );
+elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_9 @<> TM1_Rollup_11& TM1_Rollup_9 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, TM1_Rollup_9, 1 ); 
+elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_9 @<> TM1_Rollup_12 & TM1_Rollup_9 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_9, 1 ); 
+endif;
+
+if (TM1_Rollup_11 @<> '' & TM1_Rollup_10 @<> TM1_Rollup_11 & TM1_Rollup_10 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_11, TM1_Rollup_10, 1 );
+elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_10 @<> TM1_Rollup_12 & TM1_Rollup_10 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_10, 1 ); 
+endif;
+
+if (TM1_Rollup_12 @<> '' & TM1_Rollup_11 @<> TM1_Rollup_12 & TM1_Rollup_11 @<> ''); 
+    DimensionElementComponentAdd( sDim, TM1_Rollup_12, TM1_Rollup_11, 1 );
+endif;
+
+if (Net_working_Capital_Including_Interco @<> ''); 
+    DimensionElementComponentAdd( sDim, 'Net Working Capital', TM1_Rollup_2, 1 );
+endif;
+if (Net_working_Capital_Excluding_Interco @<> ''); 
+    DimensionElementComponentAdd( sDim, 'Net Working Capital (excl Intercompany)', TM1_Rollup_2, 1 ); 
+endif;
+
+
+#### Accounts P&L 
+If(PL_or_BS @= 'P & L' );
+    DimensionElementInsert( sDim1, '', Maconomy_Global_COA_code_Number, 'N' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_1, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_2, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_3, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_4, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_5, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_6, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_7, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_8, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_9, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_10, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_11, 'C' );
+    DimensionElementInsert( sDim1, '', TM1_Rollup_12, 'C' );
+
+    if (TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_1, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_2, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_3, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_4, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_5, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_6, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_7, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_8 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_8, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_9 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_9, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_10 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_10, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_11 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, Maconomy_Global_COA_code_Number, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, Maconomy_Global_COA_code_Number, 1 ); 
+    endif;
+
+    if (TM1_Rollup_2 @<> '' & TM1_Rollup_1 @<> TM1_Rollup_2 & TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_2, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_3 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_3& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_3, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_4 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_4& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_4, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_5 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_5& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_5, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_6& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_6, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_7& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_7, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_8& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_8, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_9& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_9, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_10& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_10, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_11& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, TM1_Rollup_1, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_12 & TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_1, 1 ); 
+    endif;
+
+
+    if (TM1_Rollup_3 @<> '' & TM1_Rollup_2 @<> TM1_Rollup_3 & TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_3, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_4 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_4& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_4, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_5 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_5& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_5, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_6& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_6, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_7& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_7, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_8& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_8, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_9& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_9, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_10& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_10, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_11& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, TM1_Rollup_2, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_12 & TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_2, 1 ); 
+    endif;
+
+    if (TM1_Rollup_4 @<> '' & TM1_Rollup_3 @<> TM1_Rollup_4 & TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_4, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_5 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_5& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_5, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_6& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_6, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_7& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_7, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_8& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_8, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_9& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_9, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_10& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_10, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_11& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, TM1_Rollup_3, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_12 & TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_3, 1 ); 
+    endif;
+
+    if (TM1_Rollup_5 @<> '' & TM1_Rollup_4 @<> TM1_Rollup_5 & TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_5, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_6& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_6, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_7& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_7, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_8& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_8, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_9& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_9, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_10& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_10, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_11& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_12 & TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_4, 1 ); 
+    endif;
+
+    if (TM1_Rollup_6 @<> '' & TM1_Rollup_5 @<> TM1_Rollup_6 & TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_6, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_7& TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_7, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_8& TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_8, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_9& TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_9, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_10& TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_10, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_11& TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_12 & TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_5, 1 ); 
+    endif;
+
+    if (TM1_Rollup_7 @<> '' & TM1_Rollup_6 @<> TM1_Rollup_7 & TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_7, TM1_Rollup_6, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_8& TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_8, TM1_Rollup_6, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_9& TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_9, TM1_Rollup_6, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_10& TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_10, TM1_Rollup_6, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_11& TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, TM1_Rollup_6, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_12 & TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_6, 1 ); 
+    endif;
+
+    if (TM1_Rollup_8 @<> '' & TM1_Rollup_7 @<> TM1_Rollup_8 & TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_8, TM1_Rollup_7, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_9& TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_9, TM1_Rollup_7, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_10& TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_10, TM1_Rollup_7, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_11& TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, TM1_Rollup_7, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_12 & TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_7, 1 ); 
+    endif;
+
+    if (TM1_Rollup_9 @<> '' & TM1_Rollup_8 @<> TM1_Rollup_9 & TM1_Rollup_8 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_9, TM1_Rollup_8, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_8 @<> TM1_Rollup_10& TM1_Rollup_8 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_10, TM1_Rollup_8, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_8 @<> TM1_Rollup_11& TM1_Rollup_8 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, TM1_Rollup_8, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_8 @<> TM1_Rollup_12 & TM1_Rollup_8 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_8, 1 ); 
+    endif;
+
+    if (TM1_Rollup_10 @<> '' & TM1_Rollup_9 @<> TM1_Rollup_10 & TM1_Rollup_9 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_10, TM1_Rollup_9, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_9 @<> TM1_Rollup_11& TM1_Rollup_9 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, TM1_Rollup_9, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_9 @<> TM1_Rollup_12 & TM1_Rollup_9 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_9, 1 ); 
+    endif;
+
+    if (TM1_Rollup_11 @<> '' & TM1_Rollup_10 @<> TM1_Rollup_11 & TM1_Rollup_10 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_11, TM1_Rollup_10, 1 );
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_10 @<> TM1_Rollup_12 & TM1_Rollup_10 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_10, 1 ); 
+    endif;
+
+    if (TM1_Rollup_12 @<> '' & TM1_Rollup_11 @<> TM1_Rollup_12 & TM1_Rollup_11 @<> ''); 
+        DimensionElementComponentAdd( sDim1, TM1_Rollup_12, TM1_Rollup_11, 1 );
+    endif;
+
+endif;
+
+### Accounts - Balance Sheet
+If(PL_or_BS @= 'Balance Sheet' );
+    DimensionElementInsert( sDim2, '', Maconomy_Global_COA_code_Number, 'N' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_1, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_2, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_3, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_4, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_5, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_6, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_7, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_8, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_9, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_10, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_11, 'C' );
+    DimensionElementInsert( sDim2, '', TM1_Rollup_12, 'C' );
+
+    if (TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_1, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_2, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_3, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_4, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_5, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_6, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_7, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_8 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_8, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_9 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_9, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_10 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_10, Maconomy_Global_COA_code_Number, 1 );
+    elseif(TM1_Rollup_11 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, Maconomy_Global_COA_code_Number, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, Maconomy_Global_COA_code_Number, 1 ); 
+    endif;
+
+    if (TM1_Rollup_2 @<> '' & TM1_Rollup_1 @<> TM1_Rollup_2 & TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_2, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_3 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_3& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_3, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_4 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_4& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_4, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_5 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_5& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_5, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_6& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_6, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_7& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_7, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_8& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_8, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_9& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_9, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_10& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_10, TM1_Rollup_1, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_11& TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, TM1_Rollup_1, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_1 @<> TM1_Rollup_12 & TM1_Rollup_1 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_1, 1 ); 
+    endif;
+
+
+    if (TM1_Rollup_3 @<> '' & TM1_Rollup_2 @<> TM1_Rollup_3 & TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_3, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_4 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_4& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_4, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_5 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_5& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_5, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_6& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_6, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_7& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_7, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_8& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_8, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_9& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_9, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_10& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_10, TM1_Rollup_2, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_11& TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, TM1_Rollup_2, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_2 @<> TM1_Rollup_12 & TM1_Rollup_2 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_2, 1 ); 
+    endif;
+
+    if (TM1_Rollup_4 @<> '' & TM1_Rollup_3 @<> TM1_Rollup_4 & TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_4, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_5 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_5& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_5, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_6& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_6, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_7& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_7, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_8& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_8, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_9& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_9, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_10& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_10, TM1_Rollup_3, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_11& TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, TM1_Rollup_3, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_3 @<> TM1_Rollup_12 & TM1_Rollup_3 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_3, 1 ); 
+    endif;
+
+    if (TM1_Rollup_5 @<> '' & TM1_Rollup_4 @<> TM1_Rollup_5 & TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_5, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_6 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_6& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_6, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_7& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_7, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_8& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_8, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_9& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_9, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_10& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_10, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_11& TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, TM1_Rollup_4, 1 );
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_4 @<> TM1_Rollup_12 & TM1_Rollup_4 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_4, 1 ); 
+    endif;
+
+    if (TM1_Rollup_6 @<> '' & TM1_Rollup_5 @<> TM1_Rollup_6 & TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_6, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_7 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_7& TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_7, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_8& TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_8, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_9& TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_9, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_10& TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_10, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_11& TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, TM1_Rollup_5, 1 );
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_5 @<> TM1_Rollup_12 & TM1_Rollup_5 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_5, 1 ); 
+    endif;
+
+    if (TM1_Rollup_7 @<> '' & TM1_Rollup_6 @<> TM1_Rollup_7 & TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_7, TM1_Rollup_6, 1 );
+    elseif(TM1_Rollup_8 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_8& TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_8, TM1_Rollup_6, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_9& TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_9, TM1_Rollup_6, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_10& TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_10, TM1_Rollup_6, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_11& TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, TM1_Rollup_6, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_6 @<> TM1_Rollup_12 & TM1_Rollup_6 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_6, 1 ); 
+    endif;
+
+    if (TM1_Rollup_8 @<> '' & TM1_Rollup_7 @<> TM1_Rollup_8 & TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_8, TM1_Rollup_7, 1 );
+    elseif(TM1_Rollup_9 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_9& TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_9, TM1_Rollup_7, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_10& TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_10, TM1_Rollup_7, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_11& TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, TM1_Rollup_7, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_7 @<> TM1_Rollup_12 & TM1_Rollup_7 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_7, 1 ); 
+    endif;
+
+    if (TM1_Rollup_9 @<> '' & TM1_Rollup_8 @<> TM1_Rollup_9 & TM1_Rollup_8 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_9, TM1_Rollup_8, 1 );
+    elseif(TM1_Rollup_10 @<> ''& TM1_Rollup_8 @<> TM1_Rollup_10& TM1_Rollup_8 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_10, TM1_Rollup_8, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_8 @<> TM1_Rollup_11& TM1_Rollup_8 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, TM1_Rollup_8, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_8 @<> TM1_Rollup_12 & TM1_Rollup_8 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_8, 1 ); 
+    endif;
+
+    if (TM1_Rollup_10 @<> '' & TM1_Rollup_9 @<> TM1_Rollup_10 & TM1_Rollup_9 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_10, TM1_Rollup_9, 1 );
+    elseif(TM1_Rollup_11 @<> ''& TM1_Rollup_9 @<> TM1_Rollup_11& TM1_Rollup_9 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, TM1_Rollup_9, 1 ); 
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_9 @<> TM1_Rollup_12 & TM1_Rollup_9 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_9, 1 ); 
+    endif;
+
+    if (TM1_Rollup_11 @<> '' & TM1_Rollup_10 @<> TM1_Rollup_11 & TM1_Rollup_10 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_11, TM1_Rollup_10, 1 );
+    elseif(TM1_Rollup_12 @<> ''& TM1_Rollup_10 @<> TM1_Rollup_12 & TM1_Rollup_10 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_10, 1 ); 
+    endif;
+
+    if (TM1_Rollup_12 @<> '' & TM1_Rollup_11 @<> TM1_Rollup_12 & TM1_Rollup_11 @<> ''); 
+        DimensionElementComponentAdd( sDim2, TM1_Rollup_12, TM1_Rollup_11, 1 );
+    endif;
+
+    if (Net_working_Capital_Including_Interco @<> ''); 
+        DimensionElementComponentAdd( sDim2, 'Net Working Capital', TM1_Rollup_2, 1 );
+    endif;
+    if (Net_working_Capital_Excluding_Interco @<> ''); 
+        DimensionElementComponentAdd( sDim2, 'Net Working Capital (excl Intercompany)', TM1_Rollup_2, 1 ); 
+    endif;
+    if(Maconomy_Global_COA_code_Number @= '41010');
+        DimensionElementComponentAdd( sDim2, 'Total Equity', 'Profit Attributable to Equity', 1 ); 
+    endif;
+endif;
+
+#endregion
+#region Data
+
+
+sDesc = Maconomy_Global_COA_code_Number|' - '|Maconomy_Global_COA_code_description;
+sType = If(PL_or_BS @= 'Balance Sheet', 'BS', 'PL');
+
+AttrPutS( sDesc, sDim, Maconomy_Global_COA_code_Number, 'CodeDescription');
+AttrPutS( Maconomy_Global_COA_code_description, sDim, Maconomy_Global_COA_code_Number, 'Description');
+AttrPutS( Maconomy_Global_COA_code_description, sDim, Maconomy_Global_COA_code_Number, 'Name');
+AttrPutS( sType, sDim, Maconomy_Global_COA_code_Number, 'AccountType');
+
+If(PL_or_BS @= 'P & L' );
+AttrPutS( sDesc, sDim1, Maconomy_Global_COA_code_Number, 'CodeDescription');
+AttrPutS( Maconomy_Global_COA_code_description, sDim1, Maconomy_Global_COA_code_Number, 'Description');
+AttrPutS( Maconomy_Global_COA_code_description, sDim1, Maconomy_Global_COA_code_Number, 'Name');
+AttrPutS( sType, sDim1, Maconomy_Global_COA_code_Number, 'AccountType');
+endif;
+
+If(PL_or_BS @= 'Balance Sheet' );
+AttrPutS( sDesc, sDim2, Maconomy_Global_COA_code_Number, 'CodeDescription');
+AttrPutS( Maconomy_Global_COA_code_description, sDim2, Maconomy_Global_COA_code_Number, 'Description');
+AttrPutS( Maconomy_Global_COA_code_description, sDim2, Maconomy_Global_COA_code_Number, 'Name');
+AttrPutS( sType, sDim2, Maconomy_Global_COA_code_Number, 'AccountType');
+endif;
+
+#endregion
+#region Epilog
+
+### Accounts dimension
+### Create TB Check rollup
+DimensionElementComponentAddDirect( sDim, 'TB Check', 'Net Assets / (Liabilities)', 1 );
+DimensionElementComponentAddDirect( sDim, 'TB Check', 'Total Equity', -1 );
+### Add lines for Other Equity for FX Calc
+DimensionElementComponentAddDirect( sDim, sFXOtherEquity, 'Share Capital', 1 );
+DimensionElementComponentAddDirect( sDim, sFXOtherEquity, 'Capital Contribution', 1 );
+DimensionElementComponentAddDirect( sDim, sFXOtherEquity, 'Share Based Payment Reserve', 1 );
+DimensionElementComponentAddDirect( sDim, sFXOtherEquity, 'Share Premium', 1 );
+DimensionElementComponentAddDirect( sDim, sFXOtherEquity, 'Other Reserves', 1 );
+
+### Add lines for Net Assets Less Cash
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Intercompany', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Fixed Assets', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Current Liabilities', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Provisions', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Trade debtors (Excluding I/C)', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Doubtful Debt Provision', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Debit WIP', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Accrued Income', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Prepayments', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Other Debtors', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Senior Capital Advance', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Withholding tax', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Deferred tax', 1 );
+DimensionElementComponentAddDirect( sDim, sAssetsLessCash, 'Interest Prepayment', 1 );
+
+
+### Accounts - Balance sheet dimensions
+### Create TB Check rollup
+DimensionElementComponentAddDirect( sDim2, 'TB Check', 'Net Assets / (Liabilities)', 1 );
+DimensionElementComponentAddDirect( sDim2, 'TB Check', 'Total Equity', -1 );
+### Add lines for Other Equity for FX Calc
+DimensionElementComponentAddDirect( sDim2, sFXOtherEquity, 'Share Capital', 1 );
+DimensionElementComponentAddDirect( sDim2, sFXOtherEquity, 'Capital Contribution', 1 );
+DimensionElementComponentAddDirect( sDim2, sFXOtherEquity, 'Share Based Payment Reserve', 1 );
+DimensionElementComponentAddDirect( sDim2, sFXOtherEquity, 'Share Premium', 1 );
+DimensionElementComponentAddDirect( sDim2, sFXOtherEquity, 'Other Reserves', 1 );
+
+### Add lines for Net Assets Less Cash
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Intercompany', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Fixed Assets', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Current Liabilities', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Provisions', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Trade debtors (Excluding I/C)', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Doubtful Debt Provision', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Debit WIP', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Accrued Income', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Prepayments', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Other Debtors', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Senior Capital Advance', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Withholding tax', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Deferred tax', 1 );
+DimensionElementComponentAddDirect( sDim2, sAssetsLessCash, 'Interest Prepayment', 1 );
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+#### Edit This
+sParameters = 'pConfirm='|pConfirm;   
+
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

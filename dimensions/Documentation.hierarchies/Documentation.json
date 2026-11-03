@@ -1,0 +1,4390 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Documentation",
+	"Elements":
+	[
+		{
+			"Name":"Model Overview",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"1. All Dimensions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"2. All Cubes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3. All Processes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"4. All Chores",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"5. All Groups",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6. All Users",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Dimension: Accounts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Accounts",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Accounts - Balance Sheet",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Accounts - Balance Sheet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Accounts - Cashflow",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Accounts - Cashflow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Accounts - Profit and Loss",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Accounts - Profit and Loss",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Asset",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Asset",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Company",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hierarchy: Company:Country",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hierarchy: Company:Division",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hierarchy: Company:Leaves",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hierarchy: Company:Region",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hierarchy: Company:Type",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Currency",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Currency",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Currency - Reporting",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Currency - Reporting",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Customer",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Customer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Date",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Date",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Documentation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Documentation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Documentation - Rule List",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Documentation - Rule List",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Documentation - Rules",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Documentation - Rules",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Employee",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Employee",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Holidays",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Holidays",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: List",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: List",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: List Logs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: List Logs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Locations",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Locations",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Material",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Material",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Balance Sheet",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Balance Sheet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Balance Sheet Drivers",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Balance Sheet Drivers",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Bill of Materials",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Bill of Materials",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Capex",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Capex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Cash Flow",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Cash Flow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Cost of Sales",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Cost of Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Cost Reallocation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Cost Reallocation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Cost Reallocation Drivers",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Cost Reallocation Drivers",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Documentation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Documentation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - FX Rates",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - FX Rates",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - General Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - General Expenses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - General Expenses Drivers",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - General Expenses Drivers",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Holiday Lookup",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Holiday Lookup",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Holidays",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Holidays",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - List Table",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - List Table",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Material Stock",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Material Stock",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - New Employees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - New Employees",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Parameters",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Parameters",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Payroll",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Payroll",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Payroll Parameters",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Payroll Parameters",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Price and Margin",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Price and Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Process Info",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Process Info",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Reporting",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Reporting",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Revenue - Services",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Revenue - Services",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Revenue Margin",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Revenue Margin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Revenue Volume",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Revenue Volume",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Stock",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Stock",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Stock Cover",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Stock Cover",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - System - Cubes by Dimensions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - System - Cubes by Dimensions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Transaction Logs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Transaction Logs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - UI",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - UI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Measures - Weather",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Measures - Weather",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Parameters - Model",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Parameters - Model",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Parameters - System",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Parameters - System",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Parameters - User",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Parameters - User",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Period",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: PeriodYear",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: PeriodYear",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Product",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Product",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Project",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Project",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Role",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Role",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Scenario Layer",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Scenario Layer",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: System - Cubes Mirror",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: System - Cubes Mirror",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: System - Dimensions Mirror",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: System - Dimensions Mirror",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Time Logs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Time Logs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Time Processes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Time Processes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: UI Info",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: UI Info",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Users",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Users",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Version",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: WeekYear",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: WeekYear",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: Year",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Accounts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Accounts > Description (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accounts > CodeDescription (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accounts > Name (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accounts > AccountType (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Accounts - Balance Sheet",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Accounts - Balance Sheet > Description (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accounts - Balance Sheet > CodeDescription (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accounts - Balance Sheet > Name (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accounts - Balance Sheet > AccountType (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Accounts - Profit and Loss",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Accounts - Profit and Loss > Description (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accounts - Profit and Loss > CodeDescription (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accounts - Profit and Loss > Name (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accounts - Profit and Loss > AccountType (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Asset",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Asset > PLDep Code (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asset > BSAsset Code (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Asset > BSDep Code (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Company",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Company > Description (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Company > CodeDescription (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Company > Type (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Company > Region (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Company > Country (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Company > Currency (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Company > Division (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Currency",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Currency > Symbol (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Currency > Description (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Date",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Date > dd_mm_yyyy (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > yyyy_mm_dd (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > mmyy (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > mmyyyy (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > ddmmyyyy (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > yymm (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > yyyymm (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > yymmdd (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > yyyymmdd (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Financial Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Calendar Month (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Period (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Month Start (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Month End (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Serial (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Index (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Half (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Qtr (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > HalfYear (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > QtrYear (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Long Name (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Short Name (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Next Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Previous Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Next (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Date > Previous (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Locations",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Locations > Post Code (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Measures - Documentation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Measures - Documentation > Format (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Measures - Documentation > Picklist (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Measures - General Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Measures - General Expenses > Format (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Measures - Weather",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Measures - Weather > Json Name (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Measures - Weather > Unit Type (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Period",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Period > Calendar Month (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period > Period (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period > Index (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period > Half (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period > Qtr (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period > Long Name (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period > Short Name (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period > Next (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period > Previous (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: PeriodYear",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PeriodYear > Month Name (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Long Name (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Short Name (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > mmyy (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > mmyyyy (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > yymm (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > yyyymm (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Alternate Name (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Financial Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Calendar Month (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Period (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Month Start (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Month End (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Index (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Half (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Qtr (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > HalfYear (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > QtrYear (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Next Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Previous Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Next (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PeriodYear > Previous (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: WeekYear",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"WeekYear > Long Name (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Week (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Index (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Alternate Name (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Financial Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Next Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Previous Year (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Next (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Previous (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Week End (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"WeekYear > Week Start (A)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Attributes: Year",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Year > Next (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year > Previous (S)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cube: Balance Sheet",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Balance Sheet - Drivers",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Capex",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Cost of Sales",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Cost of Sales - Bill of Materials",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Cost of Sales - Materials Cost",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Cost Reallocation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Cost Reallocation Drivers",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: FX Rates",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: FX Rates - Daily",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: General Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: General Expenses - Drivers",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Holidays - Flag",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Holidays - Lookup",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Payroll",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: }Clients",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: }Clients",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Payroll - New Employees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Payroll - Parameters",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Reporting",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Revenue - Margin",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Revenue - Product Price and Margin",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Revenue - Services",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Revenue - Services Rates",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Revenue - Volume",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Stock",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Stock - Material Cover",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Stock - Materials",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Stock - Product Cover",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: System - Cubes by Dimensions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: System - Documentation - Model",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: }Cubes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: }Cubes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: System - Documentation - Rules",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: System - List Table",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: System - Parameters",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: System - Parameters - Model",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: System - Parameters - User",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Hierarchy: }Processes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dimension: }Processes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: System - Process Information",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: System - Transaction Logs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: System - UI",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cube: Weather",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Process: Alerter - Check all cubes are logged",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Alerter - Check for orphaned elements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Alerter - Check for process error logs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Alerter - Check Server Disk Space",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Data - Bank Holidays - Update from Web",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Data - FX Rates - Update from Web",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Data - Load Actuals",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Data - Snapshot Version",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Data - Weather - Update from Web",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Dimension - Accounts Update from csv",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Dimension - Company Update from csv",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Dimension - Time - Build All Dimensions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Dimension - Time - Build TTD - YTD - YTG",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Dimension - Time - Update Other Hierarchies",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Dimension - Time - Update Prior Consolidations",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: Dimension - Version - Update Consolidations",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Add Dim to Cube",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Add Dim to Multiple Cubes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Create Documentation Cubes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Create Feedback Cube",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Create List Table Cube",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Create Parameter Cubes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Create Process Cubes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Create Transaction Logs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Create UI Cube",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Create WorkFlow Cube",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Delete Dim From Cube",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Delete Dim in Multiple Cubes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Replace Dim in Cube",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Cubes - Replace Dim in Multiple Cubes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Add Element to Dimension",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Add Multiple Elements to Dimension",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Create Hierarchy from Attribute",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Create Std Attributes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Create Std Subsets from Attribute",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Create Std Subsets from Consolidation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Create Std Subsets from Level",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Create Std Subsets from Parameters",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Delete Element from Dimension",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Reset Hierarchy Levels",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Set Dimension Sort Order",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Dimension - Update Currency Codes and Names",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Documentation - Execute All Documentation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Documentation - Populate Cube Rules",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Documentation - Populate Cube Rules (Wrapper)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Documentation - Update or Create Documentation Dimensions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Documentation - Update System Documentation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Feedback - Set Rating",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Feedback - Submit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Logging - Active User Sessions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Logging - Clear Process Logging Cube",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Logging - Create Process Information Cubes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Logging - Import Process Logs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Logging - Populate Process Info",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Logging - Switch Cube Logging On-Off",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Maintenance - Backup Model",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Maintenance - Cleanup Subsets",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Maintenance - Cleanup Views",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Maintenance - Reprocess Feeders",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Maintenance - SaveDataAll",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Maintenance - Send email on Server startup",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Maintenance - Set Admin Email Addresses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Maintenance - Store Server Name",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Maintenance - Store TM1 Server Name",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Maintenance - Update System - Cubes by Dimensions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Process - Default Process",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Process - Tab Refresh",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Security - Add User or Group",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Security - Element Lock-Unlock",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Security - Refresh Security",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Security - Setup Dim and Cube Security",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Send Email",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Send Email - To all Users",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Workflow - Change Status",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: System - Workflow - Setup Monthend Data",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Process: test",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group: ADMIN",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group: SecurityAdmin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group: DataAdmin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group: OperationsAdmin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"User: shane.james@sempreanalytics.com",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Model Overview",
+			"ComponentName":"1. All Dimensions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Model Overview",
+			"ComponentName":"2. All Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Model Overview",
+			"ComponentName":"3. All Processes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Model Overview",
+			"ComponentName":"4. All Chores",
+			"Weight":1
+		},
+		{
+			"ParentName":"Model Overview",
+			"ComponentName":"5. All Groups",
+			"Weight":1
+		},
+		{
+			"ParentName":"Model Overview",
+			"ComponentName":"6. All Users",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Accounts - Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Accounts - Cashflow",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Accounts - Profit and Loss",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Asset",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Currency",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Currency - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Customer",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Date",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Documentation - Rule List",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Documentation - Rules",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Employee",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Holidays",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: List",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: List Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Locations",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Material",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Balance Sheet Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Bill of Materials",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Capex",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Cash Flow",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Cost of Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Cost Reallocation",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Cost Reallocation Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - FX Rates",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - General Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - General Expenses Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Holiday Lookup",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Holidays",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - List Table",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Material Stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - New Employees",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Payroll",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Payroll Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Price and Margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Process Info",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Revenue - Services",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Revenue Margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Revenue Volume",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Stock Cover",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - System - Cubes by Dimensions",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Transaction Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - UI",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Measures - Weather",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Parameters - Model",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Parameters - System",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Parameters - User",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Period",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Product",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Project",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Role",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: System - Cubes Mirror",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: System - Dimensions Mirror",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Time Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Time Processes",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: UI Info",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Users",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: WeekYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"1. All Dimensions",
+			"ComponentName":"Dimension: Year",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Balance Sheet - Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Capex",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Cost of Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Cost of Sales - Bill of Materials",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Cost of Sales - Materials Cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Cost Reallocation",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Cost Reallocation Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: FX Rates",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: FX Rates - Daily",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: General Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: General Expenses - Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Holidays - Flag",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Holidays - Lookup",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Payroll",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Payroll - New Employees",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Payroll - Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Revenue - Margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Revenue - Product Price and Margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Revenue - Services",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Revenue - Services Rates",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Revenue - Volume",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Stock - Material Cover",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Stock - Materials",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Stock - Product Cover",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: System - Cubes by Dimensions",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: System - Documentation - Model",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: System - Documentation - Rules",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: System - List Table",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: System - Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: System - Parameters - Model",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: System - Parameters - User",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: System - Process Information",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: System - Transaction Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: System - UI",
+			"Weight":1
+		},
+		{
+			"ParentName":"2. All Cubes",
+			"ComponentName":"Cube: Weather",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Alerter - Check all cubes are logged",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Alerter - Check for orphaned elements",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Alerter - Check for process error logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Alerter - Check Server Disk Space",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Data - Bank Holidays - Update from Web",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Data - FX Rates - Update from Web",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Data - Load Actuals",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Data - Snapshot Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Data - Weather - Update from Web",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Dimension - Accounts Update from csv",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Dimension - Company Update from csv",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Dimension - Time - Build All Dimensions",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Dimension - Time - Build TTD - YTD - YTG",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Dimension - Time - Update Other Hierarchies",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Dimension - Time - Update Prior Consolidations",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: Dimension - Version - Update Consolidations",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Add Dim to Cube",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Add Dim to Multiple Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Create Documentation Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Create Feedback Cube",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Create List Table Cube",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Create Parameter Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Create Process Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Create Transaction Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Create UI Cube",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Create WorkFlow Cube",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Delete Dim From Cube",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Delete Dim in Multiple Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Replace Dim in Cube",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Cubes - Replace Dim in Multiple Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Add Element to Dimension",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Add Multiple Elements to Dimension",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Create Hierarchy from Attribute",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Create Std Attributes",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Create Std Subsets from Attribute",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Create Std Subsets from Consolidation",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Create Std Subsets from Level",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Create Std Subsets from Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Delete Element from Dimension",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Reset Hierarchy Levels",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Set Dimension Sort Order",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Dimension - Update Currency Codes and Names",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Documentation - Execute All Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Documentation - Populate Cube Rules",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Documentation - Populate Cube Rules (Wrapper)",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Documentation - Update or Create Documentation Dimensions",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Documentation - Update System Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Feedback - Set Rating",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Feedback - Submit",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Logging - Active User Sessions",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Logging - Clear Process Logging Cube",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Logging - Create Process Information Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Logging - Import Process Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Logging - Populate Process Info",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Logging - Switch Cube Logging On-Off",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Maintenance - Backup Model",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Maintenance - Cleanup Subsets",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Maintenance - Cleanup Views",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Maintenance - Reprocess Feeders",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Maintenance - SaveDataAll",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Maintenance - Send email on Server startup",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Maintenance - Set Admin Email Addresses",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Maintenance - Store Server Name",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Maintenance - Store TM1 Server Name",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Maintenance - Update System - Cubes by Dimensions",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Process - Default Process",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Process - Tab Refresh",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Security - Add User or Group",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Security - Element Lock-Unlock",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Security - Refresh Security",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Security - Setup Dim and Cube Security",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Send Email",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Send Email - To all Users",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Workflow - Change Status",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: System - Workflow - Setup Monthend Data",
+			"Weight":1
+		},
+		{
+			"ParentName":"3. All Processes",
+			"ComponentName":"Process: test",
+			"Weight":1
+		},
+		{
+			"ParentName":"5. All Groups",
+			"ComponentName":"Group: ADMIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"5. All Groups",
+			"ComponentName":"Group: SecurityAdmin",
+			"Weight":1
+		},
+		{
+			"ParentName":"5. All Groups",
+			"ComponentName":"Group: DataAdmin",
+			"Weight":1
+		},
+		{
+			"ParentName":"5. All Groups",
+			"ComponentName":"Group: OperationsAdmin",
+			"Weight":1
+		},
+		{
+			"ParentName":"6. All Users",
+			"ComponentName":"User: shane.james@sempreanalytics.com",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Accounts",
+			"ComponentName":"Hierarchy: Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Accounts",
+			"ComponentName":"Attributes: Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Accounts - Balance Sheet",
+			"ComponentName":"Hierarchy: Accounts - Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Accounts - Balance Sheet",
+			"ComponentName":"Attributes: Accounts - Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Accounts - Cashflow",
+			"ComponentName":"Hierarchy: Accounts - Cashflow",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Accounts - Profit and Loss",
+			"ComponentName":"Hierarchy: Accounts - Profit and Loss",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Accounts - Profit and Loss",
+			"ComponentName":"Attributes: Accounts - Profit and Loss",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Asset",
+			"ComponentName":"Hierarchy: Asset",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Asset",
+			"ComponentName":"Attributes: Asset",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Company",
+			"ComponentName":"Hierarchy: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Company",
+			"ComponentName":"Hierarchy: Company:Country",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Company",
+			"ComponentName":"Hierarchy: Company:Division",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Company",
+			"ComponentName":"Hierarchy: Company:Leaves",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Company",
+			"ComponentName":"Hierarchy: Company:Region",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Company",
+			"ComponentName":"Hierarchy: Company:Type",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Company",
+			"ComponentName":"Attributes: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Currency",
+			"ComponentName":"Hierarchy: Currency",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Currency",
+			"ComponentName":"Attributes: Currency",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Currency - Reporting",
+			"ComponentName":"Hierarchy: Currency - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Customer",
+			"ComponentName":"Hierarchy: Customer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Date",
+			"ComponentName":"Hierarchy: Date",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Date",
+			"ComponentName":"Attributes: Date",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Documentation",
+			"ComponentName":"Hierarchy: Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Documentation - Rule List",
+			"ComponentName":"Hierarchy: Documentation - Rule List",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Documentation - Rules",
+			"ComponentName":"Hierarchy: Documentation - Rules",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Employee",
+			"ComponentName":"Hierarchy: Employee",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Holidays",
+			"ComponentName":"Hierarchy: Holidays",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: List",
+			"ComponentName":"Hierarchy: List",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: List Logs",
+			"ComponentName":"Hierarchy: List Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Locations",
+			"ComponentName":"Hierarchy: Locations",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Locations",
+			"ComponentName":"Attributes: Locations",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Material",
+			"ComponentName":"Hierarchy: Material",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Balance Sheet",
+			"ComponentName":"Hierarchy: Measures - Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Balance Sheet Drivers",
+			"ComponentName":"Hierarchy: Measures - Balance Sheet Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Bill of Materials",
+			"ComponentName":"Hierarchy: Measures - Bill of Materials",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Capex",
+			"ComponentName":"Hierarchy: Measures - Capex",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Cash Flow",
+			"ComponentName":"Hierarchy: Measures - Cash Flow",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Cost of Sales",
+			"ComponentName":"Hierarchy: Measures - Cost of Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Cost Reallocation",
+			"ComponentName":"Hierarchy: Measures - Cost Reallocation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Cost Reallocation Drivers",
+			"ComponentName":"Hierarchy: Measures - Cost Reallocation Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Documentation",
+			"ComponentName":"Hierarchy: Measures - Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Documentation",
+			"ComponentName":"Attributes: Measures - Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - FX Rates",
+			"ComponentName":"Hierarchy: Measures - FX Rates",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - General Expenses",
+			"ComponentName":"Hierarchy: Measures - General Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - General Expenses",
+			"ComponentName":"Attributes: Measures - General Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - General Expenses Drivers",
+			"ComponentName":"Hierarchy: Measures - General Expenses Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Holiday Lookup",
+			"ComponentName":"Hierarchy: Measures - Holiday Lookup",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Holidays",
+			"ComponentName":"Hierarchy: Measures - Holidays",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - List Table",
+			"ComponentName":"Hierarchy: Measures - List Table",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Material Stock",
+			"ComponentName":"Hierarchy: Measures - Material Stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - New Employees",
+			"ComponentName":"Hierarchy: Measures - New Employees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Parameters",
+			"ComponentName":"Hierarchy: Measures - Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Payroll",
+			"ComponentName":"Hierarchy: Measures - Payroll",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Payroll Parameters",
+			"ComponentName":"Hierarchy: Measures - Payroll Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Price and Margin",
+			"ComponentName":"Hierarchy: Measures - Price and Margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Process Info",
+			"ComponentName":"Hierarchy: Measures - Process Info",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Reporting",
+			"ComponentName":"Hierarchy: Measures - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Revenue - Services",
+			"ComponentName":"Hierarchy: Measures - Revenue - Services",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Revenue Margin",
+			"ComponentName":"Hierarchy: Measures - Revenue Margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Revenue Volume",
+			"ComponentName":"Hierarchy: Measures - Revenue Volume",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Stock",
+			"ComponentName":"Hierarchy: Measures - Stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Stock Cover",
+			"ComponentName":"Hierarchy: Measures - Stock Cover",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - System - Cubes by Dimensions",
+			"ComponentName":"Hierarchy: Measures - System - Cubes by Dimensions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Transaction Logs",
+			"ComponentName":"Hierarchy: Measures - Transaction Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - UI",
+			"ComponentName":"Hierarchy: Measures - UI",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Weather",
+			"ComponentName":"Hierarchy: Measures - Weather",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Measures - Weather",
+			"ComponentName":"Attributes: Measures - Weather",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Parameters - Model",
+			"ComponentName":"Hierarchy: Parameters - Model",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Parameters - System",
+			"ComponentName":"Hierarchy: Parameters - System",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Parameters - User",
+			"ComponentName":"Hierarchy: Parameters - User",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Period",
+			"ComponentName":"Hierarchy: Period",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Period",
+			"ComponentName":"Attributes: Period",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: PeriodYear",
+			"ComponentName":"Hierarchy: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: PeriodYear",
+			"ComponentName":"Attributes: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Product",
+			"ComponentName":"Hierarchy: Product",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Project",
+			"ComponentName":"Hierarchy: Project",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Role",
+			"ComponentName":"Hierarchy: Role",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Scenario Layer",
+			"ComponentName":"Hierarchy: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: System - Cubes Mirror",
+			"ComponentName":"Hierarchy: System - Cubes Mirror",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: System - Dimensions Mirror",
+			"ComponentName":"Hierarchy: System - Dimensions Mirror",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Time Logs",
+			"ComponentName":"Hierarchy: Time Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Time Processes",
+			"ComponentName":"Hierarchy: Time Processes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: UI Info",
+			"ComponentName":"Hierarchy: UI Info",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Users",
+			"ComponentName":"Hierarchy: Users",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Version",
+			"ComponentName":"Hierarchy: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: WeekYear",
+			"ComponentName":"Hierarchy: WeekYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: WeekYear",
+			"ComponentName":"Attributes: WeekYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Year",
+			"ComponentName":"Hierarchy: Year",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: Year",
+			"ComponentName":"Attributes: Year",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts",
+			"ComponentName":"Accounts > Description (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts",
+			"ComponentName":"Accounts > CodeDescription (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts",
+			"ComponentName":"Accounts > Name (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts",
+			"ComponentName":"Accounts > AccountType (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts - Balance Sheet",
+			"ComponentName":"Accounts - Balance Sheet > Description (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts - Balance Sheet",
+			"ComponentName":"Accounts - Balance Sheet > CodeDescription (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts - Balance Sheet",
+			"ComponentName":"Accounts - Balance Sheet > Name (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts - Balance Sheet",
+			"ComponentName":"Accounts - Balance Sheet > AccountType (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts - Profit and Loss",
+			"ComponentName":"Accounts - Profit and Loss > Description (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts - Profit and Loss",
+			"ComponentName":"Accounts - Profit and Loss > CodeDescription (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts - Profit and Loss",
+			"ComponentName":"Accounts - Profit and Loss > Name (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Accounts - Profit and Loss",
+			"ComponentName":"Accounts - Profit and Loss > AccountType (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Asset",
+			"ComponentName":"Asset > PLDep Code (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Asset",
+			"ComponentName":"Asset > BSAsset Code (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Asset",
+			"ComponentName":"Asset > BSDep Code (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Company",
+			"ComponentName":"Company > Description (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Company",
+			"ComponentName":"Company > CodeDescription (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Company",
+			"ComponentName":"Company > Type (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Company",
+			"ComponentName":"Company > Region (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Company",
+			"ComponentName":"Company > Country (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Company",
+			"ComponentName":"Company > Currency (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Company",
+			"ComponentName":"Company > Division (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Currency",
+			"ComponentName":"Currency > Symbol (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Currency",
+			"ComponentName":"Currency > Description (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > dd_mm_yyyy (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > yyyy_mm_dd (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > mmyy (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > mmyyyy (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > ddmmyyyy (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > yymm (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > yyyymm (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > yymmdd (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > yyyymmdd (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Financial Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Calendar Month (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Period (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Month Start (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Month End (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Serial (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Index (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Half (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Qtr (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > HalfYear (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > QtrYear (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Long Name (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Short Name (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Next Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Previous Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Next (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Date",
+			"ComponentName":"Date > Previous (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Locations",
+			"ComponentName":"Locations > Post Code (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Measures - Documentation",
+			"ComponentName":"Measures - Documentation > Format (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Measures - Documentation",
+			"ComponentName":"Measures - Documentation > Picklist (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Measures - General Expenses",
+			"ComponentName":"Measures - General Expenses > Format (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Measures - Weather",
+			"ComponentName":"Measures - Weather > Json Name (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Measures - Weather",
+			"ComponentName":"Measures - Weather > Unit Type (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Period",
+			"ComponentName":"Period > Calendar Month (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Period",
+			"ComponentName":"Period > Period (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Period",
+			"ComponentName":"Period > Index (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Period",
+			"ComponentName":"Period > Half (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Period",
+			"ComponentName":"Period > Qtr (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Period",
+			"ComponentName":"Period > Long Name (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Period",
+			"ComponentName":"Period > Short Name (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Period",
+			"ComponentName":"Period > Next (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Period",
+			"ComponentName":"Period > Previous (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Month Name (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Long Name (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Short Name (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > mmyy (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > mmyyyy (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > yymm (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > yyyymm (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Alternate Name (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Financial Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Calendar Month (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Period (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Month Start (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Month End (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Index (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Half (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Qtr (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > HalfYear (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > QtrYear (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Next Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Previous Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Next (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: PeriodYear",
+			"ComponentName":"PeriodYear > Previous (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Long Name (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Week (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Index (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Alternate Name (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Financial Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Next Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Previous Year (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Next (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Previous (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Week End (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: WeekYear",
+			"ComponentName":"WeekYear > Week Start (A)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Year",
+			"ComponentName":"Year > Next (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Attributes: Year",
+			"ComponentName":"Year > Previous (S)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet",
+			"ComponentName":"Dimension: Currency - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet",
+			"ComponentName":"Dimension: Accounts - Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet",
+			"ComponentName":"Dimension: Measures - Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet - Drivers",
+			"ComponentName":"Dimension: Year",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet - Drivers",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet - Drivers",
+			"ComponentName":"Dimension: Accounts - Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Balance Sheet - Drivers",
+			"ComponentName":"Dimension: Measures - Balance Sheet Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Capex",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Capex",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Capex",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Capex",
+			"ComponentName":"Dimension: Project",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Capex",
+			"ComponentName":"Dimension: Asset",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Capex",
+			"ComponentName":"Dimension: Currency - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Capex",
+			"ComponentName":"Dimension: Measures - Capex",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales",
+			"ComponentName":"Dimension: Material",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales",
+			"ComponentName":"Dimension: Product",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales",
+			"ComponentName":"Dimension: Measures - Cost of Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales - Bill of Materials",
+			"ComponentName":"Dimension: Year",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales - Bill of Materials",
+			"ComponentName":"Dimension: Product",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales - Bill of Materials",
+			"ComponentName":"Dimension: Material",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales - Bill of Materials",
+			"ComponentName":"Dimension: Measures - Bill of Materials",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales - Materials Cost",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales - Materials Cost",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales - Materials Cost",
+			"ComponentName":"Dimension: Material",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost of Sales - Materials Cost",
+			"ComponentName":"Dimension: Measures - Cost of Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost Reallocation",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost Reallocation",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost Reallocation",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost Reallocation",
+			"ComponentName":"Dimension: Accounts - Profit and Loss",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost Reallocation",
+			"ComponentName":"Dimension: Measures - Cost Reallocation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost Reallocation Drivers",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost Reallocation Drivers",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost Reallocation Drivers",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Cost Reallocation Drivers",
+			"ComponentName":"Dimension: Measures - Cost Reallocation Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: FX Rates",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: FX Rates",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: FX Rates",
+			"ComponentName":"Dimension: Currency",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: FX Rates",
+			"ComponentName":"Dimension: Currency - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: FX Rates",
+			"ComponentName":"Dimension: Measures - FX Rates",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: FX Rates - Daily",
+			"ComponentName":"Dimension: Date",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: FX Rates - Daily",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: FX Rates - Daily",
+			"ComponentName":"Dimension: Currency",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: FX Rates - Daily",
+			"ComponentName":"Dimension: Currency - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: FX Rates - Daily",
+			"ComponentName":"Dimension: Measures - FX Rates",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses",
+			"ComponentName":"Dimension: List",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses",
+			"ComponentName":"Dimension: Accounts - Profit and Loss",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses",
+			"ComponentName":"Dimension: Measures - General Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses - Drivers",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses - Drivers",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses - Drivers",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: General Expenses - Drivers",
+			"ComponentName":"Dimension: Measures - General Expenses Drivers",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Holidays - Flag",
+			"ComponentName":"Dimension: Date",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Holidays - Flag",
+			"ComponentName":"Dimension: Holidays",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Holidays - Flag",
+			"ComponentName":"Dimension: Measures - Holidays",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Holidays - Lookup",
+			"ComponentName":"Dimension: Year",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Holidays - Lookup",
+			"ComponentName":"Dimension: Holidays",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Holidays - Lookup",
+			"ComponentName":"Dimension: Measures - Holiday Lookup",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll",
+			"ComponentName":"Dimension: Employee",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll",
+			"ComponentName":"Dimension: Role",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll",
+			"ComponentName":"Dimension: Measures - Payroll",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: }Clients",
+			"ComponentName":"Hierarchy: }Clients",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll - New Employees",
+			"ComponentName":"Dimension: }Clients",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll - New Employees",
+			"ComponentName":"Dimension: List",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll - New Employees",
+			"ComponentName":"Dimension: Measures - New Employees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll - Parameters",
+			"ComponentName":"Dimension: Year",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll - Parameters",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll - Parameters",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Payroll - Parameters",
+			"ComponentName":"Dimension: Measures - Payroll Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Reporting",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Reporting",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Reporting",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Reporting",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Reporting",
+			"ComponentName":"Dimension: Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Reporting",
+			"ComponentName":"Dimension: Currency - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Reporting",
+			"ComponentName":"Dimension: Measures - Reporting",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Margin",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Margin",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Margin",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Margin",
+			"ComponentName":"Dimension: Customer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Margin",
+			"ComponentName":"Dimension: Product",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Margin",
+			"ComponentName":"Dimension: Measures - Revenue Margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Product Price and Margin",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Product Price and Margin",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Product Price and Margin",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Product Price and Margin",
+			"ComponentName":"Dimension: Product",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Product Price and Margin",
+			"ComponentName":"Dimension: Measures - Price and Margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services",
+			"ComponentName":"Dimension: Company",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services",
+			"ComponentName":"Dimension: Customer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services",
+			"ComponentName":"Dimension: Role",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services",
+			"ComponentName":"Dimension: Measures - Revenue - Services",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services Rates",
+			"ComponentName":"Dimension: Year",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services Rates",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services Rates",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services Rates",
+			"ComponentName":"Dimension: Role",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Services Rates",
+			"ComponentName":"Dimension: Measures - Revenue - Services",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Volume",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Volume",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Volume",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Volume",
+			"ComponentName":"Dimension: Customer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Volume",
+			"ComponentName":"Dimension: Product",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Revenue - Volume",
+			"ComponentName":"Dimension: Measures - Revenue Volume",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock",
+			"ComponentName":"Dimension: Product",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock",
+			"ComponentName":"Dimension: Measures - Stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Material Cover",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Material Cover",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Material Cover",
+			"ComponentName":"Dimension: Material",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Material Cover",
+			"ComponentName":"Dimension: Measures - Stock Cover",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Materials",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Materials",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Materials",
+			"ComponentName":"Dimension: Scenario Layer",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Materials",
+			"ComponentName":"Dimension: Material",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Materials",
+			"ComponentName":"Dimension: Measures - Material Stock",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Product Cover",
+			"ComponentName":"Dimension: PeriodYear",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Product Cover",
+			"ComponentName":"Dimension: Version",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Product Cover",
+			"ComponentName":"Dimension: Product",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Stock - Product Cover",
+			"ComponentName":"Dimension: Measures - Stock Cover",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Cubes by Dimensions",
+			"ComponentName":"Dimension: System - Cubes Mirror",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Cubes by Dimensions",
+			"ComponentName":"Dimension: System - Dimensions Mirror",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Cubes by Dimensions",
+			"ComponentName":"Dimension: Measures - System - Cubes by Dimensions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Documentation - Model",
+			"ComponentName":"Dimension: Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Documentation - Model",
+			"ComponentName":"Dimension: Measures - Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: }Cubes",
+			"ComponentName":"Hierarchy: }Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Documentation - Rules",
+			"ComponentName":"Dimension: }Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Documentation - Rules",
+			"ComponentName":"Dimension: Documentation - Rule List",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Documentation - Rules",
+			"ComponentName":"Dimension: Documentation - Rules",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Documentation - Rules",
+			"ComponentName":"Dimension: Measures - Documentation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - List Table",
+			"ComponentName":"Dimension: }Clients",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - List Table",
+			"ComponentName":"Dimension: Time Processes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - List Table",
+			"ComponentName":"Dimension: List",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - List Table",
+			"ComponentName":"Dimension: Measures - List Table",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Parameters",
+			"ComponentName":"Dimension: Parameters - System",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Parameters",
+			"ComponentName":"Dimension: Measures - Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Parameters - Model",
+			"ComponentName":"Dimension: Parameters - Model",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Parameters - Model",
+			"ComponentName":"Dimension: Measures - Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Parameters - User",
+			"ComponentName":"Dimension: }Clients",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Parameters - User",
+			"ComponentName":"Dimension: Parameters - User",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Parameters - User",
+			"ComponentName":"Dimension: Measures - Parameters",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dimension: }Processes",
+			"ComponentName":"Hierarchy: }Processes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Process Information",
+			"ComponentName":"Dimension: Time Processes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Process Information",
+			"ComponentName":"Dimension: }Processes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Process Information",
+			"ComponentName":"Dimension: Measures - Process Info",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Transaction Logs",
+			"ComponentName":"Dimension: }Clients",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Transaction Logs",
+			"ComponentName":"Dimension: }Cubes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Transaction Logs",
+			"ComponentName":"Dimension: Users",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Transaction Logs",
+			"ComponentName":"Dimension: List Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Transaction Logs",
+			"ComponentName":"Dimension: Time Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - Transaction Logs",
+			"ComponentName":"Dimension: Measures - Transaction Logs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - UI",
+			"ComponentName":"Dimension: }Clients",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - UI",
+			"ComponentName":"Dimension: UI Info",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: System - UI",
+			"ComponentName":"Dimension: Measures - UI",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Weather",
+			"ComponentName":"Dimension: Date",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Weather",
+			"ComponentName":"Dimension: Locations",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cube: Weather",
+			"ComponentName":"Dimension: Measures - Weather",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Documentation.subsets/All Cubes Expanded.json",
+		"Documentation.subsets/All Dimensions 1st Expand.json",
+		"Documentation.subsets/All Dimensions Expanded.json",
+		"Documentation.subsets/All Processes Expanded.json",
+		"Documentation.subsets/LEAF.json"
+	]
+}

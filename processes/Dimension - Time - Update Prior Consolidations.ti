@@ -1,0 +1,228 @@
+#region Prolog
+
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+sDescription = 'Creates multiple Prior and next consolidations in the date period dimension'; 
+sDeveloper = 'Sempre Analytics: Shane James';    
+sSource = 'Date Period'; 
+sSourceType = 'Dimension'; 
+sTarget = 'Date Period'; 
+sTargetType = 'Dimension'; 
+
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+sCube = 'System - Parameters - Model';
+sEl = 'Closed Month';
+
+sDim1 = 'Date Period';
+
+sConsol3 = 'PRIOR 3 MONTHS';
+sConsol6 = 'PRIOR 6 MONTHS';
+sConsol9 = 'PRIOR 9 MONTHS';
+
+sConsolN3 = 'NEXT 3 MONTHS';
+sConsolN6 = 'NEXT 6 MONTHS';
+sConsolN9 = 'NEXT 9 MONTHS';
+sConsolN12 = 'NEXT 12 MONTHS';
+
+If(DIMIX( sDim1, sConsol3 ) > 0, DimensionElementDelete( sDim1, sConsol3 ),0);
+If(DIMIX( sDim1, sConsol6 ) > 0, DimensionElementDelete( sDim1, sConsol6 ),0);
+If(DIMIX( sDim1, sConsol9 ) > 0, DimensionElementDelete( sDim1, sConsol9 ),0);
+If(DIMIX( sDim1, sConsolN3 ) > 0, DimensionElementDelete( sDim1, sConsolN3 ),0);
+If(DIMIX( sDim1, sConsolN6 ) > 0, DimensionElementDelete( sDim1, sConsolN6 ),0);
+If(DIMIX( sDim1, sConsolN9 ) > 0, DimensionElementDelete( sDim1, sConsolN9 ),0);
+If(DIMIX( sDim1, sConsolN12 ) > 0, DimensionElementDelete( sDim1, sConsolN12 ),0);
+
+
+DimensionElementInsertDirect( sDim1, '', sConsol3, 'C' );
+DimensionElementInsertDirect( sDim1, '', sConsol6, 'C' );
+DimensionElementInsertDirect( sDim1, '', sConsol9, 'C' );
+DimensionElementInsertDirect( sDim1, '', sConsolN3, 'C' );
+DimensionElementInsertDirect( sDim1, '', sConsolN6, 'C' );
+DimensionElementInsertDirect( sDim1, '', sConsolN9, 'C' );
+DimensionElementInsertDirect( sDim1, '', sConsolN12, 'C' );
+
+
+
+#endregion
+#region Epilog
+
+if (pConfirm @= 'Y');
+    sCurrMonth = CellGetS(sCube, sEl, 'String' );
+    n=1;
+
+    While (n<=9);
+        DimensionElementComponentAddDirect( sDim1, sConsol9, sCurrMonth, 1 );
+        If(n<=3,DimensionElementComponentAddDirect( sDim1, sConsol3, sCurrMonth, 1 ),0);
+        If(n<=6,DimensionElementComponentAddDirect( sDim1, sConsol6, sCurrMonth, 1 ),0);
+        sCurrMonth = ATTRS(sDim1, sCurrMonth, 'Previous');
+        n=n+1;
+    End;
+
+    sCurrMonth = CellGetS(sCube, sEl, 'String' );
+    n=1;
+    While (n<=12);
+        DimensionElementComponentAddDirect( sDim1, sConsolN12, sCurrMonth, 1 );
+        If(n<=3,DimensionElementComponentAddDirect( sDim1, sConsolN3, sCurrMonth, 1 ),0);
+        If(n<=6,DimensionElementComponentAddDirect( sDim1, sConsolN6, sCurrMonth, 1 ),0);
+        If(n<=9,DimensionElementComponentAddDirect( sDim1, sConsolN9, sCurrMonth, 1 ),0);
+        sCurrMonth = ATTRS(sDim1, sCurrMonth, 'Next');
+        n=n+1;
+    End;
+endif;
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+#### Edit This
+sParameters = 'pConfirm='|pConfirm|', pEmail='|pEmail;   
+
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    iSendEmail = 0;
+
+    if (iCalledByChore = 0);
+        iSendEmail = 1;
+    elseif (nError > 0);
+        iSendEmail = 1;
+    endif;
+
+    if (iSendEmail = 1);
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        if (DimensionExists('}ElementAttributes_}Clients') = 1);
+            if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+                sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+                if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+            endif;
+        endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+             IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+           else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+        sCC = 'X';
+        sBCC = 'X';
+
+        if (nError = 0); 
+            sSubject = 'Process Success - '|sProcess; 
+            sMessageStatus = '<font color="green">successfully</font>';
+        Else;
+            sSubject = 'Process Error - '|sProcess;
+            sMessageStatus = '<font color="red">with errors</font> ';
+        Endif; 
+
+        if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+        elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+        else;
+            sUsernameToDisplay = trim(CellGetS('System - Parameters - User', Tm1User(), 'Full Name', 'String' ));
+            if ( sUsernameToDisplay @= '' ); sUsernameToDisplay = sTM1User;  endif;
+        endif;
+
+        sEmailMessage = '<p>Dear '|sUsernameToDisplay|'</p><p>PROCESS: '|sProcess|' has completed '|sMessageStatus|'</p><p>The following parameters were used - '|sParameters|'</p>';
+        sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+        sEmailMessage = sEmailMessage | '<p>   </p>';
+
+        sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+        sAttachment = 'X';
+
+        # Now call the process that sends the email.
+        if (iCalledByChore = 1);
+            if (sAdmin1Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+            endif;
+            if (sAdmin2Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+            if (sAdmin3Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+        Else;
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+    endif;
+endif;
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

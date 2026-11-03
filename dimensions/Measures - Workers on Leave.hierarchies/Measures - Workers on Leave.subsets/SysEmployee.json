@@ -1,0 +1,11 @@
+{
+	"@type":"Subset",
+	"Name":"SysEmployee",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Measures - Workers on Leave')/Hierarchies('Measures - Workers on Leave')/Elements('Employee ID')"
+		}
+	]
+}

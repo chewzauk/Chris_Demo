@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Holidays",
+	"Elements":
+	[
+		{
+			"Name":"Holiday Flag",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"ALL General Expense Accounts",
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {FILTER(TM1SubsetAll([Accounts - Profit and Loss].[Accounts - Profit and Loss]), ([Accounts - Profit and Loss].[Accounts - Profit and Loss].CURRENTMEMBER.PROPERTIES(\"Is GeneralExpense\") = \"Y\"))}"
+}

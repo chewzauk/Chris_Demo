@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"System - Maintenance - Send email on Server startup",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Maintenance - Send email on Server startup.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000069"
+}

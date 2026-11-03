@@ -1,0 +1,35 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Future Leavers",
+	"Elements":
+	[
+		{
+			"Name":"Employee ID",
+			"Type":"String"
+		},
+		{
+			"Name":"Position ID",
+			"Type":"String"
+		},
+		{
+			"Name":"Termination Date",
+			"Type":"String"
+		},
+		{
+			"Name":"Full Name",
+			"Type":"String"
+		},
+		{
+			"Name":"Pro Rata Portion of Month",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Status",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - Future Leavers.subsets/SysEmployee.json"
+	]
+}

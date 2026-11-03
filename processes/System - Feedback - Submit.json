@@ -1,0 +1,33 @@
+{
+	"@type":"Process",
+	"Name":"System - Feedback - Submit",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Feedback - Submit.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pFeedbackItem",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000058"
+}

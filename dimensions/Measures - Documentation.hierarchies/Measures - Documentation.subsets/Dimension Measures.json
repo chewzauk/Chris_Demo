@@ -1,0 +1,22 @@
+{
+	"@type":"Subset",
+	"Name":"Dimension Measures",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('Description')"
+		},
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('Developer')"
+		},
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('Number of Elements')"
+		},
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('Number of Leaf Elements')"
+		},
+		{
+			"@id":"Dimensions('Measures - Documentation')/Hierarchies('Measures - Documentation')/Elements('EditFlag')"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"}HierarchyAttributes_Measures - Reporting",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Hierarchies_Measures - Reporting')"
+		},
+		{
+			"@id":"Dimensions('}HierarchyAttributes_Measures - Reporting')"
+		}
+	],
+	"Views@Code.links":[]
+}

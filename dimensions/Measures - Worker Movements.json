@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Worker Movements",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Worker Movements.hierarchies/Measures - Worker Movements.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Worker Movements')/Hierarchies('Measures - Worker Movements')"
+	}
+}

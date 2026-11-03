@@ -1,0 +1,121 @@
+{
+	"@type":"Process",
+	"Name":"System - Dimension - Add Multiple Elements to Dimension",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Dimension - Add Multiple Elements to Dimension.ti",
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForServer":"System - List Table",
+		"dataSourceNameForClient":"System - List Table",
+		"view":"}TI_Process978"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pDim",
+			"Prompt":"Dimension Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pPicklistOption",
+			"Prompt":"Which version of the list do you need. Blank will be default",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pParent",
+			"Prompt":"Consolidator you wish to add element to or blank if adding as orphan",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pTOTALParent",
+			"Prompt":"The parent for the Parent top be added to",
+			"Value":"0",
+			"Type":"String"
+		},
+		{
+			"Name":"pAttr1",
+			"Prompt":"Attribute Name for 2 string",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAttr2",
+			"Prompt":"Attribute Name for 3 string",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAttr3",
+			"Prompt":"Attribute Name for 4 string",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAttr4",
+			"Prompt":"Attribute Name for 5 string",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pExtraDim",
+			"Prompt":"Add this for any additional info like concatenating the element name",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vClient",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vPicklistOptions",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vList",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vItem",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vItemValue",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000041"
+}

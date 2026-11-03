@@ -1,0 +1,16 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Dimensions",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('All Dimensions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Business Dimensions')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('System Dimensions')"
+		}
+	]
+}

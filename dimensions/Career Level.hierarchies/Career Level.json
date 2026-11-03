@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Career Level",
+	"Elements":
+	[
+		{
+			"Name":"Guide",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Implement",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Lead",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Translate",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

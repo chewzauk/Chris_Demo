@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"All Used Instances + First Empty Row",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {ORDER({FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Promo Instance].[Promo Instance]) , 0) , [Sales Planning].([Product].CURRENTMEMBER,[Customer].CURRENTMEMBER,[Measures - Sales Planning].[Promo Type]) <> \"\"),HEAD(FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Promo Instance].[Promo Instance]) , 0) , [Sales Planning].([Product].CURRENTMEMBER,[Customer].CURRENTMEMBER,[Measures - Sales Planning].[Promo Type]) = \"\"))} , [Promo Instance].[Promo Instance].CURRENTMEMBER.PROPERTIES(\"MEMBER_NAME\") , BASC)}"
+}

@@ -1,0 +1,51 @@
+{
+	"@type":"Process",
+	"Name":"System - Logging - Switch Cube Logging On-Off",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Logging - Switch Cube Logging On-Off.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"}Cubes:}Cubes",
+		"dataSourceNameForClient":"}Cubes:}Cubes",
+		"subset":"Sys Leaf"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pCube",
+			"Prompt":"Leave Blank to run for all cubes",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pOnOffSwitch",
+			"Prompt":"0 for off, 1 for on",
+			"Value":1,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vCube",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000063"
+}

@@ -1,0 +1,103 @@
+{
+	"@type":"NativeView",
+	"Name":"VZOActuals",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Measures - General Expenses')/Hierarchies('Measures - General Expenses')"
+				},
+				"Expression":"TM1SubsetAll([Measures - General Expenses])"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')"
+				},
+				"Expression":"TM1SubsetAll([Accounts - Profit and Loss])"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')"
+				},
+				"Expression":"TM1SubsetAll([PeriodYear])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('TOTAL YEARS')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Subsets('VZOActual')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Actual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')"
+				},
+				"Expression":"TM1SubsetAll([Scenario Layer])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')/Elements('TOTAL LAYERS')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Company')/Hierarchies('Company')"
+				},
+				"Expression":"TM1SubsetAll([Company])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('ALL COMPANIES')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('List')/Hierarchies('List')"
+				},
+				"Expression":"TM1SubsetAll([List])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('List')/Hierarchies('List')/Elements('TOTAL LIST')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"",
+	"ViewExtractSkipRuleValues": false
+}

@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Depreciation",
+	"ExpandAbove":true,
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {DRILLDOWNMEMBER({[Accounts].[Accounts].[Depreciation & Amortisation]} , {[Accounts].[Accounts].[Depreciation & Amortisation],[Accounts].[Accounts].[Depreciation],[Accounts].[Accounts].[Amortisation]} , RECURSIVE)}"
+}

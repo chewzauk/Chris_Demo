@@ -1,0 +1,14 @@
+{
+	"@type":"Subset",
+	"Name":"LEAF text",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')/Elements('Weather text')"
+		},
+		{
+			"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')/Elements('Weather Icon Link')"
+		}
+	]
+}

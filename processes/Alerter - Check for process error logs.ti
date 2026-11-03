@@ -1,0 +1,279 @@
+#region Prolog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+sDescription = 'This routine is just to pick up recent error log files in order to detect any miscellaneous errors that 
+are outside of the main module updates or otherwise slipped through the net. Remember, any major 
+updates that occur intraday should have their own email alerts so those errors can be caught immediately.
+When included in a Chore, it would usually be the final process, so it can check for logs from earlier processes.'; 
+sDeveloper = 'Sempre Analytics: Philip Bichard';    
+sSource = 'Source'; 
+sSourceType = 'Source Type'; 
+sTarget = 'Target'; 
+sTargetType = 'Target Type'; 
+
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+sSystemCube = 'System - Parameters';
+
+sServerName = CellGetS(sSystemCube, 'Server', 'String');
+sServerMachine = CellGetS(sSystemCube, 'Server Machine Name', 'String');
+
+# Detect the folder where logs are stored by TM1
+sErrorFolder = GetProcessErrorFileDirectory;
+
+# Get the system date
+sTodayDDMMYYYY = TIMST(NOW(), '\d-\m-\Y');
+sTodayYYYYMMDD = TIMST(NOW(), '\Y\m\d');
+sYesterdayDDMMYYYY = TIMST(NOW() - 1, '\d-\m-\Y');
+sYesterdayYYYYMMDD = TIMST(NOW() - 1, '\Y\m\d');
+
+# Start off output strings
+sTodayProcessLogFileList = '';
+sYesterdayProcessLogFileList = '';
+
+# Loop through the log folder checking each process error file.
+iTotalFileCount = 0;
+iTodayFileCount = 0;
+iYesterdayFileCount = 0;
+
+sFile = WildcardFileSearch( sErrorFolder | 'TM1ProcessError*.log*', '');
+While (sFile @<> '');
+    # Pick up today's error logs. Only if a detected file has the same date as today then add it to the list.
+    if (SUBST(sFile, 17, 8) @= sTodayYYYYMMDD);
+        iTotalFileCount = iTotalFileCount + 1;
+        iTodayFileCount = iTodayFileCount + 1;
+
+        # In case there were hundreds of error logs this day, just add the first 64k chars of them.
+        if ( long ( sYesterdayProcessLogFileList ) < 64000 );
+
+            sFileTimeStamp = SUBST(sFile, 25, 2) | ':' | SUBST(sFile, 27, 2) | ':' | SUBST(sFile, 29, 2);
+
+            sProcessNameAndLogPart = SUBST(sFile, 41, long(sFile) - 39);
+            sProcessErrorAndDateTimePart = SUBST(sFile, 1, 40);
+
+            iDotLogStarts = scan('.log', sProcessNameAndLogPart);
+            sProcessNamePart = SUBST(sProcessNameAndLogPart, 1, iDotLogStarts - 1);
+
+            if (subst(sFile, long(sFile), 1) @= '$' );
+                sDollarPart = '$';
+            else;
+                sDollarPart = '';
+            endif;
+
+            sTodayProcessLogFileList = sTodayProcessLogFileList | '<font size=1>' | sFileTimeStamp | ' - ' | sProcessErrorAndDateTimePart | '</font><b>' | sProcessNamePart | sDollarPart | '</b><font size=1>.log</font><br>';
+        endif;
+    endif;
+
+    # Pick up yesterday's error logs. Only if a detected file has the same date as yesterday then add it to the list.
+    if (SUBST(sFile, 17, 8) @= sYesterdayYYYYMMDD);
+        iTotalFileCount = iTotalFileCount + 1;
+        iYesterdayFileCount = iYesterdayFileCount + 1;
+
+        # In case there were hundreds of error logs this day, just add the first 32k chars of them, to leave pace for the more important today's logs.
+        if ( long ( sYesterdayProcessLogFileList ) < 32000 );
+            sFileTimeStamp = SUBST(sFile, 25, 2) | ':' | SUBST(sFile, 27, 2) | ':' | SUBST(sFile, 29, 2);
+
+            sProcessNameAndLogPart = SUBST(sFile, 41, long(sFile) - 39);
+            sProcessErrorAndDateTimePart = SUBST(sFile, 1, 40);
+            iDotLogStarts = scan('.log', sProcessNameAndLogPart);
+            sProcessNamePart = SUBST(sProcessNameAndLogPart, 1, iDotLogStarts - 1);
+
+            if (subst(sFile, long(sFile), 1) @= '$' );
+                sDollarPart = '$';
+            else;
+                sDollarPart = '';
+            endif;
+
+            sYesterdayProcessLogFileList = sYesterdayProcessLogFileList | '<font size=1>' | sFileTimeStamp | ' - ' | sProcessErrorAndDateTimePart | '</font><b>' | sProcessNamePart |  sDollarPart | '</b>.<font size=1>log</font><br>';
+        endif;
+    endif;
+
+    sFile = WildcardFileSearch(sErrorFolder | 'TM1ProcessError*.log*', sFile);
+end;
+
+# ##############################################################################################
+# ##############################################################################################
+#endregion
+#region Metadata
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*');
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+#### Edit This
+sParameters = 'None';   
+
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+# ##############################################
+# Only send an alert when this was run on a schedule if an error log was found. Always send a report to the calling user when run by hand.
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    if (iCalledByChore = 1 & iTotalFileCount = 0);
+        iSendEmail = 0;
+    else;
+        iSendEmail = 1;
+    endif;
+
+    if (iSendEmail = 1);
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        if (DimensionExists('}ElementAttributes_}Clients') = 1);
+            if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+                sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+                if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+            endif;
+        endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+            IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+            else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+        sCC = 'X';
+        sBCC = 'X';
+
+
+        if (iTotalFileCount = 0);
+            sSubject = 'TM1 Report: There are no recent error logs for ' | sServerName;
+        else;
+            sSubject = 'TM1 Alert: ' | numbertostring(iTotalFileCount) | ' recent error logs found for ' | sServerName | '!';
+        endif;
+
+
+        if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+        elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+        else; 				sUsernameToDisplay = sTM1User | ' (' | CellGetS('System - Parameters - User', sTM1User, 'Full Name', 'String' ) | ')';
+        endif;
+
+        sEmailMessage = '';
+        sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+        sEmailMessage = sEmailMessage | ' It checked for TI Process error logs from yesterday and so far today, for <b>' | sServerName | '</b> in ' | upper(subst(sErrorFolder, 1, 1)) | subst(sErrorFolder, 2, long(sErrorFolder) - 1) | ' on ' | sServerMachine | '.<br><br>';
+
+        if (iTodayFileCount = 0);
+            sEmailMessage = sEmailMessage | '<font color="green">There were no error logs found from today (' | sTodayDDMMYYYY | ').</font><br><br>';
+        else;
+            sEmailMessage = sEmailMessage | '<font color="red">Number of error logs so far today (' | sTodayDDMMYYYY | '): ' | numbertostring(iTodayFileCount) | '.</font><br>';
+            sEmailMessage = sEmailMessage | sTodayProcessLogFileList | '<br>';
+        endif;
+
+        if (iYesterdayFileCount = 0);
+            sEmailMessage = sEmailMessage | '<font color="green">There were no error logs found from yesterday (' | sYesterdayDDMMYYYY | ').</font><br><br>';
+        else;
+            sEmailMessage = sEmailMessage | '<font color="red">Number of error logs yesterday (' | sYesterdayDDMMYYYY | '): ' | numbertostring(iYesterdayFileCount) | '.</font><br>';
+            sEmailMessage = sEmailMessage | sYesterdayProcessLogFileList | '<br>';
+        endif;
+
+        if (iTotalFileCount = 0);
+            sEmailMessage = sEmailMessage | '<br>Great job, keep it up!<br>';
+        else;
+            sEmailMessage = sEmailMessage | '<br>On a Live server there should ideally be no such errors so they ought to be investigated.<br>';
+        endif;
+
+
+        sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+        sAttachment = 'X';
+
+        sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+        sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+        sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+
+        # Now call the process that sends the email.
+        if (sAdmin1Email @<> ''); 
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+        if (sAdmin2Email @<> ''); 
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+        endif;
+        if (sAdmin3Email @<> ''); 
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+        endif;
+    endif;
+endif;
+# ##############################################
+#endregion

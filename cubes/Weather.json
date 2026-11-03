@@ -1,0 +1,22 @@
+{
+	"@type":"Cube",
+	"Name":"Weather",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Date')"
+		},
+		{
+			"@id":"Dimensions('Locations')"
+		},
+		{
+			"@id":"Dimensions('Measures - Weather')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"Weather.views/}TI_Process113.json",
+		"Weather.views/}TI_Process48.json",
+		"Weather.views/}TI_Process533.json"
+	]
+}

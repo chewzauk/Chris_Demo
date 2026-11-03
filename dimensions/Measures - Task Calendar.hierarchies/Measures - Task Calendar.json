@@ -1,0 +1,48 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Task Calendar",
+	"Elements":
+	[
+		{
+			"Name":"Day Status",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Task Name 1",
+			"Type":"String"
+		},
+		{
+			"Name":"Task Name 2",
+			"Type":"String"
+		},
+		{
+			"Name":"Task Name 3",
+			"Type":"String"
+		},
+		{
+			"Name":"Task Name 4",
+			"Type":"String"
+		},
+		{
+			"Name":"Task Name 5",
+			"Type":"String"
+		},
+		{
+			"Name":"Date",
+			"Type":"String"
+		},
+		{
+			"Name":"Day of Month Number",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Day of Week Number",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Day Name",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

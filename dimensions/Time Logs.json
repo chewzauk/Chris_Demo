@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Time Logs",
+	"Hierarchies@Code.links":
+	[
+		"Time Logs.hierarchies/Time Logs.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Time Logs')/Hierarchies('Time Logs')"
+	}
+}

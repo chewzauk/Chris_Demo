@@ -1,0 +1,72 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Employee Mapping",
+	"Elements":
+	[
+		{
+			"Name":"Position",
+			"Type":"String"
+		},
+		{
+			"Name":"Team",
+			"Type":"String"
+		},
+		{
+			"Name":"Manager",
+			"Type":"String"
+		},
+		{
+			"Name":"Cost Centre",
+			"Type":"String"
+		},
+		{
+			"Name":"Location",
+			"Type":"String"
+		},
+		{
+			"Name":"Company",
+			"Type":"String"
+		},
+		{
+			"Name":"Grade",
+			"Type":"String"
+		},
+		{
+			"Name":"Employ Start Date",
+			"Type":"String"
+		},
+		{
+			"Name":"Position Start Date",
+			"Type":"String"
+		},
+		{
+			"Name":"Termination Date",
+			"Type":"String"
+		},
+		{
+			"Name":"Base Pay",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Currency",
+			"Type":"String"
+		},
+		{
+			"Name":"Flex Allowance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Target Bonus %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FTE %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Worker Type",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

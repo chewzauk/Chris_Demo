@@ -1,0 +1,60 @@
+#region Prolog
+
+sDimName='Responsibility Centre';
+#DimensionDeleteAllElements( sDimName );
+
+
+#Unwind the dimension we are updating
+iElm = 1;
+ElmCount = DIMSIZ(sDimName);
+WHILE(iElm < ElmCount); 
+    sElm = DIMNM(sDimName,iElm);
+    ChildCount = ELCOMPN(sDimName,sElm);
+    WHILE(ChildCount > 0);
+        sChildElm = ELCOMP(sDimName,sElm,ChildCount);
+        DIMENSIONELEMENTCOMPONENTDELETE(sDimName, sElm, sChildElm );
+        ChildCount = ChildCount - 1;
+    END;
+    iElm = iElm + 1;
+END;
+
+sTotal='All Responsibility Centres';
+DimensionElementInsertDirect( sDimName, '', sTotal, 'C' );
+
+
+#endregion
+#region Metadata
+
+#Insert Elements and Attach to Total
+
+if(DIMIX( sDimName, vRC )=0);
+    DimensionElementInsertDirect( sDimName, '', vRC, 'N' );
+endif;
+
+if(DIMIX( sDimName, vExec_Area )=0);
+    DimensionElementInsertDirect( sDimName, '', vExec_Area, 'C' );
+endif;
+
+DimensionElementComponentAddDirect( sDimName, sTotal, vExec_Area, 1 );
+DimensionElementComponentAddDirect( sDimName,  vExec_Area, vRC, 1 );
+
+
+
+#endregion
+#region Data
+
+#Handle Blank Names
+
+#if(vEmpName @='');
+#    vEmpName='Name Unknown';
+#endif;
+
+#Add Attribute info
+
+AttrPutS( vRName, sDimName, vRC, 'Caption');
+
+
+
+
+
+#endregion

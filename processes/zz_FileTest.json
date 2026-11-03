@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"zz_FileTest",
+	"HasSecurityAccess":false,
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[],
+	"UID": "1790610898000"
+}

@@ -1,0 +1,55 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Parameters - User",
+	"Elements":
+	[
+		{
+			"Name":"Last Login",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Email",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Full Name",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"First Name",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Surname",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Last Seen",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Creation Date",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Active Status",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Email Is Valid",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Comment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Administrator",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Parameters - User.subsets/LEAF.json"
+	]
+}

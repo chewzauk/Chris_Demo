@@ -1,0 +1,75 @@
+{
+	"@type":"NativeView",
+	"Name":"}TI_Process247",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Measures - FX Rates')/Hierarchies('Measures - FX Rates')"
+				},
+				"Expression":"TM1SubsetAll([Measures - FX Rates])"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency - Reporting')/Hierarchies('Currency - Reporting')"
+				},
+				"Expression":"TM1SubsetAll([Currency - Reporting])"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Date')/Hierarchies('Date')/Subsets('}TI_Process614')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Date')/Hierarchies('Date')/Elements('2025-07-24')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Version')/Hierarchies('Version')"
+				},
+				"Expression":"TM1SubsetAll([Version])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Actual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency')/Hierarchies('Currency')"
+				},
+				"Expression":"TM1SubsetAll([Currency])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency')/Hierarchies('Currency')/Elements('TOTAL CURRENCIES')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"",
+	"ViewExtractSkipRuleValues": false
+}

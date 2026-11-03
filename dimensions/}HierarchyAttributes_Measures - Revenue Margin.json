@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"}HierarchyAttributes_Measures - Revenue Margin",
+	"Hierarchies@Code.links":
+	[
+		"}HierarchyAttributes_Measures - Revenue Margin.hierarchies/}HierarchyAttributes_Measures - Revenue Margin.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('}HierarchyAttributes_Measures - Revenue Margin')/Hierarchies('}HierarchyAttributes_Measures - Revenue Margin')"
+	}
+}

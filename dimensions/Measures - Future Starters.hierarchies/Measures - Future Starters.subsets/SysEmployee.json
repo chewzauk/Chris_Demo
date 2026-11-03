@@ -1,0 +1,11 @@
+{
+	"@type":"Subset",
+	"Name":"SysEmployee",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Measures - Future Starters')/Hierarchies('Measures - Future Starters')/Elements('Employee ID')"
+		}
+	]
+}

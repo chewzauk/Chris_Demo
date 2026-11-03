@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Leave Type",
+	"Hierarchies@Code.links":
+	[
+		"Leave Type.hierarchies/Leave Type.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Leave Type')/Hierarchies('Leave Type')"
+	}
+}

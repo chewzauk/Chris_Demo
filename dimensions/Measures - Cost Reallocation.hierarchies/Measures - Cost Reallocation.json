@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Cost Reallocation",
+	"Elements":
+	[
+		{
+			"Name":"Original value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Allocated Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Percentage Split",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

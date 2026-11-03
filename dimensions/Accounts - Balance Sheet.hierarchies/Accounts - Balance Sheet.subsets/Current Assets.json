@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Current Assets",
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL({DISTINCT({DESCENDANTS([Accounts - Balance Sheet].[Accounts - Balance Sheet].[Current Assets])})}, 0)}"
+}

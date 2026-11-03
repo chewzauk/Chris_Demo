@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"Cost Reallocation",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('Measures - Cost Reallocation')"
+		}
+	],
+	"Views@Code.links":[]
+}

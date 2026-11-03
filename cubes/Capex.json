@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Capex",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Project')"
+		},
+		{
+			"@id":"Dimensions('Asset')"
+		},
+		{
+			"@id":"Dimensions('Currency - Reporting')"
+		},
+		{
+			"@id":"Dimensions('Measures - Capex')"
+		}
+	],
+	"Rules@Code.link":"Capex.rules",
+	"Views@Code.links":[]
+}

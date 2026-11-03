@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"System - Maintenance - Update System - Cubes by Dimensions",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Maintenance - Update System - Cubes by Dimensions.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[],
+	"UID": "175086913000073"
+}

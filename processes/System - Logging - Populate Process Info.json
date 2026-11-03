@@ -1,0 +1,89 @@
+{
+	"@type":"Process",
+	"Name":"System - Logging - Populate Process Info",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Logging - Populate Process Info.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pProcess",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pRecordsProcessed",
+			"Prompt":"",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pStartTime",
+			"Prompt":"",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pEndTime",
+			"Prompt":"",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pExecutedBy",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pParametersUsed",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pExecutionStatus",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pUpdatedFrom",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pProcessMessage",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pServerLogFile",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pProcessStage",
+			"Prompt":"Prolog, Metadata, Data, Epilog",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "1753463440000",
+	"VariablesUIData": [],
+	"UIData": "_ParameterConstraints=e30=\f"
+}

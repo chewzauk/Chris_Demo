@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Stock - Drivers",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Measures - Stock Drivers')"
+		}
+	],
+	"Rules@Code.link":"Stock - Drivers.rules",
+	"Views@Code.links":
+	[
+		"Stock - Drivers.views/Default.json"
+	]
+}

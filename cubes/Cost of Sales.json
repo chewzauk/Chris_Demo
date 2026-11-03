@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"Cost of Sales",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Material')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Measures - Cost of Sales')"
+		}
+	],
+	"Views@Code.links":[]
+}

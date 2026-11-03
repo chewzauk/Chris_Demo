@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"Dimension - Time - Update Prior Consolidations",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Dimension - Time - Update Prior Consolidations.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000024"
+}

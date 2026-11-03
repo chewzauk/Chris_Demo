@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"}TI_Process214",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Measures - New Employees')/Hierarchies('Measures - New Employees')/Elements('Salary')"
+		}
+	]
+}

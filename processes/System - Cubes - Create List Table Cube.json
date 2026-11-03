@@ -1,0 +1,33 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Create List Table Cube",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Cubes - Create List Table Cube.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Are you sure you want to Create the import table (data may be lost)",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pListNoElements",
+			"Prompt":"How many elements do you want in the list dimension",
+			"Value":200,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000030"
+}

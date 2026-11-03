@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"All Leaves A-Z",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {ORDER(TM1FILTERBYLEVEL(TM1SUBSETALL([Location].[Location]) , 0) , [Location].[Location].CURRENTMEMBER.PROPERTIES(\"MEMBER_NAME\") , BASC)}"
+}

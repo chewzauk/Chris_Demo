@@ -1,0 +1,55 @@
+{
+	"@type":"Subset",
+	"Name":"Business Dimensions with orphans",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Accounts')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Accounts - Balance Sheet Movements')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Accounts - Gains & Losses')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Accounts - Medium Term Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Accounts - Monthly Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Accounts - Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Accounts - Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Company')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Date')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('FX Rate Type')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Picklist Options')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Role')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('UI Info')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('Users')"
+		},
+		{
+			"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')/Elements('WeekYear')"
+		}
+	]
+}

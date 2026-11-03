@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"}Bedrock.Server.DataDir.ListContents",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"}Bedrock.Server.DataDir.ListContents.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pDataDir",
+			"Prompt":"Data Directory (Leave Blank to use TM1 Settings)",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pDebug",
+			"Prompt":"Debug Mode",
+			"Value":1,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000085"
+}

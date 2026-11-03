@@ -1,0 +1,15 @@
+{
+	"@type":"Process",
+	"Name":"zTest email send",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zTest email send.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[],
+	"UID": "1755698953000",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Travel and Entertainment",
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {EXCEPT(TM1FILTERBYLEVEL(DISTINCT(DESCENDANTS([Accounts - Profit and Loss].[Accounts - Profit and Loss].[Travel & Entertainment])) , 0) , {[Accounts - Profit and Loss].[Accounts - Profit and Loss].[76910],[Accounts - Profit and Loss].[Accounts - Profit and Loss].[76920],[Accounts - Profit and Loss].[Accounts - Profit and Loss].[77910],[Accounts - Profit and Loss].[Accounts - Profit and Loss].[77920]} , ALL)}"
+}

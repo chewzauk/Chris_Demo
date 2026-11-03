@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"Revenue - Product Price and Margin",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Measures - Price and Margin')"
+		}
+	],
+	"Views@Code.links":[]
+}

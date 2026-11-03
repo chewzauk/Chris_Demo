@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Task Number",
+	"Hierarchies@Code.links":
+	[
+		"Task Number.hierarchies/Task Number.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Task Number')/Hierarchies('Task Number')"
+	}
+}

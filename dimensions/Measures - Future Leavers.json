@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Future Leavers",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Future Leavers.hierarchies/Measures - Future Leavers.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Future Leavers')/Hierarchies('Measures - Future Leavers')"
+	}
+}

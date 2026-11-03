@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Sales Planning - Demand",
+	"Elements":
+	[
+		{
+			"Name":"% Boost",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

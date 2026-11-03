@@ -1,0 +1,33 @@
+{
+	"@type":"Cube",
+	"Name":"Balance Sheet",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Currency - Reporting')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('Measures - Balance Sheet')"
+		}
+	],
+	"Rules@Code.link":"Balance Sheet.rules",
+	"Views@Code.links":
+	[
+		"Balance Sheet.views/VZOActuals.json"
+	]
+}

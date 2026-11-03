@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"}HierarchyAttributes_Scenario Layer",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Hierarchies_Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('}HierarchyAttributes_Scenario Layer')"
+		}
+	],
+	"Views@Code.links":[]
+}

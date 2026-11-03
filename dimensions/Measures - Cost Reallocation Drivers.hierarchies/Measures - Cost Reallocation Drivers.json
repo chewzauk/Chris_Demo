@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Cost Reallocation Drivers",
+	"Elements":
+	[
+		{
+			"Name":"Headcount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Revenue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Floor Area",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"}TI_Process299",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Date')/Hierarchies('Date')/Elements('2025-07-26')"
+		}
+	]
+}

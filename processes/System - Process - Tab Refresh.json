@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"System - Process - Tab Refresh",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Process - Tab Refresh.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[],
+	"UID": "175086913000075"
+}

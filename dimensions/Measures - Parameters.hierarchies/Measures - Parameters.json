@@ -1,0 +1,19 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Parameters",
+	"Elements":
+	[
+		{
+			"Name":"String",
+			"Type":"String"
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - Parameters.subsets/LEAF.json"
+	]
+}

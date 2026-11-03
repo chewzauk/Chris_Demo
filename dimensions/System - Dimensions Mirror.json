@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"System - Dimensions Mirror",
+	"Hierarchies@Code.links":
+	[
+		"System - Dimensions Mirror.hierarchies/System - Dimensions Mirror.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('System - Dimensions Mirror')/Hierarchies('System - Dimensions Mirror')"
+	}
+}

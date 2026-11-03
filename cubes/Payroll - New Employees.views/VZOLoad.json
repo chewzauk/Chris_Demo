@@ -1,0 +1,39 @@
+{
+	"@type":"NativeView",
+	"Name":"VZOLoad",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Measures - New Employees')/Hierarchies('Measures - New Employees')/Subsets('LEAF')"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('List')/Hierarchies('List')/Subsets('Sys Leaf')"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('}Clients')/Hierarchies('}Clients')/Subsets('}TI_Process987')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('}Clients')/Hierarchies('}Clients')/Elements('shane.james@sempreanalytics.com')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"",
+	"ViewExtractSkipRuleValues": false
+}

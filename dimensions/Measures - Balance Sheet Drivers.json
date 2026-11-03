@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Balance Sheet Drivers",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Balance Sheet Drivers.hierarchies/Measures - Balance Sheet Drivers.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Balance Sheet Drivers')/Hierarchies('Measures - Balance Sheet Drivers')"
+	}
+}

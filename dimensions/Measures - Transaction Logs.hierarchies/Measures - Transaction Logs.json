@@ -1,0 +1,99 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Transaction Logs",
+	"Elements":
+	[
+		{
+			"Name":"Reverse Flag",
+			"Type":"String"
+		},
+		{
+			"Name":"New String",
+			"Type":"String"
+		},
+		{
+			"Name":"Old String",
+			"Type":"String"
+		},
+		{
+			"Name":"New Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Old Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Measures - Transaction Logs",
+			"Type":"String"
+		},
+		{
+			"Name":"Time Logs",
+			"Type":"String"
+		},
+		{
+			"Name":"List Logs",
+			"Type":"String"
+		},
+		{
+			"Name":"Users",
+			"Type":"String"
+		},
+		{
+			"Name":"Time Processes",
+			"Type":"String"
+		},
+		{
+			"Name":"Picklist Options",
+			"Type":"String"
+		},
+		{
+			"Name":"Parameters - User",
+			"Type":"String"
+		},
+		{
+			"Name":"Parameters - System",
+			"Type":"String"
+		},
+		{
+			"Name":"Parameters - Model",
+			"Type":"String"
+		},
+		{
+			"Name":"Measures - Process Info",
+			"Type":"String"
+		},
+		{
+			"Name":"Measures - Parameters",
+			"Type":"String"
+		},
+		{
+			"Name":"Measures - List Table",
+			"Type":"String"
+		},
+		{
+			"Name":"Measures - Documentation",
+			"Type":"String"
+		},
+		{
+			"Name":"List",
+			"Type":"String"
+		},
+		{
+			"Name":"Documentation - Rules",
+			"Type":"String"
+		},
+		{
+			"Name":"Documentation - Rule List",
+			"Type":"String"
+		},
+		{
+			"Name":"Documentation",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Measures - Transaction Logs.subsets/LEAF.json"
+	]
+}

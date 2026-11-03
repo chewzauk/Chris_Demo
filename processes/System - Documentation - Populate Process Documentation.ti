@@ -1,0 +1,25 @@
+#region Prolog
+
+
+sCube = 'System - Documentation - Model';
+
+If(DIMIX('Documentation' , 'Process: '|pProcess) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+
+
+#endregion
+#region Epilog
+
+If(CubeExists( sCube ) > 0);
+    CellPutS( pDescription, sCube, 'Process: '|pProcess, 'Description' );
+    CellPutS( pSource, sCube, 'Process: '|pProcess, 'Process Source' );
+    CellPutS( pTarget, sCube, 'Process: '|pProcess, 'Process Target' );
+    CellPutS( pSourceType, sCube, 'Process: '|pProcess, 'Process Source Type' );
+    CellPutS( pTargetType, sCube, 'Process: '|pProcess, 'Process Target Type' );
+    CellPutS( pDeveloper, sCube, 'Process: '|pProcess, 'Developer' );
+Endif;
+
+
+
+#endregion

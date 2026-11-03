@@ -1,0 +1,26 @@
+{
+	"@type":"MDXView",
+	"Name":"PY Rule View",
+	"MDX@Code.link":"PY Rule View.mdx",
+	"Meta": {
+		"Aliases": {},
+		"ExpandAboves": {
+			"[Measures - Revenue Volume].[Measures - Revenue Volume]": false,
+			"[Customer].[Customer]": false,
+			"[PeriodYear].[PeriodYear]": false,
+			"[Version].[Version]": false,
+			"[Product].[Product]": false
+		},
+		"ContextSets": {
+			"[Customer].[Customer]": {
+				"Expression": "{[Customer].[Customer].MEMBERS}"
+			}
+		}
+	},
+	"ViewExtractSkipRuleValues": false,
+	"ViewExtractSkipConsolidatedValues": true,
+	"ViewExtractSkipZeroes": true,
+	"IsSuppressComputeOnOpen": false,
+	"IsAutocalculate": true,
+	"IsDeferComputeOnLeafDataEntry": false
+}

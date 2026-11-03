@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"System - Documentation - Update System Documentation",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Documentation - Update System Documentation.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pAddDeveloperInfo",
+			"Prompt":"",
+			"Value":"Sempre Analytics: Shane James",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000055"
+}

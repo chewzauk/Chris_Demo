@@ -1,0 +1,15 @@
+{
+	"@type":"Cube",
+	"Name":"System - Parameters - Model",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Parameters - Model')"
+		},
+		{
+			"@id":"Dimensions('Measures - Parameters')"
+		}
+	],
+	"Rules@Code.link":"System - Parameters - Model.rules",
+	"Views@Code.links":[]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Demand Tasks - Promos",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Demand Tasks - Promos.hierarchies/Measures - Demand Tasks - Promos.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Demand Tasks - Promos')/Hierarchies('Measures - Demand Tasks - Promos')"
+	}
+}

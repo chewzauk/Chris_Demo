@@ -1,0 +1,94 @@
+#region Prolog
+
+sDimName='Employee';
+#DimensionDeleteAllElements( sDimName );
+
+
+#Unwind the dimension we are updating
+iElm = 1;
+ElmCount = DIMSIZ(sDimName);
+WHILE(iElm < ElmCount); 
+    sElm = DIMNM(sDimName,iElm);
+    ChildCount = ELCOMPN(sDimName,sElm);
+    WHILE(ChildCount > 0);
+        sChildElm = ELCOMP(sDimName,sElm,ChildCount);
+        DIMENSIONELEMENTCOMPONENTDELETE(sDimName, sElm, sChildElm );
+        ChildCount = ChildCount - 1;
+    END;
+    iElm = iElm + 1;
+END;
+
+sTotal='All Employees';
+DimensionElementInsertDirect( sDimName, '', sTotal, 'C' );
+
+
+#endregion
+#region Metadata
+
+#Insert Elements and Attach to Total
+
+if(DIMIX( sDimName, vEmpID )=0);
+    DimensionElementInsertDirect( sDimName, '', vEmpID, 'N' );
+endif;
+    
+
+DimensionElementComponentAddDirect( sDimName, sTotal, vEmpID, 1 );
+
+
+
+#endregion
+#region Data
+
+#Handle Blank Names
+
+#if(vEmpName @='');
+#    vEmpName='Name Unknown';
+#endif;
+
+#Add Attribute info
+
+IF(TRIM(vEmpName) @<>'');
+    AttrPutS( vEmpName|' - '|vEmpID, sDimName, vEmpID, 'Employee Name');
+endif;
+
+IF(TRIM(vCurrency) @<>'');
+    AttrPutS( vCurrency, sDimName, vEmpID, 'Currency');
+endif;
+
+IF(TRIM(vCompany) @<>'');
+    AttrPutS( vCompany, sDimName, vEmpID, 'Company');
+endif;
+
+IF(TRIM(vCurrentWorkerTitle) @<>'');
+    AttrPutS( vCurrentWorkerTitle, sDimName, vEmpID, 'Current Worker Title');
+endif;
+
+IF(TRIM(vTeam) @<>'');
+    AttrPutS( vTeam, sDimName, vEmpID, 'Team');
+endif;
+
+IF(TRIM(vManager) @<>'');
+    AttrPutS( vManager, sDimName, vEmpID, 'Manager');
+endif;
+
+IF(TRIM(vWorkerType) @<>'');
+    AttrPutS( vWorkerType, sDimName, vEmpID, 'Worker Type');
+endif;
+
+IF(TRIM(vCareerLevel) @<>'');
+    AttrPutS( vCareerLevel, sDimName, vEmpID, 'Career Level');
+endif;
+
+IF(TRIM(vCostCentre) @<>'');
+    AttrPutS( vCostCentre, sDimName, vEmpID, 'Cost Centre');
+endif;
+
+IF(TRIM(vLocation) @<>'');
+    AttrPutS( vLocation, sDimName, vEmpID, 'Location');
+endif;
+
+
+
+
+
+#endregion

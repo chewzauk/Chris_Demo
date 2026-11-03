@@ -1,0 +1,3613 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Version",
+	"Elements":
+	[
+		{
+			"Name":"Actual",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Actual PY",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Live Plan",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget 2025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6+6 2025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3+9 2025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Target",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AI Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AI Upper",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AI Lower",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"All Versions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"All Var Versions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"All Var % Versions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-AI Lower Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-AI Lower Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-AI Upper Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-AI Upper Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-AI Forecast Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-AI Forecast Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-Target Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-Target Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-3+9 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-3+9 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-6+6 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-6+6 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-Budget 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-Budget 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-Live Plan Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-Live Plan Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-Actual PY Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual-Actual PY Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-AI Lower Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-AI Lower Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-AI Upper Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-AI Upper Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-AI Forecast Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-AI Forecast Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-Target Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-Target Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-3+9 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-3+9 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-6+6 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-6+6 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-Budget 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-Budget 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-Live Plan Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-Live Plan Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-Actual Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Actual PY-Actual Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-AI Lower Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-AI Lower Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-AI Upper Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-AI Upper Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-AI Forecast Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-AI Forecast Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-Target Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-Target Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-3+9 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-3+9 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-6+6 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-6+6 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-Budget 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-Budget 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-Actual PY Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-Actual PY Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-Actual Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Live Plan-Actual Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-AI Lower Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-AI Lower Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-AI Upper Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-AI Upper Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-AI Forecast Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-AI Forecast Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-Target Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-Target Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-3+9 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-3+9 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-6+6 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-6+6 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-Live Plan Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-Live Plan Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-Actual PY Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-Actual PY Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-Actual Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Budget 2025-Actual Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-AI Lower Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-AI Lower Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-AI Upper Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-AI Upper Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-AI Forecast Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-AI Forecast Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-Target Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-Target Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-3+9 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-3+9 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-Budget 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-Budget 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-Live Plan Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-Live Plan Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-Actual PY Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-Actual PY Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-Actual Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2025-Actual Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-AI Lower Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-AI Lower Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-AI Upper Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-AI Upper Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-AI Forecast Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-AI Forecast Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-Target Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-Target Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-6+6 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-6+6 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-Budget 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-Budget 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-Live Plan Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-Live Plan Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-Actual PY Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-Actual PY Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-Actual Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3+9 2025-Actual Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-AI Lower Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-AI Lower Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-AI Upper Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-AI Upper Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-AI Forecast Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-AI Forecast Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-3+9 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-3+9 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-6+6 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-6+6 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-Budget 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-Budget 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-Live Plan Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-Live Plan Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-Actual PY Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-Actual PY Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-Actual Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Target-Actual Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-AI Lower Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-AI Lower Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-AI Upper Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-AI Upper Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-Target Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-Target Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-3+9 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-3+9 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-6+6 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-6+6 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-Budget 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-Budget 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-Live Plan Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-Live Plan Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-Actual PY Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-Actual PY Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-Actual Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Forecast-Actual Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-AI Lower Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-AI Lower Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-AI Forecast Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-AI Forecast Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-Target Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-Target Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-3+9 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-3+9 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-6+6 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-6+6 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-Budget 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-Budget 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-Live Plan Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-Live Plan Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-Actual PY Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-Actual PY Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-Actual Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Upper-Actual Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-AI Upper Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-AI Upper Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-AI Forecast Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-AI Forecast Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-Target Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-Target Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-3+9 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-3+9 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-6+6 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-6+6 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-Budget 2025 Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-Budget 2025 Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-Live Plan Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-Live Plan Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-Actual PY Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-Actual PY Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-Actual Var",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"AI Lower-Actual Var%",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"6+6 2026",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3+9 2026",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget 2026",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget 2027",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"6+6 2027",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3+9 2027",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"9+3 2027",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"Budget 2026",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"6+6 2026",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"3+9 2026",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"Budget 2027",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"6+6 2027",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"3+9 2027",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"9+3 2027",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Versions",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual-AI Lower Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual-AI Upper Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual-AI Forecast Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual-Target Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual-3+9 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual-6+6 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual-Budget 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual-Live Plan Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual-Actual PY Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual PY-AI Lower Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual PY-AI Upper Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual PY-AI Forecast Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual PY-Target Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual PY-3+9 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual PY-6+6 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual PY-Budget 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual PY-Live Plan Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Actual PY-Actual Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Live Plan-AI Lower Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Live Plan-AI Upper Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Live Plan-AI Forecast Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Live Plan-Target Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Live Plan-3+9 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Live Plan-6+6 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Live Plan-Budget 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Live Plan-Actual PY Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Live Plan-Actual Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Budget 2025-AI Lower Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Budget 2025-AI Upper Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Budget 2025-AI Forecast Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Budget 2025-Target Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Budget 2025-3+9 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Budget 2025-6+6 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Budget 2025-Live Plan Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Budget 2025-Actual PY Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Budget 2025-Actual Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"6+6 2025-AI Lower Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"6+6 2025-AI Upper Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"6+6 2025-AI Forecast Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"6+6 2025-Target Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"6+6 2025-3+9 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"6+6 2025-Budget 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"6+6 2025-Live Plan Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"6+6 2025-Actual PY Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"6+6 2025-Actual Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"3+9 2025-AI Lower Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"3+9 2025-AI Upper Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"3+9 2025-AI Forecast Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"3+9 2025-Target Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"3+9 2025-6+6 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"3+9 2025-Budget 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"3+9 2025-Live Plan Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"3+9 2025-Actual PY Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"3+9 2025-Actual Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Target-AI Lower Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Target-AI Upper Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Target-AI Forecast Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Target-3+9 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Target-6+6 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Target-Budget 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Target-Live Plan Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Target-Actual PY Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"Target-Actual Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Forecast-AI Lower Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Forecast-AI Upper Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Forecast-Target Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Forecast-3+9 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Forecast-6+6 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Forecast-Budget 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Forecast-Live Plan Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Forecast-Actual PY Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Forecast-Actual Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Upper-AI Lower Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Upper-AI Forecast Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Upper-Target Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Upper-3+9 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Upper-6+6 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Upper-Budget 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Upper-Live Plan Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Upper-Actual PY Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Upper-Actual Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Lower-AI Upper Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Lower-AI Forecast Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Lower-Target Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Lower-3+9 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Lower-6+6 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Lower-Budget 2025 Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Lower-Live Plan Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Lower-Actual PY Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var Versions",
+			"ComponentName":"AI Lower-Actual Var",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual-AI Lower Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual-AI Upper Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual-AI Forecast Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual-Target Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual-3+9 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual-6+6 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual-Budget 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual-Live Plan Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual-Actual PY Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual PY-AI Lower Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual PY-AI Upper Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual PY-AI Forecast Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual PY-Target Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual PY-3+9 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual PY-6+6 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual PY-Budget 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual PY-Live Plan Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Actual PY-Actual Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Live Plan-AI Lower Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Live Plan-AI Upper Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Live Plan-AI Forecast Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Live Plan-Target Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Live Plan-3+9 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Live Plan-6+6 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Live Plan-Budget 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Live Plan-Actual PY Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Live Plan-Actual Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Budget 2025-AI Lower Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Budget 2025-AI Upper Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Budget 2025-AI Forecast Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Budget 2025-Target Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Budget 2025-3+9 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Budget 2025-6+6 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Budget 2025-Live Plan Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Budget 2025-Actual PY Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Budget 2025-Actual Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"6+6 2025-AI Lower Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"6+6 2025-AI Upper Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"6+6 2025-AI Forecast Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"6+6 2025-Target Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"6+6 2025-3+9 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"6+6 2025-Budget 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"6+6 2025-Live Plan Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"6+6 2025-Actual PY Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"6+6 2025-Actual Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"3+9 2025-AI Lower Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"3+9 2025-AI Upper Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"3+9 2025-AI Forecast Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"3+9 2025-Target Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"3+9 2025-6+6 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"3+9 2025-Budget 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"3+9 2025-Live Plan Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"3+9 2025-Actual PY Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"3+9 2025-Actual Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Target-AI Lower Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Target-AI Upper Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Target-AI Forecast Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Target-3+9 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Target-6+6 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Target-Budget 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Target-Live Plan Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Target-Actual PY Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"Target-Actual Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Forecast-AI Lower Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Forecast-AI Upper Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Forecast-Target Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Forecast-3+9 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Forecast-6+6 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Forecast-Budget 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Forecast-Live Plan Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Forecast-Actual PY Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Forecast-Actual Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Upper-AI Lower Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Upper-AI Forecast Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Upper-Target Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Upper-3+9 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Upper-6+6 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Upper-Budget 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Upper-Live Plan Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Upper-Actual PY Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Upper-Actual Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Lower-AI Upper Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Lower-AI Forecast Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Lower-Target Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Lower-3+9 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Lower-6+6 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Lower-Budget 2025 Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Lower-Live Plan Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Lower-Actual PY Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"All Var % Versions",
+			"ComponentName":"AI Lower-Actual Var%",
+			"Weight":0
+		},
+		{
+			"ParentName":"Actual-AI Lower Var",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-AI Lower Var",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-AI Lower Var%",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-AI Lower Var%",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-AI Upper Var",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-AI Upper Var",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-AI Upper Var%",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-AI Upper Var%",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-AI Forecast Var",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-AI Forecast Var",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-AI Forecast Var%",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-AI Forecast Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-Target Var",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-Target Var",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-Target Var%",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-Target Var%",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-3+9 2025 Var",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-3+9 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-3+9 2025 Var%",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-3+9 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-6+6 2025 Var",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-6+6 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-6+6 2025 Var%",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-6+6 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-Budget 2025 Var",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-Budget 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-Budget 2025 Var%",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-Budget 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-Live Plan Var",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-Live Plan Var",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-Live Plan Var%",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-Live Plan Var%",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-Actual PY Var",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-Actual PY Var",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual-Actual PY Var%",
+			"ComponentName":"Actual",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual-Actual PY Var%",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-AI Lower Var",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-AI Lower Var",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-AI Lower Var%",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-AI Lower Var%",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-AI Upper Var",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-AI Upper Var",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-AI Upper Var%",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-AI Upper Var%",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-AI Forecast Var",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-AI Forecast Var",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-AI Forecast Var%",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-AI Forecast Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-Target Var",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-Target Var",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-Target Var%",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-Target Var%",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-3+9 2025 Var",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-3+9 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-3+9 2025 Var%",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-3+9 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-6+6 2025 Var",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-6+6 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-6+6 2025 Var%",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-6+6 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-Budget 2025 Var",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-Budget 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-Budget 2025 Var%",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-Budget 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-Live Plan Var",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-Live Plan Var",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-Live Plan Var%",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-Live Plan Var%",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-Actual Var",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-Actual Var",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Actual PY-Actual Var%",
+			"ComponentName":"Actual PY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual PY-Actual Var%",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-AI Lower Var",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-AI Lower Var",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-AI Lower Var%",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-AI Lower Var%",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-AI Upper Var",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-AI Upper Var",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-AI Upper Var%",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-AI Upper Var%",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-AI Forecast Var",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-AI Forecast Var",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-AI Forecast Var%",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-AI Forecast Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-Target Var",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-Target Var",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-Target Var%",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-Target Var%",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-3+9 2025 Var",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-3+9 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-3+9 2025 Var%",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-3+9 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-6+6 2025 Var",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-6+6 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-6+6 2025 Var%",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-6+6 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-Budget 2025 Var",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-Budget 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-Budget 2025 Var%",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-Budget 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-Actual PY Var",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-Actual PY Var",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-Actual PY Var%",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-Actual PY Var%",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-Actual Var",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-Actual Var",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Live Plan-Actual Var%",
+			"ComponentName":"Live Plan",
+			"Weight":1
+		},
+		{
+			"ParentName":"Live Plan-Actual Var%",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-AI Lower Var",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-AI Lower Var",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-AI Lower Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-AI Lower Var%",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-AI Upper Var",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-AI Upper Var",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-AI Upper Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-AI Upper Var%",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-AI Forecast Var",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-AI Forecast Var",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-AI Forecast Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-AI Forecast Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-Target Var",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-Target Var",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-Target Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-Target Var%",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-3+9 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-3+9 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-3+9 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-3+9 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-6+6 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-6+6 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-6+6 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-6+6 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-Live Plan Var",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-Live Plan Var",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-Live Plan Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-Live Plan Var%",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-Actual PY Var",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-Actual PY Var",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-Actual PY Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-Actual PY Var%",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-Actual Var",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-Actual Var",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Budget 2025-Actual Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Budget 2025-Actual Var%",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-AI Lower Var",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-AI Lower Var",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-AI Lower Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-AI Lower Var%",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-AI Upper Var",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-AI Upper Var",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-AI Upper Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-AI Upper Var%",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-AI Forecast Var",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-AI Forecast Var",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-AI Forecast Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-AI Forecast Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-Target Var",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-Target Var",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-Target Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-Target Var%",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-3+9 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-3+9 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-3+9 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-3+9 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-Budget 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-Budget 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-Budget 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-Budget 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-Live Plan Var",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-Live Plan Var",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-Live Plan Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-Live Plan Var%",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-Actual PY Var",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-Actual PY Var",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-Actual PY Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-Actual PY Var%",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-Actual Var",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-Actual Var",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"6+6 2025-Actual Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"6+6 2025-Actual Var%",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-AI Lower Var",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-AI Lower Var",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-AI Lower Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-AI Lower Var%",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-AI Upper Var",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-AI Upper Var",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-AI Upper Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-AI Upper Var%",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-AI Forecast Var",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-AI Forecast Var",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-AI Forecast Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-AI Forecast Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-Target Var",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-Target Var",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-Target Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-Target Var%",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-6+6 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-6+6 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-6+6 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-6+6 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-Budget 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-Budget 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-Budget 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-Budget 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-Live Plan Var",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-Live Plan Var",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-Live Plan Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-Live Plan Var%",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-Actual PY Var",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-Actual PY Var",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-Actual PY Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-Actual PY Var%",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-Actual Var",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-Actual Var",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"3+9 2025-Actual Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":1
+		},
+		{
+			"ParentName":"3+9 2025-Actual Var%",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-AI Lower Var",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-AI Lower Var",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-AI Lower Var%",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-AI Lower Var%",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-AI Upper Var",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-AI Upper Var",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-AI Upper Var%",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-AI Upper Var%",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-AI Forecast Var",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-AI Forecast Var",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-AI Forecast Var%",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-AI Forecast Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-3+9 2025 Var",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-3+9 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-3+9 2025 Var%",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-3+9 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-6+6 2025 Var",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-6+6 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-6+6 2025 Var%",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-6+6 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-Budget 2025 Var",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-Budget 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-Budget 2025 Var%",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-Budget 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-Live Plan Var",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-Live Plan Var",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-Live Plan Var%",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-Live Plan Var%",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-Actual PY Var",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-Actual PY Var",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-Actual PY Var%",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-Actual PY Var%",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-Actual Var",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-Actual Var",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Target-Actual Var%",
+			"ComponentName":"Target",
+			"Weight":1
+		},
+		{
+			"ParentName":"Target-Actual Var%",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-AI Lower Var",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-AI Lower Var",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-AI Lower Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-AI Lower Var%",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-AI Upper Var",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-AI Upper Var",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-AI Upper Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-AI Upper Var%",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-Target Var",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-Target Var",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-Target Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-Target Var%",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-3+9 2025 Var",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-3+9 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-3+9 2025 Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-3+9 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-6+6 2025 Var",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-6+6 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-6+6 2025 Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-6+6 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-Budget 2025 Var",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-Budget 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-Budget 2025 Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-Budget 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-Live Plan Var",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-Live Plan Var",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-Live Plan Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-Live Plan Var%",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-Actual PY Var",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-Actual PY Var",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-Actual PY Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-Actual PY Var%",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-Actual Var",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-Actual Var",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Forecast-Actual Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Forecast-Actual Var%",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-AI Lower Var",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-AI Lower Var",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-AI Lower Var%",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-AI Lower Var%",
+			"ComponentName":"AI Lower",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-AI Forecast Var",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-AI Forecast Var",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-AI Forecast Var%",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-AI Forecast Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-Target Var",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-Target Var",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-Target Var%",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-Target Var%",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-3+9 2025 Var",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-3+9 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-3+9 2025 Var%",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-3+9 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-6+6 2025 Var",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-6+6 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-6+6 2025 Var%",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-6+6 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-Budget 2025 Var",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-Budget 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-Budget 2025 Var%",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-Budget 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-Live Plan Var",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-Live Plan Var",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-Live Plan Var%",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-Live Plan Var%",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-Actual PY Var",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-Actual PY Var",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-Actual PY Var%",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-Actual PY Var%",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-Actual Var",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-Actual Var",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Upper-Actual Var%",
+			"ComponentName":"AI Upper",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Upper-Actual Var%",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-AI Upper Var",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-AI Upper Var",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-AI Upper Var%",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-AI Upper Var%",
+			"ComponentName":"AI Upper",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-AI Forecast Var",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-AI Forecast Var",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-AI Forecast Var%",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-AI Forecast Var%",
+			"ComponentName":"AI Forecast",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-Target Var",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-Target Var",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-Target Var%",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-Target Var%",
+			"ComponentName":"Target",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-3+9 2025 Var",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-3+9 2025 Var",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-3+9 2025 Var%",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-3+9 2025 Var%",
+			"ComponentName":"3+9 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-6+6 2025 Var",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-6+6 2025 Var",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-6+6 2025 Var%",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-6+6 2025 Var%",
+			"ComponentName":"6+6 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-Budget 2025 Var",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-Budget 2025 Var",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-Budget 2025 Var%",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-Budget 2025 Var%",
+			"ComponentName":"Budget 2025",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-Live Plan Var",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-Live Plan Var",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-Live Plan Var%",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-Live Plan Var%",
+			"ComponentName":"Live Plan",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-Actual PY Var",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-Actual PY Var",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-Actual PY Var%",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-Actual PY Var%",
+			"ComponentName":"Actual PY",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-Actual Var",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-Actual Var",
+			"ComponentName":"Actual",
+			"Weight":-1
+		},
+		{
+			"ParentName":"AI Lower-Actual Var%",
+			"ComponentName":"AI Lower",
+			"Weight":1
+		},
+		{
+			"ParentName":"AI Lower-Actual Var%",
+			"ComponentName":"Actual",
+			"Weight":-1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Version.subsets/LEAF.json",
+		"Version.subsets/VZOActual.json",
+		"Version.subsets/VZOLivePlan.json",
+		"Version.subsets/}TI_Process184.json",
+		"Version.subsets/}TI_Process332.json",
+		"Version.subsets/}TI_Process345.json",
+		"Version.subsets/}TI_Process398.json",
+		"Version.subsets/}TI_Process44.json",
+		"Version.subsets/}TI_Process519.json",
+		"Version.subsets/}TI_Process537.json",
+		"Version.subsets/}TI_Process65.json",
+		"Version.subsets/}TI_Process653.json",
+		"Version.subsets/}TI_Process739.json",
+		"Version.subsets/}TI_Process744.json",
+		"Version.subsets/}TI_Process847.json"
+	]
+}

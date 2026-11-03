@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"Balance Sheet - Drivers",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('Measures - Balance Sheet Drivers')"
+		}
+	],
+	"Views@Code.links":[]
+}

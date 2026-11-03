@@ -1,0 +1,37 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta": {
+		"Aliases": {
+			"[PeriodYear].[PeriodYear]": "Short Name"
+		},
+		"ExpandAboves": {
+			"[Accounts].[Accounts]": false,
+			"[Currency - Reporting].[Currency - Reporting]": false,
+			"[Measures - Reporting].[Measures - Reporting]": false,
+			"[Scenario Layer].[Scenario Layer]": false,
+			"[Company].[Company]": false,
+			"[Version].[Version]": false,
+			"[PeriodYear].[PeriodYear]": true
+		},
+		"ContextSets": {
+			"[Currency - Reporting].[Currency - Reporting]": {
+				"Expression": "{[Currency - Reporting].[Currency - Reporting].MEMBERS}"
+			},
+			"[Measures - Reporting].[Measures - Reporting]": {
+				"Expression": "{[Measures - Reporting].[Measures - Reporting].MEMBERS}"
+			},
+			"[Scenario Layer].[Scenario Layer]": {
+				"Expression": "{[Scenario Layer].[Scenario Layer].MEMBERS}"
+			},
+			"[Version].[Version]": {
+				"Expression": "{[Version].[Version].MEMBERS}"
+			},
+			"[PeriodYear].[PeriodYear]": {
+				"SubsetName": "Current Year",
+				"IsPublic": true
+			}
+		}
+	}
+}

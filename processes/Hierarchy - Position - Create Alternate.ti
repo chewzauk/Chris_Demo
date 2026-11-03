@@ -1,0 +1,226 @@
+#region Prolog
+
+sDim='Position';
+sSrcView=GetProcessName();
+
+#Create Subset
+
+
+H1='Team';
+H2='Manager';
+H3='Cost Centre';
+H4='Location';
+H5='Company';
+H6='Position Worker Type';
+H7='Worker Type';
+H8='Position Status';
+H9='Grade';
+
+HierarchyDestroy(sDim, 'By '|H1);
+HierarchyDestroy(sDim, 'By '|H2);
+HierarchyDestroy(sDim, 'By '|H3);
+HierarchyDestroy(sDim, 'By '|H4);
+HierarchyDestroy(sDim, 'By '|H5);
+HierarchyDestroy(sDim, 'By '|H6);
+HierarchyDestroy(sDim, 'By '|H7);
+HierarchyDestroy(sDim, 'By '|H8);
+HierarchyDestroy(sDim, 'By '|H9);
+
+#Check if Hierarchy Exists, create if not
+
+if(HierarchyExists( sDim, 'By '|H1 )=0);
+    HierarchyCreate( sDim, 'By '|H1 );
+endif;
+
+if(HierarchyExists( sDim, 'By '|H2 )=0);
+    HierarchyCreate( sDim, 'By '|H2 );
+endif;
+
+if(HierarchyExists( sDim, 'By '|H3 )=0);
+    HierarchyCreate( sDim, 'By '|H3 );
+endif;
+
+if(HierarchyExists( sDim, 'By '|H4 )=0);
+    HierarchyCreate( sDim, 'By '|H4 );
+endif;
+
+if(HierarchyExists( sDim, 'By '|H5 )=0);
+    HierarchyCreate( sDim, 'By '|H5 );
+endif;
+
+if(HierarchyExists( sDim, 'By '|H6 )=0);
+    HierarchyCreate( sDim, 'By '|H6 );
+endif;
+
+if(HierarchyExists( sDim, 'By '|H7)=0);
+    HierarchyCreate( sDim, 'By '|H7 );
+endif;
+
+if(HierarchyExists( sDim, 'By '|H8)=0);
+    HierarchyCreate( sDim, 'By '|H8 );
+endif;
+
+if(HierarchyExists( sDim, 'By '|H9)=0);
+    HierarchyCreate( sDim, 'By '|H9 );
+endif;
+
+#Unwind hierarchy to recreate
+
+
+ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H1 );
+ ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H2 );
+ ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H3 );
+ ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H4 );
+ ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H5 );
+ ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H6 );
+ ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H7 );
+ ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H8 );
+ ExecuteProcess( '}bedrock.hier.unwind', 'pDim', sDim, 'pRecursive', 1, 'pHier', 'By '|H9 );
+
+
+
+
+#endregion
+#region Metadata
+
+
+#H1
+
+sHParent=ATTRS( sDim, vEL, H1 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H1;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H1, '', 'Total by '|H1, 'C' );
+HierarchyElementInsert( sDim, 'By '|H1, '', sHParent, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H1, 'Total by '|H1, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H1, sHParent,  vEl, 1 );
+
+
+#H2
+
+sHParent=ATTRS( sDim, vEL, H2 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H2;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H2, '', 'Total by '|H2, 'C' );
+HierarchyElementInsert( sDim, 'By '|H2, '', sHParent, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H2, 'Total by '|H2, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H2, sHParent,  vEl, 1 );
+
+
+#H3
+
+sHParent=ATTRS( sDim, vEL, H3 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H3;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H3, '', 'Total by '|H3, 'C' );
+HierarchyElementInsert( sDim, 'By '|H3, '', sHParent, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H3, 'Total by '|H3, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H3, sHParent,  vEl, 1 );
+
+
+#H4
+
+sHParent=ATTRS( sDim, vEL, H4 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H4;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H4, '', 'Total by '|H4, 'C' );
+HierarchyElementInsert( sDim, 'By '|H4, '', sHParent, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H4, 'Total by '|H4, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H4, sHParent,  vEl, 1 );
+
+#H5
+
+sHParent=ATTRS( sDim, vEL, H5 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H5;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H5, '', 'Total by '|H5, 'C' );
+HierarchyElementInsert( sDim, 'By '|H5, '', sHParent, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H5, 'Total by '|H5, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H5, sHParent,  vEl, 1 );
+
+#H6
+
+sHParent=ATTRS( sDim, vEL, H6 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H6;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H6, '', 'Total by '|H6, 'C' );
+HierarchyElementInsert( sDim, 'By '|H6, '', sHParent, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H6, 'Total by '|H6, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H6, sHParent,  vEl, 1 );
+
+
+#H7
+
+sHParent=ATTRS( sDim, vEL, H7 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H7;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H7, '', 'Total by '|H7, 'C' );
+HierarchyElementInsert( sDim, 'By '|H7, '', sHParent, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H7, 'Total by '|H7, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H7, sHParent,  vEl, 1 );
+
+
+#H8
+
+sHParent=ATTRS( sDim, vEL, H8 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H8;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H8, '', 'Total by '|H8, 'C' );
+HierarchyElementInsert( sDim, 'By '|H8, '', sHParent, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H8, 'Total by '|H8, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H8, sHParent,  vEl, 1 );
+
+#H9
+
+sHParent=ATTRS( sDim, vEL, H9 );
+
+if(sHParent @='');
+    sHParent='Unknown '|H9;
+endif;
+
+
+HierarchyElementInsert( sDim, 'By '|H9, '', 'Total by '|H9, 'C' );
+HierarchyElementInsert( sDim, 'By '|H9, '', H9, 'C' );
+
+HierarchyElementComponentAdd( sDim, 'By '|H9, 'Total by '|H9, sHParent, 1 );
+HierarchyElementComponentAdd( sDim, 'By '|H9, sHParent,  vEl, 1 );
+#endregion

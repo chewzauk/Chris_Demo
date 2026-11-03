@@ -1,0 +1,35 @@
+{
+	"@type":"Cube",
+	"Name":"Payroll - New Employees",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Clients')"
+		},
+		{
+			"@id":"Dimensions('List')"
+		},
+		{
+			"@id":"Dimensions('Measures - New Employees')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"Payroll - New Employees.views/VZOData.json",
+		"Payroll - New Employees.views/VZOLoad.json",
+		"Payroll - New Employees.views/}TI_Process255.json",
+		"Payroll - New Employees.views/}TI_Process272.json",
+		"Payroll - New Employees.views/}TI_Process369.json",
+		"Payroll - New Employees.views/}TI_Process372.json",
+		"Payroll - New Employees.views/}TI_Process394.json",
+		"Payroll - New Employees.views/}TI_Process493.json",
+		"Payroll - New Employees.views/}TI_Process508.json",
+		"Payroll - New Employees.views/}TI_Process572.json",
+		"Payroll - New Employees.views/}TI_Process585.json",
+		"Payroll - New Employees.views/}TI_Process612.json",
+		"Payroll - New Employees.views/}TI_Process731.json",
+		"Payroll - New Employees.views/}TI_Process745.json",
+		"Payroll - New Employees.views/}TI_Process888.json",
+		"Payroll - New Employees.views/}TI_Process996.json"
+	]
+}

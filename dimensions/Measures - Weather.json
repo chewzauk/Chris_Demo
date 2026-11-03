@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Weather",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Weather.hierarchies/Measures - Weather.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Weather')/Hierarchies('Measures - Weather')"
+	}
+}

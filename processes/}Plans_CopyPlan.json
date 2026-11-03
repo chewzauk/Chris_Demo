@@ -1,0 +1,41 @@
+{
+	"@type":"Process",
+	"Name":"}Plans_CopyPlan",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"}Plans_CopyPlan.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pPlan",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pNewPlan",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pReplace",
+			"Prompt":"'Y' to replace existing plan ",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pPrefix",
+			"Prompt":"",
+			"Value":"}Plans",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "1779107359000",
+	"UIData": "_ParameterConstraints=e30=\f",
+	"VariablesUIData": []
+}

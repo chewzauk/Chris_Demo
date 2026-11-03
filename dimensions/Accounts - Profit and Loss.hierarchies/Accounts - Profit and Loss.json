@@ -1,0 +1,2545 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Accounts - Profit and Loss",
+	"Elements":
+	[
+		{
+			"Name":"50000",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Operating Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"EBITDA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"EBIT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Profit Before Interest & Tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Profit before tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Profit after tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Profit Attributable to Equity",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total Equity",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"50005",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"50010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"50020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"50030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"50040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"50050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"50060",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"50070",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"50080",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"50090",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"55010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cost of Sales",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"55020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"55030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"55040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"57010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"57999",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"60010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gross Salaries",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Personnel",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"61010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Incentives",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"61020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"61030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"62010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Freelance Staff",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"62020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"62030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"63010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Personnel",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"63020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"63030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pension",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"64010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Personnel Benefits",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"64020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64060",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64070",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64080",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64090",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64100",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"64120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"65010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Recruitment",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"66010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Personnel Training",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"66020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"67010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"67020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"68020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Severance",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"69010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany Personnel Recharges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"69910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"69920",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"69930",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Property Rent",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Property",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"70020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Property Rates",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"70030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Property Charges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"70040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Property Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"70050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70060",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70070",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70080",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70090",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70100",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany Property Recharges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"70920",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"70930",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"IT Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"IT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"71020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71060",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71070",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71140",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"71910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany IT Recharges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"71920",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Post Stationery & Telephone",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"72020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72310",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"72910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany PST Recharges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"72920",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"73010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Legal & Professional",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Professional",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"73020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"73030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"73040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"73050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"73110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"73120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Insurance",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"73130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"73210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Audit fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"73220",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tax fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"73230",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Professional Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"73910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany Professional Recharges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"73920",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"74010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bad Debt",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"75010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Marketing & New Business",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"75020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"75030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"75040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"75110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"75120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"75130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"75140",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"75210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"75220",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"75910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany Marketing & New Business Recharges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"75920",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"76010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Travel",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Travel & Entertainment",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"76020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"76030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"76040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"76050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"76110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"76210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"76310",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"76400",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"76910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany Travel Recharges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"76920",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"77110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Entertainment",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"77120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"77130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"77910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany Entertainment Recharges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"77920",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"79010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest Paid",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Interest Expense",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Interest",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"79015",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany Interest Expense",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"79020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest Received",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Interest Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"79025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany Interest Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"78130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"78140",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"78210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"78220",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"78310",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"78320",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"78330",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"78410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"78510",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"78610",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"78910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"78920",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"79110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Depreciation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Depreciation & Amortisation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"79120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"79130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"79140",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"79310",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amortisation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"79320",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"79330",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"79340",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"79520",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P&L on Sale",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other PBIT Items",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"79410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Impairments",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"79510",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Restructuring Exceptionals",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Exceptional",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"80120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80280",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany Write-off",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"80310",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80320",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Management Charges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"80330",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LLP Profit Transfers",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"80410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Share-Based Payments",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"80510",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Acquisition Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"M&A Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"80520",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80610",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Disposal Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"80620",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80710",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FX",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"80720",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80730",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80735",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80740",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80745",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80750",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80755",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80760",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80765",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80810",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tax P&L",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"80820",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80830",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"80910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income from Associates",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"81010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dividends",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"81020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"81030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"81040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"82010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Deemed Remuneration",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"82020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Deferred Consideration",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"82030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"82040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"83010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Year Adjustment",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"84010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"85010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"85020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"86010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Finance Lease - Finance Charge",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"79010-1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Term Loan B Interest",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"79010-2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"RCF Interest",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50000",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50005",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50060",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50070",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50080",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales",
+			"ComponentName":"50090",
+			"Weight":1
+		},
+		{
+			"ParentName":"Operating Income",
+			"ComponentName":"Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"Operating Income",
+			"ComponentName":"Cost of Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITDA",
+			"ComponentName":"Operating Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITDA",
+			"ComponentName":"Total Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBIT",
+			"ComponentName":"EBITDA",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBIT",
+			"ComponentName":"Depreciation & Amortisation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit Before Interest & Tax",
+			"ComponentName":"EBIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit Before Interest & Tax",
+			"ComponentName":"Other PBIT Items",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit before tax",
+			"ComponentName":"Profit Before Interest & Tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit before tax",
+			"ComponentName":"Net Interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit before tax",
+			"ComponentName":"Deemed Remuneration",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit before tax",
+			"ComponentName":"Deferred Consideration",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit before tax",
+			"ComponentName":"Finance Lease - Finance Charge",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit after tax",
+			"ComponentName":"Profit before tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit after tax",
+			"ComponentName":"Tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit Attributable to Equity",
+			"ComponentName":"Profit after tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit Attributable to Equity",
+			"ComponentName":"LLP Profit Transfers",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit Attributable to Equity",
+			"ComponentName":"Dividends",
+			"Weight":1
+		},
+		{
+			"ParentName":"Profit Attributable to Equity",
+			"ComponentName":"Prior Year Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Equity",
+			"ComponentName":"Profit Attributable to Equity",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cost of Sales",
+			"ComponentName":"55010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cost of Sales",
+			"ComponentName":"55020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cost of Sales",
+			"ComponentName":"55030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cost of Sales",
+			"ComponentName":"55040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cost of Sales",
+			"ComponentName":"57010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cost of Sales",
+			"ComponentName":"57999",
+			"Weight":1
+		},
+		{
+			"ParentName":"Gross Salaries",
+			"ComponentName":"60010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel",
+			"ComponentName":"Gross Salaries",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel",
+			"ComponentName":"Incentives",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel",
+			"ComponentName":"Freelance Staff",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel",
+			"ComponentName":"Other Personnel",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel",
+			"ComponentName":"Pension",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel",
+			"ComponentName":"Other Personnel Benefits",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel",
+			"ComponentName":"Recruitment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel",
+			"ComponentName":"Personnel Training",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel",
+			"ComponentName":"Severance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel",
+			"ComponentName":"Intercompany Personnel Recharges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Personnel",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Property",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"IT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Post Stationery & Telephone",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Professional",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Bad Debt",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Marketing & New Business",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Travel & Entertainment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Expenses",
+			"ComponentName":"Other Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Incentives",
+			"ComponentName":"61010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Incentives",
+			"ComponentName":"61020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Incentives",
+			"ComponentName":"61030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Freelance Staff",
+			"ComponentName":"62010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Freelance Staff",
+			"ComponentName":"62020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Freelance Staff",
+			"ComponentName":"62030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"63010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"63020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"64040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"64060",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"64070",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"64080",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"64090",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"64100",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"64110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"64120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"67010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel",
+			"ComponentName":"67020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pension",
+			"ComponentName":"63030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel Benefits",
+			"ComponentName":"64010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel Benefits",
+			"ComponentName":"64020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel Benefits",
+			"ComponentName":"64030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Personnel Benefits",
+			"ComponentName":"64050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Recruitment",
+			"ComponentName":"65010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel Training",
+			"ComponentName":"66010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Personnel Training",
+			"ComponentName":"66020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Severance",
+			"ComponentName":"68020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Personnel Recharges",
+			"ComponentName":"69010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Personnel Recharges",
+			"ComponentName":"69910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Personnel Recharges",
+			"ComponentName":"69920",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Personnel Recharges",
+			"ComponentName":"69930",
+			"Weight":1
+		},
+		{
+			"ParentName":"Property Rent",
+			"ComponentName":"70010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Property",
+			"ComponentName":"Property Rent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Property",
+			"ComponentName":"Property Rates",
+			"Weight":1
+		},
+		{
+			"ParentName":"Property",
+			"ComponentName":"Property Charges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Property",
+			"ComponentName":"Other Property Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Property",
+			"ComponentName":"Intercompany Property Recharges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Property Rates",
+			"ComponentName":"70020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Property Charges",
+			"ComponentName":"70030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Property Costs",
+			"ComponentName":"70040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Property Costs",
+			"ComponentName":"70050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Property Costs",
+			"ComponentName":"70060",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Property Costs",
+			"ComponentName":"70070",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Property Costs",
+			"ComponentName":"70080",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Property Costs",
+			"ComponentName":"70090",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Property Costs",
+			"ComponentName":"70100",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Property Costs",
+			"ComponentName":"70110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Property Costs",
+			"ComponentName":"70210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Property Recharges",
+			"ComponentName":"70910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Property Recharges",
+			"ComponentName":"70920",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Property Recharges",
+			"ComponentName":"70930",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71010",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71020",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71030",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71040",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71050",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71060",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71070",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71110",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71120",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71130",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71140",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT Costs",
+			"ComponentName":"71210",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"IT Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT",
+			"ComponentName":"Intercompany IT Recharges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany IT Recharges",
+			"ComponentName":"71910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany IT Recharges",
+			"ComponentName":"71920",
+			"Weight":1
+		},
+		{
+			"ParentName":"Post Stationery & Telephone",
+			"ComponentName":"72010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Post Stationery & Telephone",
+			"ComponentName":"72020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Post Stationery & Telephone",
+			"ComponentName":"72030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Post Stationery & Telephone",
+			"ComponentName":"72040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Post Stationery & Telephone",
+			"ComponentName":"72110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Post Stationery & Telephone",
+			"ComponentName":"72120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Post Stationery & Telephone",
+			"ComponentName":"72210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Post Stationery & Telephone",
+			"ComponentName":"72310",
+			"Weight":1
+		},
+		{
+			"ParentName":"Post Stationery & Telephone",
+			"ComponentName":"72410",
+			"Weight":1
+		},
+		{
+			"ParentName":"Post Stationery & Telephone",
+			"ComponentName":"Intercompany PST Recharges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany PST Recharges",
+			"ComponentName":"72910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany PST Recharges",
+			"ComponentName":"72920",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal & Professional",
+			"ComponentName":"73010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal & Professional",
+			"ComponentName":"73020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal & Professional",
+			"ComponentName":"73030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal & Professional",
+			"ComponentName":"73040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal & Professional",
+			"ComponentName":"73050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Legal & Professional",
+			"ComponentName":"73110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Professional",
+			"ComponentName":"Legal & Professional",
+			"Weight":1
+		},
+		{
+			"ParentName":"Professional",
+			"ComponentName":"Insurance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Professional",
+			"ComponentName":"Audit fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Professional",
+			"ComponentName":"Tax fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Professional",
+			"ComponentName":"Other Professional Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Professional",
+			"ComponentName":"Intercompany Professional Recharges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Insurance",
+			"ComponentName":"73120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Insurance",
+			"ComponentName":"73130",
+			"Weight":1
+		},
+		{
+			"ParentName":"Audit fees",
+			"ComponentName":"73210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tax fees",
+			"ComponentName":"73220",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Professional Costs",
+			"ComponentName":"73230",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Professional Recharges",
+			"ComponentName":"73910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Professional Recharges",
+			"ComponentName":"73920",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bad Debt",
+			"ComponentName":"74010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"75010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"75020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"75030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"75040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"75110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"75120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"75130",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"75140",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"75210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"75220",
+			"Weight":1
+		},
+		{
+			"ParentName":"Marketing & New Business",
+			"ComponentName":"Intercompany Marketing & New Business Recharges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Marketing & New Business Recharges",
+			"ComponentName":"75910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Marketing & New Business Recharges",
+			"ComponentName":"75920",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel",
+			"ComponentName":"76010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel",
+			"ComponentName":"76020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel",
+			"ComponentName":"76030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel",
+			"ComponentName":"76040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel",
+			"ComponentName":"76050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel",
+			"ComponentName":"76110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel",
+			"ComponentName":"76210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel",
+			"ComponentName":"76310",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel",
+			"ComponentName":"76400",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel & Entertainment",
+			"ComponentName":"Travel",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel & Entertainment",
+			"ComponentName":"Intercompany Travel Recharges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel & Entertainment",
+			"ComponentName":"Entertainment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Travel & Entertainment",
+			"ComponentName":"Intercompany Entertainment Recharges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Travel Recharges",
+			"ComponentName":"76910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Travel Recharges",
+			"ComponentName":"76920",
+			"Weight":1
+		},
+		{
+			"ParentName":"Entertainment",
+			"ComponentName":"77110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Entertainment",
+			"ComponentName":"77120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Entertainment",
+			"ComponentName":"77130",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Entertainment Recharges",
+			"ComponentName":"77910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Entertainment Recharges",
+			"ComponentName":"77920",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest Paid",
+			"ComponentName":"79010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest Paid",
+			"ComponentName":"85020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest Expense",
+			"ComponentName":"Interest Paid",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest Expense",
+			"ComponentName":"Intercompany Interest Expense",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest Expense",
+			"ComponentName":"Term Loan B Interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest Expense",
+			"ComponentName":"RCF Interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Interest",
+			"ComponentName":"Interest Expense",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Interest",
+			"ComponentName":"Interest Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Interest Expense",
+			"ComponentName":"79015",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest Received",
+			"ComponentName":"79020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest Received",
+			"ComponentName":"85010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest Income",
+			"ComponentName":"Interest Received",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest Income",
+			"ComponentName":"Intercompany Interest Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Interest Income",
+			"ComponentName":"79025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78130",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78140",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78220",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78310",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78320",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78330",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78410",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78510",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78610",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Expenses",
+			"ComponentName":"78920",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation",
+			"ComponentName":"79110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation",
+			"ComponentName":"79120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation",
+			"ComponentName":"79130",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation",
+			"ComponentName":"79140",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation & Amortisation",
+			"ComponentName":"Depreciation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation & Amortisation",
+			"ComponentName":"Amortisation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Amortisation",
+			"ComponentName":"79310",
+			"Weight":1
+		},
+		{
+			"ParentName":"Amortisation",
+			"ComponentName":"79320",
+			"Weight":1
+		},
+		{
+			"ParentName":"Amortisation",
+			"ComponentName":"79330",
+			"Weight":1
+		},
+		{
+			"ParentName":"Amortisation",
+			"ComponentName":"79340",
+			"Weight":1
+		},
+		{
+			"ParentName":"P&L on Sale",
+			"ComponentName":"79520",
+			"Weight":1
+		},
+		{
+			"ParentName":"P&L on Sale",
+			"ComponentName":"79510",
+			"Weight":1
+		},
+		{
+			"ParentName":"P&L on Sale",
+			"ComponentName":"84010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other PBIT Items",
+			"ComponentName":"P&L on Sale",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other PBIT Items",
+			"ComponentName":"Impairments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other PBIT Items",
+			"ComponentName":"Exceptional",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other PBIT Items",
+			"ComponentName":"Intercompany Write-off",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other PBIT Items",
+			"ComponentName":"Management Charges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other PBIT Items",
+			"ComponentName":"Share-Based Payments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other PBIT Items",
+			"ComponentName":"M&A Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other PBIT Items",
+			"ComponentName":"FX",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other PBIT Items",
+			"ComponentName":"Income from Associates",
+			"Weight":1
+		},
+		{
+			"ParentName":"Impairments",
+			"ComponentName":"79410",
+			"Weight":1
+		},
+		{
+			"ParentName":"Restructuring Exceptionals",
+			"ComponentName":"80110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Restructuring Exceptionals",
+			"ComponentName":"80120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Restructuring Exceptionals",
+			"ComponentName":"80310",
+			"Weight":1
+		},
+		{
+			"ParentName":"Restructuring Exceptionals",
+			"ComponentName":"80130",
+			"Weight":1
+		},
+		{
+			"ParentName":"Exceptional",
+			"ComponentName":"Restructuring Exceptionals",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Write-off",
+			"ComponentName":"80280",
+			"Weight":1
+		},
+		{
+			"ParentName":"Management Charges",
+			"ComponentName":"80320",
+			"Weight":1
+		},
+		{
+			"ParentName":"LLP Profit Transfers",
+			"ComponentName":"80330",
+			"Weight":1
+		},
+		{
+			"ParentName":"Share-Based Payments",
+			"ComponentName":"80410",
+			"Weight":1
+		},
+		{
+			"ParentName":"Acquisition Costs",
+			"ComponentName":"80510",
+			"Weight":1
+		},
+		{
+			"ParentName":"Acquisition Costs",
+			"ComponentName":"80520",
+			"Weight":1
+		},
+		{
+			"ParentName":"M&A Costs",
+			"ComponentName":"Acquisition Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"M&A Costs",
+			"ComponentName":"Disposal Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Disposal Costs",
+			"ComponentName":"80610",
+			"Weight":1
+		},
+		{
+			"ParentName":"Disposal Costs",
+			"ComponentName":"80620",
+			"Weight":1
+		},
+		{
+			"ParentName":"FX",
+			"ComponentName":"80710",
+			"Weight":1
+		},
+		{
+			"ParentName":"FX",
+			"ComponentName":"80720",
+			"Weight":1
+		},
+		{
+			"ParentName":"FX",
+			"ComponentName":"80730",
+			"Weight":1
+		},
+		{
+			"ParentName":"FX",
+			"ComponentName":"80735",
+			"Weight":1
+		},
+		{
+			"ParentName":"FX",
+			"ComponentName":"80740",
+			"Weight":1
+		},
+		{
+			"ParentName":"FX",
+			"ComponentName":"80745",
+			"Weight":1
+		},
+		{
+			"ParentName":"FX",
+			"ComponentName":"80750",
+			"Weight":1
+		},
+		{
+			"ParentName":"FX",
+			"ComponentName":"80755",
+			"Weight":1
+		},
+		{
+			"ParentName":"FX",
+			"ComponentName":"80760",
+			"Weight":1
+		},
+		{
+			"ParentName":"FX",
+			"ComponentName":"80765",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tax P&L",
+			"ComponentName":"80810",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tax P&L",
+			"ComponentName":"80820",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tax P&L",
+			"ComponentName":"80830",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tax",
+			"ComponentName":"Tax P&L",
+			"Weight":1
+		},
+		{
+			"ParentName":"Income from Associates",
+			"ComponentName":"80910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dividends",
+			"ComponentName":"81010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dividends",
+			"ComponentName":"81020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dividends",
+			"ComponentName":"81030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Dividends",
+			"ComponentName":"81040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Deemed Remuneration",
+			"ComponentName":"82010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Deemed Remuneration",
+			"ComponentName":"82030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Deferred Consideration",
+			"ComponentName":"82020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Deferred Consideration",
+			"ComponentName":"82040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Prior Year Adjustment",
+			"ComponentName":"83010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Lease - Finance Charge",
+			"ComponentName":"86010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Term Loan B Interest",
+			"ComponentName":"79010-1",
+			"Weight":1
+		},
+		{
+			"ParentName":"RCF Interest",
+			"ComponentName":"79010-2",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Accounts - Profit and Loss.subsets/ALL General Expense Accounts.json",
+		"Accounts - Profit and Loss.subsets/IT.json",
+		"Accounts - Profit and Loss.subsets/Marketing.json",
+		"Accounts - Profit and Loss.subsets/Other Expenses.json",
+		"Accounts - Profit and Loss.subsets/Post Stationery and Telephone.json",
+		"Accounts - Profit and Loss.subsets/Professional.json",
+		"Accounts - Profit and Loss.subsets/Property.json",
+		"Accounts - Profit and Loss.subsets/Travel and Entertainment.json"
+	]
+}

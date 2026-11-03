@@ -1,0 +1,51 @@
+{
+	"@type":"Process",
+	"Name":"System - Workflow - Change Status",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Workflow - Change Status.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pWorkflowItem",
+			"Prompt":"",
+			"Value":"TB Submission to Controller",
+			"Type":"String"
+		},
+		{
+			"Name":"pPeriod",
+			"Prompt":"",
+			"Value":"06 2024",
+			"Type":"String"
+		},
+		{
+			"Name":"pCompany",
+			"Prompt":"",
+			"Value":"SEGA00",
+			"Type":"String"
+		},
+		{
+			"Name":"pType",
+			"Prompt":"Complete or Approve",
+			"Value":"Complete",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000082"
+}

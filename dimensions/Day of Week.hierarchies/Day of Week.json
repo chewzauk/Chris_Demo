@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Day of Week",
+	"Elements":
+	[
+		{
+			"Name":"Mon",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Wed",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Thu",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fri",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sun",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

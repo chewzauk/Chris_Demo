@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Bill of Materials",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Bill of Materials.hierarchies/Measures - Bill of Materials.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Bill of Materials')/Hierarchies('Measures - Bill of Materials')"
+	}
+}

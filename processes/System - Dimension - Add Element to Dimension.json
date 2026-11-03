@@ -1,0 +1,57 @@
+{
+	"@type":"Process",
+	"Name":"System - Dimension - Add Element to Dimension",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Dimension - Add Element to Dimension.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pDim",
+			"Prompt":"Dimension Name",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pElement",
+			"Prompt":"Single Element Name or Blank if you want to use table",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pParent",
+			"Prompt":"Consolidator you wish to add element to or blank if adding as orphan",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAlias",
+			"Prompt":"Add alias name if you want to add an alias for element (Alias attribute must exist already)",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pAliasValue",
+			"Prompt":"Add Text description for Element",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000040"
+}

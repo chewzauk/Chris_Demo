@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Cash Flow",
+	"Elements":
+	[
+		{
+			"Name":"Movement",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

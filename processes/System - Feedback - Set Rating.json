@@ -1,0 +1,39 @@
+{
+	"@type":"Process",
+	"Name":"System - Feedback - Set Rating",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Feedback - Set Rating.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pRating",
+			"Prompt":"",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pFeedbackItem",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000057"
+}

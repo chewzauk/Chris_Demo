@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Capex",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Capex.hierarchies/Measures - Capex.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Capex')/Hierarchies('Measures - Capex')"
+	}
+}

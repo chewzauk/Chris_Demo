@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"Role",
+	"Hierarchies@Code.links":
+	[
+		"Role.hierarchies/Role.json",
+		"Role.hierarchies/Category.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Role')/Hierarchies('Role')"
+	}
+}

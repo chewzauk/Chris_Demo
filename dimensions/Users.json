@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Users",
+	"Hierarchies@Code.links":
+	[
+		"Users.hierarchies/Users.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Users')/Hierarchies('Users')"
+	}
+}

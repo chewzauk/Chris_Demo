@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Documentation - Rule List",
+	"Hierarchies@Code.links":
+	[
+		"Documentation - Rule List.hierarchies/Documentation - Rule List.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Documentation - Rule List')/Hierarchies('Documentation - Rule List')"
+	}
+}

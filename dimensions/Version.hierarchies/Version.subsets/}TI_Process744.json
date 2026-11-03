@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"}TI_Process744",
+	"Expression":"TM1FILTERBYLEVEL(TM1SUBSETALL([Version].[Version]) , 0)"
+}

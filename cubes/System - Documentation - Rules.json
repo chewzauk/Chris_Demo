@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"System - Documentation - Rules",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Cubes')"
+		},
+		{
+			"@id":"Dimensions('Documentation - Rule List')"
+		},
+		{
+			"@id":"Dimensions('Documentation - Rules')"
+		},
+		{
+			"@id":"Dimensions('Measures - Documentation')"
+		}
+	],
+	"Views@Code.links":[]
+}

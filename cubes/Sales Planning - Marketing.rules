@@ -1,0 +1,81 @@
+FEEDSTRINGS;
+SKIPCHECK;
+
+# -----------------------------------
+# Do not allow entry or totalling at the summary levels.
+
+[] = C: 0;
+
+[] = S: if (IsLeaf = 0, '', CONTINUE);
+
+# -----------------------------------
+# Boost % is suggested by the system according to the Type of Campaign chosen. If a user then enters their own value into Input Boost % the result will take that value instead.
+
+['Measures - Sales Planning - Marketing':'Default Boost %'] = N:
+	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= '', 0, 
+	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Radio ad', ATTRN('Product', !Product, 'Default Campaign Boost'),
+	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'TV ad', ATTRN('Product', !Product, 'Default Campaign Boost'),
+	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'TV sponsorship', 0.02,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Public transport', 0.04,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Billboard', 0.02,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Cinema ad', 0.02,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Social Media ad', 0.03,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'SM influencer', 0.04,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Email', 0.01,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Affiliate', 0.03,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Newspaper print ad', 0.02,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Magazine print ad', 0.01,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Newspaper PPC', 0.01,
+  	if ( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= 'Event', 0.01,
+  	0.05
+  )))))))))))))))
+;  
+
+# Final result measure is % Boost which is then used by other cubes and calculations. It is the Override in preference to Default.
+['% Boost'] = N: 
+  	if ( ['Override Boost %'] <> 0,
+  		['Override Boost %'],
+  		['Default Boost %']
+  );
+
+# -----------------------------------
+# Work out a single value showing whether the whole line is entered correctly. More specific help messages can be generated per field if desired.
+['Valid Entry'] = S: 
+  IF ( 
+	DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Active') @= '' & 
+	DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @= '' & 
+#	DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Region') @= '' & 
+    DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Start Period') @= '' & 
+	DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'End Period') @= '' 
+	, '',
+      IF ( 
+      	( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Active') @<> '' ) &
+      	( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type') @<> '' ) &
+#     	( DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Region') @<> '' ) &
+      	( ['% Boost'] <> 0 ) &
+  		( ATTRS('PeriodYear', DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Start Period'), 'yyyymm') @> DB('System - Parameters - Model', 'Current Month YYYYMM', 'String') ) &
+       	( ATTRS('PeriodYear', DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'End Period'), 'yyyymm') @> DB('System - Parameters - Model', 'Current Month YYYYMM', 'String') ) &
+   		( ATTRS('PeriodYear', DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Start Period'), 'yyyymm') @<> '' ) & 
+   		( ATTRS('PeriodYear', DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'End Period'), 'yyyymm') @<> '' ) & 
+   		( ATTRS('PeriodYear', DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Start Period'), 'yyyymm') @<= ATTRS('PeriodYear', DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'End Period'), 'yyyymm') )  
+             
+  			,'Valid'
+			, 'Invalid'
+  ));
+
+# #########################################
+# #########################################
+FEEDERS;
+
+['Measures - Sales Planning - Marketing':'Active'] => ['Measures - Sales Planning - Marketing':'Valid Entry'];
+['Measures - Sales Planning - Marketing':'Campaign Type'] => ['Measures - Sales Planning - Marketing':'Valid Entry'];
+#['Measures - Sales Planning - Marketing':'Region'] => ['Measures - Sales Planning - Marketing':'Valid Entry'];
+['Measures - Sales Planning - Marketing':'Start Period'] => ['Measures - Sales Planning - Marketing':'Valid Entry'];
+['Measures - Sales Planning - Marketing':'End Period'] => ['Measures - Sales Planning - Marketing':'Valid Entry'];
+['Measures - Sales Planning - Marketing':'Override Boost %'] => ['Measures - Sales Planning - Marketing':'Valid Entry'];
+['Measures - Sales Planning - Marketing':'Campaign Type'] => ['Measures - Sales Planning - Marketing':'Default Boost %'];
+['Measures - Sales Planning - Marketing':'Campaign Type'] => ['Measures - Sales Planning - Marketing':'% Boost'];
+
+['Measures - Sales Planning - Marketing':'Active']  => DB('Demand Tasks', 'System Use Only (not a person)', 'Date':'TOTAL YEARS',DB('Sales Planning - Marketing', !Campaign Instance, !Product, !Region, 'Campaign Type'), !Product, 'Customer':'TOTAL CUSTOMERS', 'Monthly Task Importance' );
+# #########################################
+# #########################################

@@ -1,0 +1,103 @@
+{
+	"@type":"NativeView",
+	"Name":"VZOActuals",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Measures - Balance Sheet')/Hierarchies('Measures - Balance Sheet')"
+				},
+				"Expression":"TM1SubsetAll([Measures - Balance Sheet])"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Accounts - Balance Sheet')/Hierarchies('Accounts - Balance Sheet')"
+				},
+				"Expression":"TM1SubsetAll([Accounts - Balance Sheet])"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')"
+				},
+				"Expression":"TM1SubsetAll([PeriodYear])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('TOTAL YEARS')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Subsets('VZOActual')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Actual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')"
+				},
+				"Expression":"TM1SubsetAll([Scenario Layer])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Scenario Layer')/Hierarchies('Scenario Layer')/Elements('TOTAL LAYERS')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Currency - Reporting')/Hierarchies('Currency - Reporting')"
+				},
+				"Expression":"TM1SubsetAll([Currency - Reporting])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Currency - Reporting')/Hierarchies('Currency - Reporting')/Elements('LC')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Company')/Hierarchies('Company')"
+				},
+				"Expression":"TM1SubsetAll([Company])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('ALL COMPANIES')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"",
+	"ViewExtractSkipRuleValues": false
+}

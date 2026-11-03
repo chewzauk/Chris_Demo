@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Material Stock",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Material Stock.hierarchies/Measures - Material Stock.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Material Stock')/Hierarchies('Measures - Material Stock')"
+	}
+}

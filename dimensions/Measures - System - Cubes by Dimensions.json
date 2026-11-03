@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - System - Cubes by Dimensions",
+	"Hierarchies@Code.links":
+	[
+		"Measures - System - Cubes by Dimensions.hierarchies/Measures - System - Cubes by Dimensions.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - System - Cubes by Dimensions')/Hierarchies('Measures - System - Cubes by Dimensions')"
+	}
+}

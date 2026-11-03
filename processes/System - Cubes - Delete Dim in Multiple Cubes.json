@@ -1,0 +1,79 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Delete Dim in Multiple Cubes",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Cubes - Delete Dim in Multiple Cubes.ti",
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForServer":"System - List Table",
+		"dataSourceNameForClient":"System - List Table",
+		"view":"}TI_Process978"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pDim",
+			"Prompt":"Dimension to be deleted",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pUseAllCubes",
+			"Prompt":"Do you want to use all cubes or just selected (1 for all, 0 for selected)",
+			"Value":1,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vClient",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vPicklistOption",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"List",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vMeasure",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vCube",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000037"
+}

@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"Stock - Product Cover",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Measures - Stock Cover')"
+		}
+	],
+	"Views@Code.links":[]
+}

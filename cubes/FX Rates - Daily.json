@@ -1,0 +1,70 @@
+{
+	"@type":"Cube",
+	"Name":"FX Rates - Daily",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Date')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('Currency - Reporting')"
+		},
+		{
+			"@id":"Dimensions('Measures - FX Rates')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"FX Rates - Daily.views/}TI_Process103.json",
+		"FX Rates - Daily.views/}TI_Process122.json",
+		"FX Rates - Daily.views/}TI_Process126.json",
+		"FX Rates - Daily.views/}TI_Process131.json",
+		"FX Rates - Daily.views/}TI_Process137.json",
+		"FX Rates - Daily.views/}TI_Process191.json",
+		"FX Rates - Daily.views/}TI_Process2.json",
+		"FX Rates - Daily.views/}TI_Process224.json",
+		"FX Rates - Daily.views/}TI_Process247.json",
+		"FX Rates - Daily.views/}TI_Process256.json",
+		"FX Rates - Daily.views/}TI_Process309.json",
+		"FX Rates - Daily.views/}TI_Process354.json",
+		"FX Rates - Daily.views/}TI_Process359.json",
+		"FX Rates - Daily.views/}TI_Process361.json",
+		"FX Rates - Daily.views/}TI_Process366.json",
+		"FX Rates - Daily.views/}TI_Process413.json",
+		"FX Rates - Daily.views/}TI_Process421.json",
+		"FX Rates - Daily.views/}TI_Process422.json",
+		"FX Rates - Daily.views/}TI_Process449.json",
+		"FX Rates - Daily.views/}TI_Process455.json",
+		"FX Rates - Daily.views/}TI_Process458.json",
+		"FX Rates - Daily.views/}TI_Process503.json",
+		"FX Rates - Daily.views/}TI_Process509.json",
+		"FX Rates - Daily.views/}TI_Process511.json",
+		"FX Rates - Daily.views/}TI_Process517.json",
+		"FX Rates - Daily.views/}TI_Process550.json",
+		"FX Rates - Daily.views/}TI_Process555.json",
+		"FX Rates - Daily.views/}TI_Process562.json",
+		"FX Rates - Daily.views/}TI_Process573.json",
+		"FX Rates - Daily.views/}TI_Process588.json",
+		"FX Rates - Daily.views/}TI_Process598.json",
+		"FX Rates - Daily.views/}TI_Process604.json",
+		"FX Rates - Daily.views/}TI_Process673.json",
+		"FX Rates - Daily.views/}TI_Process676.json",
+		"FX Rates - Daily.views/}TI_Process718.json",
+		"FX Rates - Daily.views/}TI_Process726.json",
+		"FX Rates - Daily.views/}TI_Process786.json",
+		"FX Rates - Daily.views/}TI_Process81.json",
+		"FX Rates - Daily.views/}TI_Process854.json",
+		"FX Rates - Daily.views/}TI_Process856.json",
+		"FX Rates - Daily.views/}TI_Process857.json",
+		"FX Rates - Daily.views/}TI_Process90.json",
+		"FX Rates - Daily.views/}TI_Process914.json",
+		"FX Rates - Daily.views/}TI_Process986.json",
+		"FX Rates - Daily.views/}TI_Process997.json"
+	]
+}

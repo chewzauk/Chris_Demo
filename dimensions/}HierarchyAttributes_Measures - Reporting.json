@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"}HierarchyAttributes_Measures - Reporting",
+	"Hierarchies@Code.links":
+	[
+		"}HierarchyAttributes_Measures - Reporting.hierarchies/}HierarchyAttributes_Measures - Reporting.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('}HierarchyAttributes_Measures - Reporting')/Hierarchies('}HierarchyAttributes_Measures - Reporting')"
+	}
+}

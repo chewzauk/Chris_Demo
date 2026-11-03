@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Reporting",
+	"Elements":
+	[
+		{
+			"Name":"Movement",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closing Balance",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

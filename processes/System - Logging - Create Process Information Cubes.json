@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"System - Logging - Create Process Information Cubes",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Logging - Create Process Information Cubes.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000061"
+}

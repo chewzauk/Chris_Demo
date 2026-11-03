@@ -1,0 +1,25 @@
+{
+	"@type":"Process",
+	"Name":"System - Documentation - Populate Cube Rules (Wrapper)",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Documentation - Populate Cube Rules (Wrapper).ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"}Cubes",
+		"dataSourceNameForClient":"}Cubes",
+		"subset":"N Level"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vCube",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000053"
+}

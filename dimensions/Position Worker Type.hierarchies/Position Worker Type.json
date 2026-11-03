@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Position Worker Type",
+	"Elements":
+	[
+		{
+			"Name":"Apprentice (Fixed Term) (Trainee)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fixed Term (Fixed Term)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NED",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Permanent",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

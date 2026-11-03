@@ -1,0 +1,2478 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Accounts - Balance Sheet",
+	"Elements":
+	[
+		{
+			"Name":"TB Check",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Working Capital",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Working Capital (excl Intercompany)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Hierarchies",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Equity for FX Calc",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Assets/Liabilities less Cash",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"10010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Short Term Leasehold Fixed Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Tangible Fixed Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Fixed Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Assets / (Liabilities) (Excl. Intercompany)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Assets / (Liabilities)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"10015",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"10020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Fixed Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"10025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"10030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"10035",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"10040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Computer Hardware Fixed Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"10045",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Goodwill",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"11015",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Intangible Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Intangible Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"11025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11035",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"11045",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"12010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Investments",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"12020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"12050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Trade Debtors (Excluding I/C)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Current Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Current Assets / (Liabilities) (Excl. Intercompany)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"13020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13060",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13070",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13080",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13090",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13100",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"13520",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Doubtful Debt Provision",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"14010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Debit WIP",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"14020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"14025",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"15010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accrued Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"15020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"15030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"16010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prepayments",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"17010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Debtors",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"17100",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Senior Capital Advance",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"17110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17140",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17150",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17160",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17220",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17230",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17310",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Withholding tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"17320",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Deferred Tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"17410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17420",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"17520",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"18010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Account - GBP",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Bank & Cash",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"18020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Account - USD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"18030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Account - EUR",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"18040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Account - CZK",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"18050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Account - AUD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"18060",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Account - SGD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"18070",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Account - NZD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"18080",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Account - CNY",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"18510",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"18520",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"18530",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"18540",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"18550",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"18560",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"18570",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"18580",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"20000",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Loans RCF",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Borrowings",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Current Liabilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"23010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Trade Creditors (Excluding I/C)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"23020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23060",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23070",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23080",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23090",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23100",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"23120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"24010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Credit WIP",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"24020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"24090",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"24095",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"25010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Deferred Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"25020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"25030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"25090",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"26010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accruals",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"27010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Creditors",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"27110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27120",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27130",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27140",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27150",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27220",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27230",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27300",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27310",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27320",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27330",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27340",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27350",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27360",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27370",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27380",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27390",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27400",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27420",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27510",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27520",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27530",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"27540",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"28010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Finance Leases",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"30010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Tax & Social Security",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"30020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"30030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"30110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"31010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Corporation Tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"32010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany - Debtors",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Intercompany Sub-ledger",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Intercompany",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"32021",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32031",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32041",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32051",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32061",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32070",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32080",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32090",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany - Creditors",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"32221",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32230",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32241",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32251",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32261",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32270",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32280",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32290",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany - G/L Current",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Intercompany Loans",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"32420",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32430",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32440",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32450",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32460",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32470",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32480",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32490",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32610",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany - G/L Long Term",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"32621",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32630",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32640",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32650",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32660",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32670",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32680",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32690",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"32910",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intercompany - G/L Dormants",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"33110",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Provisions - Deferred Consideration",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Provisions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"33210",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Provisions - Deemed Remuneration",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"33220",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Provisions - Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"33230",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"33240",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"33250",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"40010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Share Capital",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Shares Capital & Reserves",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Profit Attributable to Equity",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Equity",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"40020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Capital Contribution",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"41010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accumulated P&L A/C at PY End",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"41020",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Share Based Payment Reserve",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"41030",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Share Premium",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"41040",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Reserves",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"41050",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"41060",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest Prepayment",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TB Check",
+			"ComponentName":"Net Assets / (Liabilities)",
+			"Weight":1
+		},
+		{
+			"ParentName":"TB Check",
+			"ComponentName":"Total Equity",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Trade Debtors (Excluding I/C)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Doubtful Debt Provision",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Debit WIP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Accrued Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Prepayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Other Debtors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Trade Creditors (Excluding I/C)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Credit WIP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Deferred Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Accruals",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Other Creditors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Other Tax & Social Security",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital",
+			"ComponentName":"Intercompany Sub-ledger",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Trade Debtors (Excluding I/C)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Doubtful Debt Provision",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Debit WIP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Accrued Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Prepayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Other Debtors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Trade Creditors (Excluding I/C)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Credit WIP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Deferred Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Accruals",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Other Creditors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Working Capital (excl Intercompany)",
+			"ComponentName":"Other Tax & Social Security",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Hierarchies",
+			"ComponentName":"Other Equity for FX Calc",
+			"Weight":0
+		},
+		{
+			"ParentName":"Other Hierarchies",
+			"ComponentName":"Net Working Capital",
+			"Weight":0
+		},
+		{
+			"ParentName":"Other Hierarchies",
+			"ComponentName":"Net Working Capital (excl Intercompany)",
+			"Weight":0
+		},
+		{
+			"ParentName":"Other Hierarchies",
+			"ComponentName":"Net Assets/Liabilities less Cash",
+			"Weight":0
+		},
+		{
+			"ParentName":"Other Equity for FX Calc",
+			"ComponentName":"Share Capital",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Equity for FX Calc",
+			"ComponentName":"Capital Contribution",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Equity for FX Calc",
+			"ComponentName":"Share Based Payment Reserve",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Equity for FX Calc",
+			"ComponentName":"Share Premium",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Equity for FX Calc",
+			"ComponentName":"Other Reserves",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Total Equity",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Bank Account - USD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Bank Account - EUR",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Bank Account - CZK",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Bank Account - AUD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Bank Account - SGD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Bank Account - NZD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Bank Account - CNY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Intercompany",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Fixed Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Current Liabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Provisions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Trade Debtors (Excluding I/C)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Doubtful Debt Provision",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Debit WIP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Accrued Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Prepayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Other Debtors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Senior Capital Advance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Withholding tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Deferred Tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets/Liabilities less Cash",
+			"ComponentName":"Interest Prepayment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Short Term Leasehold Fixed Assets",
+			"ComponentName":"10010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Short Term Leasehold Fixed Assets",
+			"ComponentName":"10015",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets",
+			"ComponentName":"Short Term Leasehold Fixed Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets",
+			"ComponentName":"Other Fixed Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets",
+			"ComponentName":"Computer Hardware Fixed Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixed Assets",
+			"ComponentName":"Tangible Fixed Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixed Assets",
+			"ComponentName":"Goodwill",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixed Assets",
+			"ComponentName":"Intangible Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixed Assets",
+			"ComponentName":"Investments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets / (Liabilities) (Excl. Intercompany)",
+			"ComponentName":"Fixed Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets / (Liabilities) (Excl. Intercompany)",
+			"ComponentName":"Net Current Assets / (Liabilities) (Excl. Intercompany)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets / (Liabilities)",
+			"ComponentName":"Net Assets / (Liabilities) (Excl. Intercompany)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Assets / (Liabilities)",
+			"ComponentName":"Intercompany",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Fixed Assets",
+			"ComponentName":"10020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Fixed Assets",
+			"ComponentName":"10025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Fixed Assets",
+			"ComponentName":"10030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Fixed Assets",
+			"ComponentName":"10035",
+			"Weight":1
+		},
+		{
+			"ParentName":"Computer Hardware Fixed Assets",
+			"ComponentName":"10040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Computer Hardware Fixed Assets",
+			"ComponentName":"10045",
+			"Weight":1
+		},
+		{
+			"ParentName":"Goodwill",
+			"ComponentName":"11010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Goodwill",
+			"ComponentName":"11015",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"11020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"11025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"11030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"11035",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"11040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"11045",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intangible Assets",
+			"ComponentName":"Other Intangible Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Investments",
+			"ComponentName":"12010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Investments",
+			"ComponentName":"12020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Investments",
+			"ComponentName":"12050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13060",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13070",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13080",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13090",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13100",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Debtors (Excluding I/C)",
+			"ComponentName":"13120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Assets",
+			"ComponentName":"Trade Debtors (Excluding I/C)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Assets",
+			"ComponentName":"Doubtful Debt Provision",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Assets",
+			"ComponentName":"Debit WIP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Assets",
+			"ComponentName":"Accrued Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Assets",
+			"ComponentName":"Prepayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Assets",
+			"ComponentName":"Other Debtors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Assets",
+			"ComponentName":"Senior Capital Advance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Assets",
+			"ComponentName":"Withholding tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Assets",
+			"ComponentName":"Deferred Tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Assets",
+			"ComponentName":"Bank & Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Current Assets / (Liabilities) (Excl. Intercompany)",
+			"ComponentName":"Current Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Current Assets / (Liabilities) (Excl. Intercompany)",
+			"ComponentName":"Current Liabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Current Assets / (Liabilities) (Excl. Intercompany)",
+			"ComponentName":"Provisions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Doubtful Debt Provision",
+			"ComponentName":"13520",
+			"Weight":1
+		},
+		{
+			"ParentName":"Debit WIP",
+			"ComponentName":"14010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Debit WIP",
+			"ComponentName":"14020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Debit WIP",
+			"ComponentName":"14025",
+			"Weight":1
+		},
+		{
+			"ParentName":"Accrued Income",
+			"ComponentName":"15010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Accrued Income",
+			"ComponentName":"15020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Accrued Income",
+			"ComponentName":"15030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Prepayments",
+			"ComponentName":"16010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17130",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17140",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17150",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17160",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17220",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17230",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17410",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17420",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Debtors",
+			"ComponentName":"17520",
+			"Weight":1
+		},
+		{
+			"ParentName":"Senior Capital Advance",
+			"ComponentName":"17100",
+			"Weight":1
+		},
+		{
+			"ParentName":"Withholding tax",
+			"ComponentName":"17310",
+			"Weight":1
+		},
+		{
+			"ParentName":"Deferred Tax",
+			"ComponentName":"17320",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - GBP",
+			"ComponentName":"18010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - GBP",
+			"ComponentName":"18510",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank & Cash",
+			"ComponentName":"Bank Account - GBP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank & Cash",
+			"ComponentName":"Bank Account - USD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank & Cash",
+			"ComponentName":"Bank Account - EUR",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank & Cash",
+			"ComponentName":"Bank Account - CZK",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank & Cash",
+			"ComponentName":"Bank Account - AUD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank & Cash",
+			"ComponentName":"Bank Account - SGD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank & Cash",
+			"ComponentName":"Bank Account - NZD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank & Cash",
+			"ComponentName":"Bank Account - CNY",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - USD",
+			"ComponentName":"18020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - USD",
+			"ComponentName":"18520",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - EUR",
+			"ComponentName":"18030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - EUR",
+			"ComponentName":"18530",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - CZK",
+			"ComponentName":"18040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - CZK",
+			"ComponentName":"18540",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - AUD",
+			"ComponentName":"18050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - AUD",
+			"ComponentName":"18550",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - SGD",
+			"ComponentName":"18060",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - SGD",
+			"ComponentName":"18560",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - NZD",
+			"ComponentName":"18070",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - NZD",
+			"ComponentName":"18570",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - CNY",
+			"ComponentName":"18080",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bank Account - CNY",
+			"ComponentName":"18580",
+			"Weight":1
+		},
+		{
+			"ParentName":"Loans RCF",
+			"ComponentName":"20000",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Borrowings",
+			"ComponentName":"Loans RCF",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Borrowings",
+			"ComponentName":"Finance Leases",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Liabilities",
+			"ComponentName":"Other Borrowings",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Liabilities",
+			"ComponentName":"Trade Creditors (Excluding I/C)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Liabilities",
+			"ComponentName":"Credit WIP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Liabilities",
+			"ComponentName":"Deferred Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Liabilities",
+			"ComponentName":"Accruals",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Liabilities",
+			"ComponentName":"Other Creditors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Liabilities",
+			"ComponentName":"Other Tax & Social Security",
+			"Weight":1
+		},
+		{
+			"ParentName":"Current Liabilities",
+			"ComponentName":"Corporation Tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23060",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23070",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23080",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23090",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23100",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trade Creditors (Excluding I/C)",
+			"ComponentName":"23120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Credit WIP",
+			"ComponentName":"24010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Credit WIP",
+			"ComponentName":"24020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Credit WIP",
+			"ComponentName":"24090",
+			"Weight":1
+		},
+		{
+			"ParentName":"Credit WIP",
+			"ComponentName":"24095",
+			"Weight":1
+		},
+		{
+			"ParentName":"Deferred Income",
+			"ComponentName":"25010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Deferred Income",
+			"ComponentName":"25020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Deferred Income",
+			"ComponentName":"25030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Deferred Income",
+			"ComponentName":"25090",
+			"Weight":1
+		},
+		{
+			"ParentName":"Accruals",
+			"ComponentName":"26010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27120",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27130",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27140",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27150",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27220",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27230",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27300",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27310",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27320",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27330",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27340",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27350",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27360",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27370",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27380",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27390",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27400",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27410",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27420",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27510",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27520",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27530",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Creditors",
+			"ComponentName":"27540",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Leases",
+			"ComponentName":"28010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Tax & Social Security",
+			"ComponentName":"30010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Tax & Social Security",
+			"ComponentName":"30020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Tax & Social Security",
+			"ComponentName":"30030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Tax & Social Security",
+			"ComponentName":"30110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Corporation Tax",
+			"ComponentName":"31010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Debtors",
+			"ComponentName":"32010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Debtors",
+			"ComponentName":"32021",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Debtors",
+			"ComponentName":"32031",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Debtors",
+			"ComponentName":"32041",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Debtors",
+			"ComponentName":"32051",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Debtors",
+			"ComponentName":"32061",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Debtors",
+			"ComponentName":"32070",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Debtors",
+			"ComponentName":"32080",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Debtors",
+			"ComponentName":"32090",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Sub-ledger",
+			"ComponentName":"Intercompany - Debtors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Sub-ledger",
+			"ComponentName":"Intercompany - Creditors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany",
+			"ComponentName":"Intercompany Sub-ledger",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany",
+			"ComponentName":"Intercompany Loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Creditors",
+			"ComponentName":"32210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Creditors",
+			"ComponentName":"32221",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Creditors",
+			"ComponentName":"32230",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Creditors",
+			"ComponentName":"32241",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Creditors",
+			"ComponentName":"32251",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Creditors",
+			"ComponentName":"32261",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Creditors",
+			"ComponentName":"32270",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Creditors",
+			"ComponentName":"32280",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - Creditors",
+			"ComponentName":"32290",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Current",
+			"ComponentName":"32410",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Current",
+			"ComponentName":"32420",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Current",
+			"ComponentName":"32430",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Current",
+			"ComponentName":"32440",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Current",
+			"ComponentName":"32450",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Current",
+			"ComponentName":"32460",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Current",
+			"ComponentName":"32470",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Current",
+			"ComponentName":"32480",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Current",
+			"ComponentName":"32490",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Loans",
+			"ComponentName":"Intercompany - G/L Current",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Loans",
+			"ComponentName":"Intercompany - G/L Long Term",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Loans",
+			"ComponentName":"Intercompany - G/L Dormants",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Long Term",
+			"ComponentName":"32610",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Long Term",
+			"ComponentName":"32621",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Long Term",
+			"ComponentName":"32630",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Long Term",
+			"ComponentName":"32640",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Long Term",
+			"ComponentName":"32650",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Long Term",
+			"ComponentName":"32660",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Long Term",
+			"ComponentName":"32670",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Long Term",
+			"ComponentName":"32680",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Long Term",
+			"ComponentName":"32690",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany - G/L Dormants",
+			"ComponentName":"32910",
+			"Weight":1
+		},
+		{
+			"ParentName":"Provisions - Deferred Consideration",
+			"ComponentName":"33110",
+			"Weight":1
+		},
+		{
+			"ParentName":"Provisions",
+			"ComponentName":"Provisions - Deferred Consideration",
+			"Weight":1
+		},
+		{
+			"ParentName":"Provisions",
+			"ComponentName":"Provisions - Deemed Remuneration",
+			"Weight":1
+		},
+		{
+			"ParentName":"Provisions",
+			"ComponentName":"Provisions - Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"Provisions - Deemed Remuneration",
+			"ComponentName":"33210",
+			"Weight":1
+		},
+		{
+			"ParentName":"Provisions - Other",
+			"ComponentName":"33220",
+			"Weight":1
+		},
+		{
+			"ParentName":"Provisions - Other",
+			"ComponentName":"33230",
+			"Weight":1
+		},
+		{
+			"ParentName":"Provisions - Other",
+			"ComponentName":"33240",
+			"Weight":1
+		},
+		{
+			"ParentName":"Provisions - Other",
+			"ComponentName":"33250",
+			"Weight":1
+		},
+		{
+			"ParentName":"Share Capital",
+			"ComponentName":"40010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Shares Capital & Reserves",
+			"ComponentName":"Share Capital",
+			"Weight":1
+		},
+		{
+			"ParentName":"Shares Capital & Reserves",
+			"ComponentName":"Capital Contribution",
+			"Weight":1
+		},
+		{
+			"ParentName":"Shares Capital & Reserves",
+			"ComponentName":"Accumulated P&L A/C at PY End",
+			"Weight":1
+		},
+		{
+			"ParentName":"Shares Capital & Reserves",
+			"ComponentName":"Share Based Payment Reserve",
+			"Weight":1
+		},
+		{
+			"ParentName":"Shares Capital & Reserves",
+			"ComponentName":"Share Premium",
+			"Weight":1
+		},
+		{
+			"ParentName":"Shares Capital & Reserves",
+			"ComponentName":"Other Reserves",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Equity",
+			"ComponentName":"Shares Capital & Reserves",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Equity",
+			"ComponentName":"Profit Attributable to Equity",
+			"Weight":1
+		},
+		{
+			"ParentName":"Capital Contribution",
+			"ComponentName":"40020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Accumulated P&L A/C at PY End",
+			"ComponentName":"41010",
+			"Weight":1
+		},
+		{
+			"ParentName":"Share Based Payment Reserve",
+			"ComponentName":"41020",
+			"Weight":1
+		},
+		{
+			"ParentName":"Share Premium",
+			"ComponentName":"41030",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Reserves",
+			"ComponentName":"41040",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Reserves",
+			"ComponentName":"41050",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Reserves",
+			"ComponentName":"41060",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Accounts - Balance Sheet.subsets/Current Assets.json",
+		"Accounts - Balance Sheet.subsets/Current Liabilities.json",
+		"Accounts - Balance Sheet.subsets/Intercompany.json",
+		"Accounts - Balance Sheet.subsets/Provisions.json",
+		"Accounts - Balance Sheet.subsets/Share Capital & Reserves.json",
+		"Accounts - Balance Sheet.subsets/Sys Leaf Desc.json"
+	]
+}

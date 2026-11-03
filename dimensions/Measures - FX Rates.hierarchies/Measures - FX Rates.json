@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - FX Rates",
+	"Elements":
+	[
+		{
+			"Name":"Closing Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Average Rate",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

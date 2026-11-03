@@ -1,0 +1,28 @@
+{
+	"@type":"Cube",
+	"Name":"NL - Revenue",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Customer')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Measures - Revenue Volume')"
+		}
+	],
+	"Rules@Code.link":"NL - Revenue.rules",
+	"Views@Code.links":
+	[
+		"NL - Revenue.views/Prior Month Rule View.json",
+		"NL - Revenue.views/PY Rule View.json"
+	]
+}

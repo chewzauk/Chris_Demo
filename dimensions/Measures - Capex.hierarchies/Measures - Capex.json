@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Measures - Capex",
+	"Elements":
+	[
+		{
+			"Name":"Initial Cost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Depreciation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Accumulated Depreciation",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

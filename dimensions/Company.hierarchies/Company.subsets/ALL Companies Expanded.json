@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"ALL Companies Expanded",
+	"ExpandAbove":true,
+	"Alias":"CodeDescription",
+	"Expression":"TM1IGNORE_BADTUPLES {DRILLDOWNMEMBER({[Company].[Company].[ALL COMPANIES]} , {[Company].[Company].[ALL COMPANIES]} , RECURSIVE)}"
+}

@@ -1,0 +1,224 @@
+{
+	"@type":"Subset",
+	"Name":"AI List",
+	"Alias":"Short Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('01 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('02 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('03 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('04 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('05 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('06 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('07 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('08 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('09 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('10 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('11 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('12 2022')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('01 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('02 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('03 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('04 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('05 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('06 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('07 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('08 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('09 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('10 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('11 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('12 2023')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('01 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('02 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('03 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('04 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('05 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('06 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('07 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('08 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('09 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('10 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('11 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('12 2024')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('01 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('02 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('03 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('04 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('05 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('06 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('07 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('08 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('09 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('10 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('11 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('12 2025')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('01 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('02 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('03 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('04 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('05 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('06 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('07 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('08 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('09 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('10 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('11 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('12 2026')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('01 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('02 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('03 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('04 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('05 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('06 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('07 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('08 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('09 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('10 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('11 2027')"
+		},
+		{
+			"@id":"Dimensions('PeriodYear')/Hierarchies('PeriodYear')/Elements('12 2027')"
+		}
+	]
+}

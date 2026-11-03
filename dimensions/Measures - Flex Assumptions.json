@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Flex Assumptions",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Flex Assumptions.hierarchies/Measures - Flex Assumptions.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Flex Assumptions')/Hierarchies('Measures - Flex Assumptions')"
+	}
+}

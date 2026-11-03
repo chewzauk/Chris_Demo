@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"Dimension - Time - Update Other Hierarchies",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Dimension - Time - Update Other Hierarchies.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000023"
+}

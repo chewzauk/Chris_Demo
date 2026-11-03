@@ -1,0 +1,130 @@
+{
+	"@type":"Subset",
+	"Name":"Leaf Business Cubes",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Account Legacy Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Balance Sheet Movements')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Balance Sheet Movements Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Capex')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Currency - Daily')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Currency - Monthly')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Detailed Income')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Excel Import Monthly Balance Sheet Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Excel Import People Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Excel Import Profit and Loss Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Excel Import Uncommitted Costs Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Excel Import Weekly Cashflow Account Mapping')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Gains & Losses')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Group Reporting')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Group Reporting (Fixed FX)')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('IC Debtors Creditors')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('IC Loans')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('IC Mapping Matrix')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Medium Term Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Monthly Balance Sheet')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Monthly Balance Sheet Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('People')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('People Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Profit and Loss')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Profit and Loss Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Staging - History')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System - Cubes by Dimensions')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System - Documentation - Model')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System - Documentation - Rules')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System - List Table')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System - Parameters')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System - Parameters - Model')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System - Parameters - User')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System - Process Information')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System - Transaction Logs')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System - UI')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Trial Balance')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Uncommitted Costs')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Uncommitted Costs Import From Excel Staging')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Weekly Cashflow')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Weekly Cashflow Import From Excel Staging')"
+		}
+	]
+}

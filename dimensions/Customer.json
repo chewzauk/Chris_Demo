@@ -1,0 +1,19 @@
+{
+	"@type":"Dimension",
+	"Name":"Customer",
+	"Hierarchies@Code.links":
+	[
+		"Customer.hierarchies/Customer.json",
+		"Customer.hierarchies/Cost Centre.json",
+		"Customer.hierarchies/Country.json",
+		"Customer.hierarchies/Currency.json",
+		"Customer.hierarchies/Customer Size.json",
+		"Customer.hierarchies/Location.json",
+		"Customer.hierarchies/Region.json",
+		"Customer.hierarchies/Sales Rep.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Customer')/Hierarchies('Customer')"
+	}
+}

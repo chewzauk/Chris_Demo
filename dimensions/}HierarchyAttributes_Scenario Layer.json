@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"}HierarchyAttributes_Scenario Layer",
+	"Hierarchies@Code.links":
+	[
+		"}HierarchyAttributes_Scenario Layer.hierarchies/}HierarchyAttributes_Scenario Layer.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('}HierarchyAttributes_Scenario Layer')/Hierarchies('}HierarchyAttributes_Scenario Layer')"
+	}
+}

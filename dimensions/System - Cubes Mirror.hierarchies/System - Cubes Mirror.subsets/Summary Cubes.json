@@ -1,0 +1,16 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Cubes",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('All Cubes')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('Business Cubes')"
+		},
+		{
+			"@id":"Dimensions('System - Cubes Mirror')/Hierarchies('System - Cubes Mirror')/Elements('System Cubes')"
+		}
+	]
+}

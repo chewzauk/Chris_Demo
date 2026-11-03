@@ -1,0 +1,121 @@
+#region Prolog
+
+sPeriod=TRIM(SUBST( pPeriod, 1,3));
+
+
+# DataSourceType = 'CHARACTERDELIMITED';
+# DatasourceNameForClient = 'ASOS/Source Files/Cube Loads/Staff Costs Actuals/'|sPeriod|' Staff Cost Actuals.csv';
+# DatasourceNameForServer =  'ASOS/Source Files/Cube Loads/Staff Costs Actuals/'|sPeriod|' Staff Cost Actuals.csv';
+# DatasourceASCIIDelimiter = ',';
+
+#DatasourceASCIIHeaderRecords = 1;
+
+
+
+MinorErrorLogMax =-1;
+
+#Declare Variables
+
+sCubeName='Payroll';
+sSrcDim1='PeriodYear';
+sSrcDim2='Version';
+sSrcDim3='Measures - Payroll';
+
+#Recreate Views and Subsets
+
+sSrcView=GetProcessName();
+
+if(ViewExists( sCubeName, sSrcView )=1);
+    ViewDestroy( sCubeName, sSrcView );
+endif;
+
+if(SubsetExists( sSrcDim1, sSrcView )=1);
+    SubsetDestroy( sSrcDim1, sSrcView );
+endif;
+
+if(SubsetExists( sSrcDim2, sSrcView )=1);
+    SubsetDestroy( sSrcDim2, sSrcView );
+endif;
+
+if(SubsetExists( sSrcDim3, sSrcView )=1);
+    SubsetDestroy( sSrcDim3, sSrcView );
+endif;
+
+SubsetCreate( sSrcDim3, sSrcView, ptemp );
+SubsetElementInsert( sSrcDim3, sSrcView, 'FTE', 1 );
+SubsetElementInsert( sSrcDim3, sSrcView, 'Headcount', 1 );
+
+ViewCreate( sCubeName, sSrcView, pTemp);
+
+ViewSubsetAssign( sCubeName, sSrcView, sSrcDim3, sSrcView );
+
+sLastPeriod = ATTRS('Periodyear', ATTRS('Version', pVersion, 'End Period'), 'Next');
+sStartPeriod = ATTRS('Version', pVersion, 'Start Period');
+sPeriod = sStartPeriod;
+SubsetCreate( sSrcDim1, sSrcView, ptemp );
+
+while (sPeriod @<> sLastPeriod); 
+    SubsetElementInsert( sSrcDim1, sSrcView, sPeriod, 1 );
+    sPeriod = ATTRS('PeriodYear', sPeriod, 'Next');
+end;
+ViewSubsetAssign( sCubeName, sSrcView, sSrcDim1, sSrcView );
+
+sMdx='{[Version].[Version].['|pVersion|']}';
+SubsetCreatebyMDX( sSrcView, sMdx, pTemp);
+ViewSubsetAssign( sCubeName, sSrcView, sSrcDim2, sSrcView );
+
+
+#ZeroOut Period
+
+ViewZeroOut( sCubeName, sSrcView );
+
+
+#endregion
+#region Data
+
+sCostCentre = SUBST( vCost_Center, 1,4);
+if (DIMIX( 'Location Lookup', vLocation ) >0); 
+    sLocation = ATTRS('Location Lookup', vLocation, 'Map To');
+else;
+    sLocation = vLocation;
+endif;
+sCostCentre = SUBST(vCost_Center,1,4);
+
+sGrade = ATTRS('Grade Lookup', vWorker__Career_Level, 'Map To');
+
+sLastPeriod = ATTRS('Periodyear', ATTRS('Version', pVersion, 'End Period'), 'Next');
+sStartPeriod = ATTRS('Version', pVersion, 'Start Period');
+sPeriod = sStartPeriod;
+
+while (sPeriod @<> sLastPeriod); 
+    If(CellIsUpdateable( sCubeName, sPeriod, pVersion, vCompany, sCostCentre, vEmployee_ID, vPosition_ID, 'LC', 'FTE'  ) >0 );
+        CellPutN( vFTE_ / 100, sCubeName, sPeriod, pVersion, vCompany, sCostCentre, vEmployee_ID, vPosition_ID, 'LC', 'FTE' );
+    endif;
+    If(CellIsUpdateable( sCubeName, sPeriod, pVersion, vCompany, sCostCentre, vEmployee_ID, vPosition_ID, 'LC', 'Headcount'  ) >0 );
+        CellPutN( 1, sCubeName, sPeriod, pVersion, vCompany, sCostCentre, vEmployee_ID, vPosition_ID, 'LC', 'Headcount' );
+    endif;
+    sYear = ATTRS('PeriodYear', sPeriod, 'Financial Year');
+    CellPutN( vWorker__Base_Pay_Amount, 'Payroll Plan - Annual', sYear, pVersion, vEmployee_ID, 'Base Pay' );
+    CellPutN( vWorker__Flex_Allowance, 'Payroll Plan - Annual', sYear, pVersion, vEmployee_ID, 'Flex Allowance' );
+    sPeriod = ATTRS('PeriodYear', sPeriod, 'Next');
+end;
+
+#CellPutN( vFTE_, sCubeName, pPeriod, vEmployee_ID, 'FTE %' );
+
+
+
+
+
+#endregion
+#region Epilog
+sStartPeriod = ATTRS('Version', pVersion, 'Start Period');
+sLastPeriod = ATTRS('Periodyear', ATTRS('Version', pVersion, 'End Period'), 'Next');
+sPeriod = sStartPeriod;
+
+while (sPeriod @<> sLastPeriod); 
+    RunProcess( 'Data - Employee Mapping - Load Mapping',
+               'pTemp', 1,
+               'pPeriod', sPeriod );
+    sPeriod = ATTRS('PeriodYear', sPeriod, 'Next');
+end;
+#endregion

@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"Cost of Sales - Materials Cost",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Material')"
+		},
+		{
+			"@id":"Dimensions('Measures - Cost of Sales')"
+		}
+	],
+	"Views@Code.links":[]
+}

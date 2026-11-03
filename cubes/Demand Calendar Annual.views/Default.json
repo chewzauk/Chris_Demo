@@ -1,0 +1,48 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta": {
+		"Aliases": {
+			"[Month of Year].[Month of Year]": "Short Name",
+			"[Customer].[Customer]": "Description",
+			"[Product].[Product]": "Description"
+		},
+		"ExpandAboves": {
+			"[Day Number of Month].[Day Number of Month]": false,
+			"[Year].[Year]": false,
+			"[Month of Year].[Month of Year]": false,
+			"[}Clients].[}Clients]": false,
+			"[Demand Task].[Demand Task]": false,
+			"[Customer].[Customer]": false,
+			"[Measures - Demand Calendar Annual].[Measures - Demand Calendar Annual]": false,
+			"[Product].[Product]": false
+		},
+		"ContextSets": {
+			"[Year].[Year]": {
+				"Expression": "{[Year].[Year].MEMBERS}"
+			},
+			"[}Clients].[}Clients]": {
+				"Expression": "{[}Clients].[}Clients].MEMBERS}"
+			},
+			"[Demand Task].[Demand Task]": {
+				"Expression": "{[Demand Task].[Demand Task].MEMBERS}"
+			},
+			"[Customer].[Customer]": {
+				"Expression": "{[Customer].[Customer].MEMBERS}"
+			},
+			"[Measures - Demand Calendar Annual].[Measures - Demand Calendar Annual]": {
+				"Expression": "{[Measures - Demand Calendar Annual].[Measures - Demand Calendar Annual].MEMBERS}"
+			},
+			"[Product].[Product]": {
+				"Expression": "{[Product].[Product].MEMBERS}"
+			}
+		}
+	},
+	"ViewExtractSkipRuleValues": false,
+	"ViewExtractSkipConsolidatedValues": true,
+	"ViewExtractSkipZeroes": true,
+	"IsSuppressComputeOnOpen": false,
+	"IsAutocalculate": true,
+	"IsDeferComputeOnLeafDataEntry": false
+}

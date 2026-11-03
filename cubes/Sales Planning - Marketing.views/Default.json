@@ -1,0 +1,64 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Measures - Sales Planning - Marketing')/Hierarchies('Measures - Sales Planning - Marketing')"
+				},
+				"Expression":"{[Measures - Sales Planning - Marketing].[Measures - Sales Planning - Marketing].MEMBERS}"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Campaign Instance')/Hierarchies('Campaign Instance')"
+				},
+				"Expression":"{[Campaign Instance].[Campaign Instance].MEMBERS}"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Region')/Hierarchies('Region')"
+				},
+				"Expression":"{[Region].[Region].MEMBERS}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Region')/Hierarchies('Region')/Elements('UK')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Product')/Hierarchies('Product')"
+				},
+				"Expression":"{[Product].[Product].MEMBERS}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Product')/Hierarchies('Product')/Elements('TOTAL PRODUCTS')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":""
+}

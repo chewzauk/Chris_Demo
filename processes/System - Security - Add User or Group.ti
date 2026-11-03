@@ -1,0 +1,293 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESESS DESCRIPTION #####
+sDescription = 'Add user/client and/or groups and assign';
+sDeveloper = 'Sempre: Shane James';    
+sSource = 'Manual'; 
+sSourceType = 'Parameters'; 
+sTarget = '}Clients or }Groups'; 
+sTargetType = 'Dimension'; 
+
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+
+sClientDim = '}Clients';
+sGroupDim = '}Groups';
+
+### Only run if Client is populated
+if (pClientEmail @<> ''); 
+    # Check email includes @
+    if ( SCAN('@', pClientEmail ) = 0 );
+        nError = nError + 1;
+        sStatus = sStatus | 'Invalid email address entered (does not contain an @ symbol): ' | pClientEmail | '<br>';
+        ProcessBreak;
+    endif;
+
+    # Check email includes a full stop after @
+    if ( SCAN('.', SUBST ( pClientEmail, SCAN('@', pClientEmail ), 99 ) ) = 0 );
+        nError = nError + 1;
+        sStatus = sStatus | 'Invalid email address entered (no period after the @ symbol): ' | pClientEmail | '<br>';
+        ProcessBreak;
+    endif;
+
+    sEmailAddress = trim(pClientEmail);
+
+    # Check first name exists
+    if ( trim ( pFirstName ) @= '' );
+        nError = nError + 1;
+        sStatus = sStatus | 'pFirstName parameter was empty.<br>';
+        ProcessBreak;
+    endif;
+    sFirstName = trim(pFirstName);
+
+    # Check last name exists
+    if ( trim ( pSurname ) @= '' );
+        nError = nError + 1;
+        sStatus = sStatus | 'pLastName parameter was empty.<br>';
+        ProcessBreak;
+    endif;
+
+    sLastName = trim(pSurname);
+    sFullName = sFirstName | ' ' | sLastName;
+
+    # Check Display Name will be unique
+    sDisplayAlias = 'Business Analytics/' | sFullName;
+    if ( dimix ( sClientDim, sDisplayAlias ) > 0 );
+        nError = nError + 1;
+        sStatus = sStatus | 'The }TM1_DefaultDisplayValue alias that would be used [' | sDisplayAlias | '] is already in use so cannot proceed with these names.<br>';
+        ProcessBreak;
+    endif;
+
+    sClient = 'CAMID("pans:u:' | pClientEmail | '")';
+
+
+    #### Cloud install
+    if (pCloudLocal @= 'Cloud'); 
+        AddClient(sClient); 
+        DimensionElementInsert ( sClientDim, '', sClient, 'N' );
+    endif;
+
+    #### Std tm1 security
+    if (pCloudLocal @= 'Local'); 
+        sClient= pClientEmail;
+        AddClient (sClient); 
+        DimensionElementInsert ( sClientDim, '', sClient, 'N' );
+    endif;
+endif;
+
+
+##Create Groups if they dont exist
+If(DIMIX( '}Groups', pGroup1 ) = 0 & pGroup1 @<> '');
+    AddGroup( pGroup1 );
+endif;
+If(DIMIX( '}Groups', pGroup2 ) = 0 & pGroup2 @<> '');
+    AddGroup( pGroup2 );
+endif;
+If(DIMIX( '}Groups', pGroup3 ) = 0 & pGroup2 @<> '');
+    AddGroup( pGroup3 );
+endif;
+
+
+
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+if(pClientEmail @<> '');
+    #### Assign users to group
+    If(DIMIX( '}Groups', pGroup1 ) > 0 & pGroup1 @<> '');
+        AssignClientToGroup( sClient, pGroup1 );
+    Endif;
+
+    If(DIMIX( '}Groups', pGroup2 ) > 0 & pGroup2 @<> '');
+        AssignClientToGroup( sClient, pGroup2 );
+    Endif;
+
+    If(DIMIX( '}Groups', pGroup3 ) > 0 & pGroup3 @<> '');
+        AssignClientToGroup( sClient, pGroup3 );
+    Endif;
+endif;
+
+if ( nError = 0);
+    sFirstName = trim(pFirstName);
+    sLastName = trim(pSurname);
+    sFullName = sFirstName | ' ' | sLastName;
+    sCreateDate = '';
+    if(pClientEmail @<> '');
+        if (DIMIX( sClientDim, sDisplayAlias )=0); 
+            AttrPutS ( sDisplayAlias, sClientDim, sClient, '}TM1_DefaultDisplayValue' );
+        endif;
+        sUserCube = 'System - Parameters - User';
+        CellPutS ( sFirstName, sUserCube, sClient, 'First Name', 'String' );
+        CellPutS ( sLastName, sUserCube, sClient, 'Surname', 'String' );
+        CellPutS ( TIMST ( NOW(), '\Y-\m-\d' ), sUserCube, sClient, 'Creation Date', 'String' );
+    endif;
+    ExecuteProcess( 'System - Security - Refresh Security', 'pConfirm', 'Y', 'pEmail', 'N' );
+endif;
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+#### Edit This
+sParameters = 'pConfirm='|pConfirm|', pEmail='|pEmail|', pClientEmail = '|pClientEmail|', pGroup1 = '|pGroup1|
+            ', pGroup2 = '|pGroup2|', pGroup3 = '|pGroup3|', pCloudLocal = '|pCloudLocal;   
+
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    iSendEmail = 0;
+
+    if (iCalledByChore = 0);
+        iSendEmail = 1;
+    elseif (nError > 0);
+        iSendEmail = 1;
+    endif;
+
+    if (iSendEmail = 1);
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        if (DimensionExists('}ElementAttributes_}Clients') = 1);
+            if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+                sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+                if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+            endif;
+        endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+            IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+            else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+        sCC = 'X';
+        sBCC = 'X';
+
+        if (nError = 0); 
+            sSubject = 'Process Success - '|sProcess; 
+            sMessageStatus = '<font color="green">successfully</font>';
+            sEmailMessageAdd = '<p> New user '|pClientEmail|' was added</p>';
+        Else;
+            sSubject = 'Process Error - '|sProcess;
+            sMessageStatus = '<font color="red">with errors</font> ';
+            sEmailMessageAdd = '<p> New user '|pClientEmail|' was not added</p>';
+        Endif; 
+
+        if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+        elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+        else;
+            sUsernameToDisplay = trim(CellGetS('System - Parameters - User', Tm1User(), 'Full Name', 'String' ));
+            if ( sUsernameToDisplay @= '' ); sUsernameToDisplay = sTM1User;  endif;
+        endif;
+
+        sEmailMessage = '<p>Dear '|sUsernameToDisplay|'</p><p>PROCESS: '|sProcess|' has completed '|sMessageStatus|'</p><p>The following parameters were used - '|sParameters|'</p>';
+        sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+        sEmailMessage = sEmailMessage | sEmailMessageAdd;
+
+        sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+        sAttachment = 'X';
+
+        # Now call the process that sends the email.
+        if (iCalledByChore = 1);
+            if (sAdmin1Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+            endif;
+            if (sAdmin2Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+            if (sAdmin3Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+        Else;
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+    endif;
+endif;
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

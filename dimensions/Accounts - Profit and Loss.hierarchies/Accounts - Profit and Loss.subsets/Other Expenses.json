@@ -1,0 +1,38 @@
+{
+	"@type":"Subset",
+	"Name":"Other Expenses",
+	"Alias":"CodeDescription",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('78130')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('78140')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('78210')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('78220')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('78310')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('78320')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('78330')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('78410')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('78510')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Profit and Loss')/Hierarchies('Accounts - Profit and Loss')/Elements('78610')"
+		}
+	]
+}

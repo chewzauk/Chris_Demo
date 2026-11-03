@@ -1,0 +1,81 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Grade",
+	"Elements":
+	[
+		{
+			"Name":"All Grades",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Apprentice",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Core",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Management Committee",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Guide",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Implement",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Lead",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Translate",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Grades",
+			"ComponentName":"Apprentice",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Grades",
+			"ComponentName":"Core",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Grades",
+			"ComponentName":"Management Committee",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Grades",
+			"ComponentName":"Guide",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Grades",
+			"ComponentName":"Implement",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Grades",
+			"ComponentName":"Lead",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Grades",
+			"ComponentName":"Translate",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Grade.subsets/Leaf.json"
+	]
+}

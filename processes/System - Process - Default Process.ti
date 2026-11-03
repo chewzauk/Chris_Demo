@@ -1,0 +1,79 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime =Now() ;
+nRecords = 0;
+sStatus = '';
+nError = 0;
+sProcess = GetProcessName;
+sErrorFile = GetProcessErrorFilename();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sParameters = 'pConfirm='|pConfirm|', pEmail='|pEmail;   
+#######################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+if (1=0); 
+    sDescription = 'The process is a default process to be used as the base for all other processes developed'; 
+    sDeveloper = 'Sempre: Shane James';    
+    sSource = 'Source'; 
+    sSourceType = 'Source Type'; 
+    sTarget = 'Target'; 
+    sTargetType = 'Target Type'; 
+
+RunProcess( 'System - Documentation - Populate Process Documentation',
+	'pConfirm', 'Y',
+	'pProcess', GetProcessName(),
+	'pDescription', sDescription,
+	'pDeveloper', sDeveloper,
+	'pSource', sSource,
+	'pSourceType', sSourceType,
+	'pTarget', sTarget,
+	'pTargetType', sTargetType );
+endif;
+
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+
+
+
+
+#endregion
+#region Epilog
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = Now();
+sMessage = '';
+
+RunProcess( 'System - Logging - Populate Process Info',
+	'pConfirm', 'Y',
+	'pProcess', sProcess,
+	'pRecordsProcessed', nRecords,
+	'pStartTime', sStartTime,
+	'pEndTime', sEndTime,
+	'pExecutedBy', sUser,
+	'pParametersUsed', sParameters,
+	'pExecutionStatus', sStatus,
+	'pUpdatedFrom', 'Process',
+	'pProcessMessage', sMessage,
+	'pServerLogFile', sErrorFile );
+
+####################################
+
+
+
+#endregion

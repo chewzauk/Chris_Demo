@@ -1,0 +1,51 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Currency - Reporting",
+	"Elements":
+	[
+		{
+			"Name":"ALL CURRENCIES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"LC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GBP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"USD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EUR",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"LC",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"GBP",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"USD",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL CURRENCIES",
+			"ComponentName":"EUR",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

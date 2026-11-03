@@ -1,0 +1,135 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Location",
+	"Elements":
+	[
+		{
+			"Name":"All Locations",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Atlanta",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Barnsley",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Belfast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Berlin",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Birmingham",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Doncaster",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GLH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hong Kong",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Leavesden",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"New York",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Remote",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sydney",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Turkey",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Atlanta",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Barnsley",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Belfast",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Berlin",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Birmingham",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Doncaster",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"GLH",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Hong Kong",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Leavesden",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"New York",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Remote",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Sydney",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Locations",
+			"ComponentName":"Turkey",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Location.subsets/All Leaves A-Z.json"
+	]
+}

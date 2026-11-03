@@ -1,0 +1,33 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Create Transaction Logs",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Cubes - Create Transaction Logs.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Are you sure you want to Create the import table (data may be lost)",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pListNoElements",
+			"Prompt":"Value for the dimension called list (only required if dim does not exist)",
+			"Value":100000,
+			"Type":"Numeric"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000033"
+}

@@ -1,0 +1,50 @@
+{
+	"@type":"NativeView",
+	"Name":"VZOData",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Measures - New Employees')/Hierarchies('Measures - New Employees')"
+				},
+				"Expression":"{[Measures - New Employees].[Measures - New Employees].MEMBERS}"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('List')/Hierarchies('List')"
+				},
+				"Expression":"{[List].[List].MEMBERS}"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('}Clients')/Hierarchies('}Clients')"
+				},
+				"Expression":"{[}Clients].[}Clients].MEMBERS}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('}Clients')/Hierarchies('}Clients')/Elements('shane.james@sempreanalytics.com')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":""
+}

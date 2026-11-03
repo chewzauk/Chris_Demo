@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"System - Process Information",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Time Processes')"
+		},
+		{
+			"@id":"Dimensions('}Processes')"
+		},
+		{
+			"@id":"Dimensions('Measures - Process Info')"
+		}
+	],
+	"Views@Code.links":[]
+}

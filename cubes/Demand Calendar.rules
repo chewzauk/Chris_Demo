@@ -1,0 +1,73 @@
+skipcheck;
+# Version 12 requires feeders for all rules regardless of whether you skipcheck the rule file or not (so you might as well). 
+# This may require artificial feeder sources, i.e. physical data typed into a cube (this cube or another as you deem fit) just for the explicit purpose of acting as a feeder for a particular rule. 
+
+# Allow a TI process to load Date values to a single "user" and then use a rule to link the values out to all users.This means that when a new user is added to TM1 the TI process does not have to be run.
+# If you don't mind running that TI process every time a new user is added, and don't mind the risk of a user not having any calendar information if that doesn't happen, then by all means don't use this method.
+#['}Clients':'System Use Only (not a person)', 'Product':'TOTAL PRODUCTS', 'Customer':'TOTAL CUSTOMERS', 'Demand Task':'Total Demand Tasks', 'Measures - Demand Calendar':'Date'] = S: STET;
+#''['Date'] = S: DB('Demand Calendar','System Use Only (not a person)',!Day of Week,!Week of Month,!Month of Year,!Year,'Total Products','Total Customers','Total Demand Tasks',!Measures - Demand Calendar);
+
+
+['Day of Week Number'] = NUMBR ( DB('}ElementAttributes_Date', DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date'), 'Day # of Week' ) );
+
+['Day Name'] = S: DB('}ElementAttributes_Date', DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date'), 'Day Name' );
+
+['Day of Month Number'] = NUMBR(SUBST(DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date'), 9, 2));
+
+# Day Status holds a number which indicates how "loaded" the day is, taking importance into consideration. No tasks on that day means 0, a single normal task would mean 2, etc, with a maximum score of 3 for fully loaded / maxed out. 
+# A Day Status of -1 is returned if the day is not valid for holding tasks. For example, weekends and bank holidays.
+# A Day Status of -2 is returned if the day is not valid at all in the real world, such as a combination of, say, Monday, Week 6, February 2026 just isn't a day. You can then use this unique value to conditionally format these cells maybe in grey.
+# You can have more levels than these 4 if you want. You'll probably be using conditional formatting in Excel or PAW to show these levels in different colours so just bear that in mind if you start thinking you want 10 levels!
+['Day Status'] = 
+	if ( DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date') @= '',
+		-2,
+		if ( DB('}ElementAttributes_Date', DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date'), 'Working Day' ) @= 'Y',
+    			DB('Demand Tasks',!}Clients,DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date') ,!Demand Task, !Product, !Customer, 'Task Importance') +
+    			DB('Demand Tasks',!}Clients,DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date') ,!Demand Task, !Product, !Customer, 'Monthly Task Importance') 
+			, -1
+		)
+	)
+;
+
+# While Day Status does look at whether there are any tasks on a given day, its primary purpose is to describe what KIND of a day it is: valid/invalid, working day, empty day, day-with-tasks, etc.
+# Num Tasks simply holds how loaded the day is, so is what you would display in PAW or at least conditionally format the cell based on.
+['Num Tasks'] = N:
+	DB('Demand Tasks',!}Clients,DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date') ,!Demand Task, !Product, !Customer, 'Task Importance') + 
+  	DB('Demand Tasks',!}Clients,DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date') ,!Demand Task, !Product, !Customer, 'Monthly Task Importance')  
+  ;
+
+
+['Task Name'] = S:
+	if ( DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date') @= '',
+		'',
+		if ( DB('Demand Tasks',!}Clients,DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date') ,!Demand Task, !Product, !Customer, 'Task Importance') > 0 % DB('Demand Tasks',!}Clients,DB('Demand Calendar',!}Clients,!Day of Week,!Week of Month,!Month of Year,!Year,!Product,!Customer,!Demand Task,'Date') ,!Demand Task, !Product, !Customer, 'Monthly Task Importance') > 0,
+  			!Demand Task,
+			CONTINUE
+  		)
+  	)
+;
+
+# #######################################################################################
+# #######################################################################################
+
+feeders;
+
+['Measures - Demand Calendar':'Date'] => ['Measures - Demand Calendar':'Day Status'];
+['Measures - Demand Calendar':'Date'] => ['Measures - Demand Calendar':'Num Tasks'];
+['Measures - Demand Calendar':'Date'] => ['Measures - Demand Calendar':'Day Name'];
+['Measures - Demand Calendar':'Date'] => ['Measures - Demand Calendar':'Day of Week Number'];
+['Measures - Demand Calendar':'Date'] => ['Measures - Demand Calendar':'Day of Month Number'];
+
+# ['Measures - Demand Calendar':'Date'] => DB('Demand Calendar Annual', !}Clients, SUBST(DB('Demand Calendar', 'System Use Only (not a person)', !Day of Week, !Week of Month, !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Date' ), 9, 2), !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Day Status');
+# ['Measures - Demand Calendar':'Date'] => DB('Demand Calendar Annual', !}Clients, SUBST(DB('Demand Calendar', 'System Use Only (not a person)', !Day of Week, !Week of Month, !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Date' ), 9, 2), !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Num Tasks');
+# ['Measures - Demand Calendar':'Date'] => DB('Demand Calendar Annual', !}Clients, SUBST(DB('Demand Calendar', 'System Use Only (not a person)', !Day of Week, !Week of Month, !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Date' ), 9, 2), !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Day Name');
+# ['Measures - Demand Calendar':'Date'] => DB('Demand Calendar Annual', !}Clients, SUBST(DB('Demand Calendar', 'System Use Only (not a person)', !Day of Week, !Week of Month, !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Date' ), 9, 2), !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Day of Week Number');
+# ['Measures - Demand Calendar':'Date'] => DB('Demand Calendar Annual', !}Clients, SUBST(DB('Demand Calendar', 'System Use Only (not a person)', !Day of Week, !Week of Month, !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Date' ), 9, 2), !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Day of Month Number');
+
+['Num Tasks'] =>  DB('Demand Calendar Annual', !}Clients, SUBST(DB('Demand Calendar', !}Clients, !Day of Week, !Week of Month, !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Date' ), 9, 2), !Month of Year, !Year, !Product, !Customer, !Demand Task, 'Day Status');
+
+# #######################################################################################
+# #######################################################################################
+
+
+

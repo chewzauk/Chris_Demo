@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Cost Reallocation Drivers",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Cost Reallocation Drivers.hierarchies/Measures - Cost Reallocation Drivers.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Cost Reallocation Drivers')/Hierarchies('Measures - Cost Reallocation Drivers')"
+	}
+}

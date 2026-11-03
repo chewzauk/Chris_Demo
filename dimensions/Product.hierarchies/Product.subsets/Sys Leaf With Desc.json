@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Sys Leaf With Desc",
+	"Alias":"Description",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL(TM1SUBSETALL([Product].[Product]) , 0)}"
+}

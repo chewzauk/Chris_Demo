@@ -1,0 +1,314 @@
+#region Prolog
+
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESSES DESCRIPTION #####
+sDescription = 'Creates the Time to Date, Year to Date and Year to Go consolidations in the Date dimensions';
+sDeveloper = 'Sempre Analytics: Shane James';    
+sSource = 'Date Period'; 
+sSourceType = 'Dimension'; 
+sTarget = 'Date Period'; 
+sTargetType = 'Dimension'; 
+
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+
+sDim1 = 'PeriodYear';
+sDim2 = 'Date';
+
+sSub = 'Leaves';
+sMDX  = '{TM1FILTERBYLEVEL( {TM1SUBSETALL( ['|sDim1|'].['|sDim1|'] )}, 0)}';
+If (HierarchySubsetExists(sDim1, sDim1, sSub) = 0, HierarchySubsetCreate( sDim1, sDim1, sSub), 0);
+HierarchySubsetMDXSet(sDim1, sDim1, sSub, sMDX);
+
+### LTM is last 12 months
+sConsol = 'ALL LTM';
+DimensionElementInsert( sDim1, '', sConsol, 'C');
+
+
+sConsol = 'ALL YTG';
+DimensionElementInsert( sDim1, '', sConsol, 'C');
+
+
+sConsol = 'ALL YTD';
+DimensionElementInsert( sDim1, '', sConsol, 'C');
+DimensionElementInsert( sDim2, '', sConsol, 'C');
+#endregion
+#region Metadata
+
+if (vPeriod @= 'No Date'); 
+    Itemskip; 
+endif;
+
+nIndex = StringtoNumber(Attrs('PeriodYear', vPeriod, 'Index'));
+sLTM = vPeriod|' LTM';
+sYTD = vPeriod|' YTD';
+sYTG = vPeriod|' YTG';
+
+### LTM Structure
+sConsol = 'ALL LTM';
+DimensionElementInsert( sDim1, '', sLTM, 'C');
+DimensionElementComponentAdd( sDim1, sConsol, sLTM, 1 );
+n = 11;
+while (n >= 0);
+    sElement = NumberToString( nIndex - n );
+    sPeriod = DimensionElementPrincipalName( 'PeriodYear', sElement );
+    if (DIMIX( 'PeriodYear', sElement ) > 0); 
+        DimensionElementComponentAdd( sDim1, sLTM, speriod, 1 );
+    endif;
+    n = n - 1; 
+end;
+
+
+### YTD
+sConsol = 'ALL YTD';
+DimensionElementInsert( sDim1, '', sYTD, 'C');
+DimensionElementInsert( sDim2, '', sYTD, 'C');
+DimensionElementComponentAdd( sDim1, sConsol, sYTD, 1 );
+DimensionElementComponentAdd( sDim2, sConsol, sYTD, 1 );
+n = StringToNumber(SUBST( vPeriod, 1, 2))-1;
+while (n >= 0);
+    sElement = NumberToString(nIndex - n);
+    sPeriod = DimensionElementPrincipalName( 'PeriodYear', sElement );
+    if (DIMIX( 'PeriodYear', sElement ) > 0); 
+        DimensionElementComponentAdd( sDim1, sYTD, speriod, 1 );
+        DimensionElementComponentAdd( sDim2, sYTD, speriod, 1 );
+    endif;
+    n = n - 1; 
+end;
+
+# sConsol = 'ALL YTD';
+# sSub = 'Leaves';
+# sSubsetSize = SubsetGetSize( sDim1,sSub);
+# DimensionElementInsert( sDim1, '', sConsol, 'C');
+
+# While(sSubsetSize >0);
+#     sCurrentElement = SubsetGetElementName( sDim1, sSub, sSubsetSize );
+#     sPreviousElement = sCurrentElement;
+#     IF(SUBST(sCurrentElement,1,2) @<> '13' & sCurrentElement @<> 'No Date'); 
+#         DimensionElementInsertDirect( sDim1, '', sCurrentElement|' YTD', 'C');
+#         DimensionElementComponentAddDirect( sDim1, sConsol, sCurrentElement|' YTD', 0 );
+#         n=StringToNumber(ATTRS(sDim1, sPreviousElement ,'Period'));
+#         While(n >= 1 &  sPreviousElement @<> '');
+#             DimensionElementComponentAddDirect( sDim1, sCurrentElement|' YTD', sPreviousElement , 1 );
+#             sPreviousElement = ATTRS(sDim1, sPreviousElement, 'Previous');
+#             n=n-1;
+#         End;
+#     Endif;
+#     sSubsetSize = sSubsetSize -1;
+# End;
+
+### YTG
+sConsol = 'ALL YTG';
+DimensionElementInsert( sDim1, '', sYTG, 'C');
+DimensionElementComponentAdd( sDim1, sConsol, sYTG, 1 );
+sYear = ATTRS('PeriodYear', vPeriod, 'Year');
+nIndex = StringtoNumber(Attrs('PeriodYear', '12 '|sYear, 'Index'));
+n = 0;
+while (12 - StringToNumber(SUBST( vPeriod, 1, 2 )) > n);
+    sElement = NumberToString( nIndex - n );
+    sPeriod = DimensionElementPrincipalName( 'PeriodYear', sElement );
+    if (DIMIX( 'PeriodYear', sElement ) > 0); 
+        DimensionElementComponentAdd( sDim1, sYTG, sPeriod, 1 );
+    endif;
+    n = n + 1; 
+end;
+
+
+
+
+#endregion
+#region Data
+
+
+if (vPeriod @= 'No Date'); 
+    Itemskip; 
+endif;
+
+nIndex = StringtoNumber(Attrs('PeriodYear', vPeriod, 'Index'));
+sLTM = vPeriod|' LTM';
+sYTD = vPeriod|' YTD';
+sYTG = vPeriod|' YTG';
+
+sNext = ATTRS('PeriodYear', vPeriod, 'Next');
+sNextyr = ATTRS('PeriodYear', vPeriod, 'Next Year');
+sPrevious = ATTRS('PeriodYear', vPeriod, 'Previous');
+sPreviousyr = ATTRS('PeriodYear', vPeriod, 'Previous Year');
+
+AttrPutS(ATTRS(sDim1, vPeriod, 'Long Name')| ' LTM', sDim1, sLTM, 'Long Name');
+AttrPutS(ATTRS(sDim1, vPeriod, 'Short Name')| ' LTM', sDim1, sLTM, 'Short Name');
+AttrPutS(sNext| ' LTM', sDim1, sLTM, 'Next');
+AttrPutS(sNextyr| ' LTM', sDim1, sLTM, 'Next Year');
+AttrPutS(sPrevious| ' LTM', sDim1, sLTM, 'Previous');
+AttrPutS(sPreviousyr| ' LTM', sDim1, sLTM, 'Previous Year');
+
+AttrPutS(ATTRS(sDim1, vPeriod, 'Long Name')| ' YTD', sDim1, sYTD, 'Long Name');
+AttrPutS(ATTRS(sDim1, vPeriod, 'Short Name')| ' YTD', sDim1, sYTD, 'Short Name');
+AttrPutS(sNext| ' YTD', sDim1, sYTD, 'Next');
+AttrPutS(sNextyr| ' YTD', sDim1, sYTD, 'Next Year');
+AttrPutS(sPrevious| ' YTD', sDim1, sYTD, 'Previous');
+AttrPutS(sPreviousyr| ' YTD', sDim1, sYTD, 'Previous Year');
+
+AttrPutS(ATTRS(sDim1, vPeriod, 'Long Name')| ' YTG', sDim1, sYTG, 'Long Name');
+AttrPutS(ATTRS(sDim1, vPeriod, 'Short Name')| ' YTG', sDim1, sYTG, 'Short Name');
+AttrPutS(sNext| ' YTG', sDim1, sYTG, 'Next');
+AttrPutS(sNextyr| ' YTG', sDim1, sYTG, 'Next Year');
+AttrPutS(sPrevious| ' YTG', sDim1, sYTG, 'Previous');
+AttrPutS(sPreviousyr| ' YTG', sDim1, sYTG, 'Previous Year');
+
+nRecords = nRecords + 1;
+
+
+#endregion
+#region Epilog
+
+
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+sParameters = 'pConfirm = '|pConfirm|', pEmail = '|pEmail;
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+IF(DimensionExists( sDim ) <> 0);
+    DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+Endif;
+##########################################################
+sCube = 'System - Process Information';
+If(CubeExists( sCube ) = 0, ProcessQuit, 0);
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    iSendEmail = 0;
+
+    if (iCalledByChore = 0);
+        iSendEmail = 1;
+    elseif (nError > 0);
+        iSendEmail = 1;
+    endif;
+
+    if (iSendEmail = 1);
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        if (DimensionExists('}ElementAttributes_}Clients') = 1);
+            if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+                sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+                if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+            endif;
+        endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+            IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+            else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+        sCC = 'X';
+        sBCC = 'X';
+
+        if (nError = 0); 
+            sSubject = 'Process Success - '|sProcess; 
+            sMessageStatus = '<font color="green">successfully</font>';
+        Else;
+            sSubject = 'Process Error - '|sProcess;
+            sMessageStatus = '<font color="red">with errors</font> ';
+        Endif; 
+
+        if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+        elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+        else;
+            sUsernameToDisplay = trim(CellGetS('System - Parameters - User', Tm1User(), 'Full Name', 'String' ));
+            if ( sUsernameToDisplay @= '' ); sUsernameToDisplay = sTM1User;  endif;
+        endif;
+
+        sEmailMessage = '<p>Dear '|sUsernameToDisplay|'</p><p>PROCESS: '|sProcess|' has completed '|sMessageStatus|'</p><p>The following parameters were used - '|sParameters|'</p>';
+        sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+        sEmailMessage = sEmailMessage | '<p>It updated the TTD, YTD and YTG consolidations in the date dimensions</p><br>';
+
+
+        sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+        sAttachment = 'X';
+
+        # Now call the process that sends the email.
+        if (iCalledByChore = 1);
+            if (sAdmin1Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+            endif;
+            if (sAdmin2Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+            if (sAdmin3Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+        Else;
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+    endif;
+endif;
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

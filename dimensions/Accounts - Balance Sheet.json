@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Accounts - Balance Sheet",
+	"Hierarchies@Code.links":
+	[
+		"Accounts - Balance Sheet.hierarchies/Accounts - Balance Sheet.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Accounts - Balance Sheet')/Hierarchies('Accounts - Balance Sheet')"
+	}
+}

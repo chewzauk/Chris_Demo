@@ -1,0 +1,133 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESSES DOCUMENTATION #####
+#### Edit variables below
+sDescription = 'So this process should be included in one of the the chores called by the tm1s.cfg parameter
+ StartupChores=
+ It simply emails the personal and work accounts of the TM1 team that the server has started up. 
+ Therefore if they do NOT receive this email when they expect to then they know to log on early to fix the problem.
+ It ought to be run as the final process of the potentially multiple startup chores to be sure all is well.'; 
+sDeveloper = 'Sempre: Philip Bichard';    
+sSource = 'Source'; 
+sSourceType = 'Source Type'; 
+sTarget = 'Target'; 
+sTargetType = 'Target Type'; 
+
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError=1;
+    ProcessBreak; 
+endif;
+
+# #################################################
+sServerName = CellGetS('System - Parameters', 'Server', 'String' );
+sMachineName = lower(CellGetS('System - Parameters', 'Server Machine Name', 'String' ));
+sFriendlyName = CellGetS('System - Parameters', 'Server Friendly Name', 'String' );
+# #################################################
+#endregion
+#region Epilog
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+
+#### Edit This
+sParameters = 'pConfirm='|pConfirm|', pEmail='|pEmail;   
+
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+    sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+    sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+
+    sCC = 'X';
+    sBCC = 'X';
+
+    sSubject = sServerName | ' on ' | sMachineName | ' has just restarted*no logo* ';
+
+    sEmailMessage = '';
+    sEmailMessage = sEmailMessage | '<b>' | GetProcessName | '</b> just ran on ' | TIMST(NOW(), '\d/\m/\Y, at \h:\i:\s') | '.<br><br>' ;
+    sEmailMessage = sEmailMessage | '<font color="green">The TM1 server <b>' | sServerName | '</b> running on ' | sMachineName | ' (' | sFriendlyName | ') just started successfully and is ready to use.</font><br>';
+
+    sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+    sAttachment = 'X';
+
+    if (sAdmin1Email @<> ''); 
+        vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                 'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+    endif;
+    if (sAdmin2Email @<> ''); 
+        vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                 'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+    endif;
+    if (sAdmin3Email @<> ''); 
+        vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                 'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+    endif;
+
+endif;
+
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

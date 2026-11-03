@@ -1,0 +1,69 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+####### SET PROCESESS DESCRIPTION #####
+sDescription = 'Create the Process information cubes which keeps a track of all processes run and imported process log information';
+sDeveloper = 'Sempre: Shane James';
+sSource = 'None';
+sSourceType = 'None';
+sTarget = 'System - Process Info';
+sTargetType = 'Cube';
+sCube = 'System - Documentation - Model';
+If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+    ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+endif;
+If(CubeExists( sCube ) > 0);
+    CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+    CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+    CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+    CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+    CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+    CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+Endif;
+#########################################
+
+if (pConfirm @= 'N');
+    sStatus = 'Process execution not confirmed';
+    nError = 1;
+    ProcessBreak; 
+endif;
+
+sDim1 = 'Time Processes';
+sDim2 = '}Processes';
+sDim3 = 'Measures - Process Info';
+sCube = 'System - Process Information';
+
+If(DimensionExists( sDim1 ) = 0, DimensionCreate( sDim1 ), 0);
+DimensionDeleteAllElements( sDim1 );
+If(DimensionExists( sDim3 ) = 0, DimensionCreate( sDim3 ), 0);
+DimensionDeleteAllElements( sDim3 );
+
+##### Insert User Parameters #############################
+DimensionElementInsertDirect( sDim3, '', 'Records Processed', 'N' );
+DimensionElementInsertDirect( sDim3, '', 'Start Time', 'S' );
+DimensionElementInsertDirect( sDim3, '', 'End Time', 'S' );
+DimensionElementInsertDirect( sDim3, '', 'Completion Time', 'S' );
+DimensionElementInsertDirect( sDim3, '', 'Executed By', 'S' );
+DimensionElementInsertDirect( sDim3, '', 'Parameters Used', 'S' );
+DimensionElementInsertDirect( sDim3, '', 'Execution Status', 'S' );
+DimensionElementInsertDirect( sDim3, '', 'Updated From', 'S' );
+DimensionElementInsertDirect( sDim3, '', 'Process Error', 'S' );
+DimensionElementInsertDirect( sDim3, '', 'Server Log Error', 'S' );
+##########################################################
+
+nRecords=nRecords+1;
+#endregion
+#region Epilog
+
+if (pConfirm @='Y'); 
+    If(CubeExists( sCube ) = 0, CubeCreate( sCube, sDim1, sDim2, sDim3 ), 0);
+endif;
+
+#endregion

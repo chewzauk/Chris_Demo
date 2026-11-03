@@ -1,0 +1,51 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Parameters - User')/Hierarchies('Parameters - User')"
+				},
+				"Expression":"{[Parameters - User].[Parameters - User].MEMBERS}"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('}Clients')/Hierarchies('}Clients')"
+				},
+				"Alias":"}TM1_DefaultDisplayValue",
+				"Expression":"{[}Clients].[}Clients].MEMBERS}"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Measures - Parameters')/Hierarchies('Measures - Parameters')"
+				},
+				"Expression":"{[Measures - Parameters].[Measures - Parameters].MEMBERS}"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Measures - Parameters')/Hierarchies('Measures - Parameters')/Elements('String')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

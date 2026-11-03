@@ -1,0 +1,714 @@
+#region Prolog
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+sStatus = '';
+nError = 0;
+##############################################
+
+# ####### SET PROCESESS DESCRIPTION #####
+# sDescription = 'Builds the various date dimensions using a csv file created from a template excel doc';
+# sDeveloper = 'Sempre: Shane James';    
+# sSource = 'DateFile.csv'; 
+# sSourceType = 'Text File'; 
+# sTarget = 'Date, Date Period, Period, Year'; 
+# sTargetType = 'Dimension'; 
+
+# sCube = 'System - Documentation - Model';
+# If(DIMIX('Documentation' , 'Process: '|GetProcessname() ) = 0);
+#     ExecuteProcess('System - Documentation - Update or Create Documentation Dimensions', 'pIncludeControlObjects', 'N', 'pDocumentElements', 'N' );
+# endif;
+# If(CubeExists( sCube ) > 0);
+#     CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' );
+#     CellPutS( sSource, sCube, 'Process: '|GetProcessname(), 'Process Source' );
+#     CellPutS( sTarget, sCube, 'Process: '|GetProcessname(), 'Process Target' );
+#     CellPutS( sSourceType, sCube, 'Process: '|GetProcessname(), 'Process Source Type' );
+#     CellPutS( sTargetType, sCube, 'Process: '|GetProcessname(), 'Process Target Type' );
+#     CellPutS( sDeveloper, sCube, 'Process: '|GetProcessname(), 'Developer' );
+# Endif;
+# #########################################
+
+# if (pConfirm @= 'N');
+#     sStatus = 'Process execution not confirmed';
+#     nError=1;
+#     ProcessBreak; 
+# endif;
+
+sDim1 = 'PeriodYear';
+sDim2 = 'Period';
+sDim3 = 'Year';
+sDim4 = 'Date';
+sDim5 = 'WeekYear';
+
+
+sCompSortType = 'ByInput';
+sCompSortOrder = 'Ascending';
+sElSortType = 'ByHierarchy';
+sElSortOrder = 'Ascending';
+sInsertionPoint = '';
+sType = 'N';
+sTypeC = 'C';
+nWeight = 1;
+
+nDateIndex = 0;
+nDateWeekIndex = 0;
+nDatePeriodIndex = 0;
+sPriorWeek = '0';
+sPriorPeriod = '0';
+
+sTypeS = 'S';
+sTypeN = 'N';
+sTypeA ='A';
+
+##### Create Dimensions #####
+n=1;
+While (n <= 5);
+    If(DimensionExists(Expand('%sDim'|NumbertoString(n)|'%')) > 0);
+        ExecuteProcess( '}bedrock.hier.unwind', 'pLogOutput', 0,
+                       'pDim', Expand('%sDim'|NumbertoString(n)|'%') , 'pHier', Expand('%sDim'|NumbertoString(n)|'%'), 'pConsol', '*',
+                       'pRecursive', 1, 'pDelim', '&'
+                      );
+
+    Endif;
+    If(DimensionExists(Expand('%sDim'|NumbertoString(n)|'%')) = 0);
+        DimensionCreate( Expand('%sDim'|NumbertoString(n)|'%'));
+    Endif;
+    DimensionSortOrder( Expand('%sDim'|NumbertoString(n)|'%'), sCompSortType, sCompSortOrder, sElSortType, sElSortOrder );
+    n=n+1;
+End;
+
+# ExecuteProcess( 'System - Dimension - Delete Hierarchy', 'pDim', sDim1, 'pHierarchy', 'QtrYear' );
+# ExecuteProcess( 'System - Dimension - Delete Hierarchy', 'pDim', sDim1, 'pHierarchy', 'Qtr' );
+# ExecuteProcess( 'System - Dimension - Delete Hierarchy', 'pDim', sDim1, 'pHierarchy', 'HalfYear' );
+# ExecuteProcess( 'System - Dimension - Delete Hierarchy', 'pDim', sDim1, 'pHierarchy', 'Half' );
+# ExecuteProcess( 'System - Dimension - Delete Hierarchy', 'pDim', sDim2, 'pHierarchy', 'Qtr' );
+# ExecuteProcess( 'System - Dimension - Delete Hierarchy', 'pDim', sDim2, 'pHierarchy', 'Half' );
+
+#### Standard Attributes
+sPrevious = 'Previous';
+sNext = 'Next';
+sPreviousYear = 'Previous Year';
+sNextYear = 'Next Year';
+sPeriod = 'Period';
+sCalYear = 'Year';
+sFinYear = 'Financial Year';
+sCalMonth = 'Calendar Month';
+sShortName = 'Short Name';
+sLongName = 'Long Name';
+sAltname = 'Alternate Name';
+sDescription = 'Description';
+sMonthend = 'Month End';
+sMonthStart = 'Month Start';
+sQtr = 'QtrYear';
+sHalf = 'HalfYear';
+sQtr1 = 'Qtr';
+sHalf1 = 'Half';
+sSerial = 'Serial';
+sIndex = 'Index';
+syyyymmdd = 'yyyymmdd';
+syymmdd = 'yymmdd';
+syyyymm = 'yyyymm';
+syymm = 'yymm';
+sddmmyyyy = 'ddmmyyyy';
+smmyyyy = 'mmyyyy';
+smmyy = 'mmyy';
+syyyy_mm_dd = 'yyyy_mm_dd';
+sdd_mm_yyyy = 'dd_mm_yyyy';
+sWeekNum = 'Week';
+sWeekEnd = 'Week End';
+sWeekStart = 'Week Start';
+sMonthName = 'Month Name';
+
+# #### Attributes for PeriodYear
+AttrDelete( sDim1, sPrevious );
+AttrInsert( sDim1, '', sPrevious, sTypeS );
+AttrDelete( sDim1, sNext );
+AttrInsert( sDim1, '', sNext, sTypeS );
+AttrDelete( sDim1, sPreviousYear );
+AttrInsert( sDim1, '', sPreviousYear, sTypeS);
+AttrDelete( sDim1, sNextYear );
+AttrInsert( sDim1, '', sNextYear, sTypeS );
+AttrDelete( sDim1, sQtr );
+AttrInsert( sDim1, '', sQtr, sTypeS );
+AttrDelete( sDim1, sHalf );
+AttrInsert( sDim1, '', sHalf, sTypeS );
+AttrDelete( sDim1, sQtr1 );
+AttrInsert( sDim1, '', sQtr1, sTypeS );
+AttrDelete( sDim1, sHalf1);
+AttrInsert( sDim1, '', sHalf1, sTypeS );
+AttrDelete( sDim1, sIndex );
+AttrInsert( sDim1, '', sIndex, sTypeA );
+AttrDelete(sDim1, sMonthend );
+AttrInsert(sDim1, '', sMonthend, sTypeS );
+AttrDelete(sDim1, sMonthStart );
+AttrInsert(sDim1, '', sMonthStart, sTypeS );
+AttrDelete(sDim1, sPeriod );
+AttrInsert(sDim1, '', sPeriod, sTypeS );
+AttrDelete(sDim1, sCalMonth );
+AttrInsert(sDim1, '', sCalMonth, sTypeS );
+AttrDelete(sDim1, sCalYear );
+AttrInsert(sDim1, '', sCalYear, sTypeS );
+AttrDelete(sDim1, sFinYear );
+AttrInsert(sDim1, '', sFinYear, sTypeS );
+AttrDelete( sDim1, sAltname );
+AttrInsert( sDim1, '', sAltname, sTypeA );
+AttrDelete(sDim1, syyyymm );
+AttrInsert(sDim1, '', syyyymm, sTypeA );
+AttrDelete(sDim1, syymm );
+AttrInsert(sDim1, '', syymm, sTypeA );
+AttrDelete(sDim1, smmyyyy );
+AttrInsert(sDim1, '', smmyyyy, sTypeA );
+AttrDelete(sDim1, smmyy );
+AttrInsert(sDim1, '', smmyy, sTypeA );
+AttrDelete( sDim1, sShortName );
+AttrInsert( sDim1, '', sShortName, sTypeA );
+AttrDelete( sDim1, sLongName );
+AttrInsert( sDim1, '', sLongName, sTypeA );
+AttrDelete( sDim1, sMonthName );
+AttrInsert( sDim1, '', sMonthName, sTypeS );
+
+#### Attributes for Period
+AttrDelete( sDim2, sPrevious );
+AttrInsert( sDim2, '', sPrevious, sTypeS );
+AttrDelete( sDim2, sNext );
+AttrInsert( sDim2, '', sNext, sTypeS );
+AttrDelete( sDim2, sShortName );
+AttrInsert( sDim2, '', sShortName, sTypeA );
+AttrDelete( sDim2, sLongName );
+AttrInsert( sDim2, '', sLongName, sTypeA );
+AttrDelete( sDim2, sQtr1 );
+AttrInsert( sDim2, '', sQtr1, sTypeS );
+AttrDelete( sDim2, sHalf1);
+AttrInsert( sDim2, '', sHalf1, sTypeS );
+AttrDelete( sDim2, sIndex );
+AttrInsert( sDim2, '', sIndex, sTypeA );
+AttrDelete(sDim2, sPeriod );
+AttrInsert(sDim2, '', sPeriod, sTypeS );
+AttrDelete(sDim2, sCalMonth );
+AttrInsert(sDim2, '', sCalMonth, sTypeS );
+
+#### Attributes for Year
+AttrDelete( sDim3, sPrevious );
+AttrInsert( sDim3, '', sPrevious, sTypeS );
+AttrDelete( sDim3, sNext );
+AttrInsert( sDim3, '', sNext, sTypeS );
+
+#### Attributes for Date
+AttrDelete( sDim4, sPrevious );
+AttrInsert( sDim4, '', sPrevious, sTypeS );
+AttrDelete( sDim4, sNext );
+AttrInsert( sDim4, '', sNext, sTypeS );
+AttrDelete( sDim4, sPreviousYear );
+AttrInsert( sDim4, '', sPreviousYear, sTypeS);
+AttrDelete( sDim4, sNextYear );
+AttrInsert( sDim4, '', sNextYear, sTypeS );
+AttrDelete( sDim4, sShortName );
+AttrInsert( sDim4, '', sShortName, sTypeA );
+AttrDelete( sDim4, sLongName );
+AttrInsert( sDim4, '', sLongName, sTypeA );
+AttrDelete( sDim4, sQtr );
+AttrInsert( sDim4, '', sQtr, sTypeS );
+AttrDelete( sDim4, sHalf );
+AttrInsert( sDim4, '', sHalf, sTypeS );
+AttrDelete( sDim4, sQtr1 );
+AttrInsert( sDim4, '', sQtr1, sTypeS );
+AttrDelete( sDim4, sHalf1);
+AttrInsert( sDim4, '', sHalf1, sTypeS );
+AttrDelete( sDim4, sIndex );
+AttrInsert( sDim4, '', sIndex, sTypeA );
+AttrDelete(sDim4, sSerial );
+AttrInsert(sDim4, '', sSerial, sTypeA );
+AttrDelete(sDim4, sMonthend );
+AttrInsert(sDim4, '', sMonthend, sTypeS );
+AttrDelete(sDim4, sMonthStart );
+AttrInsert(sDim4, '', sMonthStart, sTypeS );
+AttrDelete(sDim4, sPeriod );
+AttrInsert(sDim4, '', sPeriod, sTypeS );
+AttrDelete(sDim4, sCalMonth );
+AttrInsert(sDim4, '', sCalMonth, sTypeS );
+AttrDelete(sDim4, sCalYear );
+AttrInsert(sDim4, '', sCalYear, sTypeS );
+AttrDelete(sDim4, sFinYear );
+AttrInsert(sDim4, '', sFinYear, sTypeS );
+AttrDelete(sDim4, syyyymmdd );
+AttrInsert(sDim4, '', syyyymmdd, sTypeA );
+AttrDelete(sDim4, syymmdd );
+AttrInsert(sDim4, '', syymmdd, sTypeA );
+AttrDelete(sDim4, syyyymm );
+AttrInsert(sDim4, '', syyyymm, sTypeS );
+AttrDelete(sDim4, syymm );
+AttrInsert(sDim4, '', syymm, sTypeS );
+AttrDelete(sDim4, sddmmyyyy );
+AttrInsert(sDim4, '', sddmmyyyy, sTypeA );
+AttrDelete(sDim4, smmyyyy );
+AttrInsert(sDim4, '', smmyyyy, sTypeS );
+AttrDelete(sDim4, smmyy );
+AttrInsert(sDim4, '', smmyy, sTypeS );
+AttrDelete(sDim4, syyyy_mm_dd );
+AttrInsert(sDim4, '', syyyy_mm_dd, sTypeA );
+AttrDelete(sDim4, sdd_mm_yyyy );
+AttrInsert(sDim4, '', sdd_mm_yyyy, sTypeA );
+
+AttrDelete(sDim5, sWeekStart );
+AttrInsert(sDim5, '', sWeekStart, sTypeA );
+AttrDelete(sDim5, sWeekEnd );
+AttrInsert(sDim5, '', sWeekEnd, sTypeA );
+AttrDelete( sDim5, sPrevious );
+AttrInsert( sDim5, '', sPrevious, sTypeS );
+AttrDelete( sDim5, sNext );
+AttrInsert( sDim5, '', sNext, sTypeS );
+AttrDelete( sDim5, sPreviousYear );
+AttrInsert( sDim5, '', sPreviousYear, sTypeS);
+AttrDelete( sDim5, sNextYear );
+AttrInsert( sDim5, '', sNextYear, sTypeS );
+AttrDelete(sDim5, sCalYear );
+AttrInsert(sDim5, '', sCalYear, sTypeS );
+AttrDelete(sDim5, sFinYear );
+AttrInsert(sDim5, '', sFinYear, sTypeS );
+AttrDelete( sDim5, sAltname );
+AttrInsert( sDim5, '', sAltname, sTypeA );
+AttrDelete( sDim5, sIndex );
+AttrInsert( sDim5, '', sIndex, sTypeA );
+AttrDelete( sDim5, sWeekNum );
+AttrInsert( sDim5, '', sWeekNum, sTypeS );
+AttrDelete( sDim5, sLongName );
+AttrInsert( sDim5, '', sLongName, sTypeA );
+
+### Consolidations ###
+sWeeks = 'TOTAL WEEKS';
+sPeriods = 'TOTAL PERIODS';
+sYears = 'TOTAL YEARS';
+sQuarters = 'TOTAL QTRS';
+sHalves = 'TOTAL HALF YEARS';
+
+HierarchyElementInsert( sDim2, sDim2, sInsertionPoint, sPeriods, sTypeC );
+HierarchyElementInsert( sDim3, sDim3, sInsertionPoint, sYears, sTypeC );
+HierarchyElementInsert( sDim4, sDim4, sInsertionPoint, sYears, sTypeC );
+HierarchyElementInsert( sDim1, sDim1, sInsertionPoint, sYears, sType );
+HierarchyElementInsert( sDim1, sDim1, sInsertionPoint, sQuarters, sType );
+HierarchyElementInsert( sDim1, sDim1, sInsertionPoint, sHalves, sType );
+HierarchyElementInsert( sDim5, sDim5, sInsertionPoint, sYears, sType );
+HierarchyElementInsert( sDim1, sDim1, sInsertionPoint, 'No Date', sType );
+
+HierarchyElementInsert( sDim4, sDim4,sInsertionPoint, 'No Date', sType );
+
+#endregion
+#region Metadata
+
+
+sDate = yyyymmdd;
+#### Exclusions
+If(sDate @< pStartDate % sDate @> pEndDate);
+    ItemSkip;
+Endif;
+
+sQtrYr = 'Q'|vQtr|' '|vFinYear;
+sHalfYr = 'H'|vHalf|' '|vFinYear;
+
+# #### Build Date Dimension
+sWeek = vWeek|' '|vYear;
+sMonth = vmm|' '|vYear;
+HierarchyElementInsert(sDim4, sDim4,sInsertionPoint, vYear, sTypeC );
+HierarchyElementInsert(sDim4, sDim4,sInsertionPoint, vDate, sType );
+HierarchyElementInsert(sDim4, sDim4,sInsertionPoint, sMonth, sTypeC );
+HierarchyElementComponentAdd(sDim4, sDim4,sMonth, vDate, nWeight );
+HierarchyElementComponentAdd(sDim4, sDim4, vYear, sMonth, nWeight );
+HierarchyElementComponentAdd(sDim4, sDim4, sYears, vYear, nWeight );
+
+#### Build PeriodYear Dimension
+sMonth = vmm|' '|vYear;
+HierarchyElementInsert(  sDim1, sDim1, sInsertionPoint, sMonth, sType );
+HierarchyElementInsert(  sDim1, sDim1, sInsertionPoint, vYear, sTypeC );
+
+HierarchyElementComponentAdd(sDim1, sDim1, vYear, sMonth, nWeight );
+HierarchyElementComponentAdd(sDim1, sDim1, sYears, vYear, nWeight );
+
+#Qtrs
+HierarchyElementInsert(  sDim1, sDim1, sInsertionPoint, sQtrYr, sTypeC );
+HierarchyElementComponentAdd(sDim1, sDim1, sQtrYr, sMonth, nWeight );
+HierarchyElementComponentAdd(sDim1, sDim1, sQuarters, sQtrYr, nWeight );
+
+#Halves
+HierarchyElementInsert(  sDim1, sDim1, sInsertionPoint, sHalfYr, sTypeC );
+HierarchyElementComponentAdd(sDim1, sDim1, sHalfYr, sMonth, nWeight );
+HierarchyElementComponentAdd(sDim1, sDim1, sHalves, sHalfYr, nWeight );
+
+#### Build WeekYear Dimension
+sWeek = vWeek|' '|vYear;
+HierarchyElementInsert(  sDim5, sDim5, sInsertionPoint, sWeek, sType );
+HierarchyElementInsert(  sDim5, sDim5, sInsertionPoint, vYear, sTypeC );
+
+HierarchyElementComponentAdd(sDim5, sDim5, vYear, sWeek, nWeight );
+HierarchyElementComponentAdd(sDim5, sDim5, sYears, vYear, nWeight );
+
+# #### Build Period Dimension
+HierarchyElementInsert(  sDim2, sDim2, sInsertionPoint, vmm, sType );
+HierarchyElementComponentAdd(sDim2, sDim2, sPeriods, vmm, nWeight );
+
+#### Build Year Dimension
+HierarchyElementInsert(  sDim3,sDim3, sInsertionPoint, vYear, sType );
+HierarchyElementComponentAdd( sDim3,sDim3, sYears, vYear, nWeight );
+
+#endregion
+#region Data
+
+sDate = yyyymmdd;
+
+#### Exclusions
+If(sDate @< pStartDate % sDate @> pEndDate);
+    ItemSkip;
+Endif;
+
+#### All Dim Variables ############
+sPeriodYr = vmm|' '|vFinYear;
+sMonthYr = vmm|' '|vFinYear;
+sWeekYr = vWeek|' '|vFinYear;
+sMonthShortName = vShortMonthName|' '|vFinYear;
+sMonthLongName = vLongMonthName|' '|vFinYear;
+sPreviousMonth = If(StringToNumber( vPreviousMonth ) < 10, '0'|vPreviousMonth, vPreviousMonth);
+sNextMonth = If(StringToNumber( vNextMonth ) < 10, '0'|vNextMonth, vNextMonth);
+
+## Weeks
+If(vWeek @= '1');
+    sPrWeek = vPreviousWeek|' '|vPreviousYear;
+Else;
+    sPrWeek = vPreviousWeek|' '|vFinYear;
+Endif;
+If(vWeek @= '53');
+    sNextWeek = vNextWeek|' '|vNextYear;
+Else;
+    sNextWeek = vNextWeek|' '|vFinYear;
+Endif;
+sPrWeekYr = vWeek|' '|vPreviousYear;
+sNextWeekYr = vWeek|' '|vNextYear;
+
+If(vWeek @= '1');
+    sWkStart = vFinYear|'-01-01';
+Else;
+    sWkStart = vWeekStart;
+Endif;
+If(vWeek @= '53');
+    sWkEnd = vFinYear|'-12-31';
+Else;
+    sWkEnd = vWeekEnd;
+Endif;
+
+If(vWeek @<> sPriorWeek);
+    nDateWeekIndex = nDateWeekIndex + 1;
+Endif;
+
+## Periods
+If(vMonth @='01');
+    sPrMonth= '12'|' '|vPreviousYear; 
+Else;
+    sPrMonth= sPreviousMonth|' '|vFinYear;
+Endif;
+If(vMonth @='12');
+    sNextMonth = '01'|' '|vNextYear;
+Else;
+    sNextMonth = sNextMonth|' '|vFinYear;
+Endif;
+
+## Qtrs
+If(vQtr @='1');
+    sPrQtr= 'Q4'|' '|vPreviousYear; 
+Else;
+    sPrQtr= 'Q'|NumbertoString(Stringtonumber(vQtr)-1)|' '|vFinYear;
+Endif;
+If(vQtr @='4');
+    sNextQtr = 'Q1'|' '|vNextYear;
+Else;
+    sNextQtr = 'Q'|NumbertoString(Stringtonumber(vQtr)+1)|' '|vFinYear;
+Endif;
+
+## Halves
+If(vHalf @='1');
+    sPrHalf= 'H2'|' '|vPreviousYear; 
+Else;
+    sPrHalf= 'H1'|' '|vFinYear;
+Endif;
+If(vHalf @='2');
+    sNextHalf = 'H1'|' '|vNextYear;
+Else;
+    sNextHalf = 'H2'|' '|vFinYear;
+Endif;
+
+sPrPeriodYr = vmm|' '|vPreviousYear;
+sNextPeriodYr = vmm|' '|vNextYear;
+sQtrYr = 'Q'|vQtr|' '|vFinYear;
+sHalfYr = 'H'|vHalf|' '|vFinYear;
+sQtrAttr = 'Q'|vQtr;
+sHalfAttr = 'H'|vHalf;
+
+
+#### Add Date Attributes
+nDateIndex = nDateIndex + 1;
+sShortAttr = vdd|' '|vShortMonthName|' '|vFinYear;
+sLongAttr = vdd|' '|vLongMonthName|' '|vFinYear;
+AttrPutS( sShortAttr, sDim4, vDate, sShortName );
+AttrPutS( sLongAttr, sDim4, vDate, sLongName);
+AttrPutS( vSerial, sDim4, vDate, sSerial);
+AttrPutS( vNext, sDim4, vDate, sNext);
+AttrPutS( vPrevious, sDim4, vDate,sPrevious);
+AttrPutS( vYear, sDim4, vDate, sCalYear );
+AttrPutS( vFinYear, sDim4, vDate, sFinYear);
+AttrPutS( sMonthYr, sDim4, vDate, sCalMonth );
+AttrPutS( sPeriodYr, sDim4, vDate, sPeriod);
+AttrPutS( sPrPeriodYr, sDim4, vDate, sPreviousYear);
+AttrPutS( sNextPeriodYr, sDim4, vDate, sNextYear);
+AttrPutS( vMonthStart, sDim4, vDate, sMonthStart);
+AttrPutS( vMonthEnd, sDim4, vDate, sMonthend);
+AttrPutS( sQtrYr, sDim4, vDate, sQtr);
+AttrPutS( sHalfYr, sDim4, vDate, sHalf);
+AttrPutS( sQtrAttr, sDim4, vDate, sQtr1);
+AttrPutS( sHalfAttr, sDim4, vDate, sHalf1);
+AttrPutS( yyyymmdd, sDim4, vDate, syyyymmdd);
+AttrPutS( yymmdd, sDim4, vDate, syymmdd);
+AttrPutS( yyyymm, sDim4, vDate, syyyymm);
+AttrPutS( yymm, sDim4, vDate, syymm);
+AttrPutS( ddmmyyyy, sDim4, vDate, sddmmyyyy);
+AttrPutS( mmyyyy, sDim4, vDate, smmyyyy);
+AttrPutS( mmyy, sDim4, vDate, smmyy);
+AttrPutS( yyyy_mm_dd, sDim4, vDate, syyyy_mm_dd);
+AttrPutS( dd_mm_yyyy, sDim4, vDate, sdd_mm_yyyy);
+If(DIMIX( sDim4, NumberToString( nDateIndex )) = 0);
+    AttrPutS( NumberToString( nDateIndex ), sDim4, vDate, sIndex);
+Endif;
+
+#consolidator attrs
+AttrPutS( sMonthShortName, sDim4, sPeriodYr, sShortName );
+AttrPutS( sMonthLongName, sDim4, sPeriodYr, sLongName);
+AttrPutS( vYear, sDim4, sPeriodYr, sCalYear );
+AttrPutS( vFinYear, sDim4, sPeriodYr, sFinYear);
+AttrPutS( sMonthYr, sDim4, sPeriodYr, sCalMonth );
+AttrPutS( sPeriodYr, sDim4, sPeriodYr, sPeriod);
+AttrPutS( sPrPeriodYr, sDim4, sPeriodYr, sPreviousYear);
+AttrPutS( sNextPeriodYr, sDim4, sPeriodYr, sNextYear);
+AttrPutS( vMonthStart, sDim4, sPeriodYr, sMonthStart);
+AttrPutS( vMonthEnd, sDim4, sPeriodYr, sMonthend);
+AttrPutS( sQtrYr, sDim4, sPeriodYr, sQtr);
+AttrPutS( sHalfYr, sDim4, sPeriodYr, sHalf);
+AttrPutS( sQtrAttr, sDim4, sPeriodYr, sQtr1);
+AttrPutS( sHalfAttr, sDim4, sPeriodYr, sHalf1);
+AttrPutS( yyyymm, sDim4, sPeriodYr, syyyymm);
+AttrPutS( yymm, sDim4, sPeriodYr, syymm);
+AttrPutS( mmyyyy, sDim4, sPeriodYr, smmyyyy);
+AttrPutS( mmyy, sDim4, sPeriodYr, smmyy);
+
+
+
+#### Add PeriodYear Attributes
+AttrPutS(sMonthShortName, sDim1, sPeriodYr, sShortName);
+AttrPutS(sMonthLongName, sDim1, sPeriodYr, sLongName);
+AttrPutS(sNextMonth, sDim1, sPeriodYr, sNext);
+AttrPutS(sNextPeriodYr, sDim1, sPeriodYr, sNextYear);
+AttrPutS( vPeriod, sDim1, sPeriodYr, sPeriod);
+AttrPutS( vPeriod, sDim1, sPeriodYr, sCalMonth);
+AttrPutS( vPeriod|' '|vYear, sDim1, sPeriodYr, sAltname);
+AttrPutS( sQtrYr, sDim1, sPeriodYr, sQtr);
+AttrPutS( sHalfYr, sDim1, sPeriodYr, sHalf);
+AttrPutS( 'Q'|vQtr, sDim1, sPeriodYr, sQtr1);
+AttrPutS( 'H'|vHalf, sDim1, sPeriodYr, sHalf1);
+AttrPutS( vMonthStart, sDim1, sPeriodYr, sMonthStart);
+AttrPutS( vMonthEnd, sDim1, sPeriodYr, sMonthend);
+AttrPutS( yyyymm, sDim1, sPeriodYr, syyyymm);
+AttrPutS( yymm, sDim1, sPeriodYr, syymm);
+AttrPutS( mmyyyy, sDim1, sPeriodYr, smmyyyy);
+AttrPutS( mmyy, sDim1, sPeriodYr, smmyy);
+If(nDatePeriodIndex <> 1);
+    AttrPutS(sPrMonth, sDim1, sPeriodYr, sPrevious);
+    AttrPutS(sPrPeriodYr, sDim1, sPeriodYr,sPreviousYear);
+endif;
+AttrPutS( vYear, sDim1, sPeriodYr, sCalYear );
+AttrPutS( vYear, sDim1, sPeriodYr, sFinYear );
+AttrPutS( vShortMonthName, sDim1, sPeriodYr, sMonthName );
+
+#consol attributes
+AttrPutS(vNextYear, sDim1, vYear, sNext);
+AttrPutS(vPreviousYear, sDim1, vYear,sPrevious);
+AttrPutS(sNextQtr, sDim1, sQtrYr, sNext);
+AttrPutS(sPrQtr, sDim1, sQtrYr,sPrevious);
+AttrPutS(sNextHalf, sDim1, sHalfYr, sNext);
+AttrPutS(sPrHalf, sDim1, sHalfYr,sPrevious);
+
+If(vPeriod @<> sPriorPeriod);
+    nDatePeriodIndex = nDatePeriodIndex + 1;
+    AttrPutS( NumberToString( nDatePeriodIndex ), sDim1, sPeriodYr, sIndex);
+Endif;
+
+#### Add Period Attributes
+sQtrAttr = 'Q'|vQtr;
+sHalfAttr = 'H'|vHalf;
+AttrPutS(vShortMonthName, sDim2, vmm, sShortName);
+AttrPutS(vLongMonthName, sDim2, vmm, sLongName);
+AttrPutS(vNextMonth, sDim2, vmm, sNext);
+AttrPutS(vPreviousMonth, sDim2, vmm,sPrevious);
+AttrPutS(sQtrAttr, sDim2, vmm, sQtr1);
+AttrPutS(sHalfAttr, sDim2, vmm, sHalf1);
+AttrPutS(vPeriod, sDim2, vmm, sIndex);
+AttrPutS(vMonth,  sDim2, vmm, sPeriod);
+AttrPutS(vMonth,  sDim2, vmm, sCalMonth);
+
+#### Add Year Attributes
+AttrPutS(vNextYear, sDim3, vYear, sNext);
+AttrPutS(vPreviousYear, sDim3, vYear,sPrevious);
+
+#### Add Date Week Attributes
+sShortWkName = SUBST( sWkStart, 1, 6 )|SUBST( sWkStart, 9, 2 )|' - '|SUBST( sWkEnd, 1, 6 )|SUBST( sWkEnd, 9, 2 );
+sLongWkName = sWkStart|' to '|sWkEnd;
+#AttrPutS(sShortWkName, sDim2, sWeekYr, sShortName);
+AttrPutS(sLongWkName, sDim5, sWeekYr, sLongName);
+AttrPutS(sNextWeek, sDim5, sWeekYr, sNext);
+AttrPutS(sPrWeek, sDim5, sWeekYr,sPrevious);
+AttrPutS(sNextWeekYr, sDim5, sWeekYr, sNextYear);
+AttrPutS(sPrWeekYr, sDim5, sWeekYr,sPreviousYear);
+AttrPutS( vYear, sDim5, sWeekYr, sCalYear );
+AttrPutS( vFinYear, sDim5, sWeekYr, sFinYear);
+AttrPutS( NumberToString( nDateWeekIndex ), sDim5, sWeekYr, sIndex);
+AttrPutS( sWkEnd, sDim5, sWeekYr, sWeekEnd);
+AttrPutS( sWkStart, sDim5, sWeekYr, sWeekStart);
+AttrPutS( vWeek, sDim5, sWeekYr, sWeekNum);
+
+#### Index Variables
+sPriorWeek = vWeek;
+sPriorPeriod = vPeriod;
+#endregion
+#region Epilog
+
+# ExecuteProcess( 'System - Dimension - Create Hierarchy from Attribute', 'pConfirm', pConfirm, 'pEmail', pEmail, 'pDim', sDim1, 'pAttr', 'QtrYear' );
+# ExecuteProcess( 'System - Dimension - Create Hierarchy from Attribute', 'pConfirm', pConfirm, 'pEmail', pEmail, 'pDim', sDim1, 'pAttr', 'HalfYear' );
+# ExecuteProcess( 'System - Dimension - Create Hierarchy from Attribute', 'pConfirm', pConfirm, 'pEmail', pEmail, 'pDim', sDim1, 'pAttr', 'Qtr' );
+# ExecuteProcess( 'System - Dimension - Create Hierarchy from Attribute', 'pConfirm', pConfirm, 'pEmail', pEmail, 'pDim', sDim1, 'pAttr', 'Half' );
+
+# ExecuteProcess( 'System - Dimension - Create Hierarchy from Attribute', 'pConfirm', pConfirm, 'pEmail', pEmail, 'pDim', sDim2, 'pAttr', 'Qtr' );
+# ExecuteProcess( 'System - Dimension - Create Hierarchy from Attribute', 'pConfirm', pConfirm, 'pEmail', pEmail, 'pDim', sDim2, 'pAttr', 'Half' );
+
+ExecuteProcess( 'Dimension - Time - Build TTD - YTD - YTG', 'pConfirm', pConfirm, 'pEmail', pEmail);
+
+if (nError=0); 
+    sStatus = 'Success'; 
+endif;
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sEndValue - sStartValue, '\i m \s s');
+sParameters = 'pStartDate = '|pStartDate|', pEndDate = '|pEndDate|', pLevel = '|pLevel;
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+IF(DimensionExists( sDim ) <> 0);
+    DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+Endif;
+##########################################################
+sCube = 'System - Process Information';
+If(CubeExists( sCube ) = 0, ProcessQuit, 0);
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( sParameters, sCube, sEndTime, sProcess, 'Parameters Used' );
+CellPutS( sStatus, sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+sCube = 'System - Documentation - Model';
+CellPutS( sCompletionTime, sCube, 'Process: '|sProcess, 'Process Last Run Time' );
+CellPutS( sEndTime, sCube, 'Process: '|sProcess, 'Process Last Run' );
+########################################
+
+###### SEND EMAIL TO ADMIN OR USER ######
+sEmailProcess = CellGets('System - Parameters', 'Email TI Process', 'String' );
+sTM1User = TM1User();
+iCalledByChore = if (SUBST(sTM1User, 1, 2) @= 'R*', 1, 0);
+if (pEmail @= 'Y');
+    iSendEmail = 0;
+
+    if (iCalledByChore = 0);
+        iSendEmail = 1;
+    elseif (nError > 0);
+        iSendEmail = 1;
+    endif;
+
+    if (iSendEmail = 1);
+        # if non-native security is being used, try and use the nicely formatted name in preference to the long unique code.
+        if (DimensionExists('}ElementAttributes_}Clients') = 1);
+            if (dimix('}ElementAttributes_}Clients', '}TM1_DefaultDisplayValue') > 0 & dimix('}Clients', TM1User) > 0);
+                sUserNiceName = trim(ATTRS('}Clients', sTM1User, '}TM1_DefaultDisplayValue'));
+                if (sUserNiceName @<> ''); 	sTM1User = sUserNiceName;		endif;
+            endif;
+        endif;
+
+        # The result of this process is sent to the calling user when run by hand or to admin when run by a chore.
+        if (iCalledByChore = 1); 
+            sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+            sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+            sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );
+        Else;
+            IF(CellGetS( 'System - Parameters - User', sTM1User, 'Email Is Valid', 'String') @= 'Yes');
+                sRecipient = CellGetS( 'System - Parameters - User', sTM1User, 'Email', 'String' );
+            else;
+                sAdmin1Email = CellGetS( 'System - Parameters', 'Administrator 1 Email', 'String' );
+                sAdmin2Email = CellGetS( 'System - Parameters', 'Administrator 2 Email', 'String' );
+                sAdmin3Email = CellGetS( 'System - Parameters', 'Administrator 3 Email', 'String' );  
+            endif;
+        endif;
+
+        sCC = 'X';
+        sBCC = 'X';
+
+        if (nError = 0); 
+            sSubject = 'Process Success - '|sProcess; 
+            sMessageStatus = '<font color="green">successfully</font>';
+        Else;
+            sSubject = 'Process Error - '|sProcess;
+            sMessageStatus = '<font color="red">with errors</font> ';
+        Endif; 
+
+        if 	(lower(sTM1User) @= 'admin');	sUsernameToDisplay = 'Admin';
+        elseif 	(iCalledByChore = 1);		sUsernameToDisplay = 'a Chore [' | subst(sTM1User, 3, long(sTM1User) - 2) | ']';
+        else;
+            sUsernameToDisplay = trim(CellGetS('System - Parameters - User', Tm1User(), 'Full Name', 'String' ));
+            if ( sUsernameToDisplay @= '' ); sUsernameToDisplay = sTM1User;  endif;
+        endif;
+
+        sEmailMessage = '<p>Dear '|sUsernameToDisplay|'</p><p>PROCESS: '|sProcess|' has completed '|sMessageStatus|'</p><p>The following parameters were used - '|sParameters|'</p>';
+        sEmailMessage = sEmailMessage | '<b>' | GetProcessName() | '</b> was run at ' | TIMST(NOW(), '\h:\i:\s') | ' by ' | sUsernameToDisplay | '.<br>';
+        sEmailMessage = sEmailMessage | '<p>It updated the date dimensions in the model</p><br>';
+
+        sLogFilenameWithoutExtension = GetProcessName | ' EmailerLog';
+        sAttachment = 'X';
+
+        # Now call the process that sends the email.
+        if (iCalledByChore = 1);
+            if (sAdmin1Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin1Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+            endif;
+            if (sAdmin2Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin2Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+            if (sAdmin3Email @<> ''); 
+                vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sAdmin3Email, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                         'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment); 
+            endif;
+        Else;
+            vResult = ExecuteProcess(sEmailProcess, 'pRecipient', sRecipient, 'pCC', sCC, 'pBCC', sBCC, 'pSubject', sSubject, 
+                                     'pBody', sEmailMessage, 'pLogFilenameWithoutExtension', sLogFilenameWithoutExtension, 'pAttachment', sAttachment);
+        endif;
+    endif;
+endif;
+
+
+if (nError > 0); 
+    ItemReject(sStatus); 
+endif;
+#endregion

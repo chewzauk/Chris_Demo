@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Payroll Parameters",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Payroll Parameters.hierarchies/Measures - Payroll Parameters.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Payroll Parameters')/Hierarchies('Measures - Payroll Parameters')"
+	}
+}

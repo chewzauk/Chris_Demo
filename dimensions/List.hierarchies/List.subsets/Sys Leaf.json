@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Sys Leaf",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {TM1FILTERBYLEVEL(TM1SUBSETALL([List].[List]) , 0)}"
+}

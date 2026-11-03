@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"Holidays - Flag",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Date')"
+		},
+		{
+			"@id":"Dimensions('Holidays')"
+		},
+		{
+			"@id":"Dimensions('Measures - Holidays')"
+		}
+	],
+	"Views@Code.links":[]
+}

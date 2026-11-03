@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"System - List Table",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Clients')"
+		},
+		{
+			"@id":"Dimensions('Time Processes')"
+		},
+		{
+			"@id":"Dimensions('List')"
+		},
+		{
+			"@id":"Dimensions('Measures - List Table')"
+		}
+	],
+	"Views@Code.links":[]
+}

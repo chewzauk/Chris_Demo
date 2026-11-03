@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"All Leaves A-Z",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {ORDER(TM1FILTERBYLEVEL(TM1SUBSETALL([Position].[Position]) , 0) , IIF([Position].[Position].CURRENTMEMBER.PROPERTIES(\"Caption\")=\"\", [Position].[Position].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\"), [Position].[Position].CURRENTMEMBER.PROPERTIES(\"Caption\")) , BASC)}"
+}

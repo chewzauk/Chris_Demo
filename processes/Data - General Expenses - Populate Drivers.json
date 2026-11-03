@@ -1,0 +1,61 @@
+{
+	"@type":"Process",
+	"Name":"Data - General Expenses - Populate Drivers",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Data - General Expenses - Populate Drivers.ti",
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForServer":"Accounts - Profit and Loss:Accounts - Profit and Loss",
+		"dataSourceNameForClient":"Accounts - Profit and Loss:Accounts - Profit and Loss",
+		"subset":"ALL General Expense Accounts"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"Do you want to run this process",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"Send Email with results",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pYear",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersion",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pCompany",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vAccount",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "1754572783000",
+	"VariablesUIData": [
+		"VarType=32\fColType=827\f"
+	],
+	"UIData": "_ParameterConstraints=e30=\f"
+}

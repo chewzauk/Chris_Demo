@@ -1,0 +1,11 @@
+{
+	"@type":"Subset",
+	"Name":"VZOLivePlan",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Live Plan')"
+		}
+	]
+}

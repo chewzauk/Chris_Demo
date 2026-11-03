@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Sys List",
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {[Measures - General Expenses Drivers].[Measures - General Expenses Drivers].MEMBERS}"
+}

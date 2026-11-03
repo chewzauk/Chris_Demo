@@ -1,0 +1,75 @@
+{
+	"@type":"NativeView",
+	"Name":"VZOLivePlan",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Measures - Payroll')/Hierarchies('Measures - Payroll')"
+				},
+				"Expression":"TM1SubsetAll([Measures - Payroll])"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Role')/Hierarchies('Role')"
+				},
+				"Expression":"TM1SubsetAll([Role])"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Year')/Hierarchies('Year')"
+				},
+				"Expression":"TM1SubsetAll([Year])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Year')/Hierarchies('Year')/Elements('TOTAL YEARS')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Subsets('VZOLivePlan')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Live Plan')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Employee')/Hierarchies('Employee')"
+				},
+				"Expression":"TM1SubsetAll([Employee])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Employee')/Hierarchies('Employee')/Elements('All Employees')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"",
+	"ViewExtractSkipRuleValues": false
+}

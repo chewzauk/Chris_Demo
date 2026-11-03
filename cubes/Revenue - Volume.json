@@ -1,0 +1,34 @@
+{
+	"@type":"Cube",
+	"Name":"Revenue - Volume",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Customer')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Measures - Revenue Volume')"
+		}
+	],
+	"Rules@Code.link":"Revenue - Volume.rules",
+	"Views@Code.links":
+	[
+		"Revenue - Volume.views/AI Demo - Top 10 Forecast Products.json",
+		"Revenue - Volume.views/ChrisH - AI Test1.json",
+		"Revenue - Volume.views/ChrisH - AI Test2.json",
+		"Revenue - Volume.views/Default.json",
+		"Revenue - Volume.views/AI Demo - Sales - Scenario Revenue Trend.json"
+	]
+}

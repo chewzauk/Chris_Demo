@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Total without Desc",
+	"ExpandAbove":true,
+	"Alias":"MEMBER_NAME",
+	"Expression":"TM1IGNORE_BADTUPLES {DRILLDOWNMEMBER({[Product].[Product].[TOTAL PRODUCTS]} , {[Product].[Product].[TOTAL PRODUCTS]})}"
+}

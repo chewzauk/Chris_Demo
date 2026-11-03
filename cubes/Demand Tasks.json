@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Demand Tasks",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Clients')"
+		},
+		{
+			"@id":"Dimensions('Date')"
+		},
+		{
+			"@id":"Dimensions('Demand Task')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Customer')"
+		},
+		{
+			"@id":"Dimensions('Measures - Demand Tasks')"
+		}
+	],
+	"Rules@Code.link":"Demand Tasks.rules",
+	"Views@Code.links":
+	[
+		"Demand Tasks.views/Default.json"
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"Revenue - Services Rates",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Year')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Role')"
+		},
+		{
+			"@id":"Dimensions('Measures - Revenue - Services')"
+		}
+	],
+	"Views@Code.links":[]
+}

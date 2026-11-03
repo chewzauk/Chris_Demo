@@ -1,0 +1,42 @@
+['Validated String', 'Current Version'] = S: 'Forecast '|SUBST(DB('System - UI', !}Clients, 'Period', 'Validated String' ), 1, 3)|' '|SUBST(DB('System - UI', !}Clients, 'Year', 'Validated String' ), 3,2);
+['Validated String', 'Forecast Version'] = S: DB('System - UI', !}Clients, !UI Info, 'String' );
+['Validated String', 'Budget Version'] = S: DB('System - UI', !}Clients, !UI Info, 'String' );
+['Validated String', 'Prior Year Version'] = S: DB('System - UI', !}Clients, !UI Info, 'String' );
+['Validated String', 'Period'] = S: IF (DB('System - UI', !}Clients, !UI Info, 'String' ) @= '', DB('System - Parameters - Model', 'Current Month', 'String' ) ,DB('System - UI', !}Clients, !UI Info, 'String' ));
+['Validated String', 'Prior Period'] = S: ATTRS('Period Year', ATTRS('Period Year', DB('System - UI', !}Clients, 'Period', 'Validated String' )  , 'Previous'), 'Short Name');
+['Validated String', 'PY End Period'] = S: 'Dec '|ATTRS('Year', ATTRS('Period Year', DB('System - UI', !}Clients, 'Period', 'Validated String' )  , 'Year'), 'Previous');
+['Validated String', 'Forecast Var'] = S: DB('System - UI', !}Clients, 'Current Version', 'Validated String' )|'-'|DB('System - UI', !}Clients, 'Forecast Version', 'Validated String' )|' Var';
+['Validated String', 'Forecast Var %'] = S: DB('System - UI', !}Clients, 'Current Version', 'Validated String' )|'-'|DB('System - UI', !}Clients, 'Forecast Version', 'Validated String' )|' Var%';
+['Validated String', 'Budget Var'] = S: DB('System - UI', !}Clients, 'Current Version', 'Validated String' )|'-'|DB('System - UI', !}Clients, 'Budget Version', 'Validated String' )|' Var';
+['Validated String', 'Budget Var %'] = S: DB('System - UI', !}Clients, 'Current Version', 'Validated String' )|'-'|DB('System - UI', !}Clients, 'Budget Version', 'Validated String' )|' Var%';
+['Validated String', 'Prior Year Var'] = S: DB('System - UI', !}Clients, 'Current Version', 'Validated String' )|'-'|DB('System - UI', !}Clients, 'Prior Year Version', 'Validated String' )|' Var';
+['Validated String', 'Prior Year Var %'] = S: DB('System - UI', !}Clients, 'Current Version', 'Validated String' )|'-'|DB('System - UI', !}Clients, 'Prior Year Version', 'Validated String' )|' Var%';
+['Validated String', 'YTD'] = S: DB('System - UI', !}Clients, 'Period', 'Validated String' )|' YTD';
+['Validated String', 'Year'] = S: ATTRS('PeriodYear', DB('System - UI', !}Clients, 'Period', 'Validated String' ), 'Year');
+
+['Validated String', 'Version 1'] =  S: IF (DB('System - UI', !}Clients, !UI Info, 'String' ) @= '', DB('System - UI', !}Clients, 'Current Version', 'Validated String' ) ,DB('System - UI', !}Clients, !UI Info, 'String' ));
+['Validated String', 'Version 2'] =  S: IF (DB('System - UI', !}Clients, !UI Info, 'String' ) @= '', DB('System - UI', !}Clients, 'Forecast Version', 'Validated String' ) ,DB('System - UI', !}Clients, !UI Info, 'String' ));
+['Validated String', 'Version 1 & 2 Var'] =  S: DB('System - UI', !}Clients, 'Version 1', 'Validated String' )|'-'|DB('System - UI', !}Clients, 'Version 2', 'Validated String' )|' Var';
+['Validated String', 'Version 1 & 2 Var %'] =  S: DB('System - UI', !}Clients, 'Version 1', 'Validated String' )|'-'|DB('System - UI', !}Clients, 'Version 2', 'Validated String' )|' Var%';
+
+['DimensionMDX', 'Period'] = S: '[Period Year].[Period Year].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'YTD'] = S: '[Period Year].[Period Year].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Year'] = S: '[Period Year].[Period Year].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Prior Period'] = S: '[Period Year].[Period Year].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'PY End Period'] = S: '[Period Year].[Period Year].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+
+['DimensionMDX', 'Current Version'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Forecast Version'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Forecast Var'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Forecast Var %'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Budget Version'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Budget Var'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Budget Var %'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Prior Year Version'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Prior Year Var'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Prior Year Var %'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+
+['DimensionMDX', 'Version 1'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Version 2'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Version 1 & 2 Var'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;
+['DimensionMDX', 'Version 1 & 2 Var %'] = S: '[Version].[Version].['|DB('System - UI', !}Clients, !UI Info, 'Validated String' )|']' ;

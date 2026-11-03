@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"System - Documentation - Execute All Documentation",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"System - Documentation - Execute All Documentation.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		}
+	],
+	"Variables":[],
+	"UID": "175086913000052"
+}

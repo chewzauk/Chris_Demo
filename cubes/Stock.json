@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Stock",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Product')"
+		},
+		{
+			"@id":"Dimensions('Measures - Stock')"
+		}
+	],
+	"Rules@Code.link":"Stock.rules",
+	"Views@Code.links":
+	[
+		"Stock.views/Default.json"
+	]
+}

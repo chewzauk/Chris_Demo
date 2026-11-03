@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"System - UI",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Clients')"
+		},
+		{
+			"@id":"Dimensions('UI Info')"
+		},
+		{
+			"@id":"Dimensions('Measures - UI')"
+		}
+	],
+	"Rules@Code.link":"System - UI.rules",
+	"Views@Code.links":[]
+}

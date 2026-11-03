@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Budget Year",
+	"ExpandAbove":true,
+	"Alias":"Short Name",
+	"Expression":"TM1IGNORE_BADTUPLES {DRILLDOWNMEMBER({[PeriodYear].[PeriodYear].[2027]} , {[PeriodYear].[PeriodYear].[2027]} , RECURSIVE)}"
+}

@@ -1,0 +1,71 @@
+SKIPCHECK;
+
+['Actual'] = N: STET;
+
+### Set drivers and desc to only be selected at year level
+['Live Plan', {'Description', 'Driver'}] = S: IF(ElementLevel( 'PeriodYear', 'PeriodYear', !PeriodYear ) = 0, '', CONTINUE);
+
+### Bring Actuals in
+['Live Plan', 'Base', 'Amount'] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< DB('System - Parameters - Model', 'Forecast Month YYYYMM', 'String' ), ['Actual'], CONTINUE);
+['Live Plan', 'Base', {'Rate'}] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< DB('System - Parameters - Model', 'Forecast Month YYYYMM', 'String' ), ['Amount'] \ ['Quantity'], CONTINUE);
+
+### Set Description and other measures for 0 line
+['Live Plan', 'List':'0', 'Description'] = S: If(!PeriodYear @= DB('System - Parameters - Model', 'Current Year', 'String' ), 'Actuals from P&L (add in driver based data)', CONTINUE);
+
+### Bring in rates and drivers
+['Live Plan', {'Rate', 'Quantity'}] = N: If(ATTRS('Measures - General Expenses Drivers', DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss, 'Driver') , 'Type') @= 'Projection'  , 
+                                                                      0, CONTINUE);
+['Live Plan', {'Rate', 'Quantity'}] = N: If(ATTRS('Measures - General Expenses Drivers', DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss, 'Driver') , 'Type') @= 'Override'  , 
+                                                                      0, CONTINUE);
+
+['Live Plan', 'Rate'] = N: DB('General Expenses - Drivers', !PeriodYear, !Version, !'Company',
+                                                                If(ATTRS('Measures - General Expenses Drivers', DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss,'Driver') , 'Type') @= 'Rate'  , 
+                                                                       DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss, 'Driver'), CONTINUE));
+['Live Plan', 'Rate'] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< DB('System - Parameters - Model', 'Forecast Month YYYYMM', 'String' ),
+                                              If(ATTRS('Measures - General Expenses Drivers', DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss,'Driver') , 'Type') @= 'Driver',
+                                                           ['Amount']  \ ['Quantity'] *100
+                                                                       , CONTINUE), CONTINUE);
+
+['Live Plan', 'Quantity'] = N: DB('General Expenses - Drivers', !PeriodYear, !Version,  !'Company',
+                                                                If(ATTRS('Measures - General Expenses Drivers', DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss, 'Driver') , 'Type') @= 'Driver'  , 
+                                                                       DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss, 'Driver'), CONTINUE));
+
+['Live Plan', 'Quantity'] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< DB('System - Parameters - Model', 'Forecast Month YYYYMM', 'String' ),
+                                              If(ATTRS('Measures - General Expenses Drivers', DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss,'Driver') , 'Type') @= 'Rate',
+                                                           ['Amount']  \ ['Rate']
+                                                                       , CONTINUE), CONTINUE);
+
+#### Calculate Final amount
+['Live plan', 'Amount'] = N: If(DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss, 'Driver') @= 'Override',
+                                                  STET,
+                                                  CONTINUE);
+['Live plan', 'Amount'] = N: If(DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss, 'Driver') @= 'Run Rate',
+                                                  DB('General Expenses', DB('System - Parameters - Model', 'Closed Month', 'String' ), !Version, !'Scenario Layer', !'Company',  '0', !Accounts - Profit and Loss, !'Measures - General Expenses' ),
+                                                  CONTINUE);
+['Live plan', 'Amount'] = N: If(DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss, 'Driver') @= 'Prior Year',
+                                                  DB('General Expenses', ATTRS('PeriodYear', !PeriodYear, 'Previous Year'), !Version, !'Scenario Layer', !'Company',  '0', !Accounts - Profit and Loss, !'Measures - General Expenses'  ),
+                                                  CONTINUE);  
+                                                  
+['Live plan', 'Amount'] = N: If(DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss, 'Driver') @= 'Last Plan',
+                                                  DB('General Expenses', !PeriodYear, DB('System - Parameters - Model', 'Last Approved Version', 'String' ), !'Scenario Layer', !'Company',  '0', !Accounts - Profit and Loss, !'Measures - General Expenses' ),
+                                                  CONTINUE); 
+                                                  
+['Live plan', 'Amount'] = N: If(DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Year'), !Version, !'Scenario Layer', !'Company',  !List, !Accounts - Profit and Loss, 'Driver') @= 'Run Rate Phased',
+                                                 ( DB('General Expenses', DB('System - Parameters - Model', 'Closed Month', 'String' )|' YTD', !Version, !'Scenario Layer', !'Company',  '0', !Accounts - Profit and Loss, !'Measures - General Expenses' ) \
+                                                  DB('General Expenses', ATTRS('PeriodYear', DB('System - Parameters - Model', 'Closed Month', 'String' ), 'Previous Year')|' YTD', !Version, !'Scenario Layer', !'Company',  '0', !Accounts - Profit and Loss, !'Measures - General Expenses'  ) ) *
+                                                  DB('General Expenses', ATTRS('PeriodYear', !PeriodYear, 'Previous Year'), !Version, !'Scenario Layer', !'Company',  '0', !Accounts - Profit and Loss, !'Measures - General Expenses'  ) ,
+                                                  CONTINUE);  
+                        
+['Live plan', 'Amount'] = N: ['Quantity'] * ['Rate'];
+
+
+FEEDERS;
+
+['Actual'] => ['Live Plan'];
+['Amount'] => DB('General Expenses', ATTRS('Periodyear', !PeriodYear, 'Next'), !Version, !Scenario Layer, !Company, !List, !Accounts - Profit and Loss, !Measures - General Expenses );
+['Driver'] => ['Amount'];
+['Quantity'] => ['Rate'], ['Amount'];
+['Rate'] => ['Quantity'];
+
+
+['Live Plan', 'Measures - General Expenses':'Measures - General Expenses':'Amount'] => DB('Reporting', !PeriodYear, !Version, !Scenario Layer, !Company, !Accounts - Profit and Loss, 'LC', 'Movement' );

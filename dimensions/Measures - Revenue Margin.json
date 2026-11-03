@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Measures - Revenue Margin",
+	"Hierarchies@Code.links":
+	[
+		"Measures - Revenue Margin.hierarchies/Measures - Revenue Margin.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Measures - Revenue Margin')/Hierarchies('Measures - Revenue Margin')"
+	}
+}

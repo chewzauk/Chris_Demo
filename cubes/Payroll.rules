@@ -1,0 +1,27 @@
+SKIPCHECK;
+
+['Version':'Version':'Live Plan', 'Measures - Payroll':'Measures - Payroll':'Headcount'] = C: If(ElementLevel( 'PeriodYear', 'PeriodYear', !PeriodYear ) > 0 & 
+                                   ElementIsAncestor( 'PeriodYear', 'PeriodYear', 'TOTAL YEARS', !PeriodYear ) > 0, DB('Payroll', '12 '|!PeriodYear, !Version, !Scenario Layer, !Company, !Employee, !Role, !Measures - Payroll ), CONTINUE);
+
+#['Version':'Version':'Live Plan', 'Measures - Payroll':'Measures - Payroll':'Headcount'] = N: IF(ATTRS('Employee', !Employee, 'Leave Date') @= '', STET, CONTINUE);
+['Version':'Version':'Live Plan', 'Measures - Payroll':'Measures - Payroll':'Headcount'] = N: IF(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @= ATTRS('Employee', !Employee, 'Leave Date'), 0, CONTINUE);
+
+['Measures - Payroll':'Measures - Payroll':'Salary'] = N: If(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @< ATTRS('Periodyear', DB('Payroll - Parameters', ATTRS('PeriodYear', !PeriodYear, 'Year'), !Version, !Company, 'Increase Date' ), 'yyyymm') , 
+                                                                              ['Measures - Payroll':'Measures - Payroll':'Headcount'] * 
+                                                                              DB('Payroll - Annual', ATTRS('PeriodYear', !PeriodYear, 'Year'), !Version, !Employee, !Role, 'Salary') 
+                                                                              \ 12, CONTINUE);
+['Measures - Payroll':'Measures - Payroll':'Salary'] = N: If(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @>= ATTRS('Periodyear', DB('Payroll - Parameters', ATTRS('PeriodYear', !PeriodYear, 'Year'), !Version, !Company, 'Increase Date' ), 'yyyymm') , 
+                                                                              ['Measures - Payroll':'Measures - Payroll':'Headcount'] * 
+                                                                              (DB('Payroll - Annual', ATTRS('PeriodYear', !PeriodYear, 'Year'), !Version, !Employee, !Role, 'Salary') * (1 + DB('Payroll - Parameters', ATTRS('PeriodYear', !PeriodYear, 'Year'), !Version, !Company, 'Increase %' )))
+                                                                              \ 12, CONTINUE);
+
+['Measures - Payroll':'Measures - Payroll':'Bonus'] = N: If(ATTRS('PeriodYear', !PeriodYear, 'yyyymm') @= ATTRS('Periodyear', DB('Payroll - Parameters', ATTRS('PeriodYear', !PeriodYear, 'Year'), !Version, !Company, 'Bonus Payment Date' ), 'yyyymm') , ['Measures - Payroll':'Measures - Payroll':'Salary'] * DB('Payroll - Parameters', ATTRS('PeriodYear', !PeriodYear, 'Year'), !Version, !Company, 'Bonus %' ), CONTINUE);
+
+['Measures - Payroll':'Measures - Payroll':'NI'] = N: ['Measures - Payroll':'Measures - Payroll':'Salary'] * DB('Payroll - Parameters', ATTRS('PeriodYear', !PeriodYear, 'Year'), !Version, !Company, 'NI Employer %' );
+
+['Measures - Payroll':'Measures - Payroll':'Pension'] = N: ['Measures - Payroll':'Measures - Payroll':'Salary'] * DB('Payroll - Parameters', ATTRS('PeriodYear', !PeriodYear, 'Year'), !Version, !Company, 'Pension %' );
+
+FEEDERS;
+
+
+['Measures - Payroll':'Measures - Payroll':'Headcount'] => ['Measures - Payroll':'Measures - Payroll':'Salary'], ['Measures - Payroll':'Measures - Payroll':'Bonus'], ['Measures - Payroll':'Measures - Payroll':'NI'], ['Measures - Payroll':'Measures - Payroll':'Pension'];

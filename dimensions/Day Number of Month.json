@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Day Number of Month",
+	"Hierarchies@Code.links":
+	[
+		"Day Number of Month.hierarchies/Day Number of Month.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Day Number of Month')/Hierarchies('Day Number of Month')"
+	}
+}

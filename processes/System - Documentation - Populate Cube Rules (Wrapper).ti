@@ -1,0 +1,71 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+############# VARIABLES FOR PROCESS INFORMATION
+sStartTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sStartValue = Now();
+nRecords = 0;
+##############################################
+
+####### SET PROCESESS DESCRIPTION #####
+sDescription = 'Goes through each cube and executes the process to import the rules for that cube';
+sCube = 'System - Documentation - Model';
+If(CubeExists( sCube ) > 0, CellPutS( sDescription, sCube, 'Process: '|GetProcessname(), 'Description' ),0);
+#########################################
+
+sDim = '}Cubes';
+sSub = 'Sys Leaf';
+If(SubsetExists( sDim, sSub )=0);
+    sMDX  = '{TM1SORT( {TM1FILTERBYLEVEL( {TM1SUBSETALL( ['|sDim|'] )}, 0)}, ASC)}';
+    If(SubsetExists( sSub, sMDX ) = 0, SubsetCreatebyMDX( sSub, sMDX), 0);
+    SubsetMDXSet(sDim, sSub, sMDX);
+Endif;
+DatasourceNameForServer = sDim;
+DataSourceType = 'Subset';
+DatasourceDimensionSubset= sSub;
+
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+ExecuteProcess('System - Documentation - Populate Cube Rules', 'pCube', vCube);
+nRecords=nRecords+1;
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+###### PUBLISH PROCESS INFORMATION ######
+sEndTime = TIMST( Now() , '\Y-\m-\d \h:\i:\s');
+sEndValue = Now();
+sProcess = GetProcessName();
+If(SUBST( TM1User(), 1, 2 ) @= 'R*' % DIMIX( '}Clients', TM1User() ) = 0);
+    sUser = TM1User();
+else;
+    sUser = ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' );
+endif;
+sErrorFile = GetProcessErrorFilename();
+sCompletionTime = TIMST(sStartValue - sEndValue, '\i mins \s seconds');
+##### Insert Time Record #############################
+sDim = 'Time Processes';
+DimensionElementInsertDirect(sDim, '', sEndTime, 'N' );
+##########################################################
+sCube = 'System - Process Information';
+CellPutN( nRecords, sCube, sEndTime, sProcess, 'Records Processed' );
+CellPutS( sStartTime, sCube, sEndTime, sProcess, 'Start Time' );
+CellPutS( sEndTime, sCube, sEndTime, sProcess, 'End Time' );
+CellPutS( sUser, sCube, sEndTime, sProcess, 'Executed By' );
+CellPutS( 'None', sCube, sEndTime, sProcess, 'Parameters Used' );
+CellPutS( 'Success', sCube, sEndTime, sProcess, 'Execution Status' );
+CellPutS( 'Process', sCube, sEndTime, sProcess, 'Updated From' );
+CellPutS( sCompletionTime, sCube, sEndTime, sProcess, 'Completion Time' );
+CellPutS( sErrorFile, sCube, sEndTime, sProcess, 'Server Log Error' );
+########################################
+#endregion

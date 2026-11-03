@@ -1,0 +1,44 @@
+{
+	"@type":"Cube",
+	"Name":"Payroll",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Employee')"
+		},
+		{
+			"@id":"Dimensions('Role')"
+		},
+		{
+			"@id":"Dimensions('Measures - Payroll')"
+		}
+	],
+	"Rules@Code.link":"Payroll.rules",
+	"Views@Code.links":
+	[
+		"Payroll.views/VZOLivePlan.json",
+		"Payroll.views/}TI_Process143.json",
+		"Payroll.views/}TI_Process202.json",
+		"Payroll.views/}TI_Process243.json",
+		"Payroll.views/}TI_Process265.json",
+		"Payroll.views/}TI_Process30.json",
+		"Payroll.views/}TI_Process304.json",
+		"Payroll.views/}TI_Process500.json",
+		"Payroll.views/}TI_Process574.json",
+		"Payroll.views/}TI_Process632.json",
+		"Payroll.views/}TI_Process776.json",
+		"Payroll.views/}TI_Process934.json"
+	]
+}

@@ -1,0 +1,34 @@
+{
+	"@type":"Cube",
+	"Name":"Reporting",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('PeriodYear')"
+		},
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Scenario Layer')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Accounts')"
+		},
+		{
+			"@id":"Dimensions('Currency - Reporting')"
+		},
+		{
+			"@id":"Dimensions('Measures - Reporting')"
+		}
+	],
+	"Rules@Code.link":"Reporting.rules",
+	"Views@Code.links":
+	[
+		"Reporting.views/VZOActuals.json",
+		"Reporting.views/Default.json"
+	]
+}

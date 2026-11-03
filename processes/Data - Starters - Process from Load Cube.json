@@ -1,0 +1,47 @@
+{
+	"@type":"Process",
+	"Name":"Data - Starters - Process from Load Cube",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Data - Starters - Process from Load Cube.ti",
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForServer":"Future Starters",
+		"dataSourceNameForClient":"Future Starters",
+		"view":"SysLoad"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersion",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vMeasure",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vList",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vValue",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "176735826500014"
+}

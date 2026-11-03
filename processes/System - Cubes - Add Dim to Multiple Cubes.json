@@ -1,0 +1,91 @@
+{
+	"@type":"Process",
+	"Name":"System - Cubes - Add Dim to Multiple Cubes",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"System - Cubes - Add Dim to Multiple Cubes.ti",
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForServer":"System - List Table",
+		"dataSourceNameForClient":"System - List Table",
+		"view":"}TI_Process978"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pConfirm",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pEmail",
+			"Prompt":"",
+			"Value":"N",
+			"Type":"String"
+		},
+		{
+			"Name":"pDim",
+			"Prompt":"Dimension to be added",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pDimIndex",
+			"Prompt":"Dimension number in cube",
+			"Value":6,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pIncludeData",
+			"Prompt":"1 to keep, 0 to leave",
+			"Value":0,
+			"Type":"Numeric"
+		},
+		{
+			"Name":"pElement",
+			"Prompt":"Element for data to go to",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vCLient",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vPicklistOption",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vList",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vListValue",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vCube",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		}
+	],
+	"UID": "175086913000027"
+}
