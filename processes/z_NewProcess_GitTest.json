@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"z_NewProcess_GitTest",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"z_NewProcess_GitTest.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[],
+	"VariablesUIData": []
+}
