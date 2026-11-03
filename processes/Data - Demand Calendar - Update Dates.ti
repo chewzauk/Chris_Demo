@@ -12,8 +12,12 @@ sTargetCube = ' Demand Calendar';
 # All the output from this process is written to a single hardcoded "}Clients" member, either Admin or a client already specifically created for this Calendar feature. 
 sTargetClient = 'System Use Only (not a person)'; 
 
-# Date is a string measure.
-sTargetMeasure = 'Date';
+# Date is a string measure. #Chris 03/11/2026 - change to current line
+sTargetMeasure = 'Date'; 
+
+###Chris H 03/11/2026 - New lines #
+#New
+#New some more
 
 sTargetProduct = 'Total Products';
 sTargetCustomer = 'Total Customers';
